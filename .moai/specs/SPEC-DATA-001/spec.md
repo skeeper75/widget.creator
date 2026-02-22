@@ -9,7 +9,7 @@
 | SPEC ID | SPEC-DATA-001 |
 | 제목 | 인쇄 지식 데이터베이스 및 상품 옵션 엔진 |
 | 생성일 | 2026-02-22 |
-| 상태 | Planned |
+| 상태 | Completed |
 | 우선순위 | High |
 | 담당 | expert-backend |
 | 관련 문서 | `.moai/knowledge/wowpress-print-domain.md` |
@@ -320,4 +320,66 @@ interface ConstraintViolation {
 ---
 
 문서 버전: 1.0.0
+
+---
+
+## 구현 완료 (Implementation Notes)
+
+### 구현 상태
+
+완료 (2026-02-22)
+
+### 구현된 파일 목록
+
+#### 공유 패키지 (`packages/shared`)
+
+| 파일 | 설명 |
+|------|------|
+| `src/types/print-product.ts` | DB 모델 타입 10종 |
+| `src/types/option-types.ts` | 옵션 엔진 입출력 타입 |
+| `src/types/pricing-types.ts` | 가격/배송 타입 |
+| `src/types/constraint-types.ts` | req_* / rst_* 제약 조건 타입 15종 |
+| `src/schemas/wowpress-raw.schema.ts` | WowPress JSON Zod 스키마 9종 |
+| `src/parsers/catalog-parser.ts` | WowPress 카탈로그 파서 |
+
+#### 가격 엔진 패키지 (`packages/pricing-engine`)
+
+| 파일 | 설명 |
+|------|------|
+| `src/option-engine.ts` | 옵션 우선순위 체인 엔진 |
+| `src/cover-handler.ts` | pjoin=0/1 표지 처리기 |
+| `src/quantity-resolver.ts` | common/combination 수량 해석기 |
+| `src/non-standard-handler.ts` | 비정형 규격 검증기 |
+| `src/calculator.ts` | 비선형 가격 계산기 |
+| `src/delivery-calculator.ts` | 배송비 계산기 |
+| `src/constraints/requirement-parser.ts` | req_* 7종 파서 |
+| `src/constraints/restriction-parser.ts` | rst_* 8종 파서 |
+| `src/constraints/size-constraint.ts` | 규격 필터링 및 평가 |
+| `src/constraints/paper-constraint.ts` | 용지 필터링 및 평가 |
+| `src/constraints/color-constraint.ts` | 색상 필터링 및 평가 |
+| `src/constraints/print-method-constraint.ts` | 인쇄방식 필터링 및 평가 |
+| `src/constraints/post-process-constraint.ts` | 후가공 필터링/평가 + 상호 배제 |
+
+#### 데이터베이스
+
+| 파일 | 설명 |
+|------|------|
+| `prisma/schema.prisma` | PostgreSQL 스키마 (모델 10개) |
+| `prisma/seed.ts` | 카탈로그 벌크 시드 |
+
+### 테스트 결과
+
+- 총 **309개** 테스트 통과
+- TypeScript 컴파일 에러 **0건**
+- 테스트 프레임워크: Vitest 3.x
+
+### 주요 발산 사항 (SPEC 대비)
+
+1. **PostProcessEvaluator 클래스 도입**: SPEC에 명시되지 않았으나, 후가공 제약 조건의 복잡도(4종 req + 6종 rst + 상호 배제 규칙)로 인해 `post-process-constraint.ts`에 별도 `PostProcessEvaluator` 클래스를 도입하였다.
+
+2. **DeliveryCalculator 별도 파일 분리**: 배송비 계산 로직을 `calculator.ts`와 분리하여 `delivery-calculator.ts`로 독립 모듈화하였다. 독립적 테스트 가능성 및 유지보수성 향상이 목적이다.
+
+3. **Zod 스키마 passthrough() 적용**: WowPress 카탈로그 JSON의 실제 데이터에 문서화되지 않은 필드가 다수 포함되어 있어, Zod 스키마에 `.passthrough()`를 적용하여 유연하게 처리하였다. 이로 인해 스키마 검증의 엄격성이 다소 완화되었다.
+
+4. **파싱 제외 상품 3개**: 오류 응답(HTTP 에러 또는 비정상 JSON 구조)을 반환하는 상품 ID 40078, 40089, 40297은 카탈로그 파서에서 자동으로 제외된다. 전체 326개 상품 중 이 3개를 제외한 323개가 실제 파싱 대상이다.
 작성일: 2026-02-22
