@@ -9,7 +9,7 @@
 | SPEC ID | SPEC-DATA-001 |
 | 제목 | 인쇄 지식 데이터베이스 및 상품 옵션 엔진 |
 | 생성일 | 2026-02-22 |
-| 상태 | Completed |
+| 상태 | archived |
 | 우선순위 | High |
 | 담당 | expert-backend |
 | 관련 문서 | `.moai/knowledge/wowpress-print-domain.md` |

@@ -1,8 +1,8 @@
 ---
 id: SPEC-INFRA-001
 title: Drizzle ORM Migration
-version: 1.3.0
-status: draft
+version: 1.4.0
+status: completed
 created: 2026-02-22
 updated: 2026-02-22
 author: MoAI
@@ -21,6 +21,7 @@ related_specs: []
 | 1.1.0 | 2026-02-22 | MoAI | expert-backend 리뷰 반영: @@map 매핑, 타입 보완, 리스크 추가, 인수 시나리오 보강 |
 | 1.2.0 | 2026-02-22 | MoAI | WowPress 도메인 제거, 마이그레이션 범위 Huni 26개 모델로 축소 |
 | 1.3.0 | 2026-02-22 | MoAI | ref/wowpress/ 삭제 금지로 정정 (REQ-W05 변경) |
+| 1.4.0 | 2026-02-22 | MoAI | 구현 완료 - status: completed, Implementation Notes 섹션 추가 |
 
 ---
 
@@ -299,3 +300,79 @@ packages/shared/src/db/
 | REQ-W04 | SPEC-DATA-001 archived | spec.md status 필드 확인 |
 | REQ-W05 | ref/wowpress/ 유지 (삭제 금지) | 디렉토리 존재 여부 확인 (존재해야 함) |
 | REQ-W06 | WowPress 런타임 참조 코드 부재 | 코드 검색으로 WowPress 모델 참조 검출 (ref/ 제외) |
+
+---
+
+## 7. Implementation Notes
+
+### 7.1 구현 요약
+
+- **구현 일자**: 2026-02-22
+- **커밋**: e44615e
+- **TRUST 5 검증**: PASS (317개 테스트 통과)
+- **구현 방식**: Big-Bang 전환 (Prisma -> Drizzle ORM 전면 교체)
+
+### 7.2 생성된 파일 목록
+
+#### 신규 생성 파일
+
+| 파일 경로 | 설명 |
+|-----------|------|
+| `drizzle.config.ts` | 루트 레벨 Drizzle Kit 설정 |
+| `drizzle/0000_silky_sentry.sql` | 26개 테이블 CREATE TABLE + 48개 인덱스 |
+| `drizzle/0001_drop_wowpress.sql` | WowPress 10개 테이블 DROP (수동 SQL) |
+| `packages/shared/src/db/index.ts` | postgres.js 기반 drizzle 인스턴스 |
+| `packages/shared/src/db/schema/huni-catalog.schema.ts` | HuniCategory, HuniProduct, HuniProductSize (3 models) |
+| `packages/shared/src/db/schema/huni-materials.schema.ts` | HuniPaper, HuniMaterial, HuniPaperProductMapping (3 models) |
+| `packages/shared/src/db/schema/huni-processes.schema.ts` | HuniPrintMode, HuniPostProcess, HuniBinding, HuniImpositionRule (4 models) |
+| `packages/shared/src/db/schema/huni-pricing.schema.ts` | HuniPriceTable, HuniPriceTier, HuniFixedPrice, HuniPackagePrice, HuniFoilPrice, HuniLossQuantityConfig (6 models) |
+| `packages/shared/src/db/schema/huni-options.schema.ts` | HuniOptionDefinition, HuniProductOption, HuniOptionChoice, HuniOptionConstraint, HuniOptionDependency (5 models) |
+| `packages/shared/src/db/schema/huni-integration.schema.ts` | HuniMesItem, HuniMesItemOption, HuniProductMesMapping, HuniProductEditorMapping, HuniOptionChoiceMesMapping (5 models) |
+| `packages/shared/src/db/schema/relations.ts` | 30+ Drizzle 관계 정의 (전체 도메인 통합) |
+| `packages/shared/src/db/schema/index.ts` | 모든 스키마 re-export |
+| `scripts/seed.ts` | Drizzle API 기반 시드 스크립트 |
+| `ref/prisma/` | 아카이브: 기존 Prisma 스키마 및 시드 파일 |
+
+#### 수정된 파일
+
+| 파일 경로 | 변경 내용 |
+|-----------|-----------|
+| `packages/shared/package.json` | drizzle-orm, postgres, drizzle-zod 의존성 추가 |
+| `packages/shared/src/index.ts` | db export 추가 |
+| `package.json` | @prisma/client, prisma 제거; drizzle-kit, tsx 추가 |
+| `.moai/config/sections/workflow.yaml` | 워크플로우 설정 갱신 |
+
+#### 삭제된 파일
+
+| 파일 경로 | 이유 |
+|-----------|------|
+| `prisma/seed.ts` | WowPress 시더 제거 (REQ-W02) |
+| `prisma/__tests__/schema.test.ts` | WowPress 테스트 제거 (REQ-W03) |
+| `prisma/__tests__/schema-normalized.test.ts` | WowPress 정규화 테스트 제거 |
+| `prisma/__tests__/seed.test.ts` | WowPress 시드 테스트 제거 |
+
+### 7.3 계획 대비 실제 구현 차이
+
+| 항목 | 계획 | 실제 구현 | 비고 |
+|------|------|-----------|------|
+| drizzle.config.ts 스키마 경로 | glob 패턴 사용 예상 | 명시적 파일 배열 사용 | moduleResolution: NodeNext 호환성 |
+| relations 정의 위치 | 각 도메인 파일에 내장 | 별도 relations.ts 파일로 분리 | 순환 참조 방지 및 가독성 향상 |
+| ref/prisma/ 아카이브 | SPEC에 명시되지 않음 | ref/prisma/ 디렉토리 생성 | 기존 Prisma 파일 안전 보관 |
+| drizzle/0001_drop_wowpress.sql | Drizzle 추적 마이그레이션 예상 | 수동 SQL 파일 | Drizzle 마이그레이션 추적 외부 관리 |
+
+### 7.4 TRUST 5 검증 결과
+
+| 항목 | 결과 | 상세 |
+|------|------|------|
+| Tested | PASS | 317개 테스트 전체 통과 |
+| Readable | PASS | TypeScript strict 모드, 명확한 도메인 분리 |
+| Unified | PASS | 일관된 Drizzle 스키마 패턴 |
+| Secured | PASS | @prisma/client 완전 제거, postgres.js 드라이버 사용 |
+| Trackable | PASS | 커밋 e44615e, Conventional Commits 준수 |
+
+### 7.5 배포 체크리스트
+
+- [ ] `drizzle/0000_silky_sentry.sql` 마이그레이션 적용
+- [ ] `drizzle/0001_drop_wowpress.sql` 수동 실행 (WowPress 테이블 DROP)
+- [ ] `scripts/seed.ts` 실행으로 초기 데이터 투입 확인
+- [ ] Turborepo 빌드 (`pnpm build`) 성공 확인

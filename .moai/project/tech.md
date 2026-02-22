@@ -14,7 +14,7 @@ graph TB
 
     subgraph "백엔드"
         API_ROUTES["Next.js API Routes<br/>또는 Hono"]
-        PRISMA["Prisma ORM"]
+        DRIZZLE["Drizzle ORM<br/>(postgres.js 드라이버)"]
         POSTGRES["PostgreSQL"]
         S3_STORAGE["S3 호환 스토리지"]
     end
@@ -42,8 +42,8 @@ graph TB
     NEXTJS --> TAILWIND
     NEXTJS --> SHADCN
     NEXTJS --> API_ROUTES
-    API_ROUTES --> PRISMA
-    PRISMA --> POSTGRES
+    API_ROUTES --> DRIZZLE
+    DRIZZLE --> POSTGRES
     API_ROUTES --> S3_STORAGE
     API_ROUTES --> NEXTAUTH
     TURBOREPO --> NEXTJS
@@ -105,16 +105,23 @@ graph TB
 - 옵션 UI가 단순한 경우: Vanilla TypeScript
 - 상태 관리가 복잡한 경우: Preact
 
-### Prisma ORM - 데이터베이스 접근
+### Drizzle ORM - 데이터베이스 접근 (SPEC-INFRA-001, 2026-02-22)
 
 **선정 근거**:
-- TypeScript 네이티브 타입 안전성 (스키마에서 자동 타입 생성)
-- 선언적 스키마 정의로 DB 마이그레이션 자동화
-- PostgreSQL 최적화 (JSON 필드, 배열, 전문 검색)
-- Prisma Studio로 개발 중 데이터 시각적 확인 가능
+- TypeScript 네이티브 타입 안전성 (`$inferSelect`, `$inferInsert` 자동 타입 추론)
+- Vercel serverless 환경 최적화 (postgres.js 드라이버, 연결 풀링 지원)
+- 경량화된 번들 사이즈 (Prisma 대비 현저히 작음)
+- SQL-like 쿼리 빌더로 복잡 쿼리 직관적 표현
+- `drizzle-zod`로 Zod 스키마 자동 생성 가능
 
-**버전**: Prisma 6.x
+**버전**: drizzle-orm latest
 **데이터베이스**: PostgreSQL 16
+**드라이버**: postgres (postgres.js) - Vercel serverless 최적화된 pure JS 드라이버
+**마이그레이션 도구**: drizzle-kit - 스키마 기반 마이그레이션 파일 생성 및 관리
+**검증 통합**: drizzle-zod - Drizzle 스키마로부터 Zod 스키마 자동 생성
+
+> **참고**: Prisma ORM (6.x)은 2026-02-22 Drizzle ORM으로 완전 교체되었다 (SPEC-INFRA-001).
+> 기존 Prisma 스키마 및 시드 파일은 `ref/prisma/`에 아카이브 보관되어 있다.
 
 ### PostgreSQL - 데이터베이스
 
@@ -300,8 +307,10 @@ docker compose up -d  # PostgreSQL + MinIO (S3 호환)
 4. 데이터베이스 마이그레이션
 
 ```bash
-pnpm prisma migrate dev
-pnpm prisma generate
+# Drizzle Kit으로 마이그레이션 적용
+pnpm drizzle-kit push
+# 또는 생성된 SQL 파일 직접 실행
+psql $DATABASE_URL -f drizzle/0000_silky_sentry.sql
 ```
 
 5. 개발 서버 실행
@@ -408,7 +417,7 @@ volumes:
 | **Husky** | Git 훅 관리 (pre-commit, pre-push) |
 | **lint-staged** | 스테이징 파일만 린트/포맷 |
 | **commitlint** | 커밋 메시지 규칙 강제 (Conventional Commits) |
-| **Prisma Studio** | 데이터베이스 시각적 관리 도구 |
+| **drizzle-kit studio** | 데이터베이스 시각적 관리 도구 (Drizzle Studio) |
 | **Storybook** | UI 컴포넌트 독립 개발/문서화 (선택) |
 
 ---
@@ -422,7 +431,9 @@ volumes:
 | next | 16.x | 풀스택 프레임워크 | admin, api |
 | react / react-dom | 19.x | UI 라이브러리 | admin |
 | preact | 10.x | 경량 UI (위젯 전용) | widget |
-| prisma / @prisma/client | 6.x | ORM 및 DB 클라이언트 | api |
+| drizzle-orm | latest | ORM 및 쿼리 빌더 | shared (packages/shared/src/db/) |
+| postgres (postgres.js) | latest | PostgreSQL 드라이버 (serverless 최적화) | shared |
+| drizzle-zod | latest | Zod 스키마 자동 생성 | shared |
 | tailwindcss | 4.x | 유틸리티 CSS | admin, ui |
 | @radix-ui/* | latest | 접근성 UI 프리미티브 (shadcn 기반) | admin, ui |
 | next-auth | 5.x | 인증 | admin, api |
@@ -438,6 +449,8 @@ volumes:
 |--------|------|------|
 | typescript | 5.7+ | TypeScript 컴파일러 |
 | turbo | latest | 모노레포 빌드 시스템 |
+| drizzle-kit | latest | Drizzle ORM 마이그레이션 CLI 도구 |
+| tsx | latest | TypeScript 스크립트 직접 실행 (seed.ts 등) |
 | vite | 6.x | 위젯 빌드 도구 |
 | eslint | 9.x | 코드 린팅 |
 | prettier | 3.x | 코드 포맷팅 |
@@ -471,7 +484,7 @@ volumes:
 - **인증/인가**: NextAuth.js 기반 세션 관리, API 키 기반 위젯 인증
 - **CORS**: 위젯 API는 등록된 shopUrl 도메인만 허용
 - **Rate Limiting**: API 엔드포인트별 요청 제한
-- **SQL Injection**: Prisma ORM 파라미터 바인딩으로 차단
+- **SQL Injection**: Drizzle ORM 파라미터 바인딩으로 차단
 - **XSS**: React의 기본 이스케이핑 + Shadow DOM 격리
 - **CSRF**: SameSite 쿠키 + CSRF 토큰
 - **파일 업로드**: 파일 타입/크기 검증, 악성 파일 스캐닝
@@ -502,5 +515,6 @@ volumes:
 
 ---
 
-문서 버전: 1.0.0
+문서 버전: 1.1.0
 작성일: 2026-02-22
+최종 수정: 2026-02-22 (SPEC-INFRA-001 Drizzle ORM 마이그레이션 반영)

@@ -7,6 +7,44 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-02-22
+
+### Added
+
+#### Drizzle ORM 스키마 (SPEC-INFRA-001)
+
+- `packages/shared/src/db/index.ts`: postgres.js 기반 Drizzle 인스턴스 및 DB 연결
+- `packages/shared/src/db/schema/huni-catalog.schema.ts`: Huni 카탈로그 도메인 스키마 (HuniCategory, HuniProduct, HuniProductSize - 3 models)
+- `packages/shared/src/db/schema/huni-materials.schema.ts`: Huni 소재 도메인 스키마 (HuniPaper, HuniMaterial, HuniPaperProductMapping - 3 models)
+- `packages/shared/src/db/schema/huni-processes.schema.ts`: Huni 공정 도메인 스키마 (HuniPrintMode, HuniPostProcess, HuniBinding, HuniImpositionRule - 4 models)
+- `packages/shared/src/db/schema/huni-pricing.schema.ts`: Huni 가격 도메인 스키마 (HuniPriceTable, HuniPriceTier, HuniFixedPrice, HuniPackagePrice, HuniFoilPrice, HuniLossQuantityConfig - 6 models)
+- `packages/shared/src/db/schema/huni-options.schema.ts`: Huni 옵션 도메인 스키마 (HuniOptionDefinition, HuniProductOption, HuniOptionChoice, HuniOptionConstraint, HuniOptionDependency - 5 models)
+- `packages/shared/src/db/schema/huni-integration.schema.ts`: Huni MES/에디터 연동 도메인 스키마 (HuniMesItem, HuniMesItemOption, HuniProductMesMapping, HuniProductEditorMapping, HuniOptionChoiceMesMapping - 5 models)
+- `packages/shared/src/db/schema/relations.ts`: 전체 도메인 30+ Drizzle 관계 정의 (cascade delete 포함)
+- `packages/shared/src/db/schema/index.ts`: 모든 스키마 re-export
+- `drizzle/0000_silky_sentry.sql`: Huni 도메인 26개 테이블 CREATE TABLE + 48개 인덱스 마이그레이션
+- `drizzle/0001_drop_wowpress.sql`: WowPress 10개 테이블 DROP 수동 SQL
+- `drizzle.config.ts`: Drizzle Kit 루트 설정
+- `scripts/seed.ts`: Drizzle API 기반 시드 스크립트
+- `ref/prisma/`: 기존 Prisma 스키마 및 시드 파일 아카이브
+
+### Changed
+
+- `packages/shared/package.json`: drizzle-orm, postgres, drizzle-zod 의존성 추가
+- `packages/shared/src/index.ts`: db export 추가 (Drizzle 인스턴스 및 스키마)
+- `package.json`: drizzle-kit, tsx 개발 의존성 추가
+
+### Removed
+
+- `@prisma/client` 런타임 의존성 제거 (Drizzle ORM으로 교체)
+- `prisma` 개발 의존성 제거
+- `prisma/seed.ts`: WowPress 시더 삭제 (REQ-W02)
+- `prisma/__tests__/schema.test.ts`: WowPress 스키마 테스트 삭제 (REQ-W03)
+- `prisma/__tests__/schema-normalized.test.ts`: WowPress 정규화 테스트 삭제
+- `prisma/__tests__/seed.test.ts`: WowPress 시드 테스트 삭제
+
+---
+
 ## [0.1.0] - 2026-02-22
 
 ### Added
@@ -88,5 +126,6 @@
 - `packages/pricing-engine/__tests__/`: 옵션 엔진, 제약 조건, 계산기 테스트
 - TypeScript 컴파일 에러 0건
 
-[Unreleased]: https://github.com/skeeper75/widget.creator/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/skeeper75/widget.creator/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/skeeper75/widget.creator/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/skeeper75/widget.creator/releases/tag/v0.1.0

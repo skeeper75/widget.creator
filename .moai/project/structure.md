@@ -20,7 +20,7 @@ graph TB
         end
 
         subgraph "인프라"
-            PRISMA["prisma/<br/>DB 스키마"]
+            DRIZZLE_DIR["drizzle/<br/>마이그레이션 파일"]
             TURBO["turbo.json<br/>빌드 파이프라인"]
         end
 
@@ -69,10 +69,16 @@ widget.creator/
 │   ├── shared/                 # 공용 타입, 상수, 유틸리티
 │   ├── pricing-engine/         # 가격 계산 엔진
 │   └── ui/                     # 공유 UI 컴포넌트 (shadcn/ui 기반)
-├── prisma/                     # 데이터베이스 스키마
-│   └── schema.prisma           # Prisma ORM 스키마 정의
+├── drizzle/                    # Drizzle ORM 마이그레이션 파일 (SPEC-INFRA-001)
+│   ├── meta/                   # 마이그레이션 메타데이터
+│   ├── 0000_silky_sentry.sql   # 초기 스키마 (26개 테이블 CREATE, 48개 인덱스)
+│   └── 0001_drop_wowpress.sql  # WowPress 10개 테이블 DROP (수동 SQL)
+├── drizzle.config.ts           # Drizzle Kit 루트 설정
+├── scripts/                    # 유틸리티 스크립트
+│   └── seed.ts                 # Drizzle API 기반 시드 스크립트
 ├── ref/                        # 참조 자료 (기존 문서, 코드)
 │   ├── TS.BackOffice.Huni/     # 기존 백오피스 참조 프로젝트
+│   ├── prisma/                 # 아카이브: 기존 Prisma 스키마 및 시드 (삭제 금지)
 │   ├── hooni-unified-validator.jsx  # 옵션 검증 참조 코드
 │   ├── 후니프린팅_주문프로세스_20251001.pdf  # 주문 프로세스 문서
 │   └── *.xlsx                  # 상품마스터, 가격표 엑셀
@@ -202,6 +208,17 @@ apps/widget/
 ```
 packages/shared/
 ├── src/
+│   ├── db/                     # 데이터베이스 스키마 및 연결 (SPEC-INFRA-001)
+│   │   ├── index.ts            # postgres.js 기반 drizzle 인스턴스 및 export
+│   │   └── schema/             # 도메인별 Drizzle 스키마 정의 (6 파일)
+│   │       ├── index.ts        # 모든 스키마 re-export
+│   │       ├── relations.ts    # 30+ Drizzle 관계 정의 (전체 도메인 통합)
+│   │       ├── huni-catalog.schema.ts     # HuniCategory, HuniProduct, HuniProductSize
+│   │       ├── huni-materials.schema.ts   # HuniPaper, HuniMaterial, HuniPaperProductMapping
+│   │       ├── huni-processes.schema.ts   # HuniPrintMode, HuniPostProcess, HuniBinding, HuniImpositionRule
+│   │       ├── huni-pricing.schema.ts     # HuniPriceTable, HuniPriceTier, HuniFixedPrice, HuniPackagePrice, HuniFoilPrice, HuniLossQuantityConfig
+│   │       ├── huni-options.schema.ts     # HuniOptionDefinition, HuniProductOption, HuniOptionChoice, HuniOptionConstraint, HuniOptionDependency
+│   │       └── huni-integration.schema.ts # HuniMesItem, HuniMesItemOption, HuniProductMesMapping, HuniProductEditorMapping, HuniOptionChoiceMesMapping
 │   ├── types/                  # 공유 타입 정의
 │   │   ├── widget.ts           # Widget, WidgetConfig 타입
 │   │   ├── option.ts           # WidgetOption, OptionLayer, OptionValue 타입
@@ -281,7 +298,7 @@ packages/ui/
 
 ## 데이터베이스 스키마 개요
 
-PostgreSQL + Prisma ORM 기반의 데이터 모델이다.
+PostgreSQL + Drizzle ORM 기반의 데이터 모델이다. Huni 도메인 26개 모델은 `packages/shared/src/db/schema/`에 정의된다 (SPEC-INFRA-001, 2026-02-22).
 
 ```mermaid
 erDiagram
@@ -408,7 +425,11 @@ OrderStatus: UNPAID, PAID, PRODUCTION_WAITING, PRODUCING,
 | SPEC 문서 | `.moai/specs/SPEC-XXX/` |
 | 프로젝트 설정 | `.moai/config/sections/*.yaml` |
 | 빌드 설정 | `turbo.json` |
-| DB 스키마 | `prisma/schema.prisma` |
+| DB 스키마 (Drizzle) | `packages/shared/src/db/schema/` |
+| DB 마이그레이션 | `drizzle/` |
+| Drizzle 설정 | `drizzle.config.ts` |
+| 시드 스크립트 | `scripts/seed.ts` |
+| Prisma 아카이브 | `ref/prisma/` |
 | 환경변수 | `.env.example` |
 | API 라우트 | `apps/api/src/routes/` |
 | 가격 엔진 | `packages/pricing-engine/src/` |
@@ -420,5 +441,6 @@ OrderStatus: UNPAID, PAID, PRODUCTION_WAITING, PRODUCING,
 
 ---
 
-문서 버전: 1.0.0
+문서 버전: 1.1.0
 작성일: 2026-02-22
+최종 수정: 2026-02-22 (SPEC-INFRA-001 Drizzle ORM 마이그레이션 반영)
