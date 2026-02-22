@@ -15,6 +15,8 @@ import {
   mesItems, mesItemOptions, productMesMappings,
   productEditorMappings, optionChoiceMesMappings,
 } from './huni-integration.schema.js';
+import { orders, orderStatusHistory, orderDesignFiles } from './huni-orders.schema.js';
+import { widgets } from './huni-widgets.schema.js';
 
 // ============================================================
 // Domain 1: Catalog Relations
@@ -298,4 +300,39 @@ export const optionChoiceMesMappingsRelations = relations(optionChoiceMesMapping
     fields: [optionChoiceMesMappings.mesItemId],
     references: [mesItems.id],
   }),
+}));
+
+// ============================================================
+// Domain 7: Orders Relations
+// ============================================================
+
+export const ordersRelations = relations(orders, ({ one, many }) => ({
+  product: one(products, {
+    fields: [orders.productId],
+    references: [products.id],
+  }),
+  statusHistory: many(orderStatusHistory),
+  designFiles: many(orderDesignFiles),
+}));
+
+export const orderStatusHistoryRelations = relations(orderStatusHistory, ({ one }) => ({
+  order: one(orders, {
+    fields: [orderStatusHistory.orderId],
+    references: [orders.id],
+  }),
+}));
+
+export const orderDesignFilesRelations = relations(orderDesignFiles, ({ one }) => ({
+  order: one(orders, {
+    fields: [orderDesignFiles.orderId],
+    references: [orders.id],
+  }),
+}));
+
+// ============================================================
+// Domain 8: Widgets Relations
+// ============================================================
+
+export const widgetsRelations = relations(widgets, () => ({
+  // Widgets are standalone entities; orders reference widget_id by varchar, not FK
 }));

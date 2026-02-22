@@ -4,4 +4,6 @@ export * from './huni-processes.schema.js';
 export * from './huni-pricing.schema.js';
 export * from './huni-options.schema.js';
 export * from './huni-integration.schema.js';
+export * from './huni-orders.schema.js';
+export * from './huni-widgets.schema.js';
 export * from './relations.js';
