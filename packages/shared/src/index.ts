@@ -12,3 +12,6 @@ export * from "./schemas/index.js";
 
 // Re-export all parsers
 export * from "./parsers/index.js";
+
+// Re-export database schema and connection
+export * from "./db/index.js";

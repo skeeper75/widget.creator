@@ -7,30 +7,30 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "lint": "turbo run lint",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev"
-  },
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
+    "db:seed": "tsx scripts/seed.ts",
+    "db:studio": "drizzle-kit studio",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push"
   },
   "dependencies": {
-    "zod": "~3.24.0",
-    "@prisma/client": "~6.0.0"
+    "@widget-creator/shared": "workspace:*",
+    "drizzle-orm": "^0.45.1",
+    "postgres": "^3.4.8",
+    "zod": "~3.24.0"
   },
   "devDependencies": {
-    "typescript": "~5.7.0",
-    "vitest": "~3.0.0",
     "@types/node": "^22.0.0",
+    "drizzle-kit": "^0.31.9",
+    "playwright": "^1.58.2",
+    "tsx": "^4.0.0",
     "turbo": "^2.0.0",
-    "prisma": "~6.0.0",
-    "playwright": "^1.58.2"
+    "typescript": "~5.7.0",
+    "vitest": "~3.0.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@prisma/client",
-      "@prisma/engines",
-      "esbuild",
-      "prisma"
+      "esbuild"
     ]
   }
 }
