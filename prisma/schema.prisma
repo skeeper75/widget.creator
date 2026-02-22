@@ -1,0 +1,271 @@
+// Prisma schema for Widget Creator - Print Knowledge Database
+// Implements SPEC-DATA-001 section 4.1
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ============================================================
+// ProductCategory: Hierarchical product categories (max 3 levels)
+// TAG-DB-SCHEMA: R-DB-001
+// ============================================================
+model ProductCategory {
+  id           String  @id @default(cuid())
+  slug         String  @unique
+  displayName  String
+  parentId     String?
+  level        Int
+  productCount Int     @default(0)
+  keywords     String[]
+  sortOrder    Int     @default(0)
+
+  parent   ProductCategory?  @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children ProductCategory[] @relation("CategoryHierarchy")
+
+  products PrintProduct[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([parentId])
+  @@index([level])
+}
+
+// ============================================================
+// PrintProduct: Master product record
+// TAG-DB-SCHEMA: R-DB-002
+// ============================================================
+model PrintProduct {
+  id                String  @id @default(cuid())
+  externalId        Int     @unique
+  name              String
+  categoryId        String
+  selType           String
+  pjoin             Int     @default(0)
+  unit              String
+  fileTypes         String[]
+  coverInfo         Json
+  deliveryGroupNo   Int?
+  deliveryGroupName String?
+  deliveryPrepay    Boolean @default(false)
+  cutoffTime        String?
+  syncedAt          DateTime
+  rawData           Json
+
+  category ProductCategory @relation(fields: [categoryId], references: [id])
+
+  sizes         ProductSize[]
+  papers        ProductPaper[]
+  colors        ProductColor[]
+  printMethods  ProductPrintMethod[]
+  postProcesses ProductPostProcess[]
+  orderQtys     ProductOrderQty[]
+  pricingTables PricingTable[]
+  deliveryInfo  DeliveryInfo?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([categoryId])
+  @@index([externalId])
+}
+
+// ============================================================
+// ProductSize: Size specification per cover type
+// TAG-DB-SCHEMA: R-DB-002, R-DB-003
+// ============================================================
+model ProductSize {
+  id              String  @id @default(cuid())
+  productId       String
+  externalSizeNo  Int
+  coverCd         Int
+  sizeName        String
+  width           Int
+  height          Int
+  cutSize         Int
+  isNonStandard   Boolean @default(false)
+  reqWidth        Json?
+  reqHeight       Json?
+  reqAwkjob       Json?
+  rstOrdqty       Json?
+  rstAwkjob       Json?
+
+  product PrintProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId, coverCd])
+  @@index([externalSizeNo])
+}
+
+// ============================================================
+// ProductPaper: Paper specification per cover type
+// TAG-DB-SCHEMA: R-DB-002, R-DB-003
+// ============================================================
+model ProductPaper {
+  id              String  @id @default(cuid())
+  productId       String
+  externalPaperNo Int
+  coverCd         Int
+  paperName       String
+  paperGroup      String
+  pGram           Int?
+  reqWidth        Json?
+  reqHeight       Json?
+  reqAwkjob       Json?
+  rstOrdqty       Json?
+  rstPrsjob       Json?
+  rstAwkjob       Json?
+
+  product PrintProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId, coverCd])
+  @@index([externalPaperNo])
+}
+
+// ============================================================
+// ProductColor: Color specification per cover/page type
+// TAG-DB-SCHEMA: R-DB-002, R-DB-003
+// ============================================================
+model ProductColor {
+  id               String  @id @default(cuid())
+  productId        String
+  externalColorNo  Int
+  coverCd          Int
+  pageCd           Int
+  colorName        String
+  pdfPage          Int
+  isAdditional     Boolean @default(false)
+  reqPrsjob        Json?
+  reqAwkjob        Json?
+  rstPrsjob        Json?
+  rstAwkjob        Json?
+
+  product PrintProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId, coverCd, pageCd])
+  @@index([externalColorNo])
+}
+
+// ============================================================
+// ProductPrintMethod: Print job preset configuration
+// TAG-DB-SCHEMA: R-DB-002, R-DB-003
+// ============================================================
+model ProductPrintMethod {
+  id                   String @id @default(cuid())
+  productId            String
+  externalJobPresetNo  Int
+  jobPreset            String
+  prsjobList           Json
+  reqColor             Json?
+  rstPaper             Json?
+  rstAwkjob            Json?
+
+  product PrintProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId])
+  @@index([externalJobPresetNo])
+}
+
+// ============================================================
+// ProductPostProcess: Post-processing (awkjob) configuration
+// TAG-DB-SCHEMA: R-DB-002, R-DB-003
+// ============================================================
+model ProductPostProcess {
+  id           String @id @default(cuid())
+  productId    String
+  coverCd      Int
+  inputType    String
+  jobGroupList Json
+
+  product PrintProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId, coverCd])
+}
+
+// ============================================================
+// ProductOrderQty: Order quantity configuration
+// TAG-DB-SCHEMA: R-DB-002
+// ============================================================
+model ProductOrderQty {
+  id          String   @id @default(cuid())
+  productId   String
+  displayType String
+  jobPresetNo Int?
+  sizeNo      Int?
+  paperNo     Int?
+  optNo       Int?
+  colorNo     Int?
+  colorNoAdd  Int?
+  minQty      Decimal
+  maxQty      Decimal
+  interval    Decimal?
+  qtyList     Decimal[]
+
+  product PrintProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId, jobPresetNo, sizeNo, paperNo, optNo, colorNo, colorNoAdd])
+}
+
+// ============================================================
+// PricingTable: Price lookup table
+// TAG-DB-SCHEMA: R-PRC-001, R-PRC-002
+// ============================================================
+model PricingTable {
+  id          String  @id @default(cuid())
+  productId   String
+  jobPresetNo Int?
+  sizeNo      Int?
+  paperNo     Int?
+  colorNo     Int?
+  colorNoAdd  Int?
+  optNo       Int?
+  quantity    Decimal
+  unitPrice   Decimal
+  totalPrice  Decimal
+
+  product PrintProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId, jobPresetNo, sizeNo, paperNo, colorNo, colorNoAdd, optNo, quantity])
+}
+
+// ============================================================
+// DeliveryInfo: Delivery configuration per product
+// TAG-DB-SCHEMA: R-DB-002
+// ============================================================
+model DeliveryInfo {
+  id           String @id @default(cuid())
+  productId    String @unique
+  freeShipping Json
+  methods      Json
+  regions      Json
+
+  product PrintProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
