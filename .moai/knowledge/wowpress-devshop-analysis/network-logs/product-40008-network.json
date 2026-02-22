@@ -1,0 +1,572 @@
+[
+  {
+    "url": "https://devshop.wowpress.co.kr/prodt/40008",
+    "method": "GET",
+    "postData": null,
+    "headers": {},
+    "timestamp": 1771757268649,
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-language": "ko-KR",
+        "content-type": "text/html;charset=UTF-8",
+        "date": "Sun, 22 Feb 2026 10:47:48 GMT",
+        "transfer-encoding": "chunked"
+      },
+      "body": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html>\r\n<html class=\"fa-events-icons-failed\" lang=\"ko\">\r\n<head>\r\n\t<meta\thttp-equiv=\"Content-Type\"\t\tcontent=\"text/html; charset=UTF-8\"\t/>\r\n\t<meta\thttp-equiv=\"X-UA-Compatible\"\tcontent=\"IE=edge, chrome=1\"\t/>\r\n\t<meta\thttp-equiv=\"p3p\"\t\t\t\tcontent='CP=\"CAO DSP AND SO \" policyref=\"/w3c/p3p.xml\"'\t/>\r\n\t<meta\thttp-equiv=\"cache-control\"\t\tcontent=\"no-cache\"\t/>\r\n\t<title>WOWPRESS E-Commerce</title>\r\n\t<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/res/favicon.ico\">\r\n\r\n\t\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!-- head.jsp -->\r\n<script src=\"https://code.jquery.com/jquery-3.6.0.min.js\" integrity=\"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\" crossorigin=\"anonymous\"></script>\r\n<script src=\"https://code.jquery.com/ui/1.13.1/jquery-ui.min.js\" integrity=\"sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=\" crossorigin=\"anonymous\"></script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js\" integrity=\"sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13\" crossorigin=\"anonymous\"></script>\r\n<script src=\"/asset/plugins/select2/dist/js/select2.min.js\"></script>\r\n<script src=\"/asset/plugins/select2/dist/js/i18n/ko.js\"></script>\r\n<script src=\"//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js\"></script>\r\n<script src=\"/plugins/jsonpath/dist/index-browser-umd.cjs\"></script>\r\n<script src=\"/plugins/json-grid-master/JSONGrid.js\"></script>\r\n<link href=\"/asset/plugins/json-grid-master/json-grid.css\" rel=\"stylesheet\" />\r\n<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css\">\r\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">\r\n<link href=\"/asset/plugins/select2/dist/css/select2.min.css\" rel=\"stylesheet\" />\r\n<link href=\"/plugins/bootstrap-icons/font/bootstrap-icons.css\" rel=\"stylesheet\">\r\n\r\n<!-- datetimepicker -->\r\n<link rel=\"stylesheet\"\ttype=\"text/css\"\t href=\"/plugins/datetimepicker-master/build/jquery.datetimepicker.min.css\">\r\n<script src=\"/plugins/datetimepicker-master/build/jquery.datetimepicker.full.min.js\"></script>\r\n\r\n<style>\r\n\t* {font-size: 0.95rem;}\r\n\t pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }\r\n\t.string { color: green; }\r\n\t.number { color: darkorange; }\r\n\t.boolean { color: blue; }\r\n\t.null { color: magenta; }\r\n\t.key { color: red; }\r\n\t\t@import url(https://fonts.googleapis.com/css?family=Nanum+Gothic); \r\n\tbody {\r\n\t\tfont-size: 13px;\r\n\t    font-family: 'Nanum Gothic', sans-serif; \r\n\t}\r\n</style>\t\r\n</head>\r\n<body id=\"body_main\" class=\"bg-dark text-white\">\r\n\t\t<!--\theader\t-->\r\n\t\t\t\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!-- user header.jsp -->\r\n\t<div class=\"container-fluid\">\r\n\t\t<div>\r\n\t\t\t&nbsp; &nbsp;\t\t\t\r\n\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t \t<span  class=\"bg-danger font-weight-bold text-white\">||운영서버접속중||</span>\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\r\n\r\n\t\t\r\n\t\t\t| <span id=\"uid\"></span>(<span id=\"uname\"></span>) \r\n\t\t\t<!-- / <span id=\"ukind\"></span> \r\n\t\t\t/ <span id=\"uamtblc\"></span> --> \r\n\t\t\t/ <a href=\"javascript:void(0);\" onclick=\"location.href='/userlogout'\">로그아웃</a>\t\t\t\r\n\t\t\t\r\n\t\t\t\t|| <a href=\"https://api.wowpress.co.kr/docs/apidocs.html?v=1\"> <i class=\"bi bi-gear-wide-connected\"></i>API Doc</a> \r\n\t\t\t\t/  <a href=\"/maint\"><i class=\"bi bi-house\"></i>홈으로</a>   \r\n\t\t\t\t/  <a href=\"/mypage/cart/list\"><i class=\"bi bi-cart\"></i>바구니</a>\r\n\t\t\t\t/  <a href=\"/mypage/ord/list\"><i class=\"bi bi-truck\"></i>주문목록</a>\r\n\t\t\t\t<!-- /   <a href=\"/mypage/ord/list\" style=\"display:none;\"><i class=\"bi bi-truck\"></i>주문목록</a> 2025/04/28 조재만. 숨김 / 지움 -->\r\n\t\t\t\r\n\t\t</div>\t\t\r\n\t</div>\r\n\r\n<script type=\"text/javascript\">\r\n$(function() {\r\n\tloadusrinfo();\r\n});\r\n\r\nfunction loadusrinfo(){\r\n\tvar form_data = {};\r\n\tvar options ={};\r\n\toptions.type = 'post';\r\n\toptions.form_data = form_data;\r\n\toptions.url = '/usrinfo';\r\n\toptions.callbackfunc = set_usrinfo; //result_ord_request; //callback\r\n\thttpclient(options);\r\n}\r\n\r\nfunction set_usrinfo(data){\r\n\r\n\t// 2025/07/09 조재만 추가 // 로그아웃 시 자동으로 로그인 화면으로.\r\n\tif (!data || !data.usrinfo) {\r\n\t\t//alert(\"세션이 만료되었습니다. 로그인 페이지로 이동합니다.\");\r\n\t\twindow.location.href = \"/loginform\";\r\n\t}\r\n\r\n\tconsole.log('set_usrinfo...!!!!');\r\n\tconsole.log(data);\r\n\tvar usrinfo = data.usrinfo;\r\n\t$('#uname').html(usrinfo.mpagInfoMap.Name);\r\n\t$('#uid').html(usrinfo.mpagInfoMap.Uid);\r\n\t$('#ukind').html(usrinfo.mpagInfoMap.CostKDName);\r\n\t$('#uamtblc').html(usrinfo.mpagMainMap.Balance);\r\n}\r\n</script>\r\n\r\n<script type=\"text/javascript\">\r\n\r\n/*************************************\r\n * Common Functions\r\n ************************************/\r\nfunction httpclient(options){\r\n\tvar type = options.type; if(type==null)type=\"GET\";\r\n\tvar url = options.url;\t\r\n\tvar idx = options.idx;\r\n\tvar form_data = options.form_data;\r\n\tvar callbackfunc = options.callbackfunc;\r\n\tconsole.log('###=====> header.jsp httpclient ###');\r\n\tconsole.log(form_data);\r\n\tconsole.log('### header.jsp httpclient <=====###');\r\n\t$.ajax({\r\n\t\ttype : type,\t\t\t\r\n\t\turl : url,\r\n\t\tdata : !isEmpty(form_dat"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/plugins/jsonpath/dist/index-browser-umd.cjs",
+    "method": "GET",
+    "postData": null,
+    "headers": {},
+    "timestamp": 1771757268684,
+    "response": {
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "cache-control": "max-age=604800",
+        "content-length": "34891",
+        "date": "Sun, 22 Feb 2026 10:40:49 GMT",
+        "last-modified": "Wed, 09 Jul 2025 02:31:01 GMT",
+        "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+        "content-type": "application/octet-stream"
+      },
+      "body": "(function (global, factory) {\n  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :\n  typeof define === 'function' && define.amd ? define(['exports'], factory) :\n  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JSONPath = {}));\n})(this, (function (exports) { 'use strict';\n\n  function _typeof(obj) {\n    \"@babel/helpers - typeof\";\n\n    return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (obj) {\n      return typeof obj;\n    } : function (obj) {\n      return obj && \"function\" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj;\n    }, _typeof(obj);\n  }\n\n  function _classCallCheck(instance, Constructor) {\n    if (!(instance instanceof Constructor)) {\n      throw new TypeError(\"Cannot call a class as a function\");\n    }\n  }\n\n  function _defineProperties(target, props) {\n    for (var i = 0; i < props.length; i++) {\n      var descriptor = props[i];\n      descriptor.enumerable = descriptor.enumerable || false;\n      descriptor.configurable = true;\n      if (\"value\" in descriptor) descriptor.writable = true;\n      Object.defineProperty(target, descriptor.key, descriptor);\n    }\n  }\n\n  function _createClass(Constructor, protoProps, staticProps) {\n    if (protoProps) _defineProperties(Constructor.prototype, protoProps);\n    if (staticProps) _defineProperties(Constructor, staticProps);\n    Object.defineProperty(Constructor, \"prototype\", {\n      writable: false\n    });\n    return Constructor;\n  }\n\n  function _inherits(subClass, superClass) {\n    if (typeof superClass !== \"function\" && superClass !== null) {\n      throw new TypeError(\"Super expression must either be null or a function\");\n    }\n\n    subClass.prototype = Object.create(superClass && superClass.prototype, {\n      constructor: {\n        value: subClass,\n        writable: true,\n        configurable: true\n      }\n    });\n    Object.defineProperty(subClass, \"prototype\", {\n      writable: false\n    });\n    if (superClass) _setPrototypeOf(subClass, superClass);\n  }\n\n  function _getPrototypeOf(o) {\n    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {\n      return o.__proto__ || Object.getPrototypeOf(o);\n    };\n    return _getPrototypeOf(o);\n  }\n\n  function _setPrototypeOf(o, p) {\n    _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {\n      o.__proto__ = p;\n      return o;\n    };\n    return _setPrototypeOf(o, p);\n  }\n\n  function _isNativeReflectConstruct() {\n    if (typeof Reflect === \"undefined\" || !Reflect.construct) return false;\n    if (Reflect.construct.sham) return false;\n    if (typeof Proxy === \"function\") return true;\n\n    try {\n      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));\n      return true;\n    } catch (e) {\n      return false;\n    }\n  }\n\n  function _construct(Parent, args, Class) {\n    if (_isNativeReflectConstruct()) {\n      _construct = Reflect.construct.bind();\n    } else {\n      _construct = function _construct(Parent, args, Class) {\n        var a = [null];\n        a.push.apply(a, args);\n        var Constructor = Function.bind.apply(Parent, a);\n        var instance = new Constructor();\n        if (Class) _setPrototypeOf(instance, Class.prototype);\n        return instance;\n      };\n    }\n\n    return _construct.apply(null, arguments);\n  }\n\n  function _isNativeFunction(fn) {\n    return Function.toString.call(fn).indexOf(\"[native code]\") !== -1;\n  }\n\n  function _wrapNativeSuper(Class) {\n    var _cache = typeof Map === \"function\" ? new Map() : undefined;\n\n    _wrapNativeSuper = function _wrapNativeSuper(Class) {\n      if (Class === null || !_isNativeFunction(Class)) return Class;\n\n      if (typeof Class !== \"function\") {\n        throw new TypeError(\"Super expression must either be null or a function\");\n      }\n\n      if (typeof _cache !== \"undefined\") {\n        if (_cache.has(Class)) return _cache.get(Class);\n\n        _cache.set(Class, Wrapper);\n      }\n\n      function Wrapper() {\n        return _construct(Class, arguments, _getPrototypeOf(this).constructor);\n      }\n\n      Wrapper.prototype = Object.create(Class.prototype, {\n        constructor: {\n          value: Wrapper,\n          enumerable: false,\n          writable: true,\n          configurable: true\n        }\n      });\n      return _setPrototypeOf(Wrapper, Class);\n    };\n\n    return _wrapNativeSuper(Class);\n  }\n\n  function _assertThisInitialized(self) {\n    if (self === void 0) {\n      throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\");\n    }\n\n    return self;\n  }\n\n  function _possibleConstructorReturn(self, call) {\n    if (call && (typeof call === \"object\" || typeof call === \"function\")) {\n      return call;\n    } else if (call !== void 0) {\n      throw new TypeError(\"Derived constructors may only return object or undefined\");\n    }\n\n    return _assertThisIni"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/usrinfo",
+    "method": "POST",
+    "postData": "{}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757268724,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "cache-control": "no-store",
+        "date": "Sun, 22 Feb 2026 10:47:48 GMT",
+        "content-type": "application/json;charset=UTF-8",
+        "content-language": "ko-KR"
+      },
+      "body": "{\"usrinfo\":{\"curUri\":\"/api/v1/mpag/myinfo/view\",\"mpagMainMap\":{\"CostKD\":\"0\",\"CostKdName\":\"Family\",\"left_amt\":4000000.0,\"Coupon\":0,\"VAcntNo\":\"\",\"Point\":0.0,\"Balance\":0.0},\"nowDate\":\"2026년 02월 22일\",\"jobStatList\":[{\"OrdStat_val\":\"입금대기\",\"OrdStat_Count\":0},{\"OrdStat_val\":\"접수진행\",\"OrdStat_Count\":0},{\"OrdStat_val\":\"생산진행\",\"OrdStat_Count\":0},{\"OrdStat_val\":null,\"OrdStat_Count\":0},{\"OrdStat_val\":\"출고완료\",\"OrdStat_Count\":0},{\"OrdStat_val\":\"주문취소\",\"OrdStat_Count\":0}],\"mpagInfoMap\":{\"qna_tot_count\":0,\"Zip\":\"04795\",\"rev_tot_amtrct\":0.0,\"Email\":\"lojesus75@gmail.com\",\"AreaSi\":\"서울특별시\",\"Address\":\"서울특별시 성동구 광나루로 244-15   202호\",\"esti_tot_count\":0,\"Address2\":\"\",\"TelH\":\"010-2045-2202\",\"CostKDName\":\"Family\",\"Name\":\"신우진\",\"Uid\":\"innojini\",\"AreaDong\":\"성수동2가\",\"TelM\":\"010-2045-2202\",\"qna_re_count\":0,\"rev_tot_count\":0,\"esti_re_count\":0,\"AreaSgg\":\"성동구\"}}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod_info/40008",
+    "method": "GET",
+    "postData": null,
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757268724,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:47:48 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"prod_info\":{\"timestamp\":\"2026-02-22 03:21:40\",\"prodno\":40008.0,\"prodname\":\"가성비스티커(도무송)\",\"seltype\":\"M\",\"pjoin\":0.0,\"unit\":\"매\",\"ctptime\":\"null\",\"dlvyprepay\":true,\"dlvygrpno\":1.0,\"dlvygrpname\":\"명함,스티커 묶음\",\"filetype\":\"AI,EPS,JPG,PNG,CDR,PSD,SIT,ZIP,ALZ,PDF\",\"coverinfo\":[{\"covercd\":0.0,\"covername\":\"통합\",\"pagelist\":[{\"pagecd\":0.0,\"pagename\":\"양면\"}],\"pagecnt\":{\"min\":null,\"max\":null,\"interval\":null}}],\"ordqty\":[{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5503.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5504.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5505.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5506.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5507.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5508.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5509.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5510.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5511.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5512.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5513.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5514.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5515.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":500.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":null,\"ordqtylist\":[500.0,1000.0,2000.0,3000.0,4000.0,5000.0,6000.0,8000.0,10000.0,11000.0,12000.0,13000.0,14000.0,15000.0,16000.0,18000.0,20000.0,25000.0,30000.0,40000.0,50000.0]},{\"type\":\"select\",\"jobpresetno\":null,\"sizeno\":5516.0,\"paperno\":null,\"o"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"500\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_0000000000000000000000009\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"6066\",\"wsize\":\"90\",\"hsize\":\"55\",\"jobqty\":\"500\",\"paperno\":\"22927\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"6066\",\"wsize\":\"90\",\"hsize\":\"55\",\"jobqty\":\"500\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757268915,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:47:48 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:47:49\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_0000000000000000000000009\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":500.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.198,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":14700.0,\"ordcost_dc\":0.0,\"ordcost_sup\":14700.0,\"ordcost_tax\":1470.0,\"ordcost_bill\":16170.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":14700.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22927\",\"jobqty\":\"500\",\"hsize\":\"55\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"90\",\"colorno0add\":\"\",\"sizeno\":\"6066\",\"status\":200.0,\"calccd\":8.0,\"jobcostno\":2193839.0,\"cost\":14700.0,\"cost1\":14700.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.198,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"500\",\"pagecd\":\"0\",\"hsize\":\"55\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"90\",\"sizeno\":\"6066\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"500\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000084\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"6066\",\"wsize\":\"90\",\"hsize\":\"55\",\"jobqty\":\"500\",\"paperno\":\"22927\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"6066\",\"wsize\":\"90\",\"hsize\":\"55\",\"jobqty\":\"500\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757268915,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:47:52 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:47:52\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000063\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":500.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.198,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":14700.0,\"ordcost_dc\":0.0,\"ordcost_sup\":14700.0,\"ordcost_tax\":1470.0,\"ordcost_bill\":16170.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":14700.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22927\",\"jobqty\":\"500\",\"hsize\":\"55\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"90\",\"colorno0add\":\"\",\"sizeno\":\"6066\",\"status\":200.0,\"calccd\":8.0,\"jobcostno\":2193839.0,\"cost\":14700.0,\"cost1\":14700.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.198,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"500\",\"pagecd\":\"0\",\"hsize\":\"55\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"90\",\"sizeno\":\"6066\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"500\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000063\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"6066\",\"wsize\":\"90\",\"hsize\":\"55\",\"jobqty\":\"500\",\"paperno\":\"22927\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"6066\",\"wsize\":\"90\",\"hsize\":\"55\",\"jobqty\":\"500\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757271928,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:47:53 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:47:53\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000036\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":1000.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.396,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":17900.0,\"ordcost_dc\":0.0,\"ordcost_sup\":17900.0,\"ordcost_tax\":1790.0,\"ordcost_bill\":19690.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":17900.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22927\",\"jobqty\":\"1000\",\"hsize\":\"55\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"90\",\"colorno0add\":\"\",\"sizeno\":\"6103\",\"status\":200.0,\"calccd\":8.0,\"jobcostno\":2193881.0,\"cost\":17900.0,\"cost1\":17900.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.396,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"1000\",\"pagecd\":\"0\",\"hsize\":\"55\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"90\",\"sizeno\":\"6103\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"1000\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000036\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"6103\",\"wsize\":\"90\",\"hsize\":\"55\",\"jobqty\":\"1000\",\"paperno\":\"22927\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"6103\",\"wsize\":\"90\",\"hsize\":\"55\",\"jobqty\":\"1000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757273529,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:47:55 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:47:55\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000023\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":500.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.032,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":3900.0,\"ordcost_dc\":0.0,\"ordcost_sup\":3900.0,\"ordcost_tax\":390.0,\"ordcost_bill\":4290.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":3900.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22927\",\"jobqty\":\"500\",\"hsize\":\"20\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"40\",\"colorno0add\":\"\",\"sizeno\":\"5503\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1208655.0,\"cost\":3900.0,\"cost1\":3900.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.032,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"500\",\"pagecd\":\"0\",\"hsize\":\"20\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"40\",\"sizeno\":\"5503\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"500\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000023\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5503\",\"wsize\":\"40\",\"hsize\":\"20\",\"jobqty\":\"500\",\"paperno\":\"22927\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5503\",\"wsize\":\"40\",\"hsize\":\"20\",\"jobqty\":\"500\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757275124,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:47:56 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:47:56\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000046\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":500.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.04,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":3900.0,\"ordcost_dc\":0.0,\"ordcost_sup\":3900.0,\"ordcost_tax\":390.0,\"ordcost_bill\":4290.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":3900.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22927\",\"jobqty\":\"500\",\"hsize\":\"20\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"50\",\"colorno0add\":\"\",\"sizeno\":\"5504\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1208676.0,\"cost\":3900.0,\"cost1\":3900.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.04,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"500\",\"pagecd\":\"0\",\"hsize\":\"20\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"50\",\"sizeno\":\"5504\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"500\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000046\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5504\",\"wsize\":\"50\",\"hsize\":\"20\",\"jobqty\":\"500\",\"paperno\":\"22927\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5504\",\"wsize\":\"50\",\"hsize\":\"20\",\"jobqty\":\"500\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757276729,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:47:58 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:47:58\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000044\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":500.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.06996,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":3900.0,\"ordcost_dc\":0.0,\"ordcost_sup\":3900.0,\"ordcost_tax\":390.0,\"ordcost_bill\":4290.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":3900.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22927\",\"jobqty\":\"500\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1208697.0,\"cost\":3900.0,\"cost1\":3900.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.06996,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"500\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"500\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000044\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"500\",\"paperno\":\"22927\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"500\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757278318,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:00 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:00\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000076\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":500.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.06996,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":3900.0,\"ordcost_dc\":0.0,\"ordcost_sup\":3900.0,\"ordcost_tax\":390.0,\"ordcost_bill\":4290.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":3900.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22927\",\"jobqty\":\"500\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1208697.0,\"cost\":3900.0,\"cost1\":3900.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.06996,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"500\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"500\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000076\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"500\",\"paperno\":\"22927\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"500\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757279903,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:01 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:01\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000068\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":500.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.06996,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":4700.0,\"ordcost_dc\":0.0,\"ordcost_sup\":4700.0,\"ordcost_tax\":470.0,\"ordcost_bill\":5170.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":4700.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22930\",\"jobqty\":\"500\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209789.0,\"cost\":4700.0,\"cost1\":4700.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.06996,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"500\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"500\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000068\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"500\",\"paperno\":\"22930\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"500\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757281483,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:03 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:03\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000064\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":500.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.06996,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":3900.0,\"ordcost_dc\":0.0,\"ordcost_sup\":3900.0,\"ordcost_tax\":390.0,\"ordcost_bill\":4290.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":3900.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"500\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209243.0,\"cost\":3900.0,\"cost1\":3900.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.06996,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"500\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"500\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000064\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"500\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"500\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757283059,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:04 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:04\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000091\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":500.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.06996,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":3900.0,\"ordcost_dc\":0.0,\"ordcost_sup\":3900.0,\"ordcost_tax\":390.0,\"ordcost_bill\":4290.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":3900.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"500\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209243.0,\"cost\":3900.0,\"cost1\":3900.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.06996,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"500\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"500\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000091\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"500\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"500\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757284656,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:06 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:06\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000012\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":1000.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.13992,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":4500.0,\"ordcost_dc\":0.0,\"ordcost_sup\":4500.0,\"ordcost_tax\":450.0,\"ordcost_bill\":4950.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":4500.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"1000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209244.0,\"cost\":4500.0,\"cost1\":4500.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.13992,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"1000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"1000\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000012\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"1000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"1000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757286237,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:08 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:08\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000064\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":2000.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.27984,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":10700.0,\"ordcost_dc\":0.0,\"ordcost_sup\":10700.0,\"ordcost_tax\":1070.0,\"ordcost_bill\":11770.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":10700.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"2000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209245.0,\"cost\":10700.0,\"cost1\":10700.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.27984,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"2000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"2000\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000064\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"2000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"2000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757287828,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:09 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:09\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000088\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":3000.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.41976,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":16100.0,\"ordcost_dc\":0.0,\"ordcost_sup\":16100.0,\"ordcost_tax\":1610.0,\"ordcost_bill\":17710.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":16100.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"3000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209246.0,\"cost\":16100.0,\"cost1\":16100.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.41976,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"3000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"3000\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000088\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"3000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"3000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757289405,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:11 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:11\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000051\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.55968,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":21400.0,\"ordcost_dc\":0.0,\"ordcost_sup\":21400.0,\"ordcost_tax\":2140.0,\"ordcost_bill\":23540.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000051\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757290999,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:12 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:12\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000059\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":0.55968,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":21400.0,\"ordcost_dc\":0.0,\"ordcost_sup\":21400.0,\"ordcost_tax\":2140.0,\"ordcost_bill\":23540.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000059\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757292617,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:14 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:14\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000071\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":2.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":1.11936,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":42800.0,\"ordcost_dc\":0.0,\"ordcost_sup\":42800.0,\"ordcost_tax\":4280.0,\"ordcost_bill\":47080.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"2\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000071\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757294199,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:15 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:15\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000044\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":3.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":1.67904,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":64200.0,\"ordcost_dc\":0.0,\"ordcost_sup\":64200.0,\"ordcost_tax\":6420.0,\"ordcost_bill\":70620.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"3\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000044\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757295777,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:17 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:17\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000097\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":4.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":2.23872,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":85600.0,\"ordcost_dc\":0.0,\"ordcost_sup\":85600.0,\"ordcost_tax\":8560.0,\"ordcost_bill\":94160.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"4\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000097\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757297357,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:19 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:19\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000042\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":5.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":2.7984,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":107000.0,\"ordcost_dc\":0.0,\"ordcost_sup\":107000.0,\"ordcost_tax\":10700.0,\"ordcost_bill\":117700.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"5\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000042\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757298939,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:20 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:20\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000070\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":5.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":2.7984,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":107000.0,\"ordcost_dc\":0.0,\"ordcost_sup\":107000.0,\"ordcost_tax\":10700.0,\"ordcost_bill\":117700.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36101\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":481999.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"5\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000070\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757300536,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:22 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:22\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000074\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":5.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":2.7984,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":107000.0,\"ordcost_dc\":0.0,\"ordcost_sup\":107000.0,\"ordcost_tax\":10700.0,\"ordcost_bill\":117700.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36102\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":482000.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"5\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000074\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36102\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757302116,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:23 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:23\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000033\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":5.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":2.7984,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":107000.0,\"ordcost_dc\":0.0,\"ordcost_sup\":107000.0,\"ordcost_tax\":10700.0,\"ordcost_bill\":117700.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36103\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":482001.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"5\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000033\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36103\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757303697,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:48:25 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:48:25\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000080\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":5.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":2.7984,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":107000.0,\"ordcost_dc\":0.0,\"ordcost_sup\":107000.0,\"ordcost_tax\":10700.0,\"ordcost_bill\":117700.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36104\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":482002.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"5\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000080\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36104\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757305275,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 10:53:27 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 19:53:27\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000091\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40008.0,\"pjoin\":0.0,\"ordqty\":4000.0,\"ordcnt\":5.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":1.0,\"boxcnt\":1.0,\"weight_ord\":2.7984,\"weight_box\":18.0,\"exitday\":1.0,\"exitdate\":\"2026-03-01\",\"dlvcost_base\":0.0,\"ordcost_price\":107000.0,\"ordcost_dc\":0.0,\"ordcost_sup\":107000.0,\"ordcost_tax\":10700.0,\"ordcost_bill\":117700.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":21400.0,\"price_awkjob\":0.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"22932\",\"jobqty\":\"4000\",\"hsize\":\"33\",\"jobno\":\"3110\",\"covercd\":0.0,\"colorno0\":\"302\",\"wsize\":\"53\",\"colorno0add\":\"\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":1209247.0,\"cost\":21400.0,\"cost1\":21400.0,\"cost2\":0.0,\"cost3\":0.0,\"cost4\":0.0,\"weight\":0.55968,\"exitday\":0.0,\"pagecnt\":1.0,\"cutcnt\":1.0,\"pgramno\":80.0}],\"awkjob\":[{\"jobqty\":\"4000\",\"pagecd\":\"0\",\"hsize\":\"33\",\"jobno\":\"36104\",\"covercd\":0.0,\"wsize\":\"53\",\"sizeno\":\"5505\",\"status\":200.0,\"calccd\":1.0,\"jobcostno\":482002.0,\"cost\":0.0,\"cost1\":0.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"prodref\":\"40008\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40008,\"ordqty\":\"4000\",\"ordcnt\":\"5\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000091\",\"jobpresetno\":\"3110\",\"prsjob\":[{\"jobno\":\"3110\",\"covercd\":0,\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"paperno\":\"22932\",\"colorno0\":\"302\",\"colorno0add\":\"\"}],\"awkjob\":[{\"jobno\":\"36104\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5505\",\"wsize\":\"53\",\"hsize\":\"33\",\"jobqty\":\"4000\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771757606954
+  }
+]

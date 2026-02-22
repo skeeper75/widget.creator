@@ -1,0 +1,1492 @@
+[
+  {
+    "url": "https://devshop.wowpress.co.kr/prodt/40054",
+    "method": "GET",
+    "postData": null,
+    "headers": {},
+    "timestamp": 1771758568642,
+    "response": {
+      "status": 200,
+      "headers": {
+        "content-language": "ko-KR",
+        "content-type": "text/html;charset=UTF-8",
+        "date": "Sun, 22 Feb 2026 11:09:28 GMT",
+        "transfer-encoding": "chunked"
+      },
+      "body": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html>\r\n<html class=\"fa-events-icons-failed\" lang=\"ko\">\r\n<head>\r\n\t<meta\thttp-equiv=\"Content-Type\"\t\tcontent=\"text/html; charset=UTF-8\"\t/>\r\n\t<meta\thttp-equiv=\"X-UA-Compatible\"\tcontent=\"IE=edge, chrome=1\"\t/>\r\n\t<meta\thttp-equiv=\"p3p\"\t\t\t\tcontent='CP=\"CAO DSP AND SO \" policyref=\"/w3c/p3p.xml\"'\t/>\r\n\t<meta\thttp-equiv=\"cache-control\"\t\tcontent=\"no-cache\"\t/>\r\n\t<title>WOWPRESS E-Commerce</title>\r\n\t<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/res/favicon.ico\">\r\n\r\n\t\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!-- head.jsp -->\r\n<script src=\"https://code.jquery.com/jquery-3.6.0.min.js\" integrity=\"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\" crossorigin=\"anonymous\"></script>\r\n<script src=\"https://code.jquery.com/ui/1.13.1/jquery-ui.min.js\" integrity=\"sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=\" crossorigin=\"anonymous\"></script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js\" integrity=\"sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13\" crossorigin=\"anonymous\"></script>\r\n<script src=\"/asset/plugins/select2/dist/js/select2.min.js\"></script>\r\n<script src=\"/asset/plugins/select2/dist/js/i18n/ko.js\"></script>\r\n<script src=\"//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js\"></script>\r\n<script src=\"/plugins/jsonpath/dist/index-browser-umd.cjs\"></script>\r\n<script src=\"/plugins/json-grid-master/JSONGrid.js\"></script>\r\n<link href=\"/asset/plugins/json-grid-master/json-grid.css\" rel=\"stylesheet\" />\r\n<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css\">\r\n<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">\r\n<link href=\"/asset/plugins/select2/dist/css/select2.min.css\" rel=\"stylesheet\" />\r\n<link href=\"/plugins/bootstrap-icons/font/bootstrap-icons.css\" rel=\"stylesheet\">\r\n\r\n<!-- datetimepicker -->\r\n<link rel=\"stylesheet\"\ttype=\"text/css\"\t href=\"/plugins/datetimepicker-master/build/jquery.datetimepicker.min.css\">\r\n<script src=\"/plugins/datetimepicker-master/build/jquery.datetimepicker.full.min.js\"></script>\r\n\r\n<style>\r\n\t* {font-size: 0.95rem;}\r\n\t pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }\r\n\t.string { color: green; }\r\n\t.number { color: darkorange; }\r\n\t.boolean { color: blue; }\r\n\t.null { color: magenta; }\r\n\t.key { color: red; }\r\n\t\t@import url(https://fonts.googleapis.com/css?family=Nanum+Gothic); \r\n\tbody {\r\n\t\tfont-size: 13px;\r\n\t    font-family: 'Nanum Gothic', sans-serif; \r\n\t}\r\n</style>\t\r\n</head>\r\n<body id=\"body_main\" class=\"bg-dark text-white\">\r\n\t\t<!--\theader\t-->\r\n\t\t\t\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!-- user header.jsp -->\r\n\t<div class=\"container-fluid\">\r\n\t\t<div>\r\n\t\t\t&nbsp; &nbsp;\t\t\t\r\n\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t \t<span  class=\"bg-danger font-weight-bold text-white\">||운영서버접속중||</span>\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\r\n\r\n\t\t\r\n\t\t\t| <span id=\"uid\"></span>(<span id=\"uname\"></span>) \r\n\t\t\t<!-- / <span id=\"ukind\"></span> \r\n\t\t\t/ <span id=\"uamtblc\"></span> --> \r\n\t\t\t/ <a href=\"javascript:void(0);\" onclick=\"location.href='/userlogout'\">로그아웃</a>\t\t\t\r\n\t\t\t\r\n\t\t\t\t|| <a href=\"https://api.wowpress.co.kr/docs/apidocs.html?v=1\"> <i class=\"bi bi-gear-wide-connected\"></i>API Doc</a> \r\n\t\t\t\t/  <a href=\"/maint\"><i class=\"bi bi-house\"></i>홈으로</a>   \r\n\t\t\t\t/  <a href=\"/mypage/cart/list\"><i class=\"bi bi-cart\"></i>바구니</a>\r\n\t\t\t\t/  <a href=\"/mypage/ord/list\"><i class=\"bi bi-truck\"></i>주문목록</a>\r\n\t\t\t\t<!-- /   <a href=\"/mypage/ord/list\" style=\"display:none;\"><i class=\"bi bi-truck\"></i>주문목록</a> 2025/04/28 조재만. 숨김 / 지움 -->\r\n\t\t\t\r\n\t\t</div>\t\t\r\n\t</div>\r\n\r\n<script type=\"text/javascript\">\r\n$(function() {\r\n\tloadusrinfo();\r\n});\r\n\r\nfunction loadusrinfo(){\r\n\tvar form_data = {};\r\n\tvar options ={};\r\n\toptions.type = 'post';\r\n\toptions.form_data = form_data;\r\n\toptions.url = '/usrinfo';\r\n\toptions.callbackfunc = set_usrinfo; //result_ord_request; //callback\r\n\thttpclient(options);\r\n}\r\n\r\nfunction set_usrinfo(data){\r\n\r\n\t// 2025/07/09 조재만 추가 // 로그아웃 시 자동으로 로그인 화면으로.\r\n\tif (!data || !data.usrinfo) {\r\n\t\t//alert(\"세션이 만료되었습니다. 로그인 페이지로 이동합니다.\");\r\n\t\twindow.location.href = \"/loginform\";\r\n\t}\r\n\r\n\tconsole.log('set_usrinfo...!!!!');\r\n\tconsole.log(data);\r\n\tvar usrinfo = data.usrinfo;\r\n\t$('#uname').html(usrinfo.mpagInfoMap.Name);\r\n\t$('#uid').html(usrinfo.mpagInfoMap.Uid);\r\n\t$('#ukind').html(usrinfo.mpagInfoMap.CostKDName);\r\n\t$('#uamtblc').html(usrinfo.mpagMainMap.Balance);\r\n}\r\n</script>\r\n\r\n<script type=\"text/javascript\">\r\n\r\n/*************************************\r\n * Common Functions\r\n ************************************/\r\nfunction httpclient(options){\r\n\tvar type = options.type; if(type==null)type=\"GET\";\r\n\tvar url = options.url;\t\r\n\tvar idx = options.idx;\r\n\tvar form_data = options.form_data;\r\n\tvar callbackfunc = options.callbackfunc;\r\n\tconsole.log('###=====> header.jsp httpclient ###');\r\n\tconsole.log(form_data);\r\n\tconsole.log('### header.jsp httpclient <=====###');\r\n\t$.ajax({\r\n\t\ttype : type,\t\t\t\r\n\t\turl : url,\r\n\t\tdata : !isEmpty(form_dat"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/plugins/jsonpath/dist/index-browser-umd.cjs",
+    "method": "GET",
+    "postData": null,
+    "headers": {},
+    "timestamp": 1771758568680,
+    "response": {
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "cache-control": "max-age=604800",
+        "content-length": "34891",
+        "date": "Sun, 22 Feb 2026 10:40:49 GMT",
+        "last-modified": "Wed, 09 Jul 2025 02:31:01 GMT",
+        "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+        "content-type": "application/octet-stream"
+      },
+      "body": "(function (global, factory) {\n  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :\n  typeof define === 'function' && define.amd ? define(['exports'], factory) :\n  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JSONPath = {}));\n})(this, (function (exports) { 'use strict';\n\n  function _typeof(obj) {\n    \"@babel/helpers - typeof\";\n\n    return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (obj) {\n      return typeof obj;\n    } : function (obj) {\n      return obj && \"function\" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj;\n    }, _typeof(obj);\n  }\n\n  function _classCallCheck(instance, Constructor) {\n    if (!(instance instanceof Constructor)) {\n      throw new TypeError(\"Cannot call a class as a function\");\n    }\n  }\n\n  function _defineProperties(target, props) {\n    for (var i = 0; i < props.length; i++) {\n      var descriptor = props[i];\n      descriptor.enumerable = descriptor.enumerable || false;\n      descriptor.configurable = true;\n      if (\"value\" in descriptor) descriptor.writable = true;\n      Object.defineProperty(target, descriptor.key, descriptor);\n    }\n  }\n\n  function _createClass(Constructor, protoProps, staticProps) {\n    if (protoProps) _defineProperties(Constructor.prototype, protoProps);\n    if (staticProps) _defineProperties(Constructor, staticProps);\n    Object.defineProperty(Constructor, \"prototype\", {\n      writable: false\n    });\n    return Constructor;\n  }\n\n  function _inherits(subClass, superClass) {\n    if (typeof superClass !== \"function\" && superClass !== null) {\n      throw new TypeError(\"Super expression must either be null or a function\");\n    }\n\n    subClass.prototype = Object.create(superClass && superClass.prototype, {\n      constructor: {\n        value: subClass,\n        writable: true,\n        configurable: true\n      }\n    });\n    Object.defineProperty(subClass, \"prototype\", {\n      writable: false\n    });\n    if (superClass) _setPrototypeOf(subClass, superClass);\n  }\n\n  function _getPrototypeOf(o) {\n    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {\n      return o.__proto__ || Object.getPrototypeOf(o);\n    };\n    return _getPrototypeOf(o);\n  }\n\n  function _setPrototypeOf(o, p) {\n    _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {\n      o.__proto__ = p;\n      return o;\n    };\n    return _setPrototypeOf(o, p);\n  }\n\n  function _isNativeReflectConstruct() {\n    if (typeof Reflect === \"undefined\" || !Reflect.construct) return false;\n    if (Reflect.construct.sham) return false;\n    if (typeof Proxy === \"function\") return true;\n\n    try {\n      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));\n      return true;\n    } catch (e) {\n      return false;\n    }\n  }\n\n  function _construct(Parent, args, Class) {\n    if (_isNativeReflectConstruct()) {\n      _construct = Reflect.construct.bind();\n    } else {\n      _construct = function _construct(Parent, args, Class) {\n        var a = [null];\n        a.push.apply(a, args);\n        var Constructor = Function.bind.apply(Parent, a);\n        var instance = new Constructor();\n        if (Class) _setPrototypeOf(instance, Class.prototype);\n        return instance;\n      };\n    }\n\n    return _construct.apply(null, arguments);\n  }\n\n  function _isNativeFunction(fn) {\n    return Function.toString.call(fn).indexOf(\"[native code]\") !== -1;\n  }\n\n  function _wrapNativeSuper(Class) {\n    var _cache = typeof Map === \"function\" ? new Map() : undefined;\n\n    _wrapNativeSuper = function _wrapNativeSuper(Class) {\n      if (Class === null || !_isNativeFunction(Class)) return Class;\n\n      if (typeof Class !== \"function\") {\n        throw new TypeError(\"Super expression must either be null or a function\");\n      }\n\n      if (typeof _cache !== \"undefined\") {\n        if (_cache.has(Class)) return _cache.get(Class);\n\n        _cache.set(Class, Wrapper);\n      }\n\n      function Wrapper() {\n        return _construct(Class, arguments, _getPrototypeOf(this).constructor);\n      }\n\n      Wrapper.prototype = Object.create(Class.prototype, {\n        constructor: {\n          value: Wrapper,\n          enumerable: false,\n          writable: true,\n          configurable: true\n        }\n      });\n      return _setPrototypeOf(Wrapper, Class);\n    };\n\n    return _wrapNativeSuper(Class);\n  }\n\n  function _assertThisInitialized(self) {\n    if (self === void 0) {\n      throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\");\n    }\n\n    return self;\n  }\n\n  function _possibleConstructorReturn(self, call) {\n    if (call && (typeof call === \"object\" || typeof call === \"function\")) {\n      return call;\n    } else if (call !== void 0) {\n      throw new TypeError(\"Derived constructors may only return object or undefined\");\n    }\n\n    return _assertThisIni"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/usrinfo",
+    "method": "POST",
+    "postData": "{}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758568738,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "cache-control": "no-store",
+        "date": "Sun, 22 Feb 2026 11:09:28 GMT",
+        "content-type": "application/json;charset=UTF-8",
+        "content-language": "ko-KR"
+      },
+      "body": "{\"usrinfo\":{\"curUri\":\"/api/v1/mpag/myinfo/view\",\"mpagMainMap\":{\"CostKD\":\"0\",\"CostKdName\":\"Family\",\"left_amt\":4000000.0,\"Coupon\":0,\"VAcntNo\":\"\",\"Point\":0.0,\"Balance\":0.0},\"nowDate\":\"2026년 02월 22일\",\"jobStatList\":[{\"OrdStat_val\":\"입금대기\",\"OrdStat_Count\":0},{\"OrdStat_val\":\"접수진행\",\"OrdStat_Count\":0},{\"OrdStat_val\":\"생산진행\",\"OrdStat_Count\":0},{\"OrdStat_val\":null,\"OrdStat_Count\":0},{\"OrdStat_val\":\"출고완료\",\"OrdStat_Count\":0},{\"OrdStat_val\":\"주문취소\",\"OrdStat_Count\":0}],\"mpagInfoMap\":{\"qna_tot_count\":0,\"Zip\":\"04795\",\"rev_tot_amtrct\":0.0,\"Email\":\"lojesus75@gmail.com\",\"AreaSi\":\"서울특별시\",\"Address\":\"서울특별시 성동구 광나루로 244-15   202호\",\"esti_tot_count\":0,\"Address2\":\"\",\"TelH\":\"010-2045-2202\",\"CostKDName\":\"Family\",\"Name\":\"신우진\",\"Uid\":\"innojini\",\"AreaDong\":\"성수동2가\",\"TelM\":\"010-2045-2202\",\"qna_re_count\":0,\"rev_tot_count\":0,\"esti_re_count\":0,\"AreaSgg\":\"성동구\"}}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod_info/40054",
+    "method": "GET",
+    "postData": null,
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758568739,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:29 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"prod_info\":{\"timestamp\":\"2026-02-22 03:06:39\",\"prodno\":40054.0,\"prodname\":\"독판전단\",\"seltype\":\"M\",\"pjoin\":1.0,\"unit\":\"매\",\"ctptime\":\"null\",\"dlvyprepay\":true,\"dlvygrpno\":null,\"dlvygrpname\":null,\"filetype\":\"AI,EPS,JPG,PNG,CDR,PSD,SIT,ZIP,ALZ,PDF\",\"coverinfo\":[{\"covercd\":0.0,\"covername\":\"통합\",\"pagelist\":[{\"pagecd\":1.0,\"pagename\":\"전면\"},{\"pagecd\":2.0,\"pagename\":\"후면\"}],\"pagecnt\":{\"min\":null,\"max\":null,\"interval\":null}}],\"ordqty\":[{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5428.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":50.0,\"ordqtymax\":50000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5429.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":100.0,\"ordqtymax\":100000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5430.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":200.0,\"ordqtymax\":200000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5431.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":400.0,\"ordqtymax\":400000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5432.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":800.0,\"ordqtymax\":800000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5433.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":1600.0,\"ordqtymax\":1600000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5434.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":100.0,\"ordqtymax\":100000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5435.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":200.0,\"ordqtymax\":200000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5436.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":400.0,\"ordqtymax\":400000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5437.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":800.0,\"ordqtymax\":800000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5438.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":1600.0,\"ordqtymax\":1600000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5439.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":3200.0,\"ordqtymax\":3200000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5443.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":800.0,\"ordqtymax\":800000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5444.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":1600.0,\"ordqtymax\":1600000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5445.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":150.0,\"ordqtymax\":150000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5446.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":150.0,\"ordqtymax\":150000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5447.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":300.0,\"ordqtymax\":300000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5448.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":600.0,\"ordqtymax\":600000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null},{\"type\":\"input\",\"jobpresetno\":null,\"sizeno\":5449.0,\"paperno\":null,\"optno\":null,\"colorno\":null,\"colornoadd\":null,\"ordqtymin\":1200.0,\"ordqtymax\":1200000.0,\"ordqtyinterval\":1.0,\"ordqtylist\":null}],\"sizeinfo\":[{\"covercd\":0.0,\"sizelist\":[{\"sizeno\":5448.0,\"sizename\":\"12절\",\"width\":180.0,\"height\":300.0,\"cutsize\":3.0,\"non_standard\":false,\"req_width\":null,\"req_height\":null,\"req_paper\":null,\"req_color\":null,\"req_awkjob\":null,\"rst_ordqty\":{\"unit\":\"매\",\"min\":0.1,\"max\":100.0},\"rst_awkjob\":[{\"unit\":\"mm\",\"min_width\":null,\"max_width\":210.0,\"min_height\":null,\"max_height\":297.0,\"min_verse\":null,\"max_verse\":null,\"min_sum_wh\":null,\"max_sum_wh\":null,\"joblist\":[{\"jobgroupno\":23000.0,\"jobgroup\":\"라운딩\",\"jobno\":23010.0,\"jobname\":\"전체라운딩\"}]},{\"unit\":\"mm\",\"min_width\":128.0,\"max_width\":594.0,\"min_height\":183.0,\"max_height\":840.0,\"min_verse\":null,\"max_verse\":null,\"min_sum_wh\":null,\"max_sum_wh\":null,\"joblist\":[{\"jobgroupno\":28000.0,\"jobgroup\":\"접지\",\"jobno\":28001.0,\"jobname\":\"2단접지\"}]},{\"unit\":\"mm\",\"min_width\":148.0,\"max_width\":594.0,\"min_height\":210.0,\"max_height\":840.0,\"min_verse\":null,\"max_verse\":null,\"min_sum_wh\":null,\"max_sum_wh\":null,\"joblist\":"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000054\",\"jobpresetno\":\"3210\",\"prsjob\":[{\"jobno\":\"3210\",\"covercd\":0,\"sizeno\":\"5448\",\"wsize\":\"180\",\"hsize\":\"300\",\"jobqty\":\"600\",\"paperno\":\"20077\",\"colorno1\":\"240\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5448\",\"wsize\":\"180\",\"hsize\":\"300\",\"jobqty\":\"600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758569981,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:29 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:30\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000054\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40054.0,\"pjoin\":1.0,\"ordqty\":600.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":null,\"boxcnt\":1.0,\"weight_ord\":3.402,\"weight_box\":20.0,\"exitday\":1.0,\"exitdate\":\"2026-02-24\",\"dlvcost_base\":4200.0,\"ordcost_price\":66570.0,\"ordcost_dc\":0.0,\"ordcost_sup\":66570.0,\"ordcost_tax\":6657.0,\"ordcost_bill\":73227.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":63570.0,\"price_awkjob\":3000.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"20077\",\"jobqty\":\"600\",\"hsize\":\"300\",\"jobno\":\"3210\",\"colorno1\":\"240\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"180\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5448\",\"pressm\":\"O\",\"addprate\":1.0,\"pancnt\":1.0,\"jobcostno\":688904.0,\"cost\":63570.0,\"cost1\":15000.0,\"cost2\":0.0,\"cost3\":9000.0,\"cost4\":39570.0,\"exitday\":0.0,\"weight\":3.402,\"pressno\":170.0,\"pgram\":105.0,\"workyun\":1.0,\"daesu\":0.5,\"yun1\":0.1,\"yun2\":0.05,\"pansizeno\":117.0,\"pgramno\":105.0}],\"awkjob\":[{\"jobqty\":\"600\",\"pagecd\":\"0\",\"hsize\":\"300\",\"jobno\":\"29010\",\"covercd\":0.0,\"wsize\":\"180\",\"sizeno\":\"5448\",\"calccd\":20.0,\"jobcostno\":1583920.0,\"cost\":3000.0,\"cost1\":3000.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"v_pressno1\":\"170\",\"v_pressno2\":\"170\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000074\",\"jobpresetno\":\"3210\",\"prsjob\":[{\"jobno\":\"3210\",\"covercd\":0,\"sizeno\":\"5448\",\"wsize\":\"180\",\"hsize\":\"300\",\"jobqty\":\"600\",\"paperno\":\"20077\",\"colorno1\":\"240\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5448\",\"wsize\":\"180\",\"hsize\":\"300\",\"jobqty\":\"600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758569981,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:32 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:32\",\"status\":200.0,\"errmsg\":\"성공하였습니다.\",\"ordkey\":\"seq_00000000000000000000000090\",\"ordno\":null,\"ordsno\":null,\"ordnum\":null,\"dboxno\":null,\"dboxnum\":null,\"boxseq\":null,\"prodno\":40054.0,\"pjoin\":1.0,\"ordqty\":600.0,\"ordcnt\":1.0,\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"dlvygrpno\":null,\"boxcnt\":1.0,\"weight_ord\":3.402,\"weight_box\":20.0,\"exitday\":1.0,\"exitdate\":\"2026-02-24\",\"dlvcost_base\":4200.0,\"ordcost_price\":66570.0,\"ordcost_dc\":0.0,\"ordcost_sup\":66570.0,\"ordcost_tax\":6657.0,\"ordcost_bill\":73227.0,\"ordcost_base\":{\"base_price\":{\"price_prsjob\":63570.0,\"price_awkjob\":3000.0},\"base_dc\":{\"dc_prod\":0.0,\"dc_prsjob\":0.0,\"dc_awkjob\":0.0,\"dcno_prod\":null}},\"prsjob\":[{\"paperno\":\"20077\",\"jobqty\":\"600\",\"hsize\":\"300\",\"jobno\":\"3210\",\"colorno1\":\"240\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"180\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5448\",\"pressm\":\"O\",\"addprate\":1.0,\"pancnt\":1.0,\"jobcostno\":688904.0,\"cost\":63570.0,\"cost1\":15000.0,\"cost2\":0.0,\"cost3\":9000.0,\"cost4\":39570.0,\"exitday\":0.0,\"weight\":3.402,\"pressno\":170.0,\"pgram\":105.0,\"workyun\":1.0,\"daesu\":0.5,\"yun1\":0.1,\"yun2\":0.05,\"pansizeno\":117.0,\"pgramno\":105.0}],\"awkjob\":[{\"jobqty\":\"600\",\"pagecd\":\"0\",\"hsize\":\"300\",\"jobno\":\"29010\",\"covercd\":0.0,\"wsize\":\"180\",\"sizeno\":\"5448\",\"calccd\":20.0,\"jobcostno\":1583920.0,\"cost\":3000.0,\"cost1\":3000.0,\"cost2\":0.0,\"weight\":0.0,\"exitday\":0.0,\"v_pressno1\":\"170\",\"v_pressno2\":\"170\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000090\",\"jobpresetno\":\"3210\",\"prsjob\":[{\"jobno\":\"3210\",\"covercd\":0,\"sizeno\":\"5448\",\"wsize\":\"180\",\"hsize\":\"300\",\"jobqty\":\"600\",\"paperno\":\"20077\",\"colorno1\":\"240\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5448\",\"wsize\":\"180\",\"hsize\":\"300\",\"jobqty\":\"600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758571907,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:33 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:33\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"600\",\"hsize\":\"300\",\"jobno\":\"3230\",\"colorno1\":\"240\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"180\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5448\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000033\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5448\",\"wsize\":\"180\",\"hsize\":\"300\",\"jobqty\":\"600\",\"paperno\":\"20077\",\"colorno1\":\"240\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5448\",\"wsize\":\"180\",\"hsize\":\"300\",\"jobqty\":\"600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758573439,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:35 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:35\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"600\",\"hsize\":\"300\",\"jobno\":\"3230\",\"colorno1\":\"240\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"180\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5448\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000074\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5448\",\"wsize\":\"180\",\"hsize\":\"300\",\"jobqty\":\"600\",\"paperno\":\"20077\",\"colorno1\":\"240\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5448\",\"wsize\":\"180\",\"hsize\":\"300\",\"jobqty\":\"600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758574974,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:36 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:36\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"800\",\"hsize\":\"258\",\"jobno\":\"3230\",\"colorno1\":\"240\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"183\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5437\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"800\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000077\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5437\",\"wsize\":\"183\",\"hsize\":\"258\",\"jobqty\":\"800\",\"paperno\":\"20077\",\"colorno1\":\"240\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5437\",\"wsize\":\"183\",\"hsize\":\"258\",\"jobqty\":\"800\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758576503,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:38 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:38\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1200\",\"hsize\":\"150\",\"jobno\":\"3230\",\"colorno1\":\"240\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"130\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5449\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1200\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000011\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5449\",\"wsize\":\"130\",\"hsize\":\"150\",\"jobqty\":\"1200\",\"paperno\":\"20077\",\"colorno1\":\"240\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5449\",\"wsize\":\"130\",\"hsize\":\"150\",\"jobqty\":\"1200\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758578036,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:39 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:39\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"100\",\"hsize\":\"740\",\"jobno\":\"3230\",\"colorno1\":\"240\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"520\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5434\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"100\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000080\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5434\",\"wsize\":\"520\",\"hsize\":\"740\",\"jobqty\":\"100\",\"paperno\":\"20077\",\"colorno1\":\"240\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5434\",\"wsize\":\"520\",\"hsize\":\"740\",\"jobqty\":\"100\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758579566,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:41 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:41\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"240\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000066\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"240\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758581104,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:42 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:42\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"240\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000033\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"240\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758582629,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:44 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:44\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"237\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000012\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"237\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758584148,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:45 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:45\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"1477\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000019\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"1477\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758585672,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:47 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:47\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"242\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000060\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"242\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758587194,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:48 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:48\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"\",\"colorno1add\":\"\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000062\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758588718,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:50 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:50\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"\",\"colorno1add\":\"240\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_0000000000000000000000008\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"240\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758590242,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:51 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:51\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"\",\"colorno1add\":\"237\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000051\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"237\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758591767,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:53 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:53\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"\",\"colorno1add\":\"1477\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000081\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"1477\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758593301,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:54 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:54\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000020\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758594828,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:56 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:56\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"240\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000096\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"240\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758596355,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:58 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:58\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"237\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000076\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"237\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758597885,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:09:59 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:09:59\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"1477\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000084\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"1477\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758599414,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:01 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:01\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000013\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758600934,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:02 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:02\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"240\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000023\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"240\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758602457,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:04 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:04\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"237\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000057\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"237\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758603981,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:05 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:05\",\"status\":\"511\",\"errmsg\":\"인쇄방식에 불가능한 지류를 선택하였습니다. (UV인쇄는 지질평량 150g 이상부터 가능합니다.) 표지,내지,간지의 지질평량을 확인바랍니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"1477\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":[{\"paperno\":20066.0,\"papername\":\"뉴플러스(미색) 100g\"},{\"paperno\":20067.0,\"papername\":\"뉴플러스(미색) 80g\"},{\"paperno\":20069.0,\"papername\":\"뉴플러스(백색) 100g\"},{\"paperno\":20070.0,\"papername\":\"뉴플러스(백색) 80g\"},{\"paperno\":20077.0,\"papername\":\"랑데뷰 105g\"},{\"paperno\":20078.0,\"papername\":\"랑데뷰 130g\"},{\"paperno\":20948.0,\"papername\":\"매트지(미색) 100g\"},{\"paperno\":20187.0,\"papername\":\"매트지(미색) 80g\"},{\"paperno\":20947.0,\"papername\":\"매트지(백색) 100g\"},{\"paperno\":20945.0,\"papername\":\"매트지(백색) 80g\"},{\"paperno\":20230.0,\"papername\":\"모조지(미색) 100g\"},{\"paperno\":20237.0,\"papername\":\"모조지(미색) 80g\"},{\"paperno\":20239.0,\"papername\":\"모조지(백색) 100g\"},{\"paperno\":20240.0,\"papername\":\"모조지(백색) 120g\"},{\"paperno\":20245.0,\"papername\":\"모조지(백색) 70g\"},{\"paperno\":20246.0,\"papername\":\"모조지(백색) 80g\"},{\"paperno\":20365.0,\"papername\":\"반누보화이트 122g\"},{\"paperno\":20415.0,\"papername\":\"스노우지 100g\"},{\"paperno\":20416.0,\"papername\":\"스노우지 120g\"},{\"paperno\":20433.0,\"papername\":\"스타드림(골드) 120g\"},{\"paperno\":20441.0,\"papername\":\"스타드림(실버) 120g\"},{\"paperno\":20449.0,\"papername\":\"스타드림(쿼츠) 120g\"},{\"paperno\":20456.0,\"papername\":\"스타라이트(골드) 120g\"},{\"paperno\":20468.0,\"papername\":\"스타라이트(실버) 120g\"},{\"paperno\":20472.0,\"papername\":\"스타라이트(펄) 120g\"},{\"paperno\":20680.0,\"papername\":\"아르떼 105g\"},{\"paperno\":20681.0,\"papername\":\"아르떼 130g\"},{\"paperno\":20690.0,\"papername\":\"아트지 100g\"},{\"paperno\":20691.0,\"papername\":\"아트지 120g\"},{\"paperno\":20698.0,\"papername\":\"앙상블 100g\"},{\"paperno\":20699.0,\"papername\":\"앙상블 130g\"},{\"paperno\":20125.0,\"papername\":\"체크레자크(백색) 120g\"}]}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000044\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"1477\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758605509,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:07 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:07\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000079\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758607038,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:08 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:08\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20077\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000041\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20077\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758608567,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:10 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:10\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20078\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000045\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20078\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758610091,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:11 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:11\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20079\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000010\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20079\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758611617,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:13 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:13\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20080\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000073\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20080\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758613141,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:14 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:14\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000017\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758614665,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:16 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:16\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000058\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11669\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758616191,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:17 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:17\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000055\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11668\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758617709,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:19 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:19\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000080\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11385\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758619232,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:20 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:20\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000071\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758620759,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:22 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:22\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000061\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11388\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758622283,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:23 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:23\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000017\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11363\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758623803,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:25 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:25\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000035\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11362\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758625331,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:27 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:26\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000048\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758626851,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:28 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:28\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000093\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11384\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758628372,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:30 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:30\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000056\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11383\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758629890,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:31 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:31\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000048\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11382\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758631410,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:33 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:33\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000090\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758632929,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:34 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:34\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000039\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11616\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758634448,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:36 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:36\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000064\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11617\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758635970,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:37 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:37\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000045\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11618\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758637492,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:39 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:39\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000094\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758639019,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:40 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:40\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000060\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11697\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758640544,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:42 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:42\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000040\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11698\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758642063,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:43 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:43\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000066\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11699\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758643587,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:45 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:45\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000021\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758645111,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:46 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:46\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000081\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758646634,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:48 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:48\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000062\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28012\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758648158,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:49 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:49\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000014\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28009\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758649690,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:51 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:51\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000090\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28005\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758651217,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:52 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:52\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000026\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758652742,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:54 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:54\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000055\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758654281,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:55 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:55\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000014\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29020\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758655810,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:57 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:57\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000047\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29032\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758657332,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:10:59 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:10:59\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000026\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758658860,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:11:00 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:11:00\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000041\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31101\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758660384,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:11:02 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:11:02\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000040\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31102\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758661907,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:11:03 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:11:03\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000047\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31103\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758663436,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:11:05 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:11:05\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000021\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31104\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758664964,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:11:06 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:11:06\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000040\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31104\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"32020\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758666491,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:11:08 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:11:08\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000099\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31104\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"32010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758668017,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:11:09 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:11:09\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000080\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31104\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"32010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11652\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758669541,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:11:11 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:11:11\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000056\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31104\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"32010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11655\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758671069,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:11:12 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:11:12\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000083\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31104\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"32010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11654\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758672587,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:11:14 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:11:14\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000065\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31104\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"32010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11653\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758674107,
+    "response": {
+      "status": 200,
+      "headers": {
+        "transfer-encoding": "chunked",
+        "date": "Sun, 22 Feb 2026 11:16:15 GMT",
+        "content-type": "application/json"
+      },
+      "body": "{\"cjson_jobcost\":{\"timestamp\":\"2026-02-22 20:16:15\",\"status\":\"419\",\"errmsg\":\"도수체크 : 선택한 도수와 추가도수가 동일합니다.\",\"check_source\":{\"paperno\":\"20081\",\"jobqty\":\"1600\",\"hsize\":\"183\",\"jobno\":\"3230\",\"colorno1\":\"241\",\"covercd\":0.0,\"colorno2add\":\"242\",\"wsize\":\"128\",\"colorno2\":\"242\",\"colorno1add\":\"242\",\"sizeno\":\"5438\"},\"check_target\":null}}"
+    }
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/std/prod/jobcost",
+    "method": "POST",
+    "postData": "{\"prodno\":40054,\"ordqty\":\"1600\",\"ordcnt\":\"1\",\"ordtitle\":\"샘플\",\"ordbody\":\"주문메모-memo\",\"ordkey\":\"seq_00000000000000000000000043\",\"jobpresetno\":\"3230\",\"prsjob\":[{\"jobno\":\"3230\",\"covercd\":0,\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"paperno\":\"20081\",\"colorno1\":\"241\",\"colorno1add\":\"242\",\"colorno2\":\"242\",\"colorno2add\":\"242\"}],\"awkjob\":[{\"jobno\":\"11351\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11361\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11381\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11619\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11700\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"23010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"28004\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"29033\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"31104\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"32010\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null},{\"jobno\":\"11653\",\"covercd\":0,\"pagecd\":\"0\",\"sizeno\":\"5438\",\"wsize\":\"128\",\"hsize\":\"183\",\"jobqty\":\"1600\",\"joboptmsg\":null}]}",
+    "headers": {
+      "x-requested-with": "XMLHttpRequest",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/json"
+    },
+    "timestamp": 1771758975692
+  }
+]

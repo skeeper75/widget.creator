@@ -1,0 +1,76 @@
+[
+  {
+    "url": "https://devshop.wowpress.co.kr/",
+    "finalUrl": "https://devshop.wowpress.co.kr/loginform",
+    "title": "Shop Admin Page",
+    "status": 200,
+    "isLogin": true
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/shop",
+    "finalUrl": "https://devshop.wowpress.co.kr/shop",
+    "title": "",
+    "status": 404,
+    "isLogin": false
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/order",
+    "finalUrl": "https://devshop.wowpress.co.kr/order",
+    "title": "",
+    "status": 404,
+    "isLogin": false
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/products",
+    "finalUrl": "https://devshop.wowpress.co.kr/products",
+    "title": "",
+    "status": 404,
+    "isLogin": false
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/catalog",
+    "finalUrl": "https://devshop.wowpress.co.kr/catalog",
+    "title": "",
+    "status": 404,
+    "isLogin": false
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/index",
+    "finalUrl": "https://devshop.wowpress.co.kr/index",
+    "title": "",
+    "status": 404,
+    "isLogin": false
+  },
+  {
+    "url": "https://devshop.wowpress.co.kr/main",
+    "finalUrl": "https://devshop.wowpress.co.kr/main",
+    "title": "",
+    "status": 404,
+    "isLogin": false
+  },
+  {
+    "url": "https://wowpress.co.kr/",
+    "finalUrl": "https://wowpress.co.kr/",
+    "title": "와우프레스",
+    "status": 200,
+    "isLogin": true
+  },
+  {
+    "url": "https://wowpress.co.kr/shop",
+    "finalUrl": "https://wowpress.co.kr/shop",
+    "title": "와우프레스",
+    "status": 404,
+    "isLogin": true
+  },
+  {
+    "url": "https://wowpress.co.kr/order",
+    "finalUrl": "https://wowpress.co.kr/order",
+    "title": "와우프레스",
+    "status": 404,
+    "isLogin": true
+  },
+  {
+    "url": "https://shop.wowpress.co.kr/",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://shop.wowpress.co.kr/\nCall log:\n\u001b[2m  - navigating to \"https://shop.wowpress.co.kr/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  }
+]

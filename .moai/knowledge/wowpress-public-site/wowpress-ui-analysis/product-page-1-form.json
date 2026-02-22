@@ -1,0 +1,313 @@
+{
+  "selects": [],
+  "radios": {},
+  "checkboxes": [
+    {
+      "name": "",
+      "id": "remember",
+      "value": "on",
+      "label": "아이디 저장",
+      "checked": false
+    }
+  ],
+  "inputs": [
+    {
+      "type": "text",
+      "name": "srchKeyword",
+      "id": "srchKeyword",
+      "placeholder": "",
+      "value": ""
+    },
+    {
+      "type": "text",
+      "name": "authUid",
+      "id": "authUid",
+      "placeholder": "아이디",
+      "value": ""
+    },
+    {
+      "type": "password",
+      "name": "authPw",
+      "id": "authPw",
+      "placeholder": "비밀번호",
+      "value": ""
+    }
+  ],
+  "hiddenFields": [
+    {
+      "name": "ordType",
+      "id": "",
+      "value": "selfDsn"
+    },
+    {
+      "name": "width",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "height",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "Wwidth",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "Wheight",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "SelfDCSzNm",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "imageList",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "jpgFront",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "jpgBack",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "side",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "pdf",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "ezTName",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "ProdNo",
+      "id": "ProdNo",
+      "value": ""
+    },
+    {
+      "name": "incNonStd",
+      "id": "incNonStd",
+      "value": ""
+    },
+    {
+      "name": "useOnlyProd",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopPP",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopSZ",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopCL",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopOPT",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "824d007e-8c8f-496d-aedb-82569ea654bc"
+    },
+    {
+      "name": "partner",
+      "id": "",
+      "value": "wowpress.jarvis.wepnp.com"
+    },
+    {
+      "name": "domain",
+      "id": "",
+      "value": "wowpress.jarvis.wepnp.com"
+    },
+    {
+      "name": "user_id",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "sessionKey",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "xmltemplate",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "prdcode",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "horSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "verSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "cutHorSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "cutVerSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "hvtype",
+      "id": "",
+      "value": "h"
+    },
+    {
+      "name": "podType",
+      "id": "",
+      "value": "namecard"
+    },
+    {
+      "name": "selectSide",
+      "id": "",
+      "value": "ds2"
+    },
+    {
+      "name": "returnUrl",
+      "id": "",
+      "value": "https://wowpress.co.kr:443/self/dsgn/Rslt?"
+    },
+    {
+      "name": "ProdNo",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "SelfDCName",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "SelfDCNo",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "printArea",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "824d007e-8c8f-496d-aedb-82569ea654bc"
+    },
+    {
+      "name": "",
+      "id": "naverIdLogin_loginButton",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "kakaoIdLogin_loginButton",
+      "value": ""
+    },
+    {
+      "name": "p",
+      "id": "p",
+      "value": "/ordr/cart/main?null"
+    }
+  ],
+  "fileUploads": [],
+  "priceElements": [],
+  "buttons": [
+    {
+      "text": "WOW 멤버십안내 자세히보기",
+      "type": "submit",
+      "classes": "sidebar_btn_style_01",
+      "onclick": "movePage('/info/page/mpag/membership', '')"
+    },
+    {
+      "text": "함께캠페인 자세히보기",
+      "type": "submit",
+      "classes": "sidebar_btn_style_01",
+      "onclick": "movePage('https://blog.naver.com/PostList.nhn?blogId=wow_press&from=postList&categoryNo=37', '_blank')"
+    },
+    {
+      "text": "쿠폰페이지 바로가기",
+      "type": "submit",
+      "classes": "sidebar_btn_style_01",
+      "onclick": "movePage('/mpag/cupn/list', '')"
+    },
+    {
+      "text": "핵심가치페이지 바로가기",
+      "type": "submit",
+      "classes": "sidebar_btn_style_01",
+      "onclick": "movePage('/archives/info/wowpress7', '')"
+    },
+    {
+      "text": "로그인",
+      "type": "button",
+      "classes": "memberlog_login",
+      "onclick": "return false;"
+    },
+    {
+      "text": "아이디 찾기",
+      "type": "button",
+      "classes": "memberlog_find",
+      "onclick": "location.href='/cust/srch/id'"
+    },
+    {
+      "text": "비밀번호 찾기",
+      "type": "button",
+      "classes": "memberlog_find",
+      "onclick": "location.href='/cust/srch/pw'"
+    },
+    {
+      "text": "회원가입",
+      "type": "button",
+      "classes": "memberlog_join",
+      "onclick": "location.href='/cust/join/aggr'"
+    },
+    {
+      "text": "",
+      "type": "submit",
+      "classes": "_promoCloseButton_1b80j_88"
+    },
+    {
+      "text": "",
+      "type": "submit",
+      "classes": "_chatButton_64jfm_2 _chatButton_1b80j_152"
+    }
+  ],
+  "tables": [],
+  "heading": "",
+  "bodyTextPreview": "<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-W3TRQZL\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>\n\n\n\n\t\n\t\t\t\n\t\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /* 2024-11-05 권태성 - 메뉴에 세일 상품 표시를 위한 처리 */\n    const sale = {};\n    \n    sale.prodNo = [ ];\n    sale.appendMark = () => {\n        sale.prodNo.forEach((obj) => {\n            if (obj !== null) {\n                const $span = $(\"#anb .total_menu_1depth_bg\").find(\"span[onclick*='?ProdNo=\" + obj.prodNo + \"']\");\n                if ($span.length > 0) {\n                    const $img = $(\"<img>\", {\"src\": \"/wow2.0/images/new_sale_icon.png\"});\n                    let cssClass = ($span.closest(\"li\").length > 0 ? \"sale_icon_s\" : \"sale_icon_d\");\n                    $span.after($img.attr(\"class\", cssClass));\n                }\n            }\n        });\n    };\n    $(function () {\n       $.ajax({\n           type: \"get\",\n           url: \"/ordr/prod/sale/no/list\",\n           dataType: \"json\",\n           success: function(data) {\n               if (data.prodNoList.length > 0) {\n                    sale.prodNo = data.prodNoList;\n                    sale.appendMark();\n               }\n           },\n           error: function(request, status, error) {\n               console.log(request);\n               console.log(status);\n               console.log(error);\n           }\n       });\n    });\n\n\n.tooltip-container {\n  position: relative;\n  display: inline-block;\n}\n\n.tooltip-container .tooltip-text {\n  visibility: visible; /* 항상 보이도록 수정 */\n  opacity: 1;           /* 항상 보이도록 수정 */\n  width: 60px;\n  background-color: #1245ff;\n  color: #fff;\n  text-align: center;\n  font-weight: 600;\n  font-size: 14px;\n  padding: 5px;\n  border-radius: 15px;\n\n  position: absolute;\n  z-index: 10;\n  bottom: 125%;\n  left: 50%;\n  transform: translateX(-50%);\n}\n\n.tooltip-container .tooltip-text::after {\n  content: \"\";\n  position: absolute;\n  top: 100%;\n  left: 50%;\n  transform: translateX(-50%);\n  border-width: 6px;\n  border-style: solid;\n  border-color: #1245ff transparent transparent transparent;\n}\n\n\n\n\n\n    \n    \n        \n            \n                WOW멤버십\n                VVIP만의 특별한 혜택\n                - 결제금액 4% 적립- 배쑝와쑝 배송비 무료- 명함/스티커 2만원 이상 택배비 무료- VIP 전용 상담 가능\n                등급조건(3개월 접수액 기준)\n                \n                    \n                        3억원 이상\n                    \n                    \n                        9,000만원 이상\n                    \n                    \n                        3,000만원 이상\n                    \n                    \n                        2,100만원 이상\n                    \n                    \n                        1,200만원 이상\n                    \n                    \n                        300만원 이상\n                    \n                    \n                        90만원 이상\n                    \n                    \n                        30만원 이상\n                    \n                    \n                        5만원 이상\n                    \n                    \n       "
+}

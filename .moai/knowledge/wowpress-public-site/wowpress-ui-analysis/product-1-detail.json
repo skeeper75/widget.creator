@@ -1,0 +1,388 @@
+{
+  "pageTitle": "",
+  "url": "https://wowpress.co.kr/ordr/prod/newest",
+  "selects": [],
+  "radioGroups": {},
+  "checkboxes": [],
+  "textInputs": [
+    {
+      "type": "text",
+      "name": "srchKeyword",
+      "id": "srchKeyword",
+      "placeholder": "",
+      "value": ""
+    }
+  ],
+  "fileUploads": [],
+  "hiddenFields": [
+    {
+      "name": "ordType",
+      "id": "",
+      "value": "selfDsn"
+    },
+    {
+      "name": "width",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "height",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "Wwidth",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "Wheight",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "SelfDCSzNm",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "imageList",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "jpgFront",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "jpgBack",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "side",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "pdf",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "ezTName",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "ProdNo",
+      "id": "ProdNo",
+      "value": ""
+    },
+    {
+      "name": "incNonStd",
+      "id": "incNonStd",
+      "value": ""
+    },
+    {
+      "name": "useOnlyProd",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopPP",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopSZ",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopCL",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopOPT",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "faf1735c-4fa8-439d-8e04-97c03a8cd90e"
+    },
+    {
+      "name": "partner",
+      "id": "",
+      "value": "wowpress.jarvis.wepnp.com"
+    },
+    {
+      "name": "domain",
+      "id": "",
+      "value": "wowpress.jarvis.wepnp.com"
+    },
+    {
+      "name": "user_id",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "sessionKey",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "xmltemplate",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "prdcode",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "horSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "verSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "cutHorSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "cutVerSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "hvtype",
+      "id": "",
+      "value": "h"
+    },
+    {
+      "name": "podType",
+      "id": "",
+      "value": "namecard"
+    },
+    {
+      "name": "selectSide",
+      "id": "",
+      "value": "ds2"
+    },
+    {
+      "name": "returnUrl",
+      "id": "",
+      "value": "https://wowpress.co.kr:443/self/dsgn/Rslt?"
+    },
+    {
+      "name": "ProdNo",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "SelfDCName",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "SelfDCNo",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "printArea",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "faf1735c-4fa8-439d-8e04-97c03a8cd90e"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "WOW 멤버십안내 자세히보기",
+      "type": "submit",
+      "classes": "sidebar_btn_style_01",
+      "onclick": "movePage('/info/page/mpag/membership', '')",
+      "id": ""
+    },
+    {
+      "text": "함께캠페인 자세히보기",
+      "type": "submit",
+      "classes": "sidebar_btn_style_01",
+      "onclick": "movePage('https://blog.naver.com/PostList.nhn?blogId=wow_press&from=postList&categoryNo=37', '_blank')",
+      "id": ""
+    },
+    {
+      "text": "쿠폰페이지 바로가기",
+      "type": "submit",
+      "classes": "sidebar_btn_style_01",
+      "onclick": "movePage('/mpag/cupn/list', '')",
+      "id": ""
+    },
+    {
+      "text": "핵심가치페이지 바로가기",
+      "type": "submit",
+      "classes": "sidebar_btn_style_01",
+      "onclick": "movePage('/archives/info/wowpress7', '')",
+      "id": ""
+    },
+    {
+      "text": "×",
+      "classes": "btnsp movclose",
+      "id": ""
+    },
+    {
+      "text": "고객센터",
+      "classes": "dropmenubtn",
+      "id": ""
+    },
+    {
+      "text": "",
+      "classes": "btn_wownapi",
+      "id": ""
+    },
+    {
+      "text": "상업인쇄소",
+      "classes": "dropbtn_menu",
+      "id": ""
+    },
+    {
+      "text": "힙지로디지털",
+      "classes": "dropbtn_menu",
+      "id": ""
+    },
+    {
+      "text": "책공방",
+      "classes": "dropbtn_menu",
+      "id": ""
+    },
+    {
+      "text": "가게용품",
+      "classes": "dropbtn_menu",
+      "id": ""
+    },
+    {
+      "text": "문구점",
+      "classes": "dropbtn_menu",
+      "id": ""
+    },
+    {
+      "text": "어패럴",
+      "classes": "dropbtn_menu",
+      "id": ""
+    },
+    {
+      "text": "이벤트",
+      "classes": "dropbtn_menu",
+      "id": ""
+    },
+    {
+      "text": "신제품",
+      "classes": "dropbtn_menu",
+      "id": ""
+    },
+    {
+      "text": "",
+      "classes": "popup_btn_open",
+      "id": ""
+    },
+    {
+      "text": "",
+      "type": "",
+      "classes": "btn_open",
+      "id": ""
+    },
+    {
+      "text": "창닫기",
+      "type": "",
+      "classes": "btn_close",
+      "id": ""
+    },
+    {
+      "text": "",
+      "type": "submit",
+      "classes": "_promoCloseButton_1b80j_88",
+      "id": ""
+    },
+    {
+      "text": "",
+      "type": "submit",
+      "classes": "_chatButton_64jfm_2 _chatButton_1b80j_152",
+      "id": ""
+    }
+  ],
+  "priceElements": [],
+  "tables": [],
+  "steps": [],
+  "optionSections": [],
+  "relevantScripts": [
+    "\nvar ENP_VAR={};\nvar paymTypeChk = {\n\t '12' : 'creditCard'\n\t,'13' : 'virtualAccount'\n\t,'14' : 'tPay'\n\t,'15' : 'upfrontPay'\n\t,'30' : 'kakaoPay'\n\t,'31' : 'naverPay'\n};\n\n\nfunction mo_send_join() {\n}\n\nfunction mo_send_prod(jsonProdInfo) {\n\tENP_VAR = {\n\t\tcollect: {},\n\t\tconversion: { product: [] }\n\t};\n\tENP_VAR.collect.productCode       = jsonProdInfo.pdNo;\n\tENP_VAR.collect.productName       = jsonProdInfo.pdName;\n\tENP_VAR.collect.price             = jsonProdInfo.pdMinCost;\n\tENP_VAR.collect.dcPrice           = jsonProdInfo.pdDC;\n\tENP_VAR.collect.soldOut           = jsonProdInfo.pdUseYN;\n\tENP_VAR.collect.imageUrl          = jsonProdInfo.pdImgList[0];\n\tENP_VAR.collect.secondImageUrl    = jsonProdInfo.pdImgList[1];\n\tENP_VAR.collect.thirdImageUrl     = jsonProdInfo.pdImgList[2];\n\tENP_VAR.collect.fourthImageUrl    = jsonProdInfo.pdImgList[3];\n\tENP_VAR.collect.topCategory       = jsonProdInfo.pdPathList[0];\n\tENP_VAR.collect.firstSubCategory  = jsonProdInfo.pdPathList[1];\n\tENP_VAR.collect.secondSubCategory = jsonProdInfo.pdPathList[2];\n\tENP_VAR.collect.thirdSubCategory  = jsonProdInfo.pdPathList[3];\n\n\t\n\t(function(a,g,e,n,t){a.enp=a.enp||function(){(a.enp.q=a.enp.q||[]).push(arguments)};n=g.createElement(e);n.async=!0;n.defer=!0;n.src=\"https://cdn.megadata.co.kr/dist/prod/enp_tracker_self_hosted.min.js\";t=g.getElementsByTagName(e)[0];t.parentNode.insertBefore(n,t)})(window,document,\"script\");\n\t/* 상품수집 */\n\tenp('create', 'collect', 'wowpress', { device: 'W' });\n\t/* 장바구니 버튼 타겟팅 (이용하지 않는 경우 삭제) */\n\tenp('create', 'cart', 'wowpress', { device: 'W', btnSelector: jsonProdInfo.cartBtn });\n\n}\n\nfunction mo_send_cart() {\t\n}\n\nfunction mo_send_pay(jsonPayInfo) {\n\tENP_VAR = {\n\t\tcollect: {},\n\t\tconversion: { product: [] }\n\t};\n\tjsonPayInfo.ordList.forEach(function(_ordItem) {\n\t\tENP_VAR.conversion.product.push({\n\t\t\tproductCode : _ordItem.pdNo    ,\n\t\t\tproductName : _ordItem.pdName  ,\n\t\t\tprice       : _ordItem.amtCost ,\n\t\t\tdcPrice     : _ordItem.dcCost  ,\n\t\t\tqty         : _ordItem.ordQty  \n\t\t});\n\t});\t\n\tENP_VAR.conversion.totalPrice = jsonPayInfo.sumCost;\n\tENP_VAR.conversion.totalQty   = jsonPayInfo.sumQty;\n\n\t(function(a,g,e,n,t){a.enp=a.enp||function(){(a.enp.q=a.enp.q||[]).push(arguments)};n=g.createElement(e);n.async=!0;n.defer=!0;n.src=\"https://cdn.megadata.co.kr/dist/prod/enp_tracker_self_hosted.min.js\";t=g.getElementsByTagName(e)[0];t.parentNode.insertBefore(n,t)})(window,document,\"script\");\n\tenp('create', 'conversion', 'wowpress', {\n\t\tdevice: 'W',\n\t\tpaySys: jsonPayInfo.paySys \n\t}); // W:웹, M: 모바일, B: 반응형\n\t\n}\n\nfunction mo_send_payrslt(jsonPayInfo) {\n\tENP_VAR = {\n\t\tcollect: {},\n\t\tconversion: { product: [] }\n\t};\n\tjsonPayInfo.ordList.forEach(function(_ordItem) {\n\t\tENP_VAR.conversion.product.push({\n\t\t\tproductCode : _ordItem.pdNo    ,\n\t\t\tproductName : _ordItem.pdName  ,\n\t\t\tprice       : _ordItem.amtCost ,\n\t\t\tdcPrice     : _ordItem.dcCost  ,\n\t\t\tqty         : _ordItem.ordQty  \n\t\t});\n\t});\t\n\tENP_VAR.conversion.ordCode    = jsonPayInfo.paySeq;\n\tENP_VAR.conversion.totalPrice = jsonPayInf",
+    "\nvar ga_lgin_type = {\n\t\"1\"   : \"Naver\",\n\t\"2\"   : \"Facebook\",\n\t\"3\"   : \"Kakao\",\n\t\"WOW\" : \"WOW\"\t\n};\nvar ga_device_type = {\n\t\"W\"   : \"HomePage\",\n\t\"M\"   : \"Mobile\",\n\t\"B\"   : \"Application\"\n};\n\nwindow.dataLayer = window.dataLayer || [];\nfunction gtag(arguments) {dataLayer.push(arguments);}\ngtag('js', new Date());\n\ngtag('config', 'G-196RRM2KDH');\ngtag('config', 'AW-327351431');\n\n\nfunction ga_send_join() {\n\tgtag('event', 'signup');\n}\n\nfunction ga_send_prod(jsonProdInfo) {\n}\n\nfunction ga_send_cart() {\n}\n\nfunction ga_send_pay(jsonPayInfo) {\t\n}\n\nfunction ga_send_payrslt(jsonPayInfo) {\n\tvar _gaJD    = jsonPayInfo;\n\tvar _gaItems = [];\n\t_gaJD.ordList.forEach(function(_ordr) {\n\t\t_gaItems.push({\n\t\t\t'id'       : _ordr.pdNo   ,\n\t\t\t'name'     : _ordr.pdName ,\n\t\t\t'size'     : _ordr.pdSize ,\n\t\t\t'quantity' : _ordr.ordQty ,\n\t\t\t'price'    : _ordr.amtCost\n\t\t});\n\t});\n// 결제 완료 이벤트\n\tgtag('event', 'purchase', {\n\t\t'transaction_id': \"TRID\" + _gaJD.paySeq,\n\t\t'affiliation'   : ga_device_type['W'],\n\t\t'currency'      : 'KRW',\n\t\t'method1'       : _gaJD.payMethod1, /* 결재방법1 */\n\t\t'method2'       : _gaJD.payMethod2, /* 결재방법2 */\n\t\t'value'         : _gaJD.payOrder  , /* 주문금액 */\n\t\t'shipping'      : _gaJD.payDlvy   , /* 배송비   */\n\t\t'tax'           : _gaJD.payTax    , /* 부가세   */\n\t\t'total_cost'    : _gaJD.payTot    , /* 결재금액 */\n\t\t'items'         : _gaItems\n\t});\n// 전환 이벤트\t\n// Measure Google Ads conversions\n\tgtag('event', 'conversion', {\n\t\t'send_to'       : 'AW-327351431/f2aECJCzzuYCEIf5i5wB',\n\t\t'value'         : _gaJD.payTot    ,\n\t\t'currency'      : 'KRW'           ,\n\t\t'transaction_id': _gaJD.paySeq\n\t});\n}\n\nfunction ga_send_login(jsonLginInfo) {\n\tvar _gaJD = jsonLginInfo;\n\n\tif(isEmpty(ga_lgin_type[\"\"+_gaJD.UidL])) {\n\t\t _gaJD.method = \"WOW\";\n\t\t _gaJD.type   = \"Auth\";\n\t} else {\n\t\t _gaJD.method = \"SNS\";\n\t\t _gaJD.type   = ga_lgin_type[\"\"+_gaJD.UidL];\n\t}\n\tgtag('event', 'login', _gaJD);\n}\n",
+    "\n\n\nvar kakao_pixel_TrackID = '8687565182042523789';\n\nfunction kk_send_join() {\n\tkakaoPixel(kakao_pixel_TrackID).completeRegistration();\t\n}\n\nfunction kk_send_prod(jsonProdInfo) {\n\tkakaoPixel(kakao_pixel_TrackID).viewContent(jsonProdInfo.pdNo);\n}\n\nfunction kk_send_cart() {\n\tkakaoPixel(kakao_pixel_TrackID).viewCart();\n}\n\nfunction kk_send_pay(jsonPayInfo) {\t\n}\n\nfunction kk_send_payrslt(jsonPayInfo) {\n\tvar purchaseData = {\n\t\t  \"total_quantity\" : jsonPayInfo.payQty\n\t\t, \"total_price\"    : jsonPayInfo.payTot\n\t\t, \"currency\"       : \"KRW\"\n\t\t, \"products\"       : []\n\t};\n\tjsonPayInfo.ordList.forEach(function(_ordItem) {\n\t\tpurchaseData.products.push({\n\t\t\t  \"id\"       : _ordItem.pdNo\n\t\t\t, \"name\"     : _ordItem.pdName\n\t\t\t, \"quantity\" : _ordItem.ordQty  \n\t\t\t, \"price\"    : _ordItem.amtCost\n\t\t});\n\t});\t\n\tkakaoPixel(kakao_pixel_TrackID).purchase(purchaseData);\t\n}\n\nfunction kk_send_login(jsonLginInfo) {\n}\n\nfunction kk_send_srch(jsonLginInfo) {\n\tvar srchKeyword = {\n\t\t\"keyword\" : jsonLginInfo.keywords\n\t};\n\tkakaoPixel(kakao_pixel_TrackID).search(srchKeyword);\n}\n",
+    "\n    /* 2024-11-05 권태성 - 메뉴에 세일 상품 표시를 위한 처리 */\n    const sale = {};\n    \n    sale.prodNo = [ ];\n    sale.appendMark = () => {\n        sale.prodNo.forEach((obj) => {\n            if (obj !== null) {\n                const $span = $(\"#anb .total_menu_1depth_bg\").find(\"span[onclick*='?ProdNo=\" + obj.prodNo + \"']\");\n                if ($span.length > 0) {\n                    const $img = $(\"<img>\", {\"src\": \"/wow2.0/images/new_sale_icon.png\"});\n                    let cssClass = ($span.closest(\"li\").length > 0 ? \"sale_icon_s\" : \"sale_icon_d\");\n                    $span.after($img.attr(\"class\", cssClass));\n                }\n            }\n        });\n    };\n    $(function () {\n       $.ajax({\n           type: \"get\",\n           url: \"/ordr/prod/sale/no/list\",\n           dataType: \"json\",\n           success: function(data) {\n               if (data.prodNoList.length > 0) {\n                    sale.prodNo = data.prodNoList;\n                    sale.appendMark();\n               }\n           },\n           error: function(request, status, error) {\n               console.log(request);\n               console.log(status);\n               console.log(error);\n           }\n       });\n    });\n",
+    "\n<!--\n$(document).ready(function () {\n    $(\".btn_open\").click(function () {\n        $(\"#image_list\").resumeBanner();\n        $(\".modal\").show();\n    });\n    popupNotc();\n});\n\n//공지사항 5개\nfunction popupNotc(){\n\t$.ajax({\n\t\ttype:'POST',\n\t\turl: '/main/notc',\n\t\tdataType:'json',\n\t\tsuccess : function(data) {\t\t\t\n\t\t\t$('#notc5').html('');\n\t\t\tvar html='';\n\t\t\t//console.log(data);\n\t\t\tfor (var key in data.tableList) {\n\t\t\t\tvar cdt = new Date(data.tableList[key].CDT);\n\t\t\t\thtml+='<tr><td><a href=\"/cent/notc/list?_selectBNo='+data.tableList[key].BNo+'\">'+data.tableList[key].Title+'</a></td><td>'+cdt.getFullYear()+'-'+(cdt.getMonth()+1)+'-'+cdt.getDate()+'</td></tr>';\n\t\t\t\t//console.log(data.tableList[key]);\n\t\t\t} \n\t\t\t$('#notc5').html(html);\n\t\t},\n\t\terror:function(request,status,error){\n\t\t}\n\t});\n}\n-->\n",
+    "\n\tvar landingJson = [\n\t\t\n\t\t\n\t\t{\t\"ppnm\" : \"명함\", \"ppn\" : \"30001\", \"lpn\" : \"40073\", \"ppld\" : \"pp\",\n\t\t\t\"pns\"  : [\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"일반명함\", \"linkProdNo\":\"40073\", \"ldtype\": \"pp\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"특수지명함\", \"linkProdNo\":\"40070\", \"ldtype\": \"pp\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"디지털명함\", \"linkProdNo\":\"40130\", \"ldtype\": \"pp\", \"en\" : \"0\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"프리미엄명함\", \"linkProdNo\":\"40131\", \"ldtype\": \"pp\", \"en\" : \"0\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"후가공명함\", \"linkProdNo\":\"40132\", \"ldtype\": \"pd\", \"en\" : \"0\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"핫딜명함\", \"linkProdNo\":\"40141\", \"ldtype\": \"pd\", \"en\" : \"0\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"당일출고명함\", \"linkProdNo\":\"40139\", \"ldtype\": \"pp\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"복권\", \"linkProdNo\":\"40077\", \"ldtype\": \"pp\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t]},\n\t\t\n\t\t\n\t\t{\t\"ppnm\" : \"봉투\", \"ppn\" : \"30010\", \"lpn\" : \"\", \"ppld\" : \"\",\n\t\t\t\"pns\"  : [\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"칼라봉투\", \"linkProdNo\":\"40034\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"마스타봉투\", \"linkProdNo\":\"40035\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"소량봉투\", \"linkProdNo\":\"40036\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t]},\n\t\t\n\t\t\n\t\t{\t\"ppnm\" : \"선거홍보물\", \"ppn\" : \"40452\", \"lpn\" : \"\", \"ppld\" : \"\",\n\t\t\t\"pns\"  : [\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"선거공보-중철\", \"linkProdNo\":\"40455\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"선거공보-접지\", \"linkProdNo\":\"40456\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"선거벽보\", \"linkProdNo\":\"40447\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"선거명함\", \"linkProdNo\":\"40453\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"현수막\", \"linkProdNo\":\"40448\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"어깨띠\", \"linkProdNo\":\"40449\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"종이썬캡\", \"linkProdNo\":\"40450\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"캠페인버튼\", \"linkProdNo\":\"40451\", \"ldtype\": \"pd\", \"en\" : \"1\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t]},\n\t\t\n\t\t\n\t\t{\t\"ppnm\" : \"스티커\", \"ppn\" : \"30002\", \"lpn\" : \"40133\", \"ppld\" : \"pd\",\n\t\t\t\"pns\"  : [\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"사각스티커\", \"linkProdNo\":\"40133\", \"ldtype\": \"pd\", \"en\" : \"0\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t{\"name\":\"도무송스티커\", \"linkProdNo\":\"40134\", \"ldtype\": \"pd\", \"en\" : \"0\"},\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n",
+    "\n\tfunction wowSearch(e) {\n\t\tif(e != null) {\n\t\t\tif(e.keyCode !== 13){\n\t\t\t\treturn;\n\t\t\t}\n\t\t}\n\t\tlet strSearch = $('#srchKeyword').val().trim();\n\t\t$('#srchKeyword').val(strSearch);\n\t\t$('#frmWowSearch').submit();\n\t}\n\t$(document).ready(function () {\n\t\t$(\".gnb_menu_area_02\").hide();\n\t\t$(\".gnb_menu_area_03\").hide();\n\t\t$(\".gnb_menu_img\").hide();\n\t\t$(\".gnb_menu_img2\").hide();\n\t\t$(\".gnb_menu_img3\").hide();\n\t\t$(\".gnb_submenu_one\").mouseover(function () {\n\t\t\t$(this).addClass(\"gnb_menu_select\");\n\t\t\t$(this).children().show();\n\t\t\t$(this).siblings().children(\".gnb_menu_area_02\").hide();\n\t\t\t$(this).siblings(\".gnb_menu_area\").children().removeClass(\"gnb_menu_select\");\n\t\t\t$(this).siblings().children(\".gnb_menu_img\").hide();\n\t\t\t$(this).siblings().removeClass(\"gnb_menu_select\");\n\t\t\tif($(this).is(\".height_750.gnb_menu_select\")===true) {\n\t\t\t\t$(\".dropdown_menu_content\").addClass(\"height_up_750\");\n\t\t\t} else {\n\t\t\t\t$(\".dropdown_menu_content\").removeClass(\"height_up_750\");\n\t\t\t};\n\t\t\tif($(this).is(\".height_450.gnb_menu_select\")===true) {\n\t\t\t\t$(\".dropdown_menu_content\").addClass(\"height_up_450\");\n\t\t\t} else {\n\t\t\t\t$(\".dropdown_menu_content\").removeClass(\"height_up_450\");\n\t\t\t};\n\t\t\tif($(this).is(\".height_490.gnb_menu_select\")===true) {\n\t\t\t\t$(\".dropdown_menu_content\").addClass(\"height_up_490\");\n\t\t\t} else {\n\t\t\t\t$(\".dropdown_menu_content\").removeClass(\"height_up_490\");\n\t\t\t};\n\t\t\tif($(this).is(\".height_600.gnb_menu_select\")===true) {\n\t\t\t\t$(\".dropdown_menu_content\").addClass(\"height_up_600\");\n\t\t\t} else {\n\t\t\t\t$(\".dropdown_menu_content\").removeClass(\"height_up_600\");\n\t\t\t};\n\t\t\tif($(this).is(\".height_630.gnb_menu_select\")===true) {\n\t\t\t\t$(\".dropdown_menu_content\").addClass(\"height_up_630\");\n\t\t\t} else {\n\t\t\t\t$(\".dropdown_menu_content\").removeClass(\"height_up_630\");\n\t\t\t};\n\t\t\tif($(this).is(\".height_800.gnb_menu_select\")===true) {\n\t\t\t\t$(\".dropdown_menu_content\").addClass(\"height_up_800\");\n\t\t\t} else {\n\t\t\t\t$(\".dropdown_menu_content\").removeClass(\"height_up_800\");\n\t\t\t};\n\t\t\tif($(this).is(\".height_900.gnb_menu_select\")===true) {\n\t\t\t\t$(\".dropdown_menu_content\").addClass(\"height_up_900\");\n\t\t\t} else {\n\t\t\t\t$(\".dropdown_menu_content\").removeClass(\"height_up_900\");\n\t\t\t};\n\t\t});\n\t\t$(\".gnb_submenu_two\").mouseover(function () {\n\t\t\t$(this).addClass(\"gnb_menu_select\");\n\t\t\t$(this).children().show();\n\t\t\t$(this).siblings().children(\".gnb_menu_area_03\").hide();\n\t\t\t$(this).siblings().children(\".gnb_menu_img2\").hide();\n\t\t\t$(this).siblings().removeClass(\"gnb_menu_select\");\n\t\t\tif($(this).is(\".height_640.gnb_menu_select\")===true) {\n\t\t\t\t$(\".dropdown_menu_content\").addClass(\"height_up_640\");\n\t\t\t} else {\n\t\t\t\t$(\".dropdown_menu_content\").removeClass(\"height_up_640\");\n\t\t\t};\n\t\t\tif($(this).is(\".height_460.gnb_menu_select\")===true) {\n\t\t\t\t$(\".dropdown_menu_content\").addClass(\"height_up_460\");\n\t\t\t} else {\n\t\t\t\t$(\".dropdown_menu_content\").removeClass(\"height_up_460\");\n\t\t\t};\n\t\t\tif($(this).is(\".height_520.gnb_menu_select\")===true) {\n\t\t\t\t$(\".dropdown_menu_content\").addClass(\"height_up_520\");\n\t\t\t} else {\n\t\t\t\t$(\".dropdown_menu_content\").remo",
+    "\n<!--\n\t$(window).resize(function (){\n\t\tvar window_width\t\t\t\t= parseInt($(window).width());\n\t\tif(window_width < 1400){\n\t\t\t//var val_body\t\t\t\t= (1400 - window_width) / 2;\n\t\t\tvar val_body\t\t\t\t= (1400 - window_width) / 2 + 160;\n\t\t\teval(\"$('html, body').animate({scrollLeft : \"+val_body+\"}, 300)\");\n\t\t}\n\t});\n\n\tAOS.init({\n\t\t//easing: 'linear',\n\t\t//easing: 'ease',\n\t\t//easing: 'ease-in',\n\t\t//easing: 'ease-out',\n\t\t//easing: 'ease-in-out',\n\t\t//easing: 'ease-in-back',\n\t\teasing: 'ease-out-back',\n\t\t//easing: 'ease-in-out-sine',\n\t\tduration: 1000\n\t});\n//-->\n",
+    "\n\t// iife -  runs as soon as it is defined - calling brefore $(document).ready\n\t(function(){\n\t\t//X-CSRF-Token for ajax\n\t\t$.ajaxSetup({\n\t\t beforeSend: function(xhr) {\n            xhr.setRequestHeader('X-CSRF-TOKEN', 'faf1735c-4fa8-439d-8e04-97c03a8cd90e');\n        }\n\t   });\n\t})();\n",
+    "\n$(document).ready(function() {\n\t//자동로그인\n\tvar data;\n\tif(!isEmpty('')){\n\t\tconsole.log('chatbot 자동로그인처리시작<===');\n\t\t$.ajax({\n\t\t\ttype:'POST',\n\t\t\turl: '/api/chatbot/key',\n\t\t\tdata: data,\n\t\t\tdataType:'json',\n\t\t\tbeforeSend: function(xhr) {\n\t\t\t\txhr.setRequestHeader('X-CSRF-TOKEN', 'faf1735c-4fa8-439d-8e04-97c03a8cd90e');\n\t\t\t},\n\t\t\tsuccess: function(result) {\n\t\t\t\tconsole.log('======ChatInfo=====================================');\n\t\t\t\tconsole.log(result.chatInfo);\n\t\t\t\tconsole.log('======//ChatInfo=====================================');\n\t\t\t\tconst encryptedPayload = result.chatInfo;\n\t            try {\n\t            \tconsole.log(\"로그인 시도: 암호화된 chatInfo 전송\")\n\t              //log(`전송 데이터 (Base64, 일부): ...`)\n\t              window.postMessage(\n\t                {\n\t                  type: \"UPDATE_CHAT_INFO\",\n\t                  payload: encryptedPayload,\n\t                },\n\t                \"*\",\n\t              ) // 실제 환경에서는 targetOrigin을 구체적으로 지정하세요.\n\n\t              console.log(\"로그인 postMessage 전송 완료\")\n\t            } catch (error) {\n\t              //log(`오류: 로그인 postMessage 전송 중 문제 발생 - `)\n\t              console.error(\"postMessage error:\", error)\n\t            }\n\n\t\t\t},\n\t\t\terror:function(request,status,error){\n\t\t\t\tconsole.log(\"code:\"+request.status+\"\\n\"+\"message:\"+request.responseText+\"\\n\"+\"error:\"+error);\n\t\t\t}\n\t\t});\n\n\t}else{\n\t\tconsole.log('chatbot 로그아웃=====>');\n\t\tsetTimeout(() => {\n\t\t  try {\n\t\t\tconsole.log(\"로그아웃 시도: 빈 chatInfo 전송\")\n\t\t\twindow.postMessage(\n\t\t\t  {\n\t\t\t\ttype: \"UPDATE_CHAT_INFO\",\n\t\t\t\tpayload: \"\", // 빈 문자열 전송\n\t\t\t  },\n\t\t\t  \"*\",\n\t\t\t) // 실제 환경에서는 targetOrigin을 구체적으로 지정하세요.\n\t\t\tconsole.log(\"로그아웃 postMessage 전송 완료\")\n\t\t  } catch (error) {\n\t\t\t//log(`오류: 로그아웃 postMessage 전송 중 문제 발생 - `)\n\t\t\tconsole.error(\"postMessage error:\", error)\n\t\t  }\n\t\t}, 1000)\n\n\t}\n});\n"
+  ],
+  "externalScripts": [
+    "https://log1.toup.net/mirae_response_check.php?k=rjzfh",
+    "https://cdn.megadata.co.kr/dist/prod/enp_tracker_self_hosted.min.js",
+    "https://connect.facebook.net/signals/config/425411471906192?v=2.9.268&r=stable&domain=wowpress.co.kr&hme=8c09666b801027ec77ae6e3d39d3827f08833acc316174b73d9ec4ab26e1bdc3&ex_m=96%2C188%2C136%2C21%2C68%2C69%2C129%2C64%2C43%2C130%2C73%2C63%2C10%2C144%2C82%2C15%2C95%2C124%2C117%2C71%2C74%2C123%2C141%2C104%2C146%2C7%2C3%2C4%2C6%2C5%2C2%2C83%2C93%2C147%2C152%2C202%2C57%2C168%2C169%2C50%2C240%2C28%2C70%2C214%2C213%2C212%2C30%2C56%2C9%2C59%2C89%2C90%2C91%2C97%2C120%2C29%2C27%2C122%2C119%2C118%2C137%2C72%2C140%2C138%2C139%2C45%2C55%2C113%2C14%2C143%2C40%2C228%2C229%2C227%2C24%2C25%2C26%2C17%2C19%2C39%2C35%2C37%2C36%2C78%2C84%2C88%2C102%2C128%2C131%2C41%2C103%2C22%2C20%2C109%2C65%2C33%2C133%2C132%2C134%2C125%2C23%2C32%2C54%2C101%2C142%2C66%2C16%2C135%2C106%2C77%2C62%2C18%2C31%2C252%2C195%2C182%2C183%2C181%2C255%2C247%2C196%2C99%2C121%2C76%2C111%2C49%2C42%2C44%2C105%2C110%2C116%2C53%2C60%2C115%2C48%2C51%2C47%2C92%2C145%2C0%2C114%2C13%2C112%2C11%2C1%2C52%2C85%2C58%2C61%2C108%2C81%2C80%2C148%2C149%2C86%2C87%2C8%2C94%2C46%2C126%2C79%2C75%2C67%2C107%2C98%2C38%2C127%2C34%2C100%2C12%2C150",
+    "https://connect.facebook.net/en_US/fbevents.js",
+    "https://www.googletagmanager.com/gtm.js?id=GTM-W3TRQZL",
+    "https://wowpress.co.kr/main/common/js/jquery/jquery-3.4.1.min.js",
+    "https://wowpress.co.kr/main/common/js/common.js?wow2.0.01.236",
+    "https://wowpress.co.kr/main/common/js/wowcommon.js?wow2.0.01.236",
+    "https://wowpress.co.kr/main/common/js/jquery.menu.js",
+    "https://wowpress.co.kr/main/common/js/jquery.banner.js?wow2.0.01.236",
+    "https://wowpress.co.kr/main/common/js/jquery/jquery-ui-1.12.1.custom/jquery-ui.min.js",
+    "https://wowpress.co.kr/main/common/js/jquery/jquery-brute-select/dist/brute-select.min.js",
+    "https://wowpress.co.kr/main/common/js/jquery/aos-master/dist/aos.js",
+    "https://wowpress.co.kr/main/common/js/jquery/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js",
+    "https://wowpress.co.kr/main/common/js/jquery/moment/moment.min.js",
+    "https://wowpress.co.kr/main/common/js/jquery/form-master/dist/jquery.form.min.js",
+    "https://wowpress.co.kr/main/common/js/jquery/bxslider-4-master/dist/jquery.bxslider.js",
+    "https://wowpress.co.kr/main/common/js/jquery/lightslider-master/dist/js/lightslider.min.js",
+    "https://wowpress.co.kr/main/common/js/jquery/Touch-Enabled-Tabs-Plugin-jQuery-swichTab/src/js/jquery.swichTab.js",
+    "https://wowpress.co.kr/main/common/js/jquery/jquery.dataTree/jquery.dataTree.min.js",
+    "https://wowpress.co.kr/main/common/js/vanillatree/vanillatree.js",
+    "https://wowpress.co.kr/main/common/js/jquery/jquery-number-master/jquery.number.min.js",
+    "https://wowpress.co.kr/main/common/js/jquery/flip-1.0.11/dist/jquery.flip.min.js",
+    "https://wowpress.co.kr/main/common/js/js.cookie.min.js",
+    "https://wowpress.co.kr/main/common/js/jquery.cookie.min.js",
+    "https://wowpress.co.kr/main/common/js/jquery/Swiper-3.4.0/dist/js/swiper-bundle.min.js",
+    "https://cdn.socket.io/4.4.1/socket.io.min.js",
+    "https://wcs.naver.net/wcslog.js",
+    "https://ssl.pstatic.net/melona/libs/gfp-nac-module/synchronizer.js",
+    "https://www.googletagmanager.com/gtag/js?id=G-196RRM2KDH",
+    "https://t1.daumcdn.net/adfit/static/kp.js",
+    "https://karrot-pixel.business.daangn.com/0.4/karrot-pixel.umd.js",
+    "https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js",
+    "https://wowpress.co.kr/main/common/js/kakao.min.js",
+    "https://wowpress.co.kr/main/common/js/wowselefdesign.js?wow2.0.01.236",
+    "https://wowpress.co.kr/main/common/js/wowfupload.js?wow2.0.01.236",
+    "https://www.googletagmanager.com/gtag/js?id=AW-10876121420",
+    "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/10876121420/?random=1771755338572&cv=11&fst=1771755338572&bg=ffffff&guid=ON&async=1&gtm=45be62i1v9213559146z8850258599za200zd9213559146xea&gcd=13l3l3l3l1l1&dma=0&tag_exp=103116026~103200004~104527907~104528501~104684208~104684211~115938466~115938468~117455676~117455678&u_w=1920&u_h=1080&url=https%3A%2F%2Fwowpress.co.kr%2Fordr%2Fprod%2Fnewest&frm=0&tiba=%EC%99%80%EC%9A%B0%ED%94%84%EB%A0%88%EC%8A%A4&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=1005831163.1771755325&uaa=arm&uab=64&uafvl=Not%253AA-Brand%3B99.0.0.0%7CHeadlessChrome%3B145.0.7632.0%7CChromium%3B145.0.7632.0&uamb=0&uam=&uap=Linux&uapv=&uaw=0&_tu=CA&rfmt=3&fmt=4",
+    "https://www.googletagmanager.com/gtag/js?l=dataLayer&id=G-WVCEZZZ6YD",
+    "https://log1.toup.net/mirae_log_chat_common.js?adkey=rjzfh",
+    "https://wowpress-cs-chatbot-widget.vercel.app/chatbot-widget.js"
+  ],
+  "uniqueClasses": []
+}

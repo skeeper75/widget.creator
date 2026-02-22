@@ -1,0 +1,797 @@
+[
+  {
+    "ppnm": "명함",
+    "ppn": "30001",
+    "lpn": "40073",
+    "ppld": "pp",
+    "pns": [
+      {
+        "name": "일반명함",
+        "linkProdNo": "40073",
+        "ldtype": "pp",
+        "en": "1"
+      },
+      {
+        "name": "특수지명함",
+        "linkProdNo": "40070",
+        "ldtype": "pp",
+        "en": "1"
+      },
+      {
+        "name": "디지털명함",
+        "linkProdNo": "40130",
+        "ldtype": "pp",
+        "en": "0"
+      },
+      {
+        "name": "프리미엄명함",
+        "linkProdNo": "40131",
+        "ldtype": "pp",
+        "en": "0"
+      },
+      {
+        "name": "후가공명함",
+        "linkProdNo": "40132",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "핫딜명함",
+        "linkProdNo": "40141",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "당일출고명함",
+        "linkProdNo": "40139",
+        "ldtype": "pp",
+        "en": "1"
+      },
+      {
+        "name": "복권",
+        "linkProdNo": "40077",
+        "ldtype": "pp",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "봉투",
+    "ppn": "30010",
+    "lpn": "",
+    "ppld": "",
+    "pns": [
+      {
+        "name": "칼라봉투",
+        "linkProdNo": "40034",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "마스타봉투",
+        "linkProdNo": "40035",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "소량봉투",
+        "linkProdNo": "40036",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "선거홍보물",
+    "ppn": "40452",
+    "lpn": "",
+    "ppld": "",
+    "pns": [
+      {
+        "name": "선거공보-중철",
+        "linkProdNo": "40455",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "선거공보-접지",
+        "linkProdNo": "40456",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "선거벽보",
+        "linkProdNo": "40447",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "선거명함",
+        "linkProdNo": "40453",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "현수막",
+        "linkProdNo": "40448",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "어깨띠",
+        "linkProdNo": "40449",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "종이썬캡",
+        "linkProdNo": "40450",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "캠페인버튼",
+        "linkProdNo": "40451",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "스티커",
+    "ppn": "30002",
+    "lpn": "40133",
+    "ppld": "pd",
+    "pns": [
+      {
+        "name": "사각스티커",
+        "linkProdNo": "40133",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "도무송스티커",
+        "linkProdNo": "40134",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "",
+        "linkProdNo": "",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "롤스티커",
+        "linkProdNo": "40006",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "팬시스티커",
+        "linkProdNo": "40268",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "판스티커",
+        "linkProdNo": "40438",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "",
+        "linkProdNo": "",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "주차스티커",
+        "linkProdNo": "40076",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "배달스티커",
+        "linkProdNo": "40020",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "핫딜스티커",
+        "linkProdNo": "40145",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "포토/액자",
+    "ppn": "30006",
+    "lpn": "",
+    "ppld": "",
+    "pns": [
+      {
+        "name": "캔버스액자",
+        "linkProdNo": "40042",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "노프레임액자",
+        "linkProdNo": "40096",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "페이퍼포토SET",
+        "linkProdNo": "40002",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "엽서SET",
+        "linkProdNo": "40097",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "폴라로이드팩",
+        "linkProdNo": "40279",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "네컷스티커",
+        "linkProdNo": "40435",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "홀더",
+    "ppn": "30009",
+    "lpn": "",
+    "ppld": "",
+    "pns": [
+      {
+        "name": "종이홀더",
+        "linkProdNo": "40041",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "카드키홀더",
+        "linkProdNo": "40583",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "PP홀더(칼라)",
+        "linkProdNo": "40004",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "PP홀더(박)",
+        "linkProdNo": "40172",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "소량PP홀더(칼라)",
+        "linkProdNo": "40174",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "책자",
+    "ppn": "30004",
+    "lpn": "",
+    "ppld": "pd",
+    "pns": [
+      {
+        "name": "무선책자",
+        "linkProdNo": "40196",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "중철책자",
+        "linkProdNo": "40198",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "특가책자(스프링)",
+        "linkProdNo": "40433",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "특가책자(무선)",
+        "linkProdNo": "40200",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "PVC커버노트",
+        "linkProdNo": "40525",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "윤전책자",
+        "linkProdNo": "40201",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "전단",
+    "ppn": "30003",
+    "lpn": "",
+    "ppld": "pd",
+    "pns": [
+      {
+        "name": "합판전단",
+        "linkProdNo": "40026",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "독판전단",
+        "linkProdNo": "40054",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "문고리전단",
+        "linkProdNo": "40028",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "자석제품",
+    "ppn": "30013",
+    "lpn": "",
+    "ppld": "pd",
+    "pns": [
+      {
+        "name": "종이자석광고지(UV코팅)",
+        "linkProdNo": "40040",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "종이자석광고지(패턴)",
+        "linkProdNo": "40193",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "자석스티커",
+        "linkProdNo": "40093",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "차량용자석스티커",
+        "linkProdNo": "40582",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "와우기획상품",
+    "ppn": "40190",
+    "lpn": "",
+    "ppld": "pd",
+    "pns": [
+      {
+        "name": "인쇄레시피",
+        "linkProdNo": "40524",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "명함샘플팩",
+        "linkProdNo": "40024",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "핫템샘플팩",
+        "linkProdNo": "40191",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "배쑝와쑝박스",
+        "linkProdNo": "40471",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "홍보물",
+    "ppn": "30005",
+    "lpn": "",
+    "ppld": "pd",
+    "pns": [
+      {
+        "name": "테이블세팅지",
+        "linkProdNo": "40031",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "수저세팅지",
+        "linkProdNo": "40284",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "패키지",
+        "linkProdNo": "40032",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "스탠드POP",
+        "linkProdNo": "40033",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "굿즈/다꾸",
+    "ppn": "30008",
+    "lpn": "40152",
+    "ppld": "pd",
+    "pns": [
+      {
+        "name": "굿즈",
+        "linkProdNo": "40152",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "다꾸",
+        "linkProdNo": "40153",
+        "ldtype": "pd",
+        "en": "0"
+      }
+    ]
+  },
+  {
+    "ppnm": "사인제품",
+    "ppn": "30014",
+    "lpn": "40154",
+    "ppld": "",
+    "pns": [
+      {
+        "name": "현수막",
+        "linkProdNo": "40154",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "배너",
+        "linkProdNo": "40155",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "사각보드",
+        "linkProdNo": "40156",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "시트지",
+        "linkProdNo": "40157",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "입간판",
+        "linkProdNo": "40158",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "등신대",
+        "linkProdNo": "40576",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "롤블라인드",
+        "linkProdNo": "40049",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "모양보드",
+        "linkProdNo": "40573",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "행택/쿠폰/안내장",
+    "ppn": "30011",
+    "lpn": "",
+    "ppld": "pd",
+    "pns": [
+      {
+        "name": "행택",
+        "linkProdNo": "40109",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "쿠폰",
+        "linkProdNo": "40110",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "상품권/티켓",
+        "linkProdNo": "40038",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "청첩장/초대장",
+        "linkProdNo": "40138",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "프리미엄엽서",
+        "linkProdNo": "40434",
+        "ldtype": "pd",
+        "en": "0"
+      }
+    ]
+  },
+  {
+    "ppnm": "판촉물",
+    "ppn": "30007",
+    "lpn": "",
+    "ppld": "pd",
+    "pns": [
+      {
+        "name": "김서림방지 안경닦이",
+        "linkProdNo": "40085",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "탁상용캘린더",
+        "linkProdNo": "40086",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "종이썬캡",
+        "linkProdNo": "40088",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "PP부채",
+        "linkProdNo": "40089",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "소량종이부채",
+        "linkProdNo": "40457",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "명찰",
+        "linkProdNo": "40090",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "사원증",
+        "linkProdNo": "40043",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "어깨띠",
+        "linkProdNo": "40091",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "책받침",
+        "linkProdNo": "40092",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "떡메모지",
+        "linkProdNo": "40083",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "소량떡메모지",
+        "linkProdNo": "40469",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "반투명떡메모지",
+        "linkProdNo": "40294",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "종이슬로건",
+        "linkProdNo": "40084",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "텀블러",
+        "linkProdNo": "40532",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "USB",
+        "linkProdNo": "40533",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "에코백",
+        "linkProdNo": "40479",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "버튼",
+        "linkProdNo": "40169",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "핀버튼",
+        "linkProdNo": "40136",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "거울버튼",
+        "linkProdNo": "40170",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "자석버튼",
+        "linkProdNo": "40171",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "웰컴키트",
+        "linkProdNo": "40554",
+        "ldtype": "pd",
+        "en": "0"
+      },
+      {
+        "name": "에코백키트(스탠다드형)",
+        "linkProdNo": "40555",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "에코백키트(스페셜형)",
+        "linkProdNo": "40556",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "G형박스키트",
+        "linkProdNo": "40557",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "서식류",
+    "ppn": "30012",
+    "lpn": "",
+    "ppld": "",
+    "pns": [
+      {
+        "name": "칼라옵셋-양식지",
+        "linkProdNo": "40512",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "1도옵셋-양식지",
+        "linkProdNo": "40570",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "칼라옵셋-영수증",
+        "linkProdNo": "40513",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "1도옵셋-영수증",
+        "linkProdNo": "40571",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "칼라옵셋-NCR(2매1조)",
+        "linkProdNo": "40508",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "1도옵셋-NCR(2매1조)",
+        "linkProdNo": "40567",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "칼라옵셋-NCR(3매1조)",
+        "linkProdNo": "40510",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "1도옵셋-NCR(3매1조)",
+        "linkProdNo": "40568",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "칼라옵셋-NCR(4매1조)",
+        "linkProdNo": "40511",
+        "ldtype": "pd",
+        "en": "1"
+      },
+      {
+        "name": "1도옵셋-NCR(4매1조)",
+        "linkProdNo": "40569",
+        "ldtype": "pd",
+        "en": "1"
+      }
+    ]
+  },
+  {
+    "ppnm": "부자재",
+    "ppn": "39999",
+    "lpn": "",
+    "ppld": "pd",
+    "pns": []
+  }
+]

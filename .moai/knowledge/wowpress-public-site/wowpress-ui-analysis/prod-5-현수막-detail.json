@@ -1,0 +1,3164 @@
+{
+  "url": "https://wowpress.co.kr/ordr/prod/dets?ProdNo=40154",
+  "title": "와우프레스",
+  "productInfo": {},
+  "selects": [
+    {
+      "name": "category1",
+      "id": "category1",
+      "label": "category1",
+      "optionCount": 23,
+      "options": [
+        {
+          "value": "30001",
+          "text": "명함",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30002",
+          "text": "스티커",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30004",
+          "text": "책자",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30014",
+          "text": "사인제품",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30003",
+          "text": "전단",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40422",
+          "text": "디지털인쇄",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30005",
+          "text": "홍보물",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30013",
+          "text": "자석제품",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30010",
+          "text": "봉투",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30007",
+          "text": "판촉물",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40209",
+          "text": "캘린더",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40287",
+          "text": "카페용품",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30012",
+          "text": "서식류",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30011",
+          "text": "행택/쿠폰/안내장",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30006",
+          "text": "포토/액자",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30009",
+          "text": "홀더",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30008",
+          "text": "굿즈/다꾸",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40190",
+          "text": "와우기획상품",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "39999",
+          "text": "부자재",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40278",
+          "text": "팬시제품",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40452",
+          "text": "선거홍보물",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40460",
+          "text": "폰 액세서리",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40466",
+          "text": "어패럴",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "category2",
+      "id": "category2",
+      "label": "category2",
+      "optionCount": 7,
+      "options": [
+        {
+          "value": "40049",
+          "text": "롤블라인드",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40154",
+          "text": "현수막",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40155",
+          "text": "배너",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40156",
+          "text": "사각보드",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40573",
+          "text": "모양보드",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40157",
+          "text": "시트지",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40158",
+          "text": "입간판",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "category3",
+      "id": "category3",
+      "label": "category3",
+      "optionCount": 5,
+      "options": [
+        {
+          "value": "40115",
+          "text": "일반현수막",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40114",
+          "text": "족자형현수막",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40104",
+          "text": "대형현수막",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40437",
+          "text": "미니현수막",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40589",
+          "text": "메쉬현수막",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "",
+      "id": "SelfCNoSize",
+      "label": "SelfCNoSize",
+      "optionCount": 6,
+      "options": [
+        {
+          "value": "418",
+          "text": "가로형5000x900",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "12580",
+          "text": "가로형4000x700",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "12581",
+          "text": "세로형900x5000",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "26961",
+          "text": "정사각형 1000x1000",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "26968",
+          "text": "정사각형 1200x1200",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "26969",
+          "text": "직사각형 1200x900",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "getTemplate(null, this.value);",
+      "disabled": false,
+      "style": "hidden"
+    }
+  ],
+  "radioGroups": {},
+  "checkboxes": [
+    {
+      "name": "",
+      "id": "ez_c_01",
+      "value": "빨강",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_02",
+      "value": "주황",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_03",
+      "value": "노랑",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_04",
+      "value": "초록",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_05",
+      "value": "하늘",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_06",
+      "value": "파랑",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_07",
+      "value": "보라",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_08",
+      "value": "핑크",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_09",
+      "value": "베이지",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_10",
+      "value": "갈색",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_11",
+      "value": "흰색",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_12",
+      "value": "회색",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_13",
+      "value": "검정",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_14",
+      "value": "색조합",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    }
+  ],
+  "inputs": [
+    {
+      "type": "text",
+      "name": "srchKeyword",
+      "id": "srchKeyword",
+      "placeholder": "",
+      "value": "",
+      "label": "",
+      "readonly": false,
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "name": "docWidth",
+      "id": "docWidth",
+      "placeholder": "가로",
+      "value": "",
+      "label": "비규격 사이즈",
+      "readonly": false,
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "name": "docHeight",
+      "id": "docHeight",
+      "placeholder": "세로",
+      "value": "",
+      "label": "비규격 사이즈",
+      "readonly": false,
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "name": "srchKeyword2",
+      "id": "srchKeyword2",
+      "placeholder": "검색어를 입력하세요~",
+      "value": "",
+      "label": "검색-+",
+      "readonly": false,
+      "disabled": false
+    }
+  ],
+  "fileUploads": [],
+  "uploadAreas": [
+    {
+      "tag": "DIV",
+      "classes": "dropdownmenu",
+      "id": "",
+      "text": "고객센터\n                        \n                        \n                            \n                                \n                                    공지사항\n                                    \n     "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropmenubtn",
+      "id": "",
+      "text": "고객센터"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdownmenu-contents",
+      "id": "",
+      "text": "공지사항\n                                    \n                                    FAQ\n                                    \n                                    \n                                    견적상담\n   "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "상업인쇄소\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                       "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "상업인쇄소"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "명함\n                                    \n                                    \n                                        \n                                            일반명함\n                                 "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "명함\n                                    \n                                    \n                                        \n                                            일반명함\n                                 "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "힙지로디지털\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                      "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "힙지로디지털"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "소량리플렛\n                                    \n                                \n                                \n                                    소량포스터\n                                    \n            "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "소량리플렛\n                                    \n                                \n                                \n                                    소량포스터\n                                    \n            "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "책공방\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                         "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "책공방"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "무선책자\n                                    \n                                \n                                \n                                    중철책자\n                                    \n              "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "무선책자\n                                    \n                                \n                                \n                                    중철책자\n                                    \n              "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "가게용품\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                        "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "가게용품"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "사인제품\n                                    \n                                    \n                                        \n                                            현수막\n                                "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "사인제품\n                                    \n                                    \n                                        \n                                            현수막\n                                "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "문구점\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                         "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "문구점"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "굿즈/다꾸\n                                    \n                                    \n                                        \n                                            굿즈\n                                "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "굿즈/다꾸\n                                    \n                                    \n                                        \n                                            굿즈\n                                "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "어패럴\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                         "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "어패럴"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "에코백\n                                        \n                                \n                                \n                                    반팔T\n                                    \n            "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "에코백\n                                        \n                                \n                                \n                                    반팔T\n                                    \n            "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "이벤트"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "이벤트"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "신제품"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "신제품"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uct_select",
+      "id": "",
+      "text": "CheckPDF\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\tPDF파일 업로드\n\t\t\t\n\t\t\t\n\t\t\t\t※ 재작업불가사항\n\t\t\t\t- 재단선을 선없음(색없음) 처리하지 않아서 인쇄될 경우 이에 대한 재작업은 불가합니다.\n                                            - 인쇄 파일의 레이어가 숨김 처리되어"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uct",
+      "id": "",
+      "text": "CheckPDF"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_box",
+      "id": "",
+      "text": "PDF파일 업로드\n\t\t\t\n\t\t\t\n\t\t\t\t※ 재작업불가사항\n\t\t\t\t- 재단선을 선없음(색없음) 처리하지 않아서 인쇄될 경우 이에 대한 재작업은 불가합니다.\n                                            - 인쇄 파일의 레이어가 숨김 처리되어 있어 불필요한 이미지가 인쇄될 경우 재작업이 불가하오니 반드시 확인하여 작업해 주시기 "
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_left wp100 tal",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_left wp100 tac",
+      "id": "",
+      "text": "PDF파일 업로드"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_left wp100 tal",
+      "id": "",
+      "text": "※ 재작업불가사항\n\t\t\t\t- 재단선을 선없음(색없음) 처리하지 않아서 인쇄될 경우 이에 대한 재작업은 불가합니다.\n                                            - 인쇄 파일의 레이어가 숨김 처리되어 있어 불필요한 이미지가 인쇄될 경우 재작업이 불가하오니 반드시 확인하여 작업해 주시기 바랍니다.\n                "
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uct_check_result",
+      "id": "",
+      "text": "파일검수\n\t\t\n\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t            장바구니\n\t\t\t            주문하기\n\t\t\t            \n\t\t            \n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t            \n\t\t\t\t\t\t\n\t\t\t            재업로드 및 초기화\n\t\t            \n"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uct",
+      "id": "",
+      "text": "파일검수"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_box",
+      "id": "",
+      "text": "장바구니\n\t\t\t            주문하기\n\t\t\t            \n\t\t            \n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t            \n\t\t\t\t\t\t\n\t\t\t            재업로드 및 초기화\n\t\t            \n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tPDF사이즈\n\t\t\t\t\t사이즈(픽셀):"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_right wp100",
+      "id": "",
+      "text": "장바구니\n\t\t\t            주문하기\n\t\t\t            \n\t\t            \n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t            \n\t\t\t\t\t\t\n\t\t\t            재업로드 및 초기화\n\t\t            \n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tPDF사이즈\n\t\t\t\t\t사이즈(픽셀):"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_comt_succ",
+      "id": "",
+      "text": "장바구니\n\t\t\t            주문하기"
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_comt_header fs30 fwb wp100",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_comt_btn mt20",
+      "id": "",
+      "text": "장바구니\n\t\t\t            주문하기"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_comt_fail",
+      "id": "",
+      "text": "재업로드 및 초기화"
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_comt_header fs30 fwb fc_red wp100",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_comt_btn mt20 ",
+      "id": "",
+      "text": "재업로드 및 초기화"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_ordr_info",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_pdf_info",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_errlog_info",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "temp_file_uc_pdf_info",
+      "id": "",
+      "text": "PDF사이즈\n\t\t\t\t\t사이즈(픽셀): \n\t\t\t\t\t사이즈(mm) : \n\t\t\t\t\t페이지(장) :"
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_pdf_info_psizenm fs12",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_pdf_info_sizenm fs12",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_pdf_info_pages fs12",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "temp_file_uc_errlog_info",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_errlog_info_text fs18",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_errlog_info_comt fs14 pl15",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_left wp100",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_pdf_images",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "IMG",
+      "classes": "img_pdf_file",
+      "id": "",
+      "text": ""
+    }
+  ],
+  "hiddenFields": [
+    {
+      "name": "ordType",
+      "id": "",
+      "value": "selfDsn"
+    },
+    {
+      "name": "width",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "height",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "Wwidth",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "Wheight",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "SelfDCSzNm",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "imageList",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "jpgFront",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "jpgBack",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "side",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "pdf",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "ezTName",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "ProdNo",
+      "id": "ProdNo",
+      "value": "40154"
+    },
+    {
+      "name": "incNonStd",
+      "id": "incNonStd",
+      "value": ""
+    },
+    {
+      "name": "useOnlyProd",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopPP",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopSZ",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopCL",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopOPT",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "partner",
+      "id": "",
+      "value": "wowpress.jarvis.wepnp.com"
+    },
+    {
+      "name": "domain",
+      "id": "",
+      "value": "wowpress.jarvis.wepnp.com"
+    },
+    {
+      "name": "user_id",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "sessionKey",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "xmltemplate",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "prdcode",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "horSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "verSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "cutHorSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "cutVerSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "hvtype",
+      "id": "",
+      "value": "h"
+    },
+    {
+      "name": "podType",
+      "id": "",
+      "value": "namecard"
+    },
+    {
+      "name": "selectSide",
+      "id": "",
+      "value": "ds2"
+    },
+    {
+      "name": "returnUrl",
+      "id": "",
+      "value": "https://wowpress.co.kr:443/self/dsgn/Rslt?"
+    },
+    {
+      "name": "ProdNo",
+      "id": "",
+      "value": "40154"
+    },
+    {
+      "name": "SelfDCName",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "SelfDCNo",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "printArea",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "",
+      "id": "stdExitDate",
+      "value": "2026-02-23"
+    },
+    {
+      "name": "PRSs",
+      "id": "",
+      "value": "[{JobNo=null, Name=null, PressM=null, QUnit=null}]"
+    },
+    {
+      "name": "QUnit",
+      "id": "",
+      "value": "5"
+    },
+    {
+      "name": "rn",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "PRSsJson",
+      "id": "",
+      "value": "[{\"JobNo\": null, \"Name\": null, \"PressM\": null, \"QUnit\": null}]"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "현수막"
+    },
+    {
+      "name": "ProdNo",
+      "id": "ProdNo",
+      "value": "40154"
+    },
+    {
+      "name": "PJoin",
+      "id": "PJoin",
+      "value": ""
+    },
+    {
+      "name": "QUnit",
+      "id": "QUnit",
+      "value": "5"
+    },
+    {
+      "name": "JobPset",
+      "id": "JobPset",
+      "value": ""
+    },
+    {
+      "name": "JobCostList",
+      "id": "JobCostList",
+      "value": ""
+    },
+    {
+      "name": "paperList",
+      "id": "paperList",
+      "value": "[]"
+    },
+    {
+      "name": "prodOptCK",
+      "id": "prodOptCK",
+      "value": "[{\"CalcCD\":1,\"CkNo\":1,\"jobbno2name\":\"오시\",\"DspLoc\":0,\"Name\":\"오시\",\"CDT\":\"Jul 29, 2020 10:57:28 AM\",\"NameFull\":\"오시\",\"JobPageGetYN\":\"N\",\"JobSizeGetYN\":\"N\",\"JobQtyGetYN\":\"N\",\"Sort\":74,\"PaperNo\":-1,\"UseYN\":"
+    },
+    {
+      "name": "awkMapJson",
+      "id": "awkMapJson",
+      "value": "{}"
+    },
+    {
+      "name": "",
+      "id": "JobPrestYN",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "PCostCalcYN",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "ColorAddMode",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "initPages",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "MinPages",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "MaxPages",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "ItvPages",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "prodName",
+      "value": "현수막"
+    },
+    {
+      "name": "",
+      "id": "ProdPNo",
+      "value": "30014"
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno_pgramno",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno_weight",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno_jobqtymin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno_jobqtymax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno_epoxyyn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno_cottingyn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno_heungabyn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno_foilyn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno_misingyn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_paperno_numberingyn",
+      "value": ""
+    },
+    {
+      "name": "JobNo",
+      "id": "hdata_0_prs",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_prs_pressm",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_0_prs_qunit",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "qtyvalid",
+      "value": "Y"
+    },
+    {
+      "name": "estimatedVal",
+      "id": "estimatedVal",
+      "value": ""
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "ProdNo",
+      "id": "",
+      "value": "40154"
+    },
+    {
+      "name": "kind",
+      "id": "kind",
+      "value": "all"
+    },
+    {
+      "name": "pageIndex",
+      "id": "pageIndex",
+      "value": "1"
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "FileGrp",
+      "id": "FileGrp",
+      "value": "6"
+    },
+    {
+      "name": "FileName",
+      "id": "FileName",
+      "value": ""
+    },
+    {
+      "name": "FileBase64",
+      "id": "FileBase64",
+      "value": ""
+    },
+    {
+      "name": "FileDir",
+      "id": "FileDir",
+      "value": ""
+    },
+    {
+      "name": "FileExt",
+      "id": "FileExt",
+      "value": "pdf"
+    },
+    {
+      "name": "FileSize",
+      "id": "FileSize",
+      "value": ""
+    },
+    {
+      "name": "OrdTitle",
+      "id": "OrdTitle",
+      "value": ""
+    },
+    {
+      "name": "WorkerNo",
+      "id": "WorkerNo",
+      "value": ""
+    },
+    {
+      "name": "Comt",
+      "id": "Comt",
+      "value": ""
+    },
+    {
+      "name": "preFlightOrd",
+      "id": "preFlightOrd",
+      "value": "N"
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "itemNo",
+      "id": "itemNo",
+      "value": ""
+    },
+    {
+      "name": "CartTP",
+      "id": "CartTP",
+      "value": "1"
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    }
+  ],
+  "priceElements": [
+    {
+      "tag": "DIV",
+      "id": "",
+      "classes": "total_menu_close_positon",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_close",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "classes": "total_menu_1depth_bg",
+      "text": "명함\n                                \n                                    \n                                        일반명함\n                                        특수지명함\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "명함\n                                \n                                    \n                                        일반명함\n                                        특수지명함\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "스티커\n                                \n                                    \n                                        사각스티커\n                                        가성비스티커\n                                 "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "책자\n                                \n                                    \n                                        무선책자\n                                        중철책자\n                                     "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "전단\n                                \n                                    \n                                        합판전단\n                                        독판전단\n                                     "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "홍보물\n                                \n                                    \n                                        대량리플렛\n                                        포스터\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "디지털인쇄\n                                \n                                    \n                                        소량리플렛\n                                        소량포스터\n                                "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "어패럴\n                                \n                                    \n                                        에코백\n                                        반팔T\n                                      "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "사인제품\n                                \n                                    \n                                        현수막\n                                        일반현수막\n                                   "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "굿즈/다꾸\n                                \n                                    \n                                        굿즈\n                                        떡메모지\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "팬시제품\n                                \n                                    \n                                        마스킹테이프\n                                        마스킹테이프(기성)\n                           "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "행택/쿠폰/안내장\n                                \n                                    \n                                        행택\n                                        헤더택\n                                 "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "포토/액자\n                                \n                                    \n                                        캔버스액자\n                                        노프레임액자\n                               "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "봉투\n                                \n                                    \n                                        칼라봉투\n                                        마스타봉투\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "서식류\n                                \n                                    \n                                        먹1도\n                                        양식지\n                                      "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "자석제품\n                                \n                                    \n                                        종이자석광고지(UV코팅)\n                                        \n                              "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "판촉물\n                                \n                                    \n                                        김서림방지안경닦이\n                                        종이썬캡\n                               "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "홀더\n                                \n                                    \n                                        종이홀더\n                                        카드키홀더\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "캘린더\n                                \n                                    \n                                        기성탁상용캘린더\n                                        기성벽걸이캘린더\n                            "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "폰액세서리\n                                \n                                    \n                                        폰케이스(슬림하드)\n                                        폰케이스(투명젤리)\n                      "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "카페용품\n                                \n                                    \n                                        종이컵\n                                        에어홀더\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "부자재\n                                \n                                    \n                                        조각자석\n                                        종이명함케이스\n                                 "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "와우기획상품\n                                \n                                    \n                                        인쇄레시피\n                                        \n                                    "
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "classes": "order_total",
+      "text": "총 결제금액0 원\n\t\t\t\t\tCheckPDF를 사용하시면 결제시 100원 추가할인 됩니다.\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t \t장바구니\n\t\t\t\t\t\t주문하기\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\tif(window.console){\n\t\t\t\t\t\t\tconsole.log(\"autoClsMode"
+    },
+    {
+      "tag": "SPAN",
+      "id": "od_00_totalcost",
+      "classes": "num pl10",
+      "text": "0"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "WOW 멤버십안내 자세히보기",
+      "id": "",
+      "type": "submit",
+      "onclick": "movePage('/info/page/mpag/membership', '')",
+      "classes": "sidebar_btn_style_01"
+    },
+    {
+      "text": "함께캠페인 자세히보기",
+      "id": "",
+      "type": "submit",
+      "onclick": "movePage('https://blog.naver.com/PostList.nhn?blogId=wow_press&from=postList&categoryNo=37', '_blank')",
+      "classes": "sidebar_btn_style_01"
+    },
+    {
+      "text": "쿠폰페이지 바로가기",
+      "id": "",
+      "type": "submit",
+      "onclick": "movePage('/mpag/cupn/list', '')",
+      "classes": "sidebar_btn_style_01"
+    },
+    {
+      "text": "핵심가치페이지 바로가기",
+      "id": "",
+      "type": "submit",
+      "onclick": "movePage('/archives/info/wowpress7', '')",
+      "classes": "sidebar_btn_style_01"
+    },
+    {
+      "text": "입력",
+      "id": "",
+      "type": "button",
+      "onclick": "javascript:nonStdSzSelfEditCall($(this))",
+      "classes": "et_size_btn"
+    },
+    {
+      "text": "",
+      "id": "",
+      "type": "button",
+      "onclick": "javascript: getTemplateBtn();",
+      "classes": ""
+    },
+    {
+      "text": "",
+      "id": "",
+      "type": "button",
+      "onclick": "javascript: getTemplateBtn();",
+      "classes": ""
+    },
+    {
+      "text": "PDF파일 업로드",
+      "id": "",
+      "type": "submit",
+      "onclick": "fileForm('next');",
+      "classes": "btn_pdf_up2"
+    },
+    {
+      "text": "장바구니",
+      "id": "",
+      "type": "submit",
+      "onclick": "preFlightFileForm('cart','Y');",
+      "classes": "btn_cart_up"
+    },
+    {
+      "text": "주문하기",
+      "id": "",
+      "type": "submit",
+      "onclick": "preFlightFileForm('ordr','Y');",
+      "classes": "btn_pdf_up2"
+    },
+    {
+      "text": "재업로드 및 초기화",
+      "id": "",
+      "type": "submit",
+      "onclick": "preflightInit();",
+      "classes": "btn_modify_up"
+    },
+    {
+      "text": "견적서출력",
+      "id": "",
+      "type": "submit",
+      "onclick": "callEstimate();",
+      "classes": "mypage_order_state"
+    },
+    {
+      "text": "장바구니",
+      "id": "",
+      "type": "submit",
+      "onclick": "fileForm('cart');",
+      "classes": "btn_basket"
+    },
+    {
+      "text": "주문하기",
+      "id": "",
+      "type": "submit",
+      "onclick": "fileForm('ordr');",
+      "classes": "btn_order"
+    },
+    {
+      "text": "",
+      "id": "",
+      "type": "submit",
+      "onclick": "fileFormNext('next');",
+      "classes": "btn_checkpdf"
+    },
+    {
+      "text": "",
+      "id": "",
+      "type": "submit",
+      "classes": "_promoCloseButton_1b80j_88"
+    },
+    {
+      "text": "",
+      "id": "",
+      "type": "submit",
+      "classes": "_chatButton_64jfm_2 _chatButton_1b80j_152"
+    }
+  ],
+  "tables": [
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "카테고리",
+        "사이즈",
+        "비규격 사이즈",
+        "검색-+",
+        "업종",
+        "용도",
+        "선택리스트"
+      ],
+      "rowCount": 11,
+      "rows": [
+        [
+          {
+            "text": "카테고리",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "전체품목\n                            장사밑천\n                            마음전하기\n                            비지니스\n                            팬시",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "스티커명함전단포스터봉투사인제품굿즈/다꾸폰액세서리팬시/판촉어패럴포토/액자캘린더서식류헤더택/엽서/웨딩자석제품웹용템플릿",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "도무송스티커사각스티커판스티커네임스티커포토스티커네컷스티커패브릭스티커롤스티커배달스티커조각스티커",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "사이즈",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "가로형5000x900가로형4000x700세로형900x5000정사각형 1000x1000정사각형 1200x1200직사각형 1200x900",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "비규격 사이즈",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "× \n                            \n                            입력",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": true,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "검색-+",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "컬러 검색\n                                        \n                                        \n                                        \n                                        \n                              ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": true,
+            "hasInput": true,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "업종",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "카페/음료/베이커리음식점업교육서비스업도소매/제조업/유통업예술/스포츠/레저/여가미용/뷰티종교병원/제약/복지부동산/임대/건설/숙박업금융/보험/투자법률/세무/회계공공기관/관공서/협회기타 전문직/자영업",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "dn"
+          }
+        ],
+        [
+          {
+            "text": "용도",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "비즈니스/공공프로모션/홍보/쿠폰기념일명절공연/축제/행사축하/응원/감사가격/메뉴판/안내문/고객관리추모/장례/근조코로나19",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "dn"
+          }
+        ],
+        [
+          {
+            "text": "선택리스트",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "fs16 hpx50"
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "mytable",
+      "classes": "",
+      "headers": [],
+      "rowCount": 1,
+      "rows": [
+        [
+          {
+            "text": "c17-426_음식점",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c17-421_음식점",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c17-109_음식점",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c17-108_음식점",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c17-6236_축제",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c17-6235_축제",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c17-4338_축제",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "예상출고일",
+        "수량",
+        "인쇄선택",
+        "페이지수",
+        "후가공",
+        "부자재",
+        "재고안내",
+        "견적서"
+      ],
+      "rowCount": 10,
+      "rows": [
+        [
+          {
+            "text": "현수막",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "2",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "예상출고일",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "2026-02-23",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "수량",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "2",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "인쇄선택",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "페이지수",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "후가공",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "부자재",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "재고안내",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "일시 품절 옵션입니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "견적서",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "견적서출력",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [],
+      "rowCount": 0,
+      "rows": []
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [],
+      "rowCount": 2,
+      "rows": [
+        [
+          {
+            "text": "총 결제금액0 원\n\t\t\t\t\tCheckPDF를 사용하시면 결제시 100원 추가할인 됩니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "장바구니\n\t\t\t\t\t\t주문하기\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\tif(window.console){\n\t\t\t\t\t\t\tconsole.log(\"autoClsMode : \");\n\t\t\t\t\t\t\tconsole.log(\"autoClsMode : \");\n\t\t\t\t\t\t\tconsole.log(\"N\");\n\t\t\t\t\t\t}\n\t\t\t",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [],
+      "rowCount": 1,
+      "rows": [
+        [
+          {
+            "text": "등록된 내용이 없습니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "4",
+            "classes": "tac"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "배쑝와쑝",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "배쑝와쑝",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "와우프레스 자체 배송차량으로 새벽에 출발해 택배보다 하루빨리 문앞까지 무료로 배송해드립니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "무료",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 백화점/대형쇼핑몰/시장/학교/관공서/주정차가 불가한 밀집지역은 1층 입구에 경비실 또는 물품보관소가 있는 경우에만 배송 가능합니다.\n                                - 아파트는 경비실 수령일 경우에만 가능하며 문앞 배송은 불가합니다.\n                                - 대량 주문일 경우(예시 : 전단 1",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "택배송",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "택배송",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "고객님이 주문한 제품을 택배를 이용해 배송해 드리는 서비스이며 멤버십 등급에 따라 선불택배비 무료 혜택을 받으실 수 있습니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2,700원 ~",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 독판 및 일부제품은 부피로 인해 포장 박스가 늘어날 수 있으며 이로 인해 추가 배송비가 발생할 수 있습니다.\n                                - 제주도/산간지역은 3,000원, 도서지역은 5,000원의 추가 요금이 발생합니다.\n                                - 제주도/도서산간 지역은 무료택배에 제외됩니",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "대리배송",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "대리배송",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "WOW배송 코스에 한해 와우프레스의 배송차량으로 출고 당일 고객님이 원하시는 지역으로 배송해 드리는 서비스입니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "5,000원~",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 직접 수령이 어려운 경우 보관장소를 반드시 배송메모에 남겨주세요. (예시 : XX편의점, 문앞 등)\n                                - 백화점/대형쇼핑몰/시장/학교/관공서/주정차가 불가한 밀집지역은 1층 입구에 경비실 또는 물품보관소가 있는 경우에만 배송 가능합니다.\n                                - ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "방문수령",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "방문수령",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "회원님이 본사/지역별 센터로 직접 방문하여 제품을 수령하는 서비스입니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "무료",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 대구본사/서울을지센터 운영시간 : 09:00~19:00\n                                - 대구남산센터/대전정동센터/부산서면센터 운영시간 : 09:00~18:00",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "퀵배송",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "퀵배송",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "회원님이 주문한 제품을 당일 도착할 수 있도록 오토바이/다마스로 배송해 드리는 서비스입니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "5,000원~",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 선불퀵은 제품의 부피, 무게, 거리에 따라 추가 배송비가 발생할 수 있습니다.\n                                - 동일한 배송지의 상품은 묶음배송을 신청하셔야 추가 배송비가 발생하지 않습니다.\n                                - 금요일 퀵배송으로 접수된 주문 건은 주5일 근무지가 많은 관계로 월요일에 일",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "기타배송",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "기타배송",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "와우프레스는 회원님의 편의에 맞춰 고속버스, 화물, 항공, 선박배송 등을 제공합니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "협의",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 고속버스 배송은 부피/무게/거리에 따라 배송비가 상이하므로 발송 전 알려드리는 금액을 결제하신 후 배송됩니다.\n                                - 화물배송은 착불결제만 가능하며 고객님께서 수신영업소에 직접 찾으러 가는 방식입니다.\n                                - 화물배송은 착불요금 외 하역수수료가 부",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "g5_table",
+      "headers": [
+        "구분",
+        "재작업 불가사항 내용",
+        "영상가이드"
+      ],
+      "rowCount": 23,
+      "rows": [
+        [
+          {
+            "text": "구분",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "재작업 불가사항 내용",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "영상가이드",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "기본준수사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce"
+          },
+          {
+            "text": "• 폰트를 아웃라인(Outline) 하지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 그룹을 하지 않아서 이미지나 텍스트가 인쇄되지 않은 경우\n\t\t\t\t\n\t\t\t\t• 레이어 숨김 또는 잠금 처리가 되어 있어 이미지나 텍스트가 인쇄 된 경우\n                • 레이어 숨김 처리가 되어있는 부분이 실제 인쇄된 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 작업선과 테두리선을 선없음(0pt) 처리하지 않아서 작업선과 테두리선이 인쇄된 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 작업 여유분을 빼지않아 인쇄가 되지 않거나 종이 여백이 보이는 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 재단 및 도무송 공정에서 ±1~2mm 밀림 현상이 발생하여 사방 테두리 간격이 일정하지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 이미지나 텍스트를 안전영역(재단선에서 2.5~5mm 안쪽)에 배치하지 않아 재단선에 가깝게 있거나 잘린 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 선 두께 0.5pt, 폰트 크기 5pt 이상으로 작업하지 않아서 이미지나 텍스트가 선명하게 인쇄되지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 여러 건의 파일을 앞, 뒤 순서대로 배열하지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "• K100%는 자동으로 오버프린트가 되므로 K100% 바탕 밑에 이미지나 다른 색상이 있는 경우 겹쳐서 인쇄가 됩니다. 따라서 겹치는 부분은 Pathfinder로 뚫어 주시거나 색상 경계를 나눠 주셔야 합니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "이미지",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce"
+          },
+          {
+            "text": "• 해상도가 낮은 이미지를 사용하여 선명하게 인쇄되지 않은 경우 (해상도 300dpi 이상 이미지를 사용하기를 권장)",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 일러스트에서 투명도 효과 사용 시 병합(Flatten) 하지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 일러스트에서 오브젝트 색상을 오버프린트(Overprint) 한 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 코렐에서 이미지 효과 사용 시 비트맵(Bitmap) 처리하지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "색상",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce"
+          },
+          {
+            "text": "• 동일한 인쇄 파일을 합판으로 인쇄할 때 색상 차이가 발생한 경우\n\t\t\t\t\n\t\t\t\t\t① 이전 주문한 데이터와 색상 차이가 발생할 수 있음(독판은 이전 인쇄물 전달 시 색상참조 가능)\n\t\t\t\t\t② 건수로 주문할 경우 건별 색상 차이가 발생할 수 있음",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "① : \n\t\t\t\t② :",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ]
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "tag": "DIV",
+      "classes": "section_title",
+      "text": "선택"
+    },
+    {
+      "tag": "DIV",
+      "classes": "section_title",
+      "text": "이용후기"
+    }
+  ],
+  "steps": [
+    {
+      "tag": "DIV",
+      "classes": "tab_group",
+      "text": "제품정보\n\t\t\t\n            이용후기 (0)\n            출고/배송\n\t\t\t재작업/취소/환불            \n\t\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t \n\t\t\t\n            \n            \n\t\t\t\n\t\t\t\n\t\t\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "active": false
+    },
+    {
+      "tag": "UL",
+      "classes": "swichtab-controller",
+      "text": "제품정보\n\t\t\t\n            이용후기 (0)\n            출고/배송\n\t\t\t재작업/취소/환불",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-contents",
+      "text": "전체(0)\n            \n                \n            \n             포토(0)\n        \n    \n    \n        \n        \n            \n            \n            \n            \n            \n        \n        \n        \n   ",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-panel is-active",
+      "text": "",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-panel",
+      "text": "전체(0)\n            \n                \n            \n             포토(0)\n        \n    \n    \n        \n        \n            \n            \n            \n            \n            \n        \n        \n        \n   ",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "tab_list_reviews mt30",
+      "text": "전체(0)\n            \n                \n            \n             포토(0)\n        \n    \n    \n        \n        \n            \n            \n            \n            \n            \n        \n        \n        \n   ",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-panel",
+      "text": "출고안내\n\t\n\t\t• 출고일은 접수부터 포장까지 완료되는데 소요되는 일수입니다. (평일 기준, 주말/공휴일 제외)\n\t\t• 접수마감시간 이전에 주문과 결제가 완료된 건에 한해 당일 접수됩니다.\n\t\t• 주문수량이 많거나 박, 도무송 등 기타 후가공이 많이 추가되는 경우는 별도 문의 바랍니다.\n\t\n\n\n\t배송안내\n    \n\t\t• 배쑝와쑝\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-panel",
+      "text": "재작업 안내\n\t\n\t\t• 재작업 문의는 마이페이지 > 재작업신청 통해 신청하시기 바랍니다.\n\t\t• 문제가 발생한 제품은 수령일로부터 7일 이내에 신청을 하셔야 재작업이 가능합니다.\n\t\t• 재작업 신청 시 수령한 제품은 모두 반송되어야 하며 원본 파일로 재작업됨을 원칙으로 합니다.\n\t\t• 재작업을 진행할 때 파일을 수정할 경우 비용의 50%를 부담하셔야 합니다",
+      "active": false
+    },
+    {
+      "tag": "TABLE",
+      "classes": "g5_table",
+      "text": "구분\n\t\t\t재작업 불가사항 내용\n\t\t\t영상가이드\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\t기본준수사항\n\t\t\t• 폰트를 아웃라인(Outline) 하지 않은 경우\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t• 그룹을 하지 않아서 이미지나 텍스트가 인쇄되지 않은 경우\n\t\t\t\t\n\t\t\t\t• 레이어 숨김 또는 잠금 처리가 되어 있어 이미지나 텍스트가 인쇄 된 경우\n               ",
+      "active": false
+    }
+  ],
+  "jsFunctions": [
+    "mo_send_prod",
+    "ga_send_prod",
+    "na_send_prod",
+    "kk_send_prod",
+    "_adWowGetLogger",
+    "_adWowGetSendEvent",
+    "_adWowGetSiteErrCD",
+    "_adGetSendSiteFuncName",
+    "_adGetSendSiteFunc",
+    "send_advertisement_prod",
+    "setCookieMobile",
+    "setCookieMobile",
+    "getCookieMobile",
+    "checkToggle",
+    "getUseYNProdSelf",
+    "getSizes",
+    "show_itemSize",
+    "resetGroupList",
+    "chgCtgr",
+    "removeTag",
+    "selectTag",
+    "showTagSelect",
+    "initTagSetList",
+    "getTagSetList",
+    "fnSubmit",
+    "fun_prodadd_option",
+    "fun_prodadd_qty",
+    "isAdd",
+    "calcParams",
+    "addawkhardcode",
+    "getinputval",
+    "isValidParams",
+    "getJobCost",
+    "getCalcVSJobCost",
+    "paperpop",
+    "fun_opt_dspcolor",
+    "isAwk",
+    "isAwkOpen",
+    "chg_prs",
+    "func_rqty",
+    "downtempFile",
+    "fn_ordfileupload",
+    "isValidParamsOrd",
+    "addCompCheck",
+    "firstOrderCheck",
+    "firstOrderCallback",
+    "processFileStep",
+    "chk_Awk31000",
+    "chgExitDay",
+    "setAwk31000",
+    "gettawkno",
+    "getAwkno",
+    "gettawkno",
+    "getCkPage",
+    "setAwkOpt",
+    "func_awkvalid",
+    "chgMdmData",
+    "setJobQty",
+    "setDefaultSel",
+    "setSelftDisable",
+    "selfDsgnColor",
+    "initProdAdd",
+    "isAddQty",
+    "getNonStdSize",
+    "getSelfDsgnSize",
+    "rqtypage",
+    "prodSizeJobCK",
+    "chkcalcParams",
+    "chkToSelect_431421",
+    "chkToSelect_431422",
+    "processFileStepCallback"
+  ],
+  "relevantClasses": [
+    "area_order",
+    "btn_order",
+    "delivery_info",
+    "et_size_btn",
+    "et_size_form",
+    "file_uc_box",
+    "file_uc_comt_btn",
+    "file_uc_comt_fail",
+    "file_uc_comt_header",
+    "file_uc_comt_succ",
+    "file_uc_errlog_info",
+    "file_uc_errlog_info_comt",
+    "file_uc_errlog_info_text",
+    "file_uc_left",
+    "file_uc_ordr_info",
+    "file_uc_pdf_images",
+    "file_uc_pdf_info",
+    "file_uc_pdf_info_pages",
+    "file_uc_pdf_info_psizenm",
+    "file_uc_pdf_info_sizenm",
+    "file_uc_right",
+    "file_uct",
+    "file_uct_check_result",
+    "file_uct_select",
+    "img_pdf_file",
+    "mypage_order_state",
+    "order_compare",
+    "order_detail",
+    "order_select",
+    "order_snb",
+    "order_summary",
+    "order_total",
+    "pdForm",
+    "product_box",
+    "product_contents",
+    "product_title",
+    "product_txt",
+    "rew_subProd_info",
+    "temp_file_uc_errlog_info",
+    "temp_file_uc_pdf_info",
+    "total_menu_1depth_bg",
+    "total_menu_1depth_text",
+    "total_menu_close",
+    "total_menu_close_positon"
+  ],
+  "bodyTextPreview": "WOW멤버십\nVVIP만의 특별한 혜택\n- 결제금액 4% 적립\n- 배쑝와쑝 배송비 무료\n- 명함/스티커 2만원 이상 택배비 무료\n- VIP 전용 상담 가능\n등급조건(3개월 접수액 기준)\n\n3억원 이상 \n9,000만원 이상 \n3,000만원 이상 \n2,100만원 이상 \n1,200만원 이상 \n300만원 이상 \n90만원 이상 \n30만원 이상 \n5만원 이상 \n5만원 미만\nWOW 멤버십안내 자세히보기\n   \n로그인\n회원가입\n쿠폰4종+무료배송\n고객센터\n요즘 인쇄 어디?\n와우프레스\n정매수 인쇄 어디?\n와우프레스\n요즘 인쇄 어디?\n와우프레스\n정매수 인쇄 어디?\n와우프레스\n상업인쇄소\n힙지로디지털\n책공방\n가게용품\n문구점\n어패럴\n이벤트\n신제품\n제작가이드 통합주문 무료직배송신청\nNEW!\n이지템플릿\n창닫기\n홈\n>\n사인제품\n명함\n스티커\n책자\n사인제품\n전단\n디지털인쇄\n홍보물\n자석제품\n봉투\n판촉물\n캘린더\n카페용품\n서식류\n행택/쿠폰/안내장\n포토/액자\n홀더\n굿즈/다꾸\n와우기획상품\n부자재\n팬시제품\n선거홍보물\n폰 액세서리\n어패럴\n>\n현수막\n롤블라인드\n현수막\n배너\n사각보드\n모양보드\n시트지\n입간판\n>\n일반현수막\n일반현수막\n족자형현수막\n대형현수막\n미니현수막\n메쉬현수막\n현수막\n●  예상출고일 2026-02-23\n●  접수마감시간 \n●  유의사항\n쉽고 편리한 디자인 이지템플릿\n템플릿전체보기\nc17-426_음식점\n\t\nc17-421_음식점\n\t\nc17-109_음식점\n\t\nc17-108_음식점\n\t\nc17-6236_축제\n\t\nc17-6235_축제\n\t\nc17-4338_축제\n선택\n용지\n현수막\n\n예상출고일\t2026-02-23\n수량\t\n견적서\t견적서출력\n총 결제금액0 원\n\n\n장바구니 주문하기\n제품정보\n이용후기 \n(0)\n출고/배송\n재작업/취소/환불\n회사소개\n이용약관\n개인정보취급방침\n사업자정보확인\n이메일주소무단수집거부\n찾아오시는길\n유해인쇄물제작불가\n멤버십안내\n일반로그인아이디전환\n와우프레스(주)\n[42699] 대구광역시 달서구 장기로 65길 11-5대표이사 : 김경환대표전화 : 1600-7580\n이메일 : wowpress@wowpress.co.kr (세금계산서발급 전용 이메일)\n사업자등록번호 : 504-86-01811통신판매업신고 : 제2016-대구달서-4272호\n개인정보관리책임자 : 권용석\nCopyrightⓒWOWPRESS INC. All rights reserved.\nAI 방울이입니다!"
+}

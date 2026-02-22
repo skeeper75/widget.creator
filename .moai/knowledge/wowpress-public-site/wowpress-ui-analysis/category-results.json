@@ -1,0 +1,47 @@
+[
+  {
+    "catPath": "/ordr/prod/newest",
+    "finalUrl": "https://wowpress.co.kr/ordr/prod/newest",
+    "status": 200
+  },
+  {
+    "catPath": "/ordr/prod/list?cateno=01",
+    "finalUrl": "https://wowpress.co.kr/ordr/prod/list?cateno=01",
+    "status": 200
+  },
+  {
+    "catPath": "/ordr/prod/list?cateno=02",
+    "finalUrl": "https://wowpress.co.kr/ordr/prod/list?cateno=02",
+    "status": 200
+  },
+  {
+    "catPath": "/ordr/prod/list?cateno=03",
+    "finalUrl": "https://wowpress.co.kr/ordr/prod/list?cateno=03",
+    "status": 200
+  },
+  {
+    "catPath": "/ordr/prod/list?cateno=04",
+    "finalUrl": "https://wowpress.co.kr/ordr/prod/list?cateno=04",
+    "status": 200
+  },
+  {
+    "catPath": "/ordr/prod/list?cateno=05",
+    "finalUrl": "https://wowpress.co.kr/ordr/prod/list?cateno=05",
+    "status": 200
+  },
+  {
+    "catPath": "/ordr/prod/list?cateno=06",
+    "finalUrl": "https://wowpress.co.kr/ordr/prod/list?cateno=06",
+    "status": 200
+  },
+  {
+    "catPath": "/ordr/prod/list?cateno=07",
+    "finalUrl": "https://wowpress.co.kr/ordr/prod/list?cateno=07",
+    "status": 200
+  },
+  {
+    "catPath": "/ordr/prod/list?cateno=08",
+    "finalUrl": "https://wowpress.co.kr/ordr/prod/list?cateno=08",
+    "status": 200
+  }
+]

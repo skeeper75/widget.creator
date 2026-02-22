@@ -1,0 +1,45 @@
+{
+  "links": [],
+  "headings": [
+    {
+      "level": "H1",
+      "text": "Shop 회원로그인"
+    }
+  ],
+  "forms": [
+    {
+      "action": "https://devshop.wowpress.co.kr/userlogin",
+      "method": "post",
+      "fields": [
+        {
+          "type": "text",
+          "name": "authUid",
+          "id": "authUid",
+          "placeholder": "Id"
+        },
+        {
+          "type": "password",
+          "name": "authPw",
+          "id": "authPw",
+          "placeholder": "Password"
+        },
+        {
+          "type": "hidden",
+          "name": "txuser",
+          "id": "txuser",
+          "placeholder": ""
+        }
+      ]
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Sign in",
+      "type": "submit",
+      "classes": "w-100 btn btn-lg btn-primary",
+      "onclick": "submitLogin();"
+    }
+  ],
+  "tables": [],
+  "navElements": []
+}

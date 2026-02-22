@@ -1,0 +1,7588 @@
+{
+  "url": "https://wowpress.co.kr/ordr/prod/dets?ProdNo=40026",
+  "title": "와우프레스",
+  "productInfo": {},
+  "selects": [
+    {
+      "name": "category1",
+      "id": "category1",
+      "label": "category1",
+      "optionCount": 23,
+      "options": [
+        {
+          "value": "30001",
+          "text": "명함",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30002",
+          "text": "스티커",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30004",
+          "text": "책자",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30014",
+          "text": "사인제품",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30003",
+          "text": "전단",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40422",
+          "text": "디지털인쇄",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30005",
+          "text": "홍보물",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30013",
+          "text": "자석제품",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30010",
+          "text": "봉투",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30007",
+          "text": "판촉물",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40209",
+          "text": "캘린더",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40287",
+          "text": "카페용품",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30012",
+          "text": "서식류",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30011",
+          "text": "행택/쿠폰/안내장",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30006",
+          "text": "포토/액자",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30009",
+          "text": "홀더",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30008",
+          "text": "굿즈/다꾸",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40190",
+          "text": "와우기획상품",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "39999",
+          "text": "부자재",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40278",
+          "text": "팬시제품",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40452",
+          "text": "선거홍보물",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40460",
+          "text": "폰 액세서리",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40466",
+          "text": "어패럴",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "category2",
+      "id": "category2",
+      "label": "category2",
+      "optionCount": 3,
+      "options": [
+        {
+          "value": "40026",
+          "text": "합판전단",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40054",
+          "text": "독판전단",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40028",
+          "text": "문고리전단",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "",
+      "id": "SelfCNoSize",
+      "label": "SelfCNoSize",
+      "optionCount": 4,
+      "options": [
+        {
+          "value": "5322",
+          "text": "A4(210x297)",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5346",
+          "text": "A3(297x420)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5348",
+          "text": "8절(257x367)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5347",
+          "text": "16절(182x257)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "getTemplate(null, this.value);",
+      "disabled": false,
+      "style": "hidden"
+    },
+    {
+      "name": "SizeNo",
+      "id": "pdata_00_sizeno",
+      "label": "SizeNo",
+      "optionCount": 14,
+      "options": [
+        {
+          "value": "5612",
+          "text": "A4(국8절)",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5610",
+          "text": "A2(국2절)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5611",
+          "text": "A3(국4절)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5613",
+          "text": "A5(국16절)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5607",
+          "text": "4절(B3)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5609",
+          "text": "8절(B4)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5603",
+          "text": "16절(B5)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5605",
+          "text": "32절(B6)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5608",
+          "text": "64절(B7)",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5604",
+          "text": "24절",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5606",
+          "text": "48절",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5614",
+          "text": "장16절",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5615",
+          "text": "장32절",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "7072",
+          "text": "비규격",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "reqMdmDetail('Size',this.value,'0','hdata_00_sizeno');",
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "ColorNo",
+      "id": "pdata_00_colorno",
+      "label": "ColorNo",
+      "optionCount": 2,
+      "options": [
+        {
+          "value": "255",
+          "text": "단면 칼라4도",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "256",
+          "text": "양면 칼라8도",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "chgMdmData(this);",
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "sPaper0",
+      "id": "spdata_00_paperno3",
+      "label": "sPaper0",
+      "optionCount": 1,
+      "options": [
+        {
+          "value": "20689",
+          "text": "아트지",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "chgSelBoxJob(this,'pdata_00_paperno','Paper','0',3);",
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "sPaper0",
+      "id": "spdata_00_paperno4",
+      "label": "sPaper0",
+      "optionCount": 2,
+      "options": [
+        {
+          "value": "20690",
+          "text": "100g",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "20692",
+          "text": "150g",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "chgSelBoxJob(this,'pdata_00_paperno','Paper','0',4);",
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "",
+      "id": "spdata_00_ordqty",
+      "label": "spdata_00_ordqty",
+      "optionCount": 201,
+      "options": [
+        {
+          "value": "0.5",
+          "text": "0.5연",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "1",
+          "text": "1연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "2",
+          "text": "2연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "3",
+          "text": "3연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "4",
+          "text": "4연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5",
+          "text": "5연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "6",
+          "text": "6연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "7",
+          "text": "7연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "8",
+          "text": "8연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "9",
+          "text": "9연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "10",
+          "text": "10연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "11",
+          "text": "11연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "12",
+          "text": "12연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "13",
+          "text": "13연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "14",
+          "text": "14연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "15",
+          "text": "15연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "16",
+          "text": "16연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "17",
+          "text": "17연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "18",
+          "text": "18연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "19",
+          "text": "19연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "20",
+          "text": "20연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "21",
+          "text": "21연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "22",
+          "text": "22연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "23",
+          "text": "23연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "24",
+          "text": "24연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "25",
+          "text": "25연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "26",
+          "text": "26연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "27",
+          "text": "27연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "28",
+          "text": "28연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "29",
+          "text": "29연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "30",
+          "text": "30연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "31",
+          "text": "31연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "32",
+          "text": "32연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "33",
+          "text": "33연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "34",
+          "text": "34연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "35",
+          "text": "35연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "36",
+          "text": "36연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "37",
+          "text": "37연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "38",
+          "text": "38연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "39",
+          "text": "39연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "40",
+          "text": "40연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "41",
+          "text": "41연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "42",
+          "text": "42연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "43",
+          "text": "43연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "44",
+          "text": "44연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "45",
+          "text": "45연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "46",
+          "text": "46연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "47",
+          "text": "47연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "48",
+          "text": "48연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "49",
+          "text": "49연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "50",
+          "text": "50연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "51",
+          "text": "51연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "52",
+          "text": "52연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "53",
+          "text": "53연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "54",
+          "text": "54연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "55",
+          "text": "55연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "56",
+          "text": "56연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "57",
+          "text": "57연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "58",
+          "text": "58연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "59",
+          "text": "59연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "60",
+          "text": "60연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "61",
+          "text": "61연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "62",
+          "text": "62연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "63",
+          "text": "63연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "64",
+          "text": "64연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "65",
+          "text": "65연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "66",
+          "text": "66연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "67",
+          "text": "67연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "68",
+          "text": "68연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "69",
+          "text": "69연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "70",
+          "text": "70연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "71",
+          "text": "71연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "72",
+          "text": "72연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "73",
+          "text": "73연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "74",
+          "text": "74연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "75",
+          "text": "75연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "76",
+          "text": "76연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "77",
+          "text": "77연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "78",
+          "text": "78연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "79",
+          "text": "79연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "80",
+          "text": "80연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "81",
+          "text": "81연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "82",
+          "text": "82연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "83",
+          "text": "83연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "84",
+          "text": "84연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "85",
+          "text": "85연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "86",
+          "text": "86연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "87",
+          "text": "87연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "88",
+          "text": "88연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "89",
+          "text": "89연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "90",
+          "text": "90연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "91",
+          "text": "91연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "92",
+          "text": "92연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "93",
+          "text": "93연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "94",
+          "text": "94연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "95",
+          "text": "95연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "96",
+          "text": "96연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "97",
+          "text": "97연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "98",
+          "text": "98연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "99",
+          "text": "99연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "100",
+          "text": "100연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "101",
+          "text": "101연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "102",
+          "text": "102연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "103",
+          "text": "103연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "104",
+          "text": "104연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "105",
+          "text": "105연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "106",
+          "text": "106연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "107",
+          "text": "107연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "108",
+          "text": "108연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "109",
+          "text": "109연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "110",
+          "text": "110연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "111",
+          "text": "111연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "112",
+          "text": "112연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "113",
+          "text": "113연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "114",
+          "text": "114연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "115",
+          "text": "115연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "116",
+          "text": "116연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "117",
+          "text": "117연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "118",
+          "text": "118연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "119",
+          "text": "119연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "120",
+          "text": "120연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "121",
+          "text": "121연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "122",
+          "text": "122연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "123",
+          "text": "123연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "124",
+          "text": "124연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "125",
+          "text": "125연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "126",
+          "text": "126연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "127",
+          "text": "127연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "128",
+          "text": "128연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "129",
+          "text": "129연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "130",
+          "text": "130연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "131",
+          "text": "131연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "132",
+          "text": "132연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "133",
+          "text": "133연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "134",
+          "text": "134연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "135",
+          "text": "135연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "136",
+          "text": "136연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "137",
+          "text": "137연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "138",
+          "text": "138연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "139",
+          "text": "139연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "140",
+          "text": "140연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "141",
+          "text": "141연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "142",
+          "text": "142연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "143",
+          "text": "143연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "144",
+          "text": "144연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "145",
+          "text": "145연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "146",
+          "text": "146연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "147",
+          "text": "147연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "148",
+          "text": "148연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "149",
+          "text": "149연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "150",
+          "text": "150연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "151",
+          "text": "151연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "152",
+          "text": "152연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "153",
+          "text": "153연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "154",
+          "text": "154연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "155",
+          "text": "155연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "156",
+          "text": "156연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "157",
+          "text": "157연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "158",
+          "text": "158연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "159",
+          "text": "159연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "160",
+          "text": "160연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "161",
+          "text": "161연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "162",
+          "text": "162연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "163",
+          "text": "163연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "164",
+          "text": "164연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "165",
+          "text": "165연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "166",
+          "text": "166연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "167",
+          "text": "167연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "168",
+          "text": "168연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "169",
+          "text": "169연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "170",
+          "text": "170연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "171",
+          "text": "171연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "172",
+          "text": "172연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "173",
+          "text": "173연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "174",
+          "text": "174연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "175",
+          "text": "175연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "176",
+          "text": "176연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "177",
+          "text": "177연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "178",
+          "text": "178연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "179",
+          "text": "179연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "180",
+          "text": "180연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "181",
+          "text": "181연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "182",
+          "text": "182연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "183",
+          "text": "183연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "184",
+          "text": "184연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "185",
+          "text": "185연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "186",
+          "text": "186연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "187",
+          "text": "187연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "188",
+          "text": "188연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "189",
+          "text": "189연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "190",
+          "text": "190연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "191",
+          "text": "191연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "192",
+          "text": "192연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "193",
+          "text": "193연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "194",
+          "text": "194연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "195",
+          "text": "195연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "196",
+          "text": "196연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "197",
+          "text": "197연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "198",
+          "text": "198연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "199",
+          "text": "199연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "200",
+          "text": "200연",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "fnOrdSummary();",
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "OrdCnt",
+      "id": "pdata_00_ordcnt",
+      "label": "OrdCnt",
+      "optionCount": 20,
+      "options": [
+        {
+          "value": "1",
+          "text": "1건",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "2",
+          "text": "2건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "3",
+          "text": "3건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "4",
+          "text": "4건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "5",
+          "text": "5건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "6",
+          "text": "6건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "7",
+          "text": "7건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "8",
+          "text": "8건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "9",
+          "text": "9건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "10",
+          "text": "10건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "11",
+          "text": "11건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "12",
+          "text": "12건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "13",
+          "text": "13건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "14",
+          "text": "14건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "15",
+          "text": "15건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "16",
+          "text": "16건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "17",
+          "text": "17건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "18",
+          "text": "18건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "19",
+          "text": "19건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "20",
+          "text": "20건",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "$('#hdata_00_ordcnt').val(this.value);fnOrdSummary();",
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "sJob0",
+      "id": "spdata_00_awk290001",
+      "label": "sJob0",
+      "optionCount": 7,
+      "options": [
+        {
+          "value": "",
+          "text": "재단 선택하세요",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "29032",
+          "text": "2등분재단",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "29033",
+          "text": "3등분재단",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "29034",
+          "text": "4등분재단",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "29035",
+          "text": "5등분재단",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "29036",
+          "text": "6등분재단",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "29039",
+          "text": "7등분이상재단",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "chgSelBoxJob(this,'pdata_00_awk29000','Job','0',1);",
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "sJob0",
+      "id": "spdata_00_awk280001",
+      "label": "sJob0",
+      "optionCount": 5,
+      "options": [
+        {
+          "value": "",
+          "text": "접지 선택하세요",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "28001",
+          "text": "2단접지",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "28002",
+          "text": "3단접지",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "28003",
+          "text": "4단접지",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "28009",
+          "text": "N접지",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "chgSelBoxJob(this,'pdata_00_awk28000','Job','0',1);",
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "sJob0",
+      "id": "spdata_00_awk113521",
+      "label": "sJob0",
+      "optionCount": 3,
+      "options": [
+        {
+          "value": "11354",
+          "text": "1줄",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "11355",
+          "text": "2줄",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "11356",
+          "text": "3줄",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "chgSelBoxJob(this,'pdata_00_awk11352','Job','0',1);",
+      "disabled": false,
+      "style": "visible"
+    },
+    {
+      "name": "sJob0",
+      "id": "spdata_00_awk113522",
+      "label": "sJob0",
+      "optionCount": 3,
+      "options": [
+        {
+          "value": "",
+          "text": "미싱 선택하세요",
+          "selected": true,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "11359",
+          "text": "가로",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        },
+        {
+          "value": "11388",
+          "text": "세로",
+          "selected": false,
+          "disabled": false,
+          "dataAttrs": []
+        }
+      ],
+      "onchange": "chgSelBoxJob(this,'pdata_00_awk11352','Job','0',2);",
+      "disabled": false,
+      "style": "visible"
+    }
+  ],
+  "radioGroups": {
+    "preset": {
+      "label": "인쇄",
+      "items": [
+        {
+          "value": "1",
+          "id": "preset_1",
+          "label": "",
+          "checked": true,
+          "disabled": false
+        }
+      ]
+    }
+  },
+  "checkboxes": [
+    {
+      "name": "",
+      "id": "ez_c_01",
+      "value": "빨강",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_02",
+      "value": "주황",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_03",
+      "value": "노랑",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_04",
+      "value": "초록",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_05",
+      "value": "하늘",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_06",
+      "value": "파랑",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_07",
+      "value": "보라",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_08",
+      "value": "핑크",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_09",
+      "value": "베이지",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_10",
+      "value": "갈색",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_11",
+      "value": "흰색",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_12",
+      "value": "회색",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_13",
+      "value": "검정",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    },
+    {
+      "name": "",
+      "id": "ez_c_14",
+      "value": "색조합",
+      "label": "",
+      "checked": false,
+      "disabled": false
+    }
+  ],
+  "inputs": [
+    {
+      "type": "text",
+      "name": "srchKeyword",
+      "id": "srchKeyword",
+      "placeholder": "",
+      "value": "",
+      "label": "",
+      "readonly": false,
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "name": "docWidth",
+      "id": "docWidth",
+      "placeholder": "가로",
+      "value": "",
+      "label": "비규격 사이즈",
+      "readonly": false,
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "name": "docHeight",
+      "id": "docHeight",
+      "placeholder": "세로",
+      "value": "",
+      "label": "비규격 사이즈",
+      "readonly": false,
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "name": "srchKeyword2",
+      "id": "srchKeyword2",
+      "placeholder": "검색어를 입력하세요~",
+      "value": "",
+      "label": "검색-+",
+      "readonly": false,
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "name": "sizeCW",
+      "id": "hdata_00_sizeno_x",
+      "placeholder": "가로",
+      "value": "210",
+      "label": "",
+      "readonly": true,
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "name": "sizeCH",
+      "id": "hdata_00_sizeno_y",
+      "placeholder": "세로",
+      "value": "297",
+      "label": "",
+      "readonly": true,
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "name": "sizeWW",
+      "id": "hdata_00_sizeno_xx",
+      "placeholder": "가로",
+      "value": "213",
+      "label": "",
+      "readonly": true,
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "name": "sizeWH",
+      "id": "hdata_00_sizeno_yy",
+      "placeholder": "세로",
+      "value": "300",
+      "label": "",
+      "readonly": true,
+      "disabled": false
+    }
+  ],
+  "fileUploads": [],
+  "uploadAreas": [
+    {
+      "tag": "DIV",
+      "classes": "dropdownmenu",
+      "id": "",
+      "text": "고객센터\n                        \n                        \n                            \n                                \n                                    공지사항\n                                    \n     "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropmenubtn",
+      "id": "",
+      "text": "고객센터"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdownmenu-contents",
+      "id": "",
+      "text": "공지사항\n                                    \n                                    FAQ\n                                    \n                                    \n                                    견적상담\n   "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "상업인쇄소\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                       "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "상업인쇄소"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "명함\n                                    \n                                    \n                                        \n                                            일반명함\n                                 "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "명함\n                                    \n                                    \n                                        \n                                            일반명함\n                                 "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "힙지로디지털\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                      "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "힙지로디지털"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "소량리플렛\n                                    \n                                \n                                \n                                    소량포스터\n                                    \n            "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "소량리플렛\n                                    \n                                \n                                \n                                    소량포스터\n                                    \n            "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "책공방\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                         "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "책공방"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "무선책자\n                                    \n                                \n                                \n                                    중철책자\n                                    \n              "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "무선책자\n                                    \n                                \n                                \n                                    중철책자\n                                    \n              "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "가게용품\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                        "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "가게용품"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "사인제품\n                                    \n                                    \n                                        \n                                            현수막\n                                "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "사인제품\n                                    \n                                    \n                                        \n                                            현수막\n                                "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "문구점\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                         "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "문구점"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "굿즈/다꾸\n                                    \n                                    \n                                        \n                                            굿즈\n                                "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "굿즈/다꾸\n                                    \n                                    \n                                        \n                                            굿즈\n                                "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "어패럴\n                \n                    \n                        \n                            \n                        \n                        \n                            \n                         "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "어패럴"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_content",
+      "id": "",
+      "text": "에코백\n                                        \n                                \n                                \n                                    반팔T\n                                    \n            "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_area",
+      "id": "",
+      "text": "에코백\n                                        \n                                \n                                \n                                    반팔T\n                                    \n            "
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu_title",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "이벤트"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "이벤트"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropdown_menu",
+      "id": "",
+      "text": "신제품"
+    },
+    {
+      "tag": "DIV",
+      "classes": "dropbtn_menu",
+      "id": "",
+      "text": "신제품"
+    },
+    {
+      "tag": "TD",
+      "classes": "file_tooltip",
+      "id": "ordtypeFU",
+      "text": "파일주문\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t장바구니/주문하기 버튼 클릭 후파일을 업로드할 수 있습니다."
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_tooltiptext",
+      "id": "",
+      "text": "장바구니/주문하기 버튼 클릭 후파일을 업로드할 수 있습니다."
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uct_banner",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uct_select",
+      "id": "",
+      "text": "CheckPDF\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\tPDF파일 업로드\n\t\t\t\n\t\t\t\n\t\t\t\t※ 재작업불가사항\n\t\t\t\t- 재단선을 선없음(색없음) 처리하지 않아서 인쇄될 경우 이에 대한 재작업은 불가합니다.\n                                            - 인쇄 파일의 레이어가 숨김 처리되어"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uct",
+      "id": "",
+      "text": "CheckPDF"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_box",
+      "id": "",
+      "text": "PDF파일 업로드\n\t\t\t\n\t\t\t\n\t\t\t\t※ 재작업불가사항\n\t\t\t\t- 재단선을 선없음(색없음) 처리하지 않아서 인쇄될 경우 이에 대한 재작업은 불가합니다.\n                                            - 인쇄 파일의 레이어가 숨김 처리되어 있어 불필요한 이미지가 인쇄될 경우 재작업이 불가하오니 반드시 확인하여 작업해 주시기 "
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_left wp100 tal",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_left wp100 tac",
+      "id": "",
+      "text": "PDF파일 업로드"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_left wp100 tal",
+      "id": "",
+      "text": "※ 재작업불가사항\n\t\t\t\t- 재단선을 선없음(색없음) 처리하지 않아서 인쇄될 경우 이에 대한 재작업은 불가합니다.\n                                            - 인쇄 파일의 레이어가 숨김 처리되어 있어 불필요한 이미지가 인쇄될 경우 재작업이 불가하오니 반드시 확인하여 작업해 주시기 바랍니다.\n                "
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uct_check_result",
+      "id": "",
+      "text": "파일검수\n\t\t\n\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t            장바구니\n\t\t\t            주문하기\n\t\t\t            \n\t\t            \n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t            \n\t\t\t\t\t\t\n\t\t\t            재업로드 및 초기화\n\t\t            \n"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uct",
+      "id": "",
+      "text": "파일검수"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_box",
+      "id": "",
+      "text": "장바구니\n\t\t\t            주문하기\n\t\t\t            \n\t\t            \n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t            \n\t\t\t\t\t\t\n\t\t\t            재업로드 및 초기화\n\t\t            \n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tPDF사이즈\n\t\t\t\t\t사이즈(픽셀):"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_right wp100",
+      "id": "",
+      "text": "장바구니\n\t\t\t            주문하기\n\t\t\t            \n\t\t            \n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t            \n\t\t\t\t\t\t\n\t\t\t            재업로드 및 초기화\n\t\t            \n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tPDF사이즈\n\t\t\t\t\t사이즈(픽셀):"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_comt_succ",
+      "id": "",
+      "text": "장바구니\n\t\t\t            주문하기"
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_comt_header fs30 fwb wp100",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_comt_btn mt20",
+      "id": "",
+      "text": "장바구니\n\t\t\t            주문하기"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_comt_fail",
+      "id": "",
+      "text": "재업로드 및 초기화"
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_comt_header fs30 fwb fc_red wp100",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_comt_btn mt20 ",
+      "id": "",
+      "text": "재업로드 및 초기화"
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_ordr_info",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_pdf_info",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_errlog_info",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "temp_file_uc_pdf_info",
+      "id": "",
+      "text": "PDF사이즈\n\t\t\t\t\t사이즈(픽셀): \n\t\t\t\t\t사이즈(mm) : \n\t\t\t\t\t페이지(장) :"
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_pdf_info_psizenm fs12",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_pdf_info_sizenm fs12",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_pdf_info_pages fs12",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "temp_file_uc_errlog_info",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_errlog_info_text fs18",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "classes": "file_uc_errlog_info_comt fs14 pl15",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_left wp100",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "classes": "file_uc_pdf_images",
+      "id": "",
+      "text": ""
+    },
+    {
+      "tag": "IMG",
+      "classes": "img_pdf_file",
+      "id": "",
+      "text": ""
+    }
+  ],
+  "hiddenFields": [
+    {
+      "name": "ordType",
+      "id": "",
+      "value": "selfDsn"
+    },
+    {
+      "name": "width",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "height",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "Wwidth",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "Wheight",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "SelfDCSzNm",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "imageList",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "jpgFront",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "jpgBack",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "side",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "pdf",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "ezTName",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "ProdNo",
+      "id": "ProdNo",
+      "value": "40026"
+    },
+    {
+      "name": "incNonStd",
+      "id": "incNonStd",
+      "value": ""
+    },
+    {
+      "name": "useOnlyProd",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopPP",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopSZ",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopCL",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "uopOPT",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "partner",
+      "id": "",
+      "value": "wowpress.jarvis.wepnp.com"
+    },
+    {
+      "name": "domain",
+      "id": "",
+      "value": "wowpress.jarvis.wepnp.com"
+    },
+    {
+      "name": "user_id",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "sessionKey",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "xmltemplate",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "prdcode",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "horSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "verSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "cutHorSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "cutVerSize",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "hvtype",
+      "id": "",
+      "value": "h"
+    },
+    {
+      "name": "podType",
+      "id": "",
+      "value": "namecard"
+    },
+    {
+      "name": "selectSide",
+      "id": "",
+      "value": "ds2"
+    },
+    {
+      "name": "returnUrl",
+      "id": "",
+      "value": "https://wowpress.co.kr:443/self/dsgn/Rslt?"
+    },
+    {
+      "name": "ProdNo",
+      "id": "",
+      "value": "40026"
+    },
+    {
+      "name": "SelfDCName",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "SelfDCNo",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "printArea",
+      "id": "",
+      "value": ""
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "",
+      "id": "stdExitDate",
+      "value": "2026-02-24"
+    },
+    {
+      "name": "AWKs",
+      "id": "",
+      "value": "재단,접지,미싱"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SianCKYN",
+      "id": "",
+      "value": "N"
+    },
+    {
+      "name": "Page_Color",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "QUnit_val",
+      "id": "",
+      "value": "연"
+    },
+    {
+      "name": "ProdNo",
+      "id": "",
+      "value": "40026"
+    },
+    {
+      "name": "PRSs",
+      "id": "",
+      "value": "[{JobNo=3110, Name=옵셋인쇄, PressM=O, QUnit=1}]"
+    },
+    {
+      "name": "QUnit",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "ALLAWKs",
+      "id": "",
+      "value": "재단,접지,미싱"
+    },
+    {
+      "name": "CoverName",
+      "id": "",
+      "value": "통합"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "합판전단"
+    },
+    {
+      "name": "Cover_Press",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "PJoin",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "ColorAddYN",
+      "id": "",
+      "value": "N"
+    },
+    {
+      "name": "ALLAWKsJobNo",
+      "id": "",
+      "value": "29000,28000,11352"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "JobPresetYN",
+      "id": "",
+      "value": "N"
+    },
+    {
+      "name": "Cover_Awk",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "rn",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "initOrdQty",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "AWKsJobNo",
+      "id": "",
+      "value": "29000,28000,11352"
+    },
+    {
+      "name": "PRSsJson",
+      "id": "",
+      "value": "[{\"JobNo\": \"3110\", \"Name\": \"옵셋인쇄\", \"PressM\": \"O\", \"QUnit\": \"1\"}]"
+    },
+    {
+      "name": "ProdNo",
+      "id": "ProdNo",
+      "value": "40026"
+    },
+    {
+      "name": "PJoin",
+      "id": "PJoin",
+      "value": "0"
+    },
+    {
+      "name": "QUnit",
+      "id": "QUnit",
+      "value": "1"
+    },
+    {
+      "name": "JobPset",
+      "id": "JobPset",
+      "value": "N"
+    },
+    {
+      "name": "JobCostList",
+      "id": "JobCostList",
+      "value": "[{\"ColorNo\": 256, \"PaperNo\": 20690, \"PaperPNo\": 20689, \"PaperBNo\": 20689, \"SizeNo\": 5615},{\"ColorNo\": 255, \"PaperNo\": 20690, \"PaperPNo\": 20689, \"PaperBNo\": 20689, \"SizeNo\": 5615},{\"ColorNo\": 256, \"Pap"
+    },
+    {
+      "name": "paperList",
+      "id": "paperList",
+      "value": "[{\"CoverCD\":0,\"PGramNo\":0,\"ShopNo\":1,\"Sort\":-1,\"itemNo\":0,\"sort\":-1,\"PaperNo\":0,\"Name\":\"종이\",\"UseYN\":\"Y\"},{\"CoverCD\":0,\"ShopNo\":1,\"PaperPNo\":20000,\"Sort\":0,\"itemNo\":20689,\"sort\":0,\"itemPNo\":20000,\"Pape"
+    },
+    {
+      "name": "prodOptCK",
+      "id": "prodOptCK",
+      "value": "[{\"CalcCD\":1,\"CkNo\":1,\"jobbno2name\":\"오시\",\"DspLoc\":0,\"Name\":\"오시\",\"CDT\":\"Jul 29, 2020 10:57:28 AM\",\"NameFull\":\"오시\",\"JobPageGetYN\":\"N\",\"JobSizeGetYN\":\"N\",\"JobQtyGetYN\":\"N\",\"Sort\":74,\"PaperNo\":-1,\"UseYN\":"
+    },
+    {
+      "name": "awkMapJson",
+      "id": "awkMapJson",
+      "value": "{\"pdata_00_awk11352\":\"[{\\\"CoverCD\\\":0,\\\"NameFull\\\":\\\"미싱\\\",\\\"JobPNo\\\":70,\\\"JobBNo\\\":11352,\\\"AutoClsAD\\\":\\\"Y\\\",\\\"ShopNo\\\":1,\\\"JobNo\\\":11352,\\\"itemNo\\\":11352,\\\"BName\\\":\\\"미싱\\\",\\\"itemPNo\\\":70,\\\"Name\\\":\\\"미싱"
+    },
+    {
+      "name": "",
+      "id": "JobPrestYN",
+      "value": "N"
+    },
+    {
+      "name": "",
+      "id": "PCostCalcYN",
+      "value": "N"
+    },
+    {
+      "name": "",
+      "id": "ColorAddMode",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "initPages",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "MinPages",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "MaxPages",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "ItvPages",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "prodName",
+      "value": "합판전단"
+    },
+    {
+      "name": "",
+      "id": "ProdPNo",
+      "value": "30003"
+    },
+    {
+      "name": "ordMethod",
+      "id": "ordMethod",
+      "value": "fileupload"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5612"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "210.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "16"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5612"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "A4(국8절)"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "297.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5610"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "420.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "4"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5610"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "A2(국2절)"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "594.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "2"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5611"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "297.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "8"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5611"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "A3(국4절)"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "420.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "3"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5613"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "147.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "32"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5613"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "A5(국16절)"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "210.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "4"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5607"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "367.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "8"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5607"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "4절(B3)"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "517.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "5"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5609"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "257.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "16"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5609"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "8절(B4)"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "367.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "6"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5603"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "182.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "32"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5603"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "16절(B5)"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "257.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "7"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5605"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "127.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "64"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5605"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "32절(B6)"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "182.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "8"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5608"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "89.5"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "128"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5608"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "64절(B7)"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "127.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "9"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5604"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "120.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "48"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5604"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "24절"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "257.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "10"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5606"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "83.5"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "96"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5606"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "48절"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "182.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "11"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5614"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "127.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "32"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5614"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "장16절"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "367.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "12"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "5615"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "89.5"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "64"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "5615"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "장32절"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "257.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "13"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "SizeNo",
+      "id": "",
+      "value": "7072"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "SizePNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "CalcCD",
+      "id": "",
+      "value": "11"
+    },
+    {
+      "name": "WSize",
+      "id": "",
+      "value": "182.0"
+    },
+    {
+      "name": "Page",
+      "id": "",
+      "value": "32"
+    },
+    {
+      "name": "itemNo",
+      "id": "",
+      "value": "7072"
+    },
+    {
+      "name": "L",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "비규격"
+    },
+    {
+      "name": "HSize",
+      "id": "",
+      "value": "257.0"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "14"
+    },
+    {
+      "name": "itemPNo",
+      "id": "",
+      "value": "202"
+    },
+    {
+      "name": "UseYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "",
+      "id": "",
+      "value": "hdata_00_size"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_sizeno",
+      "value": "5612"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_cut",
+      "value": "1"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_sizeno_page",
+      "value": "16"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_sizeno_jubgyyn",
+      "value": "Y"
+    },
+    {
+      "name": "nostd",
+      "id": "nostd",
+      "value": "0"
+    },
+    {
+      "name": "CalcCD",
+      "id": "CalcCD",
+      "value": ""
+    },
+    {
+      "name": "CSize",
+      "id": "CSize",
+      "value": "3"
+    },
+    {
+      "name": "JobQtyMin",
+      "id": "JobQtyMin",
+      "value": ""
+    },
+    {
+      "name": "JobQtyMax",
+      "id": "JobQtyMax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_sizeno_x_min",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_sizeno_x_max",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_sizeno_y_min",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_sizeno_y_max",
+      "value": ""
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "ColorPNo",
+      "id": "",
+      "value": "201"
+    },
+    {
+      "name": "Dstep",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "SelfDColorYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "ColorNo",
+      "id": "",
+      "value": "255"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "PageCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "PdfPage",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "DeftYN",
+      "id": "",
+      "value": "N"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "단면 칼라4도"
+    },
+    {
+      "name": "CoverCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "ColorPNo",
+      "id": "",
+      "value": "201"
+    },
+    {
+      "name": "Dstep",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "SelfDColorYN",
+      "id": "",
+      "value": "Y"
+    },
+    {
+      "name": "ColorNo",
+      "id": "",
+      "value": "256"
+    },
+    {
+      "name": "ShopNo",
+      "id": "",
+      "value": "1"
+    },
+    {
+      "name": "Sort",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "PageCD",
+      "id": "",
+      "value": "0"
+    },
+    {
+      "name": "PdfPage",
+      "id": "",
+      "value": "2"
+    },
+    {
+      "name": "DeftYN",
+      "id": "",
+      "value": "N"
+    },
+    {
+      "name": "Name",
+      "id": "",
+      "value": "양면 칼라8도"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_colorno",
+      "value": "255"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_pdfpage",
+      "value": "1"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_dstep",
+      "value": "1"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno",
+      "value": "20690"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno_pgramno",
+      "value": "100"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno_weight",
+      "value": "100"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno_jobqtymin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno_jobqtymax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno_epoxyyn",
+      "value": "S"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno_cottingyn",
+      "value": "S"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno_heungabyn",
+      "value": "N"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno_foilyn",
+      "value": "Y"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno_misingyn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_paperno_numberingyn",
+      "value": ""
+    },
+    {
+      "name": "JobNo",
+      "id": "hdata_00_prs",
+      "value": "3110"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_prs_pressm",
+      "value": "O"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_prs_qunit",
+      "value": "1"
+    },
+    {
+      "name": "EmgYN",
+      "id": "hdata_00_emgyn",
+      "value": "N"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_ordqty",
+      "value": "0.5"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_jobqty",
+      "value": "0.5"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_ordcnt",
+      "value": "1"
+    },
+    {
+      "name": "AWKs",
+      "id": "prodAwks",
+      "value": "29000,28000,11352"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_pname",
+      "value": "재단"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_qunit",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_opt",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_jobpagedspyn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_jobqtymin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_jobqtymax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_jobqtygetynint",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_joboptmsgcntmax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_joboptmsgcntmin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_weightmin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_weightmax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_versemin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_versemax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_cutmin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_cutmax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_jobsize1min",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_jobsize1max",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_jobsize2min",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_jobsize2max",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_jobsizecut2yn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_ckpapertp",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk29000_cksizetp",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_pname",
+      "value": "접지"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_qunit",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_opt",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_jobpagedspyn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_jobqtymin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_jobqtymax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_jobqtygetynint",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_joboptmsgcntmax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_joboptmsgcntmin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_weightmin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_weightmax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_versemin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_versemax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_cutmin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_cutmax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_jobsize1min",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_jobsize1max",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_jobsize2min",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_jobsize2max",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_jobsizecut2yn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_ckpapertp",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk28000_cksizetp",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_pname",
+      "value": "미싱"
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_qunit",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_opt",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_jobpagedspyn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_jobqtymin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_jobqtymax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_jobqtygetynint",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_joboptmsgcntmax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_joboptmsgcntmin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_weightmin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_weightmax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_versemin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_versemax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_cutmin",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_cutmax",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_jobsize1min",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_jobsize1max",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_jobsize2min",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_jobsize2max",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_jobsizecut2yn",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_ckpapertp",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "hdata_00_awk11352_cksizetp",
+      "value": ""
+    },
+    {
+      "name": "",
+      "id": "qtyvalid",
+      "value": "Y"
+    },
+    {
+      "name": "estimatedVal",
+      "id": "estimatedVal",
+      "value": ""
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "ProdNo",
+      "id": "",
+      "value": "40026"
+    },
+    {
+      "name": "kind",
+      "id": "kind",
+      "value": "all"
+    },
+    {
+      "name": "pageIndex",
+      "id": "pageIndex",
+      "value": "1"
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "FileGrp",
+      "id": "FileGrp",
+      "value": "6"
+    },
+    {
+      "name": "FileName",
+      "id": "FileName",
+      "value": ""
+    },
+    {
+      "name": "FileBase64",
+      "id": "FileBase64",
+      "value": ""
+    },
+    {
+      "name": "FileDir",
+      "id": "FileDir",
+      "value": ""
+    },
+    {
+      "name": "FileExt",
+      "id": "FileExt",
+      "value": "pdf"
+    },
+    {
+      "name": "FileSize",
+      "id": "FileSize",
+      "value": ""
+    },
+    {
+      "name": "OrdTitle",
+      "id": "OrdTitle",
+      "value": ""
+    },
+    {
+      "name": "WorkerNo",
+      "id": "WorkerNo",
+      "value": ""
+    },
+    {
+      "name": "Comt",
+      "id": "Comt",
+      "value": ""
+    },
+    {
+      "name": "preFlightOrd",
+      "id": "preFlightOrd",
+      "value": "Y"
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "itemNo",
+      "id": "itemNo",
+      "value": ""
+    },
+    {
+      "name": "CartTP",
+      "id": "CartTP",
+      "value": "1"
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    },
+    {
+      "name": "_csrf",
+      "id": "",
+      "value": "3c7a0024-88af-4910-9f28-e05e4295e5bf"
+    }
+  ],
+  "priceElements": [
+    {
+      "tag": "DIV",
+      "id": "",
+      "classes": "total_menu_close_positon",
+      "text": ""
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_close",
+      "text": ""
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "classes": "total_menu_1depth_bg",
+      "text": "명함\n                                \n                                    \n                                        일반명함\n                                        특수지명함\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "명함\n                                \n                                    \n                                        일반명함\n                                        특수지명함\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "스티커\n                                \n                                    \n                                        사각스티커\n                                        가성비스티커\n                                 "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "책자\n                                \n                                    \n                                        무선책자\n                                        중철책자\n                                     "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "전단\n                                \n                                    \n                                        합판전단\n                                        독판전단\n                                     "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "홍보물\n                                \n                                    \n                                        대량리플렛\n                                        포스터\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "디지털인쇄\n                                \n                                    \n                                        소량리플렛\n                                        소량포스터\n                                "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "어패럴\n                                \n                                    \n                                        에코백\n                                        반팔T\n                                      "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "사인제품\n                                \n                                    \n                                        현수막\n                                        일반현수막\n                                   "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "굿즈/다꾸\n                                \n                                    \n                                        굿즈\n                                        떡메모지\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "팬시제품\n                                \n                                    \n                                        마스킹테이프\n                                        마스킹테이프(기성)\n                           "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "행택/쿠폰/안내장\n                                \n                                    \n                                        행택\n                                        헤더택\n                                 "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "포토/액자\n                                \n                                    \n                                        캔버스액자\n                                        노프레임액자\n                               "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "봉투\n                                \n                                    \n                                        칼라봉투\n                                        마스타봉투\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "서식류\n                                \n                                    \n                                        먹1도\n                                        양식지\n                                      "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "자석제품\n                                \n                                    \n                                        종이자석광고지(UV코팅)\n                                        \n                              "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "판촉물\n                                \n                                    \n                                        김서림방지안경닦이\n                                        종이썬캡\n                               "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "홀더\n                                \n                                    \n                                        종이홀더\n                                        카드키홀더\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "캘린더\n                                \n                                    \n                                        기성탁상용캘린더\n                                        기성벽걸이캘린더\n                            "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "폰액세서리\n                                \n                                    \n                                        폰케이스(슬림하드)\n                                        폰케이스(투명젤리)\n                      "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "카페용품\n                                \n                                    \n                                        종이컵\n                                        에어홀더\n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "부자재\n                                \n                                    \n                                        조각자석\n                                        종이명함케이스\n                                 "
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "classes": "total_menu_1depth_text",
+      "text": "와우기획상품\n                                \n                                    \n                                        인쇄레시피\n                                        \n                                    "
+    },
+    {
+      "tag": "SPAN",
+      "id": "td_00_preset1_cost",
+      "classes": "radio0 radio_cost",
+      "text": "원"
+    },
+    {
+      "tag": "DIV",
+      "id": "order_price",
+      "classes": "order_price",
+      "text": "인쇄비\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t28,000 원\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t부자재비\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t0 원\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t후가공비\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t0 원\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t디자인비\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t0 원\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t할인\n\t\t\t\t\n"
+    },
+    {
+      "tag": "SPAN",
+      "id": "od_00_prscost",
+      "classes": "",
+      "text": "28,000 원"
+    },
+    {
+      "tag": "TR",
+      "id": "tr_00_prodaddcost",
+      "classes": "",
+      "text": "부자재비\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t0 원"
+    },
+    {
+      "tag": "SPAN",
+      "id": "od_00_prodaddcost",
+      "classes": "",
+      "text": "0 원"
+    },
+    {
+      "tag": "TR",
+      "id": "tr_00_awkcost",
+      "classes": "",
+      "text": "후가공비\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t0 원"
+    },
+    {
+      "tag": "SPAN",
+      "id": "od_00_awkcost",
+      "classes": "",
+      "text": "0 원"
+    },
+    {
+      "tag": "SPAN",
+      "id": "od_00_dsgncost",
+      "classes": "",
+      "text": "0 원"
+    },
+    {
+      "tag": "SPAN",
+      "id": "od_00_dccost",
+      "classes": "",
+      "text": "3,000 원"
+    },
+    {
+      "tag": "SPAN",
+      "id": "od_00_taxcost",
+      "classes": "",
+      "text": "2,500 원"
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "classes": "order_total",
+      "text": "총 결제금액27,500 원\n\t\t\t\t\tCheckPDF를 사용하시면 결제시 100원 추가할인 됩니다.\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t \t장바구니\n\t\t\t\t\t\t주문하기\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\tif(window.console){\n\t\t\t\t\t\t\tconsole.log(\"autoCl"
+    },
+    {
+      "tag": "SPAN",
+      "id": "od_00_totalcost",
+      "classes": "num pl10",
+      "text": "27,500"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "WOW 멤버십안내 자세히보기",
+      "id": "",
+      "type": "submit",
+      "onclick": "movePage('/info/page/mpag/membership', '')",
+      "classes": "sidebar_btn_style_01"
+    },
+    {
+      "text": "함께캠페인 자세히보기",
+      "id": "",
+      "type": "submit",
+      "onclick": "movePage('https://blog.naver.com/PostList.nhn?blogId=wow_press&from=postList&categoryNo=37', '_blank')",
+      "classes": "sidebar_btn_style_01"
+    },
+    {
+      "text": "쿠폰페이지 바로가기",
+      "id": "",
+      "type": "submit",
+      "onclick": "movePage('/mpag/cupn/list', '')",
+      "classes": "sidebar_btn_style_01"
+    },
+    {
+      "text": "핵심가치페이지 바로가기",
+      "id": "",
+      "type": "submit",
+      "onclick": "movePage('/archives/info/wowpress7', '')",
+      "classes": "sidebar_btn_style_01"
+    },
+    {
+      "text": "입력",
+      "id": "",
+      "type": "button",
+      "onclick": "javascript:nonStdSzSelfEditCall($(this))",
+      "classes": "et_size_btn"
+    },
+    {
+      "text": "",
+      "id": "",
+      "type": "button",
+      "onclick": "javascript: getTemplateBtn();",
+      "classes": ""
+    },
+    {
+      "text": "",
+      "id": "",
+      "type": "button",
+      "onclick": "javascript: getTemplateBtn();",
+      "classes": ""
+    },
+    {
+      "text": "파일작업방법",
+      "id": "",
+      "type": "submit",
+      "onclick": "window.open('/wow2.0/w_guide/doc/g4_5.html','','scrollbars=no,width=1300,height=780,left=0,top=0');",
+      "classes": "btn_awk_guide"
+    },
+    {
+      "text": "파일작업방법",
+      "id": "",
+      "type": "submit",
+      "onclick": "window.open('/wow2.0/w_guide/doc/g4_6.html','','scrollbars=no,width=1300,height=780,left=0,top=0');",
+      "classes": "btn_awk_guide"
+    },
+    {
+      "text": "PDF파일 업로드",
+      "id": "",
+      "type": "submit",
+      "onclick": "fileForm('next');",
+      "classes": "btn_pdf_up2"
+    },
+    {
+      "text": "장바구니",
+      "id": "",
+      "type": "submit",
+      "onclick": "preFlightFileForm('cart','Y');",
+      "classes": "btn_cart_up"
+    },
+    {
+      "text": "주문하기",
+      "id": "",
+      "type": "submit",
+      "onclick": "preFlightFileForm('ordr','Y');",
+      "classes": "btn_pdf_up2"
+    },
+    {
+      "text": "재업로드 및 초기화",
+      "id": "",
+      "type": "submit",
+      "onclick": "preflightInit();",
+      "classes": "btn_modify_up"
+    },
+    {
+      "text": "견적서출력",
+      "id": "",
+      "type": "submit",
+      "onclick": "callEstimate();",
+      "classes": "mypage_order_state"
+    },
+    {
+      "text": "장바구니",
+      "id": "",
+      "type": "submit",
+      "onclick": "fileForm('cart');",
+      "classes": "btn_basket"
+    },
+    {
+      "text": "주문하기",
+      "id": "",
+      "type": "submit",
+      "onclick": "fileForm('ordr');",
+      "classes": "btn_order"
+    },
+    {
+      "text": "",
+      "id": "",
+      "type": "submit",
+      "onclick": "fileFormNext('next');",
+      "classes": "btn_checkpdf"
+    },
+    {
+      "text": "",
+      "id": "",
+      "type": "submit",
+      "classes": "_promoCloseButton_1b80j_88"
+    },
+    {
+      "text": "",
+      "id": "",
+      "type": "submit",
+      "classes": "_chatButton_64jfm_2 _chatButton_1b80j_152"
+    }
+  ],
+  "tables": [
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "수량",
+        "출고일"
+      ],
+      "rowCount": 4,
+      "rows": [
+        [
+          {
+            "text": "수량",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "출고일",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "1~10연",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "1박2일",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "11~40연",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2박3일",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "40연 이상",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "문의바람",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "카테고리",
+        "사이즈",
+        "비규격 사이즈",
+        "검색-+",
+        "업종",
+        "용도",
+        "선택리스트"
+      ],
+      "rowCount": 11,
+      "rows": [
+        [
+          {
+            "text": "카테고리",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "전체품목\n                            장사밑천\n                            마음전하기\n                            비지니스\n                            팬시",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "스티커명함전단포스터봉투사인제품굿즈/다꾸폰액세서리팬시/판촉어패럴포토/액자캘린더서식류헤더택/엽서/웨딩자석제품웹용템플릿",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "도무송스티커사각스티커판스티커네임스티커포토스티커네컷스티커패브릭스티커롤스티커배달스티커조각스티커",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "사이즈",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "A4(210x297)A3(297x420)8절(257x367)16절(182x257)",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "비규격 사이즈",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "× \n                            \n                            입력",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": true,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "검색-+",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "컬러 검색\n                                        \n                                        \n                                        \n                                        \n                              ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": true,
+            "hasInput": true,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "업종",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "카페/음료/베이커리음식점업교육서비스업도소매/제조업/유통업예술/스포츠/레저/여가미용/뷰티종교병원/제약/복지부동산/임대/건설/숙박업금융/보험/투자법률/세무/회계공공기관/관공서/협회기타 전문직/자영업",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "dn"
+          }
+        ],
+        [
+          {
+            "text": "용도",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "비즈니스/공공프로모션/홍보/쿠폰기념일명절공연/축제/행사축하/응원/감사가격/메뉴판/안내문/고객관리추모/장례/근조코로나19",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "dn"
+          }
+        ],
+        [
+          {
+            "text": "선택리스트",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "fs16 hpx50"
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "mytable",
+      "classes": "",
+      "headers": [],
+      "rowCount": 1,
+      "rows": [
+        [
+          {
+            "text": "c12-1764_매장",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c12-1758_가구",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c12-661_클래스",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c12-481_카페",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c12-385_카페",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c12-384_카페",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "c12-301_베이커리",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [],
+      "rowCount": 1,
+      "rows": [
+        [
+          {
+            "text": "파일주문\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t장바구니/주문하기 버튼 클릭 후파일을 업로드할 수 있습니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "file_tooltip"
+          },
+          {
+            "text": "이지템플릿",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [],
+      "rowCount": 1,
+      "rows": [
+        [
+          {
+            "text": "신청안함",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "신청",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "ordrAfterWorkDivTbl",
+      "classes": "",
+      "headers": [],
+      "rowCount": 1,
+      "rows": [
+        [
+          {
+            "text": "재단",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "접지",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "미싱",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "예상출고일",
+        "규격",
+        "인쇄도수",
+        "용지",
+        "인쇄선택",
+        "수량",
+        "후가공",
+        "부자재",
+        "재고안내",
+        "견적서"
+      ],
+      "rowCount": 11,
+      "rows": [
+        [
+          {
+            "text": "합판전단",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "2",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "예상출고일",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "2026-02-24",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "규격",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "A4(국8절)",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "인쇄도수",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "단면 칼라4도",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "용지",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "아트지100g",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "인쇄선택",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "수량",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "0.5연x1건",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "후가공",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "부자재",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "재고안내",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "일시 품절 옵션입니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "견적서",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "견적서출력",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "인쇄"
+      ],
+      "rowCount": 2,
+      "rows": [
+        [
+          {
+            "text": "인쇄",
+            "hasSelect": false,
+            "hasRadio": true,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "원",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "2",
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "인쇄비",
+        "부자재비",
+        "후가공비",
+        "디자인비",
+        "할인",
+        "부가세"
+      ],
+      "rowCount": 6,
+      "rows": [
+        [
+          {
+            "text": "인쇄비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "28,000 원",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "부자재비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "0 원",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "후가공비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "0 원",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "디자인비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "0 원",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "할인",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "3,000 원",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "부가세",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          },
+          {
+            "text": "2,500 원",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [],
+      "rowCount": 2,
+      "rows": [
+        [
+          {
+            "text": "총 결제금액27,500 원\n\t\t\t\t\tCheckPDF를 사용하시면 결제시 100원 추가할인 됩니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "장바구니\n\t\t\t\t\t\t주문하기\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\tif(window.console){\n\t\t\t\t\t\t\tconsole.log(\"autoClsMode : \");\n\t\t\t\t\t\t\tconsole.log(\"autoClsMode : \");\n\t\t\t\t\t\t\tconsole.log(\"Y\");\n\t\t\t\t\t\t}\n\t\t\t",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": "1",
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [],
+      "rowCount": 10,
+      "rows": [
+        [
+          {
+            "text": "★\n                            \n                                ★\n                            \n                                ★\n                            \n                                ★\n         ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "전단지 수량 넉넉하고, 인쇄가 깨끗하게 잘나왔네요, 연휴 지나고 딜레이 되지않고 바로나와 좋아요\n                                \n                            \n\t\t\t\t\t\t\n                            \n                                \n               ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "tal"
+          },
+          {
+            "text": "sunggae***",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2026-02-20",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "★\n                            \n                                ★\n                            \n                                ★\n                            \n                                ★\n         ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "전단지 잘 나온것 같아요. 특히 컬러가 가장 걱정이 되긴 하였는데 그래도 마음에 들게 나온것 같아 좋습니다.\n                                \n                            \n\t\t\t\t\t\t\n                            \n                                \n        ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "tal"
+          },
+          {
+            "text": "wotkd2***",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2026-02-14",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "★\n                            \n                                ★\n                            \n                                ★\n                            \n                                ★\n         ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "합판전단 단면A4로 4,000장 인쇄했습니다!\n\n                                            칼라재단 빠른배송 저렴한제작비까지 아주 굿입니다!!\n                                \n                            \n\t\t\t\t\t\t\n                            \n  ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "tal"
+          },
+          {
+            "text": "geo***",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2026-02-13",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "★\n                            \n                                ★\n                            \n                                ★",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "합판인쇄라지만 잉크를 아끼시는 건지, 인쇄기가 별로인 건지...색상도 흐리고, 재단도 삐뚤게 됐습니다. 빠른 인쇄는 좋지만, 항상 제품 퀄리티가 아쉽네요.\n                                \n                            \n\t\t\t\t\t\t\n                            \n               ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "tal"
+          },
+          {
+            "text": "nar***",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2026-02-12",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "★\n                            \n                                ★\n                            \n                                ★\n                            \n                                ★\n         ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "가격도 합리적이고 일처리도 확실합니다 ㅎㅎ 항상 와우프레스에서 주문합니다 번창하세요~~~",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "tal"
+          },
+          {
+            "text": "sunae***",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2026-02-09",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "★\n                            \n                                ★\n                            \n                                ★\n                            \n                                ★\n         ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "아주 좋아요 굿입니다 역시 와우프레스는 좋아요. \n\n                                            늘 한결같은 믿음으로 걸러가는 와우의 성장을 보니 감사하네요. \n                                \n                            \n\t\t\t\t\t\t\n                      ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "tal"
+          },
+          {
+            "text": "story2***",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2026-02-06",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "★\n                            \n                                ★\n                            \n                                ★\n                            \n                                ★\n         ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "오늘 접수하면 내일모레 택배로 바로바로 배송 받을수 있어서 납기일이 짧아서 아주 만족하고 있습니다. 인쇄 품질도 좋아요~\n                                \n                            \n\t\t\t\t\t\t\n                            \n                                \n ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "tal"
+          },
+          {
+            "text": "sy9***",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2026-02-06",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "★\n                            \n                                ★\n                            \n                                ★\n                            \n                                ★\n         ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "늘 잘 이용하고 있습니다. 인쇄 접수 방법도 간편하고 인쇄품질도 아주 만족해서 계속 이용하고 있네요. 좋습니다.\n                                \n                            \n\t\t\t\t\t\t\n                            \n                                \n      ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "tal"
+          },
+          {
+            "text": "sy9***",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2026-02-06",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "★\n                            \n                                ★\n                            \n                                ★\n                            \n                                ★\n         ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "인쇄품질은 매우 만족합니다. 인쇄 칼라도 만족하고 배송도 빨라서 아주 아주 만족합니다.\n\n                                            편리하고 좋습니다.\n                                \n                            \n\t\t\t\t\t\t\n                          ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "tal"
+          },
+          {
+            "text": "sy9***",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2026-02-06",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "★\n                            \n                                ★\n                            \n                                ★\n                            \n                                ★\n         ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "가끔 한장씩 재단불량이 섞여 나오네요.\n\n                                            그래도 인쇄 품질도 좋고 배송도 빨라서 매우 만족합니다.\n                                \n                            \n\t\t\t\t\t\t\n                            \n   ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "tal"
+          },
+          {
+            "text": "sy9***",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2026-02-06",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "배쑝와쑝",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "배쑝와쑝",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "와우프레스 자체 배송차량으로 새벽에 출발해 택배보다 하루빨리 문앞까지 무료로 배송해드립니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "무료",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 백화점/대형쇼핑몰/시장/학교/관공서/주정차가 불가한 밀집지역은 1층 입구에 경비실 또는 물품보관소가 있는 경우에만 배송 가능합니다.\n                                - 아파트는 경비실 수령일 경우에만 가능하며 문앞 배송은 불가합니다.\n                                - 대량 주문일 경우(예시 : 전단 1",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "택배송",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "택배송",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "고객님이 주문한 제품을 택배를 이용해 배송해 드리는 서비스이며 멤버십 등급에 따라 선불택배비 무료 혜택을 받으실 수 있습니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "2,700원 ~",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 독판 및 일부제품은 부피로 인해 포장 박스가 늘어날 수 있으며 이로 인해 추가 배송비가 발생할 수 있습니다.\n                                - 제주도/산간지역은 3,000원, 도서지역은 5,000원의 추가 요금이 발생합니다.\n                                - 제주도/도서산간 지역은 무료택배에 제외됩니",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "대리배송",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "대리배송",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "WOW배송 코스에 한해 와우프레스의 배송차량으로 출고 당일 고객님이 원하시는 지역으로 배송해 드리는 서비스입니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "5,000원~",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 직접 수령이 어려운 경우 보관장소를 반드시 배송메모에 남겨주세요. (예시 : XX편의점, 문앞 등)\n                                - 백화점/대형쇼핑몰/시장/학교/관공서/주정차가 불가한 밀집지역은 1층 입구에 경비실 또는 물품보관소가 있는 경우에만 배송 가능합니다.\n                                - ",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "방문수령",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "방문수령",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "회원님이 본사/지역별 센터로 직접 방문하여 제품을 수령하는 서비스입니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "무료",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 대구본사/서울을지센터 운영시간 : 09:00~19:00\n                                - 대구남산센터/대전정동센터/부산서면센터 운영시간 : 09:00~18:00",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "퀵배송",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "퀵배송",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "회원님이 주문한 제품을 당일 도착할 수 있도록 오토바이/다마스로 배송해 드리는 서비스입니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "5,000원~",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 선불퀵은 제품의 부피, 무게, 거리에 따라 추가 배송비가 발생할 수 있습니다.\n                                - 동일한 배송지의 상품은 묶음배송을 신청하셔야 추가 배송비가 발생하지 않습니다.\n                                - 금요일 퀵배송으로 접수된 주문 건은 주5일 근무지가 많은 관계로 월요일에 일",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "",
+      "headers": [
+        "기타배송",
+        "배송비",
+        "유의사항"
+      ],
+      "rowCount": 3,
+      "rows": [
+        [
+          {
+            "text": "기타배송",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "와우프레스는 회원님의 편의에 맞춰 고속버스, 화물, 항공, 선박배송 등을 제공합니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "배송비",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "협의",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "유의사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "- 고속버스 배송은 부피/무게/거리에 따라 배송비가 상이하므로 발송 전 알려드리는 금액을 결제하신 후 배송됩니다.\n                                - 화물배송은 착불결제만 가능하며 고객님께서 수신영업소에 직접 찾으러 가는 방식입니다.\n                                - 화물배송은 착불요금 외 하역수수료가 부",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ]
+      ]
+    },
+    {
+      "id": "",
+      "classes": "g5_table",
+      "headers": [
+        "구분",
+        "재작업 불가사항 내용",
+        "영상가이드"
+      ],
+      "rowCount": 23,
+      "rows": [
+        [
+          {
+            "text": "구분",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "재작업 불가사항 내용",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "영상가이드",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "기본준수사항",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce"
+          },
+          {
+            "text": "• 폰트를 아웃라인(Outline) 하지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 그룹을 하지 않아서 이미지나 텍스트가 인쇄되지 않은 경우\n\t\t\t\t\n\t\t\t\t• 레이어 숨김 또는 잠금 처리가 되어 있어 이미지나 텍스트가 인쇄 된 경우\n                • 레이어 숨김 처리가 되어있는 부분이 실제 인쇄된 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 작업선과 테두리선을 선없음(0pt) 처리하지 않아서 작업선과 테두리선이 인쇄된 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 작업 여유분을 빼지않아 인쇄가 되지 않거나 종이 여백이 보이는 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 재단 및 도무송 공정에서 ±1~2mm 밀림 현상이 발생하여 사방 테두리 간격이 일정하지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 이미지나 텍스트를 안전영역(재단선에서 2.5~5mm 안쪽)에 배치하지 않아 재단선에 가깝게 있거나 잘린 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 선 두께 0.5pt, 폰트 크기 5pt 이상으로 작업하지 않아서 이미지나 텍스트가 선명하게 인쇄되지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 여러 건의 파일을 앞, 뒤 순서대로 배열하지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "• K100%는 자동으로 오버프린트가 되므로 K100% 바탕 밑에 이미지나 다른 색상이 있는 경우 겹쳐서 인쇄가 됩니다. 따라서 겹치는 부분은 Pathfinder로 뚫어 주시거나 색상 경계를 나눠 주셔야 합니다.",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "이미지",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce"
+          },
+          {
+            "text": "• 해상도가 낮은 이미지를 사용하여 선명하게 인쇄되지 않은 경우 (해상도 300dpi 이상 이미지를 사용하기를 권장)",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 일러스트에서 투명도 효과 사용 시 병합(Flatten) 하지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 일러스트에서 오브젝트 색상을 오버프린트(Overprint) 한 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ],
+        [
+          {
+            "text": "• 코렐에서 이미지 효과 사용 시 비트맵(Bitmap) 처리하지 않은 경우",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          }
+        ],
+        [
+          {
+            "text": "색상",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce"
+          },
+          {
+            "text": "• 동일한 인쇄 파일을 합판으로 인쇄할 때 색상 차이가 발생한 경우\n\t\t\t\t\n\t\t\t\t\t① 이전 주문한 데이터와 색상 차이가 발생할 수 있음(독판은 이전 인쇄물 전달 시 색상참조 가능)\n\t\t\t\t\t② 건수로 주문할 경우 건별 색상 차이가 발생할 수 있음",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": ""
+          },
+          {
+            "text": "① : \n\t\t\t\t② :",
+            "hasSelect": false,
+            "hasRadio": false,
+            "hasCheckbox": false,
+            "hasInput": false,
+            "colspan": null,
+            "classes": "ce_you"
+          }
+        ]
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "tag": "DIV",
+      "classes": "section_title",
+      "text": "이용후기"
+    }
+  ],
+  "steps": [
+    {
+      "tag": "DIV",
+      "classes": "tab_group",
+      "text": "제품정보\n\t\t\t\n            \t제작가이드\n            \n            이용후기 (893)\n            출고/배송\n\t\t\t재작업/취소/환불            \n\t\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\t\n\t\t\n\t가게, 학원, 전시회 등 오프라인 홍보 수단 1등!\n        \n    합판전단",
+      "active": false
+    },
+    {
+      "tag": "UL",
+      "classes": "swichtab-controller",
+      "text": "제품정보\n\t\t\t\n            \t제작가이드\n            \n            이용후기 (893)\n            출고/배송\n\t\t\t재작업/취소/환불",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-contents",
+      "text": "가게, 학원, 전시회 등 오프라인 홍보 수단 1등!\n        \n    합판전단\n\t    \n    \n    \t\n        \t\n            대량 배포가 목적!\n            최소의 비용, 최대의 광고효과!\n        \n        \n        \t\n            가성비 전단의 끝판왕\n            장당 약 5원대,",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-panel is-active",
+      "text": "가게, 학원, 전시회 등 오프라인 홍보 수단 1등!\n        \n    합판전단\n\t    \n    \n    \t\n        \t\n            대량 배포가 목적!\n            최소의 비용, 최대의 광고효과!\n        \n        \n        \t\n            가성비 전단의 끝판왕\n            장당 약 5원대,",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-panel",
+      "text": "전단 작업방법\n\n    \n\n\n    • 재단사이즈와 작업사이즈 박스를 만들어 테두리는 두께를 주지 말고 선없음(색없음) 처리해야 합니다.\n    • 작업 완료 후 앞/뒷면을 각각 그룹으로 묶어주고 앞면은 왼쪽, 뒷면은 오른쪽에 배열합니다. \n    • 레이어 잠금을 풀지 않거나, 그룹을 하지 않아 이미지나 텍스트가 누락되지 않도록 반드시 확인합니다. \n  ",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-panel",
+      "text": "전체(893)\n            \n                \n            \n             포토(382)\n        \n    \n    \n        \n        \n            \n            \n            \n            \n            \n        \n        \n        ",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "tab_list_reviews mt30",
+      "text": "전체(893)\n            \n                \n            \n             포토(382)\n        \n    \n    \n        \n        \n            \n            \n            \n            \n            \n        \n        \n        ",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-panel",
+      "text": "출고안내\n\t\n\t\t• 출고일은 접수부터 포장까지 완료되는데 소요되는 일수입니다. (평일 기준, 주말/공휴일 제외)\n\t\t• 접수마감시간 이전에 주문과 결제가 완료된 건에 한해 당일 접수됩니다.\n\t\t• 주문수량이 많거나 박, 도무송 등 기타 후가공이 많이 추가되는 경우는 별도 문의 바랍니다.\n\t\n\n\n\t배송안내\n    \n\t\t• 배쑝와쑝\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t",
+      "active": false
+    },
+    {
+      "tag": "DIV",
+      "classes": "swichtab-panel",
+      "text": "재작업 안내\n\t\n\t\t• 재작업 문의는 마이페이지 > 재작업신청 통해 신청하시기 바랍니다.\n\t\t• 문제가 발생한 제품은 수령일로부터 7일 이내에 신청을 하셔야 재작업이 가능합니다.\n\t\t• 재작업 신청 시 수령한 제품은 모두 반송되어야 하며 원본 파일로 재작업됨을 원칙으로 합니다.\n\t\t• 재작업을 진행할 때 파일을 수정할 경우 비용의 50%를 부담하셔야 합니다",
+      "active": false
+    },
+    {
+      "tag": "TABLE",
+      "classes": "g5_table",
+      "text": "구분\n\t\t\t재작업 불가사항 내용\n\t\t\t영상가이드\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\t기본준수사항\n\t\t\t• 폰트를 아웃라인(Outline) 하지 않은 경우\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t• 그룹을 하지 않아서 이미지나 텍스트가 인쇄되지 않은 경우\n\t\t\t\t\n\t\t\t\t• 레이어 숨김 또는 잠금 처리가 되어 있어 이미지나 텍스트가 인쇄 된 경우\n               ",
+      "active": false
+    }
+  ],
+  "jsFunctions": [
+    "mo_send_prod",
+    "ga_send_prod",
+    "na_send_prod",
+    "kk_send_prod",
+    "_adWowGetLogger",
+    "_adWowGetSendEvent",
+    "_adWowGetSiteErrCD",
+    "_adGetSendSiteFuncName",
+    "_adGetSendSiteFunc",
+    "send_advertisement_prod",
+    "setCookieMobile",
+    "setCookieMobile",
+    "getCookieMobile",
+    "checkToggle",
+    "getUseYNProdSelf",
+    "getSizes",
+    "show_itemSize",
+    "resetGroupList",
+    "chgCtgr",
+    "removeTag",
+    "selectTag",
+    "showTagSelect",
+    "initTagSetList",
+    "getTagSetList",
+    "fnSubmit",
+    "fun_prodadd_option",
+    "fun_prodadd_qty",
+    "isAdd",
+    "calcParams",
+    "addawkhardcode",
+    "getinputval",
+    "isValidParams",
+    "getJobCost",
+    "getCalcVSJobCost",
+    "paperpop",
+    "fun_opt_dspcolor",
+    "isAwk",
+    "isAwkOpen",
+    "chg_prs",
+    "func_rqty",
+    "downtempFile",
+    "fn_ordfileupload",
+    "isValidParamsOrd",
+    "addCompCheck",
+    "firstOrderCheck",
+    "firstOrderCallback",
+    "processFileStep",
+    "chk_Awk31000",
+    "chgExitDay",
+    "setAwk31000",
+    "gettawkno",
+    "getAwkno",
+    "gettawkno",
+    "getCkPage",
+    "setAwkOpt",
+    "func_awkvalid",
+    "chgMdmData",
+    "setJobQty",
+    "setDefaultSel",
+    "setSelftDisable",
+    "selfDsgnColor",
+    "initProdAdd",
+    "isAddQty",
+    "getNonStdSize",
+    "getSelfDsgnSize",
+    "rqtypage",
+    "prodSizeJobCK",
+    "chkcalcParams",
+    "chkToSelect_431421",
+    "chkToSelect_431422",
+    "processFileStepCallback"
+  ],
+  "relevantClasses": [
+    "PaperDiv",
+    "area_order",
+    "btn_awk_guide",
+    "btn_order",
+    "class_00_awk11352",
+    "class_00_awk28000",
+    "class_00_awk29000",
+    "delivery_info",
+    "div_color",
+    "et_size_btn",
+    "et_size_form",
+    "file_tooltip",
+    "file_tooltiptext",
+    "file_uc_box",
+    "file_uc_comt_btn",
+    "file_uc_comt_fail",
+    "file_uc_comt_header",
+    "file_uc_comt_succ",
+    "file_uc_errlog_info",
+    "file_uc_errlog_info_comt",
+    "file_uc_errlog_info_text",
+    "file_uc_left",
+    "file_uc_ordr_info",
+    "file_uc_pdf_images",
+    "file_uc_pdf_info",
+    "file_uc_pdf_info_pages",
+    "file_uc_pdf_info_psizenm",
+    "file_uc_pdf_info_sizenm",
+    "file_uc_right",
+    "file_uct",
+    "file_uct_banner",
+    "file_uct_check_result",
+    "file_uct_select",
+    "img_pdf_file",
+    "mypage_order_state",
+    "order_compare",
+    "order_detail",
+    "order_img",
+    "order_price",
+    "order_select",
+    "order_snb",
+    "order_summary",
+    "order_total",
+    "ordrPaperDivAll",
+    "pdForm",
+    "pdata_00_paper_rname",
+    "prod_box_ai",
+    "prod_box_eps",
+    "prod_box_pdf",
+    "prod_box_title",
+    "prod_info_01",
+    "prod_info_est",
+    "prod_info_img1",
+    "prod_info_notice",
+    "prod_info_size",
+    "prod_info_subject_01",
+    "prod_info_text_01",
+    "prod_info_title_01",
+    "prod_info_title_02",
+    "prod_info_title_name",
+    "prod_info_title_subtxt",
+    "product_box",
+    "product_contents",
+    "product_mark",
+    "product_title",
+    "product_txt",
+    "products_detail",
+    "radio_cost",
+    "rew_subProd_info",
+    "sJobpdata_00_awk11352",
+    "sJobpdata_00_awk28000",
+    "sJobpdata_00_awk29000",
+    "sPaperpdata_00_paperno",
+    "szdaForm",
+    "temp_file_uc_errlog_info",
+    "temp_file_uc_pdf_info",
+    "total_menu_1depth_bg",
+    "total_menu_1depth_text",
+    "total_menu_close",
+    "total_menu_close_positon"
+  ],
+  "bodyTextPreview": "WOW멤버십\nVVIP만의 특별한 혜택\n- 결제금액 4% 적립\n- 배쑝와쑝 배송비 무료\n- 명함/스티커 2만원 이상 택배비 무료\n- VIP 전용 상담 가능\n등급조건(3개월 접수액 기준)\n\n3억원 이상 \n9,000만원 이상 \n3,000만원 이상 \n2,100만원 이상 \n1,200만원 이상 \n300만원 이상 \n90만원 이상 \n30만원 이상 \n5만원 이상 \n5만원 미만\nWOW 멤버십안내 자세히보기\n   \n로그인\n회원가입\n쿠폰4종+무료배송\n고객센터\n요즘 인쇄 어디?\n와우프레스\n정매수 인쇄 어디?\n와우프레스\n요즘 인쇄 어디?\n와우프레스\n정매수 인쇄 어디?\n와우프레스\n상업인쇄소\n힙지로디지털\n책공방\n가게용품\n문구점\n어패럴\n이벤트\n신제품\n제작가이드 통합주문 무료직배송신청\nNEW!\n이지템플릿\n창닫기\n홈\n>\n전단\n명함\n스티커\n책자\n사인제품\n전단\n디지털인쇄\n홍보물\n자석제품\n봉투\n판촉물\n캘린더\n카페용품\n서식류\n행택/쿠폰/안내장\n포토/액자\n홀더\n굿즈/다꾸\n와우기획상품\n부자재\n팬시제품\n선거홍보물\n폰 액세서리\n어패럴\n>\n합판전단\n합판전단\n독판전단\n문고리전단\n합판전단\n별점(4.8)\n리뷰(893)\n소상공인 오프라인 홍보 수단 중 단연 최고!\n최소 비용으로 최대의 광고 효과를 볼 수 있는 합판 전단이에요.\n \n●  예상출고일 2026-02-24\n수량\t출고일\n1~10연\t1박2일\n11~40연\t2박3일\n40연 이상\t문의바람\n\n\n- 출고일은 주문접수부터 생산완료까지 소요되는 일자입니다(토/일/공휴일 제외)\n- 주문 및 결제 완료 후 접수가 진행되며 마감시간이 지난 주문 건은 다음 날 처리됩니다.\n- 후가공 선택 시 후가공 개수에 따라 1일씩 추가됩니다.\n- 40연 이상 주문 시 월배송 고객이더라도 화물배송 처리됩니다.(고객사 부담)\n●  접수마감시간 월~목 18:30 / 금 20:00\n●  유의사항\n- 제품 생산 시 오차 방지를 위해 본사 제공 칼선을 사용해 주시기 바랍니다.\n- 규격 및 인쇄도수를 변경하시면 선택한 용지가 초기화되오니 주문 전 꼭 확인해 주세요.\n- 48절/64절은 기본 재단비가 추가됩니다.\n- CMYK 색상 값 총합이 250% 이상이면 잉크 뭉침, 번짐, 핀트가 어긋날 수 있으며 250% 미만이더라도 더블톤으로 작업한 경우 색상 편차가 발생할 수 있습니다.\n쉽고 편리한 디자인 이지템플릿\n템플릿전체보기\nc12-1764_매장\n\t\nc12-1758_가구\n\t\nc12-661_클래스\n\t\nc12-481_카페\n\t\nc12-385_카페\n\t\nc12-384_카페\n\t\nc12-301_베이커리\n주문방법\n파일주문\n\t\n이지템플릿\n규격\nA4(국8절)\nA4(국8절)\nA2(국2절)\nA3(국4절)\nA5(국16절)\n4절(B3)\n8절(B4)\n16절(B5)\n32절(B6)\n64절(B7)\n24절\n48절\n장16절\n장32절\n비규격\n재단사이즈(mm) : 가로  세로 \n작업사이즈(mm) : 가로  세로 \n인쇄도수\n단면 칼라4도\n단면 칼라4도\n양면 칼라8도\n용지\n아트지\n아트지\n100g\n100g\n150g\n수량\n0.5연\n0.5연\n1연\n2연\n3연\n4연\n5연\n6연\n7연\n8연\n9연\n10연\n11연\n12연\n13연\n14연\n15연\n16연\n17연\n18연\n19연\n20연\n21연\n22연\n23연\n24연\n25연\n26연\n27연\n28연\n29연\n30연\n31연\n32연\n33연\n34연\n35연\n36연\n37연\n38연\n39연\n40연\n41연\n42연\n43연\n44연\n45연\n46연\n47연\n48연\n49연\n50연\n51연\n52연\n53연\n54연\n55연\n56연\n57연\n58연\n59연\n60연\n61연\n62연\n63연\n64연\n65연\n66연\n67연\n68연\n69연\n70연\n71연\n72연\n73연\n74연\n75연\n76연\n77연\n78연\n79연\n80연\n81연\n82연\n83연\n84연\n85연\n86연\n87연\n88연\n89연\n90연\n91연\n92연\n93연\n94연\n95연\n96연\n97연\n98연\n99연\n100연\n101연\n102연\n103연\n104연\n105연\n106연\n107연\n108연\n109연\n110연\n111연\n112연\n113연\n114연\n115연\n116연\n117연\n118연\n119연\n120연\n121연\n122연\n123연\n124연\n125연\n126연\n127연\n128연\n129연\n130연\n131연\n132연\n133연\n134연\n135연\n136연\n137연\n138연\n139연\n140연\n141연\n142연\n143연\n144연\n145연\n146연\n147연\n148연\n149연\n150연\n151연\n152연\n153연\n154연\n155연\n156연\n157연\n158연\n159연\n160연\n161연\n162연\n163연\n164연\n165연\n166연\n167연\n168연\n169연\n170연\n171연\n172연\n173연\n174연\n175연\n176연\n177연\n178연\n179연\n180연\n181연\n182연\n183연\n184연\n185연\n186연\n187연\n188연\n189연\n190연\n191연\n192연\n193연\n194연\n195연\n196연\n197연\n198연\n199연\n200연\n \n건수\n1건\n1건\n2건\n3건\n4건\n5건\n6건\n7건\n8건\n9건\n10건\n11건\n12건\n13건\n14건\n15건\n16건\n17건\n18건\n19건\n20건\n - 여러 개의 인쇄 데이타를 주문할 때 건수를 선택해 주세요.\n후가공\n재단\n\t\n접지\n\t\n미싱\n합판전단\n\n예상출고일\t2026-02-24\n규격\tA4(국8절)\n인쇄도수\t단면 칼라4도\n용지\t아트지100g\n\n수량\t0.5연x1건\n견적서\t견적서출력\n인쇄비\t28,000 원\n부자재비\t0 원\n후가공비\t0 원\n할인\t3,000 원\n부가세\t2,500 원\n총 결제금액27,500 원\nCheckPDF를 사용하시면 결제시 100원 추가할인 됩니다.\n\n장바구니 주문하기\n제품정보\n제작가이드\n이용후기 \n(893)\n출고/배송\n재작업/취소/환불\n가게, 학원, 전시회 등 오프라인 홍보 수단 1등!\n합판전단\n\n대량 배포가 목적!\n최소의 비용, 최대의 광고효과!\n\n가성비 전단의 끝판왕\n장당 약 5원대, 부담없는 가격으로\n브랜드를 홍보해 보세요\n\n간편한 전단 제작\n이지템플릿으로 쉽고 간편하게\n전단 제작이 가능해요\n재질을 확인해 보세요\n\n아트지 100, 150g\n참고용 이미지 입니다. 상세 지류 확인은 온라인 샘플북을 참고해 주세요. 최소 비용으로 최대의 광고효과를 누려보세요\n장당 가격이 약 5원대!\n부담없는 가격으로 브랜드를 홍보해 보세요\n\n\n무조건 정량 준수!\n인쇄 전부터 여분을 추가해\n정매수를 실현했어요\n\n\n전단 만드는 가장 쉬운 방법, 이지템플릿\n원하는 디자인에 텍스트, 이미지만 수정하면 끝!\nSTEP.1 주문창에서 이지템플릿 클릭\nSTEP.2 원하는 디자인과 사이즈 선택\nSTEP.3 텍스트, 이미지 수정 후 편집완료! 끝!\n제작 가능 사이즈\n규격사이즈\n\n\n간편 작업가이드\nex) A4(국8절) 규격사이즈 주문 시\n접수가능파일\nPDF AI EPS\nPDF 저장 TIP\nAdobePDF 사전 설정에서 [PDF/X-1a:2001]만 선택하면 됩니다.(포토샵, 일러스트 동일)\n저작권 유의사항\n· 개인용도로 사용하는 제품일지라도 유명연예인 사진이나, 작가의 작품을 허가없이 무단으로 제작할 경우 초상권 및 저작권으로 인한 문제가 발생할 수 있습니다. 이러한 문제 발생시 모든 책임은 이용자 및 주문자에게 있습니다. 이용시 주의바랍니다.\n· 저작권 또는 초상권이 있는 이미지를 무단으로 사용하는 경우, 저작권법에 의해 처벌받을 수 있습니다.\n회사소개\n이용약관\n개인정보취급방침\n사업자정보확인\n이메일주소무단수집거부\n찾아오시는길\n유해인쇄물제작불가\n멤버십안내\n일반로그인아이디전환\n와우프레스(주)\n[42699] 대구광역시 달서구 장기로 65길 11-5대표이사 : 김경환대표전화 : 1600-7580\n이메일 : wowpress@wowpress.co.kr (세금계산서발급 전용 이메일)\n사업자등록번호 : 504-86-01811통신판매업신고 : 제2016-대구달서-4272호\n개인정보관리책임자 : 권용석\nCopyrightⓒWOWPRESS INC. All rights reserved.\nAI 방울이입니다!"
+}

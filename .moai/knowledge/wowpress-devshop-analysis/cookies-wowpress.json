@@ -1,0 +1,224 @@
+[
+  {
+    "name": "SCOUTER",
+    "value": "z3sudgev287838",
+    "domain": "wowpress.co.kr",
+    "path": "/",
+    "expires": 1806316636.820874,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "JSESSIONID",
+    "value": "pb~0B2182B954BA4C3E63DCEBCA187EEAAC.wowhome2",
+    "domain": "wowpress.co.kr",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_fwb",
+    "value": "78HdPZ0tc8WANaaSeznuWb.1771756637103",
+    "domain": ".wowpress.co.kr",
+    "path": "/",
+    "expires": 1806316641.749016,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_kmpid",
+    "value": "km|wowpress.co.kr|1771756637109|3de3cd73-e0e5-4ee6-aa29-d5eceddb0b43",
+    "domain": ".wowpress.co.kr",
+    "path": "/",
+    "expires": 1779532637,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "YSC",
+    "value": "WYa4UJIwizo",
+    "domain": ".youtube.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "VISITOR_INFO1_LIVE",
+    "value": "AHaFVVjWc9o",
+    "domain": ".youtube.com",
+    "path": "/",
+    "expires": 1787308641.89332,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "VISITOR_PRIVACY_METADATA",
+    "value": "CgJLUhIEGgAgYQ%3D%3D",
+    "domain": ".youtube.com",
+    "path": "/",
+    "expires": 1787308641.893368,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "__Secure-ROLLOUT_TOKEN",
+    "value": "CM24kMC9_tuk3AEQrNj45_PskgMYo-OC6PPskgM%3D",
+    "domain": ".youtube.com",
+    "path": "/",
+    "expires": 1787308637.521802,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None",
+    "partitionKey": "https://wowpress.co.kr",
+    "_crHasCrossSiteAncestor": true
+  },
+  {
+    "name": "NWB",
+    "value": "1e7fc28a43514c7c7bc2158f3fbd0ace.1771756637586",
+    "domain": ".wcs.naver.com",
+    "path": "/",
+    "expires": 1806316641.809275,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_gcl_au",
+    "value": "1.1.1483444347.1771756638",
+    "domain": ".wowpress.co.kr",
+    "path": "/",
+    "expires": 1779532638,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "NAC",
+    "value": "ujlfC4Bh1kbFA",
+    "domain": ".naver.com",
+    "path": "/",
+    "expires": 1806316638.215162,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_ga",
+    "value": "GA1.1.2140872827.1771756638",
+    "domain": ".wowpress.co.kr",
+    "path": "/",
+    "expires": 1806316638.252598,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_fbp",
+    "value": "fb.2.1771756638344.403803665733957654",
+    "domain": ".wowpress.co.kr",
+    "path": "/",
+    "expires": 1779532642,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "s_au_id",
+    "value": "437ce0368539e508498c6f4e19c84ec9fa8-6ade",
+    "domain": ".mediacategory.com",
+    "path": "/",
+    "expires": 1806316642.167082,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "s_IP_info",
+    "value": "39.118.32.156.528916",
+    "domain": ".mediacategory.com",
+    "path": "/",
+    "expires": 1806316642.167145,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "isCoverInflow",
+    "value": "\"(1771756638367)N#\"",
+    "domain": ".mediacategory.com",
+    "path": "/",
+    "expires": 1806316642.167171,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "SCOUTER",
+    "value": "x6e6civ3jaa8pn",
+    "domain": "tk.mediacategory.com",
+    "path": "/",
+    "expires": 1806316638.364317,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_fcOM",
+    "value": "{\"k\":\"437ce0368539e508498c6f4e19c84ec9fa8-6ade\",\"i\":\"39.118.32.156.528916\",\"r\":1771756638365}",
+    "domain": ".wowpress.co.kr",
+    "path": "/",
+    "expires": 1806316638.365517,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "wcs_bt",
+    "value": "s_3c8e2ef8ad6:1771756641",
+    "domain": "wowpress.co.kr",
+    "path": "/",
+    "expires": 1806316641.794516,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "_ga_196RRM2KDH",
+    "value": "GS2.1.s1771756638$o1$g1$t1771756642$j56$l0$h2072579959",
+    "domain": ".wowpress.co.kr",
+    "path": "/",
+    "expires": 1806316642.13164,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "IDE",
+    "value": "AHWqTUmnOn-NAOAjVtxwgsFHnlRSKSWaPbQvZyq-dbZA-rsuhLoeUHUpGtAwlI80",
+    "domain": ".doubleclick.net",
+    "path": "/",
+    "expires": 1806316642.203402,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_ga_DVJLEQRWS4",
+    "value": "GS2.1.s1771756638$o1$g1$t1771756643$j55$l0$h0",
+    "domain": ".wowpress.co.kr",
+    "path": "/",
+    "expires": 1806316643.989849,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  }
+]
