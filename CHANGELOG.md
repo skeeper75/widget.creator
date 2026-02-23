@@ -7,6 +7,16 @@
 
 ## [Unreleased]
 
+### Fixed
+- **SPEC-SEED-001**: Fix seed data correctness bugs in `scripts/seed.ts`
+  - Fix `isActive`: internal-only products now correctly set to `is_active=false`
+  - Fix `mesRegistered`: use `!!product.MesItemCd` instead of `product.shopbyId !== null`
+  - Fix `edicusCode`: now applied to ALL products (not just those with shopbyId)
+  - Fix slug: use `MesItemCd.toLowerCase()` for URL-safe unique slugs
+  - Rewrite `seedCategories` with 2-level SHEET_CATEGORY_MAP hierarchy
+  - Fix 4-priority category lookup in `seedProductsAndMes`
+  - All 5 acceptance criteria verified: 221 products, shopby_id=NULL, 5 inactive, correct edicus_code format, depth=1 categories
+
 ## [0.5.0] - 2026-02-23
 
 ### Added
