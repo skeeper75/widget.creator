@@ -15,7 +15,25 @@ import {
   type OrderStatus,
 } from '../../_lib/schemas/orders.js';
 
-let orderCounter = 0;
+/**
+ * Generate a unique order number based on the max existing order number for today.
+ */
+async function generateOrderNumber(txDb: typeof db): Promise<string> {
+  const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  const prefix = `HN-${today}-`;
+  const [result] = await txDb
+    .select({ maxNum: sql<string | null>`MAX(${orders.orderNumber})` })
+    .from(orders)
+    .where(sql`${orders.orderNumber} LIKE ${prefix + '%'}`);
+  let nextCounter = 1;
+  if (result?.maxNum) {
+    const lastPart = result.maxNum.split('-').pop();
+    if (lastPart) {
+      nextCounter = parseInt(lastPart, 10) + 1;
+    }
+  }
+  return `${prefix}${String(nextCounter).padStart(4, '0')}`;
+}
 
 /**
  * POST /api/v1/orders - Create a new order (REQ-030).
@@ -39,34 +57,36 @@ export const POST = withMiddleware(
     widget_id?: string;
   };
 
-  orderCounter++;
-  const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-  const orderId = `ord_${crypto.randomUUID().replace(/-/g, '').substring(0, 12)}`;
-  const orderNumber = `HN-${dateStr}-${String(orderCounter).padStart(4, '0')}`;
+  const newOrder = await db.transaction(async (tx) => {
+    const orderId = `ord_${crypto.randomUUID().replace(/-/g, '').substring(0, 12)}`;
+    const orderNumber = await generateOrderNumber(tx);
 
-  const [newOrder] = await db.insert(orders).values({
-    orderId,
-    orderNumber,
-    status: 'unpaid',
-    totalPrice: String(body.quote_data.calculated_price),
-    currency: 'KRW',
-    quoteData: body.quote_data,
-    customerName: body.customer.name,
-    customerEmail: body.customer.email,
-    customerPhone: body.customer.phone,
-    customerCompany: body.customer.company,
-    shippingMethod: body.shipping.method,
-    shippingAddress: body.shipping.address,
-    shippingPostalCode: body.shipping.postal_code,
-    shippingMemo: body.shipping.memo,
-    widgetId: body.widget_id,
-    productId: body.quote_data.product_id,
-  }).returning();
+    const [created] = await tx.insert(orders).values({
+      orderId,
+      orderNumber,
+      status: 'unpaid',
+      totalPrice: String(body.quote_data.calculated_price),
+      currency: 'KRW',
+      quoteData: body.quote_data,
+      customerName: body.customer.name,
+      customerEmail: body.customer.email,
+      customerPhone: body.customer.phone,
+      customerCompany: body.customer.company,
+      shippingMethod: body.shipping.method,
+      shippingAddress: body.shipping.address,
+      shippingPostalCode: body.shipping.postal_code,
+      shippingMemo: body.shipping.memo,
+      widgetId: body.widget_id,
+      productId: body.quote_data.product_id,
+    }).returning();
 
-  // Insert initial status history
-  await db.insert(orderStatusHistory).values({
-    orderId: newOrder.id,
-    status: 'unpaid',
+    // Insert initial status history
+    await tx.insert(orderStatusHistory).values({
+      orderId: created.id,
+      status: 'unpaid',
+    });
+
+    return created;
   });
 
   return successResponse(

@@ -9,6 +9,7 @@ const EMBED_VERSION = '1.0.0';
 const EMBED_SCRIPT = `(function(){
 "use strict";
 var W=window,D=document;
+function esc(s){if(typeof s!=="string")return"";return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}
 function init(cfg){
 var id=cfg.widgetId||cfg.dataset&&cfg.dataset.widgetId;
 if(!id){console.error("[WidgetCreator] Missing widgetId");return}
@@ -19,7 +20,7 @@ fetch(base.replace("/api/v1","")+"/api/widget/config/"+id)
 .then(function(r){return r.json()})
 .then(function(d){
 if(d.data){
-container.innerHTML='<div style="font-family:'+d.data.theme.font_family+';padding:16px;border:1px solid '+d.data.theme.secondary_color+';border-radius:'+d.data.theme.border_radius+'"><p style="color:'+d.data.theme.primary_color+'">Widget Creator v${EMBED_VERSION} - '+d.data.name+'</p></div>';
+container.innerHTML='<div style="font-family:'+esc(d.data.theme.font_family)+';padding:16px;border:1px solid '+esc(d.data.theme.secondary_color)+';border-radius:'+esc(d.data.theme.border_radius)+'"><p style="color:'+esc(d.data.theme.primary_color)+'">Widget Creator v${EMBED_VERSION} - '+esc(d.data.name)+'</p></div>';
 }
 }).catch(function(e){console.error("[WidgetCreator]",e)});
 }

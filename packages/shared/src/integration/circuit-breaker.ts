@@ -4,10 +4,7 @@
  * Prevents cascading failures by stopping calls to failing external systems.
  */
 
-/**
- * Circuit breaker states
- */
-export type CircuitBreakerStatus = 'CLOSED' | 'OPEN' | 'HALF_OPEN';
+import type { CircuitBreakerState } from './types.js';
 
 /**
  * Circuit breaker configuration
@@ -27,7 +24,7 @@ export interface CircuitBreakerConfig {
 export class CircuitBreakerOpenError extends Error {
   constructor(
     public readonly circuitBreakerName: string,
-    public readonly status: CircuitBreakerStatus
+    public readonly status: CircuitBreakerState
   ) {
     super(`Circuit breaker '${circuitBreakerName}' is ${status}`);
     this.name = 'CircuitBreakerOpenError';
@@ -46,7 +43,7 @@ export class CircuitBreakerOpenError extends Error {
  * When OPEN: throws CircuitBreakerOpenError immediately (fast-fail)
  */
 export class CircuitBreaker {
-  private state: CircuitBreakerStatus = 'CLOSED';
+  private state: CircuitBreakerState = 'CLOSED';
   private failureCount = 0;
   private lastFailureTime: Date | null = null;
   private lastSuccessTime: Date | null = null;
@@ -56,7 +53,7 @@ export class CircuitBreaker {
   /**
    * Get current circuit breaker state
    */
-  getState(): CircuitBreakerStatus {
+  getState(): CircuitBreakerState {
     this.maybeTransitionToHalfOpen();
     return this.state;
   }
@@ -106,7 +103,7 @@ export class CircuitBreaker {
    * Get circuit breaker statistics
    */
   getStats(): {
-    state: CircuitBreakerStatus;
+    state: CircuitBreakerState;
     failureCount: number;
     lastFailureTime: Date | null;
     lastSuccessTime: Date | null;

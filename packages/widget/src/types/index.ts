@@ -27,6 +27,9 @@ export type {
   PostProcessGroup,
 } from './option.types';
 
+// Selection types (defined in state layer)
+export type { Selections } from '../state/selections.state';
+
 // Price types
 export type {
   PriceBreakdownItem,

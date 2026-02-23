@@ -17,7 +17,6 @@ export type {
 
 // Circuit breaker
 export type {
-  CircuitBreakerStatus,
   CircuitBreakerConfig,
 } from './circuit-breaker.js';
 

@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { eq, and, gte, lte, asc, desc, count } from 'drizzle-orm';
+import { eq, and, gte, lte, asc, desc, count, sql } from 'drizzle-orm';
 import { TRPCError } from '@trpc/server';
-import { orders, orderStatusHistory } from '@widget-creator/shared/db';
+import { db as dbInstance, orders, orderStatusHistory } from '@widget-creator/shared/db';
 import { router, publicProcedure, protectedProcedure } from '../trpc.js';
 
 /**
@@ -39,17 +39,28 @@ function validateTransition(from: OrderStatus, to: OrderStatus): boolean {
   return VALID_TRANSITIONS[from]?.includes(to) ?? false;
 }
 
-let orderCounter = 0;
-
 function generateOrderId(): string {
   return `ord_${crypto.randomUUID().replace(/-/g, '').substring(0, 12)}`;
 }
 
-function generateOrderNumber(): string {
-  orderCounter++;
-  const date = new Date();
-  const dateStr = date.toISOString().slice(0, 10).replace(/-/g, '');
-  return `HN-${dateStr}-${String(orderCounter).padStart(4, '0')}`;
+/**
+ * Generate a unique order number based on the max existing order number for today.
+ */
+async function generateOrderNumber(txDb: typeof dbInstance): Promise<string> {
+  const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  const prefix = `HN-${today}-`;
+  const [result] = await txDb
+    .select({ maxNum: sql<string | null>`MAX(${orders.orderNumber})` })
+    .from(orders)
+    .where(sql`${orders.orderNumber} LIKE ${prefix + '%'}`);
+  let nextCounter = 1;
+  if (result?.maxNum) {
+    const lastPart = result.maxNum.split('-').pop();
+    if (lastPart) {
+      nextCounter = parseInt(lastPart, 10) + 1;
+    }
+  }
+  return `${prefix}${String(nextCounter).padStart(4, '0')}`;
 }
 
 const CreateOrderInput = z.object({
@@ -114,31 +125,35 @@ export const orderRouter = router({
   create: protectedProcedure
     .input(CreateOrderInput)
     .mutation(async ({ ctx, input }) => {
-      const orderId = generateOrderId();
-      const orderNumber = generateOrderNumber();
+      const newOrder = await ctx.db.transaction(async (tx) => {
+        const orderId = generateOrderId();
+        const orderNumber = await generateOrderNumber(tx);
 
-      const [newOrder] = await ctx.db.insert(orders).values({
-        orderId,
-        orderNumber,
-        status: 'unpaid',
-        totalPrice: String(input.quote_data.calculated_price),
-        currency: 'KRW',
-        quoteData: input.quote_data,
-        customerName: input.customer.name,
-        customerEmail: input.customer.email,
-        customerPhone: input.customer.phone,
-        customerCompany: input.customer.company,
-        shippingMethod: input.shipping.method,
-        shippingAddress: input.shipping.address,
-        shippingPostalCode: input.shipping.postal_code,
-        shippingMemo: input.shipping.memo,
-        widgetId: input.widget_id,
-        productId: input.quote_data.product_id,
-      }).returning();
+        const [created] = await tx.insert(orders).values({
+          orderId,
+          orderNumber,
+          status: 'unpaid',
+          totalPrice: String(input.quote_data.calculated_price),
+          currency: 'KRW',
+          quoteData: input.quote_data,
+          customerName: input.customer.name,
+          customerEmail: input.customer.email,
+          customerPhone: input.customer.phone,
+          customerCompany: input.customer.company,
+          shippingMethod: input.shipping.method,
+          shippingAddress: input.shipping.address,
+          shippingPostalCode: input.shipping.postal_code,
+          shippingMemo: input.shipping.memo,
+          widgetId: input.widget_id,
+          productId: input.quote_data.product_id,
+        }).returning();
 
-      await ctx.db.insert(orderStatusHistory).values({
-        orderId: newOrder.id,
-        status: 'unpaid',
+        await tx.insert(orderStatusHistory).values({
+          orderId: created.id,
+          status: 'unpaid',
+        });
+
+        return created;
       });
 
       return {
@@ -313,16 +328,20 @@ export const orderRouter = router({
         updateValues.shippingEstimatedDate = input.estimated_date;
       }
 
-      const [updated] = await ctx.db
-        .update(orders)
-        .set(updateValues)
-        .where(eq(orders.id, order.id))
-        .returning();
+      const updated = await ctx.db.transaction(async (tx) => {
+        const [result] = await tx
+          .update(orders)
+          .set(updateValues)
+          .where(eq(orders.id, order.id))
+          .returning();
 
-      await ctx.db.insert(orderStatusHistory).values({
-        orderId: order.id,
-        status: input.status,
-        memo: input.memo,
+        await tx.insert(orderStatusHistory).values({
+          orderId: order.id,
+          status: input.status,
+          memo: input.memo,
+        });
+
+        return result;
       });
 
       return {

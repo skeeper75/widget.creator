@@ -5,7 +5,7 @@
  */
 
 import type { DomainEvent } from '../../events/types.js';
-import type { IntegrationAdapter, AdapterStatus, CircuitBreakerState } from '../types.js';
+import type { IntegrationAdapter, AdapterStatus } from '../types.js';
 import { CircuitBreaker, CIRCUIT_BREAKER_CONFIGS } from '../circuit-breaker.js';
 import { retryWithBackoff, RETRY_CONFIGS } from '../retry.js';
 import type { MesApiConfig, MesDispatchRequest, MesDispatchResponse } from './types.js';
@@ -253,7 +253,7 @@ export class MesAdapter implements IntegrationAdapter {
     return {
       name: this.name,
       healthy: cbStats.state === 'CLOSED',
-      circuitBreakerState: cbStats.state as CircuitBreakerState,
+      circuitBreakerState: cbStats.state,
       lastSuccessAt: this.lastSuccessAt,
       lastFailureAt: this.lastFailureAt,
       consecutiveFailures: this.consecutiveFailures,
