@@ -93,17 +93,27 @@ graph TB
 - Border: #e9e9e9
 - Destructive: #e6b93f (Gold)
 
-### Preact 또는 Vanilla TypeScript - 임베더블 위젯
+### Preact 10.x + Preact Signals - 임베더블 위젯 (SPEC-WIDGET-SDK-001, 2026-02-23)
 
 **선정 근거**:
 - 번들 사이즈 50KB 미만 제약 충족 (React는 약 40KB gzipped로 위젯 코드 용량 부족)
-- Preact: React 호환 API로 3KB gzipped, 개발 편의성과 경량성 양립
-- Vanilla TS 대안: 프레임워크 의존성 완전 제거, 최소 번들 사이즈
+- Preact: React 호환 API로 ~3KB gzipped, 개발 편의성과 경량성 양립
+- Preact Signals (~1KB gzipped): 세밀한 반응형 상태 관리, 불필요한 리렌더링 최소화
 - Shadow DOM 격리로 호스트 페이지 CSS 충돌 방지
 
-**결정 기준**: 위젯 복잡도에 따라 선택
-- 옵션 UI가 단순한 경우: Vanilla TypeScript
-- 상태 관리가 복잡한 경우: Preact
+**구현 결과** (SPEC-WIDGET-SDK-001):
+- 번들 사이즈: 15.47 KB gzipped (목표 34 KB 대비 55% 절감, 한도 50 KB 대비 69% 여유)
+- 빌드 도구: Vite 6.x Library Mode (IIFE 단일 번들, inlineDynamicImports: true)
+- 상태 관리: Preact Signals - 5개 핵심 Signal (widgetState, selections, available, constraints, price)
+- 테스트: 468 tests, ~97-98% coverage (Vitest + @testing-library/preact)
+- 스타일: 순수 CSS 파일 Shadow DOM 내 인라인 (CSS Custom Properties 테마 주입)
+
+**기술 스택**:
+- Runtime: Preact 10.x (~3KB gzipped)
+- State: @preact/signals (~1KB gzipped)
+- Isolation: Shadow DOM (mode: 'open')
+- Build: Vite 6.x Library Mode (IIFE, terser minification)
+- Language: TypeScript 5.7+ strict mode
 
 ### Drizzle ORM - 데이터베이스 접근 (SPEC-INFRA-001, 2026-02-22)
 

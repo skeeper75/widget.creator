@@ -4,7 +4,6 @@
  */
 
 import type {
-  Selections,
   ConstraintRule,
   DependencyRule,
   OptionDefinition,
@@ -44,6 +43,9 @@ export class OptionEngine {
     this.dependencies = dependencies;
   }
 
+  // @MX:ANCHOR: [AUTO] Core constraint resolver - called by state layer, screen components, and option change handlers
+  // @MX:REASON: Public API boundary with fan_in >= 3; all option selection changes flow through this method
+  // @MX:SPEC: SPEC-WIDGET-SDK-001 Section 4.9 (Option Engine)
   /**
    * Resolve available options given current selections
    */
@@ -205,7 +207,7 @@ export class OptionEngine {
   /**
    * Check if a specific choice is selected
    */
-  private isChoiceSelected(selections: Selections, optionKey: string, choiceId: number): boolean {
+  private isChoiceSelected(selections: Selections, optionKey: string, _choiceId: number): boolean {
     // This would need access to choice codes
     // Simplified: check if any value is selected
     return this.getSelectionValue(selections, optionKey) !== null;

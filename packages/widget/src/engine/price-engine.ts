@@ -54,6 +54,9 @@ export class PriceEngine {
     );
   }
 
+  // @MX:ANCHOR: [AUTO] Core price calculator - called by state layer, option change pipeline, and PriceSummary component
+  // @MX:REASON: Public API boundary with fan_in >= 3; all price updates flow through this method
+  // @MX:SPEC: SPEC-WIDGET-SDK-001 Section 4.8 (Price Engine)
   /**
    * Calculate price for given inputs
    */

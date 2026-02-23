@@ -167,38 +167,88 @@ apps/api/
 └── package.json
 ```
 
-### apps/widget/ - 임베더블 위젯
+### packages/widget/ - 임베더블 위젯 SDK (SPEC-WIDGET-SDK-001, 2026-02-23)
 
-쇼핑몰 페이지에 삽입되는 경량 위젯이다. Vanilla TypeScript 또는 Preact로 작성하여 번들 사이즈를 50KB 미만으로 유지한다. Shadow DOM으로 호스트 페이지와 스타일 격리를 보장한다.
+쇼핑몰 페이지에 삽입되는 경량 위젯 SDK이다. Preact 10.x + Preact Signals + Shadow DOM으로 구현하여 번들 사이즈 15.47 KB gzipped (한도 50 KB)를 달성하였다. 468 테스트, ~97-98% 커버리지.
 
 ```
-apps/widget/
+packages/widget/
 ├── src/
-│   ├── core/                   # 핵심 위젯 로직
-│   │   ├── widget.ts           # 위젯 초기화 및 라이프사이클
-│   │   ├── config.ts           # 위젯 설정 로드
-│   │   └── api-client.ts       # API 통신 (fetch 기반 경량 클라이언트)
-│   ├── components/             # UI 컴포넌트 (경량)
-│   │   ├── ProductSelector.ts  # 상품 카테고리 선택
-│   │   ├── OptionStep.ts       # 옵션 단계별 선택
-│   │   ├── PriceDisplay.ts     # 실시간 가격 표시
-│   │   ├── FileUpload.ts       # 파일 업로드 UI
-│   │   └── CartButton.ts       # 장바구니/주문 버튼
-│   ├── styles/                 # 위젯 스타일 (Shadow DOM 내부)
-│   │   └── widget.css          # 격리된 위젯 스타일
-│   ├── utils/                  # 유틸리티
-│   │   ├── dom.ts              # DOM 조작 헬퍼
-│   │   └── events.ts           # 이벤트 시스템
-│   └── index.ts                # 엔트리 포인트 (전역 등록)
-├── vite.config.ts              # Vite 빌드 설정 (라이브러리 모드)
-├── tsconfig.json
+│   ├── index.ts                    # Entry: bootstrap, Shadow DOM mount
+│   ├── embed.ts                    # Script tag parser, container creation
+│   ├── app.tsx                     # Root Preact component (WidgetShell)
+│   ├── primitives/                 # 7 Primitive Components (모두 구현 완료)
+│   │   ├── ToggleGroup.tsx
+│   │   ├── Select.tsx
+│   │   ├── RadioGroup.tsx
+│   │   ├── Collapsible.tsx
+│   │   ├── Input.tsx
+│   │   ├── Slider.tsx
+│   │   ├── Button.tsx
+│   │   └── index.ts
+│   ├── components/                 # 10 Domain Components (모두 구현 완료)
+│   │   ├── SizeSelector.tsx
+│   │   ├── PaperSelect.tsx
+│   │   ├── NumberInput.tsx
+│   │   ├── ColorChipGroup.tsx
+│   │   ├── ImageChipGroup.tsx
+│   │   ├── FinishSection.tsx
+│   │   ├── DualInput.tsx
+│   │   ├── QuantitySlider.tsx
+│   │   ├── PriceSummary.tsx
+│   │   ├── UploadActions.tsx
+│   │   └── index.ts
+│   ├── screens/                    # Screen Configurations (3/11 구현)
+│   │   ├── PrintOption.tsx         # Screen 01 (구현 완료)
+│   │   ├── StickerOption.tsx       # Screen 02 (구현 완료)
+│   │   ├── AccessoryOption.tsx     # Screen 11 (구현 완료)
+│   │   ├── ScreenRenderer.tsx      # Screen router
+│   │   └── index.ts
+│   ├── state/                      # Preact Signals 상태 관리
+│   │   ├── widget.state.ts         # widgetState, status machine
+│   │   ├── selections.state.ts     # 사용자 선택 상태
+│   │   ├── price.state.ts          # 가격 계산 상태
+│   │   └── index.ts
+│   ├── engine/                     # Client-side engines
+│   │   ├── option-engine.ts        # Constraint resolver (제약조건 평가)
+│   │   ├── price-engine.ts         # Price calculator (가격 계산기)
+│   │   └── index.ts
+│   ├── styles/                     # CSS (Shadow DOM 내 인라인)
+│   │   ├── tokens.css              # CSS Custom Properties (디자인 토큰)
+│   │   ├── primitives.css          # Primitive 컴포넌트 스타일
+│   │   ├── components.css          # Domain 컴포넌트 스타일
+│   │   └── base.css                # Shadow DOM 리셋 + 베이스 스타일
+│   ├── utils/                      # 유틸리티
+│   │   ├── events.ts               # CustomEvent dispatch helpers
+│   │   ├── shadow-dom.ts           # Shadow DOM helpers
+│   │   ├── formatting.ts           # 가격/숫자 포맷팅 (KRW)
+│   │   └── index.ts
+│   └── types/                      # 위젯 전용 타입
+│       ├── widget.types.ts
+│       ├── option.types.ts
+│       ├── price.types.ts
+│       ├── screen.types.ts
+│       └── index.ts
+├── __tests__/                      # 468 테스트 파일 (20 test files)
+│   ├── primitives/                 # 7 Primitive 컴포넌트 테스트
+│   ├── components/                 # 10 Domain 컴포넌트 테스트
+│   ├── engine/                     # Engine 로직 테스트
+│   ├── state/                      # 상태 관리 테스트
+│   └── integration/                # 통합 테스트
+├── README.md                       # Widget SDK 사용 가이드
+├── vite.config.ts                  # Vite Library Mode 설정 (IIFE)
+├── tsconfig.json                   # TypeScript strict 설정
 └── package.json
 ```
 
 **위젯 삽입 코드 예시**:
 ```html
-<div id="hooni-widget" data-widget-id="wgt_xxxxx"></div>
-<script src="https://cdn.hooniprinting.com/widget/v1/widget.js" async></script>
+<script
+  src="https://widget.huni.co.kr/embed.js"
+  data-widget-id="wgt_xxxxx"
+  data-product-id="42"
+  async
+></script>
 ```
 
 ### packages/shared/ - 공유 타입 및 유틸리티
