@@ -79,6 +79,17 @@ interface MesData {
   products: MesProduct[];
 }
 
+// Raw product sheet data (product-master-raw.json)
+interface RawSheetProduct {
+  id?: number;
+  mesItemCd?: string;
+  category?: string;
+  name: string;
+}
+interface RawProductData {
+  sheets: Record<string, { products: RawSheetProduct[] }>;
+}
+
 interface PaperData {
   papers: Array<{
     name: string;
@@ -246,43 +257,192 @@ const BINDING_CODE_MAP: Record<string, string> = {
   'PUR제본': 'BIND_PUR',
 };
 
+// @MX:NOTE: [AUTO] SPEC-SEED-001 Section 6.2: Internal-only products (gray background in Excel)
+// @MX:SPEC: SPEC-SEED-001 §6.2
+// These products should NOT be exposed on Shopby -> is_active = false
+const INTERNAL_PRODUCT_NAMES = new Set([
+  '링바인더',
+  '아이스머그컵',
+  '슬림하드 폰케이스',
+  '블랙젤리',        // Note: not in v5.json
+  '임팩트 젤하드',    // Note: not in v5.json
+  '에어팟케이스',
+  '버즈케이스',
+]);
+
 // ============================================================
-// Phase 1a: Seed HuniCategory
+// Phase 1a: Seed HuniCategory (2-level hierarchy)
 // ============================================================
 
-async function seedCategories(): Promise<Map<string, number>> {
-  console.log('Seeding HuniCategory...');
-  const mesData = loadJson<MesData>(path.join(EXPORTS_DIR, 'MES_자재공정매핑_v5.json'));
-  const categoryMap = new Map<string, number>();
+// Maps Excel sheet names to depth=0 upper categories
+// Source: actual product sheets in product-master-raw.json (NOT the MAP sheet)
+// - sheetName: the actual Excel sheet name (null = no direct sheet)
+// - mesCategories: MES category codes that belong to this sheet category
+// - extraSheets: additional sheets merged into this category (e.g., 디자인캘린더 → 캘린더)
+const SHEET_CATEGORY_MAP: Record<string, {
+  name: string;
+  sheetName: string | null;
+  mesCategories: string[];
+  extraSheets?: string[];
+}> = {
+  CAT_DIGITAL_PRINT: { name: '디지털인쇄', sheetName: '디지털인쇄', mesCategories: ['01', '03'] },
+  CAT_STICKER: { name: '스티커', sheetName: '스티커', mesCategories: ['02'] },
+  CAT_BOOKLET: { name: '책자', sheetName: '책자', mesCategories: ['06'] },
+  CAT_PHOTEBOOK: { name: '포토북', sheetName: '포토북', mesCategories: [] },
+  CAT_CALENDAR: { name: '캘린더', sheetName: '캘린더', mesCategories: ['07'], extraSheets: ['디자인캘린더'] },
+  CAT_SILSA: { name: '실사', sheetName: '실사', mesCategories: ['04', '05'] },
+  CAT_ACRYLIC: { name: '아크릴', sheetName: '아크릴', mesCategories: ['09'] },
+  CAT_GOODS: { name: '굿즈', sheetName: '굿즈', mesCategories: ['10', '11'] },
+  CAT_STATIONERY: { name: '문구(노트)', sheetName: '문구(노트)', mesCategories: ['08'] },
+  CAT_ACCESSORIES: { name: '상품악세사리', sheetName: '상품악세사리', mesCategories: ['12'] },
+};
 
-  for (let i = 0; i < mesData.categories.length; i++) {
-    const cat = mesData.categories[i];
-    const code = 'CAT_' + cat.slug.toUpperCase().replace(/-/g, '_');
+interface SeedCategoriesResult {
+  subCategoryMap: Map<string, number>;
+  mesCategoryToParentMap: Map<string, number>;
+  // mesItemCd -> subCategoryId (depth=1), built from raw sheet data
+  mesItemCdToSubCategoryId: Map<string, number>;
+  // shopbyId (= Excel B col = huni_code) -> subCategoryId (depth=1), for 굿즈 (no mesItemCd in raw)
+  shopbyIdToSubCategoryId: Map<number, number>;
+  // MES category code -> first depth=1 sub-category id (fallback for products with no sub-cat match)
+  mesCategoryToFirstSubCatId: Map<string, number>;
+}
 
-    const [created] = await db
+async function seedCategories(): Promise<SeedCategoriesResult> {
+  console.log('Seeding HuniCategory (2-level hierarchy from actual sheet data)...');
+
+  // Load raw sheet data for correct sub-category structure
+  const rawData = loadJson<RawProductData>(path.join(DATA_DIR, '_raw/product-master-raw.json'));
+
+  const subCategoryMap = new Map<string, number>();
+  const mesCategoryToParentMap = new Map<string, number>();
+  const mesItemCdToSubCategoryId = new Map<string, number>();
+  // @MX:NOTE: Priority 0 map for 굿즈 - raw data id (= Excel B = huni_code = v5.json shopbyId) -> subCategoryId
+  // @MX:SPEC: SPEC-SEED-001 §5.2 Priority 0
+  const shopbyIdToSubCategoryId = new Map<number, number>();
+  // Fallback: MES category code -> first depth=1 sub-category id (for products with no sub-cat match)
+  const mesCategoryToFirstSubCatId = new Map<string, number>();
+
+  let parentOrder = 0;
+  let totalSubCategories = 0;
+
+  for (const [parentCode, config] of Object.entries(SHEET_CATEGORY_MAP)) {
+    // Create depth=0 upper category
+    const [parentRow] = await db
       .insert(categories)
       .values({
-        code,
-        name: cat.categoryName,
+        code: parentCode,
+        name: config.name,
         parentId: null,
         depth: 0,
-        displayOrder: i,
+        displayOrder: parentOrder++,
+        sheetName: config.sheetName,
         isActive: true,
       })
       .onConflictDoUpdate({
         target: categories.code,
         set: {
-          name: cat.categoryName,
-          displayOrder: i,
+          name: config.name,
+          displayOrder: parentOrder - 1,
+          sheetName: config.sheetName,
         },
       })
       .returning({ id: categories.id });
 
-    categoryMap.set(cat.categoryCode, created.id);
+    const parentId = parentRow.id;
+
+    // Map all MES category codes to this parent
+    for (const mesCode of config.mesCategories) {
+      mesCategoryToParentMap.set(mesCode, parentId);
+    }
+
+    // Build sub-categories from actual raw sheet data (NOT MES v5 subCategories string)
+    // Collect products from main sheet + any extra merged sheets
+    const sheetsToScan: string[] = [];
+    if (config.sheetName) sheetsToScan.push(config.sheetName);
+    if (config.extraSheets) sheetsToScan.push(...config.extraSheets);
+
+    // Collect unique sub-category names preserving order of first appearance
+    const subCatNames: string[] = [];
+    const seenSubCats = new Set<string>();
+    for (const sheetName of sheetsToScan) {
+      const sheet = rawData.sheets[sheetName];
+      if (!sheet) continue;
+      for (const product of sheet.products) {
+        if (product.category && !seenSubCats.has(product.category)) {
+          seenSubCats.add(product.category);
+          subCatNames.push(product.category);
+        }
+      }
+    }
+
+    // Sheets with no sub-categories (no '구분' column in Excel): create a single default
+    // sub-category using the parent name so all products can reference depth=1
+    if (subCatNames.length === 0 && sheetsToScan.length > 0) {
+      subCatNames.push(config.name);
+    }
+
+    // Create depth=1 sub-categories
+    let subOrder = 0;
+    for (const subName of subCatNames) {
+      const subCode = `${parentCode}_${subName.toUpperCase().replace(/[\s\/&()]/g, '_').replace(/__+/g, '_')}`;
+
+      const [subRow] = await db
+        .insert(categories)
+        .values({
+          code: subCode,
+          name: subName,
+          parentId,
+          depth: 1,
+          displayOrder: subOrder++,
+          sheetName: null,
+          isActive: true,
+        })
+        .onConflictDoUpdate({
+          target: categories.code,
+          set: {
+            name: subName,
+            parentId,
+            displayOrder: subOrder - 1,
+          },
+        })
+        .returning({ id: categories.id });
+
+      // Key for MES-code-based lookup (backward compat): mesCode:subName
+      for (const mesCode of config.mesCategories) {
+        subCategoryMap.set(`${mesCode}:${subName}`, subRow.id);
+        // Record the first sub-category for each MES code as a fallback
+        if (!mesCategoryToFirstSubCatId.has(mesCode)) {
+          mesCategoryToFirstSubCatId.set(mesCode, subRow.id);
+        }
+      }
+      totalSubCategories++;
+
+      // Build mesItemCd/shopbyId -> subCategoryId maps from raw sheet products
+      // isDefaultSub: sheets with no '구분' column use parent name as the single sub-category
+      const isDefaultSub = subName === config.name;
+      for (const sheetName of sheetsToScan) {
+        const sheet = rawData.sheets[sheetName];
+        if (!sheet) continue;
+        for (const product of sheet.products) {
+          // Match condition: explicit category match OR default sub (flat sheets)
+          const matches = isDefaultSub ? !product.category : product.category === subName;
+          if (matches && product.mesItemCd) {
+            mesItemCdToSubCategoryId.set(product.mesItemCd, subRow.id);
+          }
+          // Priority 0: shopbyId (raw data id = Excel B = huni_code) -> subCategoryId
+          // Used for 굿즈 which have no mesItemCd in raw sheet data
+          if (matches && product.id) {
+            shopbyIdToSubCategoryId.set(product.id, subRow.id);
+          }
+        }
+      }
+    }
   }
 
-  console.log(`  Seeded ${categoryMap.size} categories`);
-  return categoryMap;
+  console.log(`  Seeded ${Object.keys(SHEET_CATEGORY_MAP).length} parent categories + ${totalSubCategories} sub-categories`);
+  console.log(`  shopbyIdToSubCategoryId map: ${shopbyIdToSubCategoryId.size} entries`);
+  return { subCategoryMap, mesCategoryToParentMap, mesItemCdToSubCategoryId, shopbyIdToSubCategoryId, mesCategoryToFirstSubCatId };
 }
 
 // ============================================================
@@ -551,7 +711,13 @@ async function seedLossQuantityConfig(): Promise<void> {
 // Phase 2: Seed HuniProduct + HuniMesItem + HuniProductMesMapping
 // ============================================================
 
-async function seedProductsAndMes(categoryMap: Map<string, number>): Promise<void> {
+async function seedProductsAndMes(
+  subCategoryMap: Map<string, number>,
+  mesCategoryToParentMap: Map<string, number>,
+  mesItemCdToSubCategoryId: Map<string, number>,
+  shopbyIdToSubCategoryId: Map<number, number>,
+  mesCategoryToFirstSubCatId: Map<string, number>,
+): Promise<void> {
   console.log('Seeding HuniProduct, HuniMesItem, HuniProductMesMapping...');
   const data = loadJson<MesData>(path.join(EXPORTS_DIR, 'MES_자재공정매핑_v5.json'));
 
@@ -562,7 +728,39 @@ async function seedProductsAndMes(categoryMap: Map<string, number>): Promise<voi
   let sequentialId = 90001;
 
   for (const product of data.products) {
-    const categoryId = categoryMap.get(product.categoryCode);
+    // Priority 0: shopbyId (= Excel B = huni_code) -> raw data id -> subCategoryId
+    // Fixes 굿즈 (cat 10/11) which have no mesItemCd in raw sheet → map was empty
+    // @MX:SPEC: SPEC-SEED-001 §5.2 Priority 0
+    let categoryId = product.shopbyId
+      ? shopbyIdToSubCategoryId.get(product.shopbyId)
+      : undefined;
+
+    // Priority 1: Use mesItemCd -> subCategoryId from raw sheet data (most accurate)
+    if (!categoryId) categoryId = mesItemCdToSubCategoryId.get(product.MesItemCd);
+
+    // Priority 2: MES subCategory name -> depth=1 sub-category (backward compat)
+    if (!categoryId) {
+      const subKey = `${product.categoryCode}:${product.subCategory ?? ''}`;
+      categoryId = subCategoryMap.get(subKey);
+    }
+
+    // Priority 3: MES category name as fallback sub-category
+    if (!categoryId && product.categoryName) {
+      const fallbackKey = `${product.categoryCode}:${product.categoryName}`;
+      categoryId = subCategoryMap.get(fallbackKey);
+    }
+
+    // Priority 4: First depth=1 sub-category of parent (products with cat=None in raw data)
+    // Better than depth=0 fallback, avoids AC6 violation
+    if (!categoryId) {
+      categoryId = mesCategoryToFirstSubCatId.get(product.categoryCode);
+    }
+
+    // Final fallback: use depth=0 parent category (last resort)
+    if (!categoryId) {
+      categoryId = mesCategoryToParentMap.get(product.categoryCode);
+    }
+
     if (!categoryId) {
       console.warn(`  Warning: No category found for code "${product.categoryCode}", skipping ${product.MesItemName}`);
       continue;
@@ -572,13 +770,12 @@ async function seedProductsAndMes(categoryMap: Map<string, number>): Promise<voi
       ? String(product.shopbyId)
       : String(sequentialId++);
 
-    const edicusCode = product.shopbyId ? `HU_${huniCode}` : null;
+    // All products get edicus code regardless of shopbyId presence
+    const edicusCode = `HU_${huniCode}`;
 
-    const slug = product.MesItemName
-      .toLowerCase()
-      .replace(/\s+/g, '-')
-      .replace(/[^\w-]/g, '')
-      .replace(/--+/g, '-');
+    // Slug: use MesItemCd as primary slug (always unique, URL-safe)
+    // Korean product names produce empty strings with ASCII \w filter
+    const slug = product.MesItemCd.toLowerCase();
 
     const pricingModel = derivePricingModel(product.productType);
     const orderMethod = deriveOrderMethod(product.editor, product.materialOptions);
@@ -592,7 +789,9 @@ async function seedProductsAndMes(categoryMap: Map<string, number>): Promise<voi
           categoryId,
           huniCode,
           edicusCode,
-          shopbyId: product.shopbyId ?? null,
+          // @MX:NOTE: shopbyId is NULL - Shopby platform ID to be linked separately per SPEC-DATA-002
+          // v5.json shopbyId field = Excel B col = huni_code (NOT Shopby platform ID)
+          shopbyId: null,
           name: product.productName,
           slug,
           productType: product.productType,
@@ -600,8 +799,10 @@ async function seedProductsAndMes(categoryMap: Map<string, number>): Promise<voi
           figmaSection: product.figmaSection ?? null,
           orderMethod,
           editorEnabled,
-          mesRegistered: product.shopbyId !== null,
-          isActive: true,
+          // mesRegistered: true if product has a MES item code (MesItemCd present)
+          mesRegistered: !!product.MesItemCd,
+          // @MX:NOTE: [AUTO] Internal-only products (SPEC-SEED-001 §6.2) get is_active=false
+          isActive: !INTERNAL_PRODUCT_NAMES.has(product.productName),
         })
         .onConflictDoUpdate({
           target: products.huniCode,
@@ -613,7 +814,8 @@ async function seedProductsAndMes(categoryMap: Map<string, number>): Promise<voi
             figmaSection: product.figmaSection ?? null,
             orderMethod,
             editorEnabled,
-            mesRegistered: product.shopbyId !== null,
+            mesRegistered: !!product.MesItemCd,
+            isActive: !INTERNAL_PRODUCT_NAMES.has(product.productName),
           },
         })
         .returning({ id: products.id });
@@ -922,7 +1124,7 @@ async function main() {
 
   try {
     // Phase 1: Basic master data (order matters)
-    const categoryMap = await seedCategories();
+    const { subCategoryMap, mesCategoryToParentMap, mesItemCdToSubCategoryId, shopbyIdToSubCategoryId, mesCategoryToFirstSubCatId } = await seedCategories();
     await seedImpositionRules();
     const printModeCodeMap = await seedPrintModes();
     await seedPostProcesses();
@@ -931,7 +1133,7 @@ async function main() {
     await seedLossQuantityConfig();
 
     // Phase 2: Products and MES
-    await seedProductsAndMes(categoryMap);
+    await seedProductsAndMes(subCategoryMap, mesCategoryToParentMap, mesItemCdToSubCategoryId, shopbyIdToSubCategoryId, mesCategoryToFirstSubCatId);
 
     // Phase 3: Pricing data
     await seedPricingData(printModeCodeMap);
