@@ -4,7 +4,7 @@
 
 **프로젝트명**: Widget Creator (후니프린팅 위젯 빌더)
 **유형**: 웹 애플리케이션 (SaaS)
-**버전**: 0.4.0
+**버전**: 0.5.0
 **최종 업데이트**: 2026-02-23
 
 ### 프로젝트 설명
@@ -296,6 +296,7 @@
 
 ### 구현 완료 기능 (Delivered)
 
+- **Widget Builder Admin Dashboard** (v0.5.0, SPEC-WIDGET-ADMIN-001): Next.js 15.x Admin Dashboard. 26개 CRUD 테이블, 27개 tRPC 라우터, 7개 특수 에디터(TreeEditor/MatrixEditor/SpreadsheetEditor/ConstraintBuilder/ProductConfigurator/KanbanBoard/VisualMapper), NextAuth.js v5, 727개 테스트
 - **Widget Builder API Layer** (v0.4.0, SPEC-WIDGET-API-001): 45+ REST 엔드포인트 + 16개 Admin tRPC 라우터. RFC 7807 에러 핸들링, Widget Token/JWT/API Key 3종 인증, Sliding Window Rate Limiting, 93.97% 테스트 커버리지
 - **Drizzle ORM 마이그레이션** (v0.2.0, SPEC-INFRA-001): 26개 Huni 도메인 테이블, Drizzle ORM 기반 타입 안전 DB 접근
 - **가격 엔진 및 공유 패키지** (v0.1.0): 옵션 우선순위 체인 엔진, 비선형 수량 가격 계산기, 제약 조건 평가기, Zod 스키마

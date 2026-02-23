@@ -18,16 +18,25 @@
 ```
 widget.creator/                  # 모노레포 루트
 ├── apps/
-│   └── web/                     # Next.js 15.x App Router (API 서버)
-│       └── app/api/
-│           ├── v1/
-│           │   ├── catalog/     # 9개 엔드포인트 (Widget Token 인증)
-│           │   ├── pricing/     # 4개 엔드포인트 (Widget Token 인증)
-│           │   ├── orders/      # 3개 엔드포인트 (JWT/API Key 인증)
-│           │   ├── admin/trpc/  # 16개 tRPC 라우터 (Admin JWT 인증)
-│           │   └── integration/ # 12개 엔드포인트 (API Key 인증)
-│           ├── widget/          # 2개 엔드포인트 (Public)
-│           └── _lib/            # 미들웨어, 스키마, 유틸리티
+│   ├── web/                     # Next.js 15.x App Router (API 서버)
+│   │   └── app/api/
+│   │       ├── v1/
+│   │       │   ├── catalog/     # 9개 엔드포인트 (Widget Token 인증)
+│   │       │   ├── pricing/     # 4개 엔드포인트 (Widget Token 인증)
+│   │       │   ├── orders/      # 3개 엔드포인트 (JWT/API Key 인증)
+│   │       │   ├── admin/trpc/  # 16개 tRPC 라우터 (Admin JWT 인증)
+│   │       │   └── integration/ # 12개 엔드포인트 (API Key 인증)
+│   │       ├── widget/          # 2개 엔드포인트 (Public)
+│   │       └── _lib/            # 미들웨어, 스키마, 유틸리티
+│   └── admin/                   # Next.js 15.x Admin Dashboard (http://localhost:3001)
+│       └── src/
+│           ├── app/             # App Router (26개 CRUD 페이지)
+│           ├── components/
+│           │   ├── editors/     # 7개 특수 에디터 (TreeEditor, MatrixEditor 등)
+│           │   ├── data-table/  # TanStack Table v8 래퍼 컴포넌트
+│           │   └── common/      # 공통 UI 컴포넌트
+│           └── lib/trpc/
+│               └── routers/     # 27개 tRPC 도메인 라우터
 ├── packages/
 │   ├── shared/                  # @widget-creator/shared
 │   │   └── src/
@@ -48,8 +57,11 @@ widget.creator/                  # 모노레포 루트
 패키지 의존 관계:
 
 ```
-apps/web  -->  packages/shared  -->  (drizzle-orm, zod)
-          -->  packages/pricing-engine
+apps/web   -->  packages/shared  -->  (drizzle-orm, zod)
+           -->  packages/pricing-engine
+
+apps/admin -->  packages/shared
+           -->  (tRPC, NextAuth.js v5, shadcn/ui, TanStack Table v8)
 
 pricing-engine  -->  shared
 ```
@@ -112,11 +124,14 @@ NEXTAUTH_SECRET="your-nextauth-secret-min-32-chars"
 NEXTAUTH_URL="http://localhost:3000"
 ```
 
-### apps/web 개발 서버 실행
+### 개발 서버 실행
 
 ```bash
-# apps/web API 서버 개발 모드 실행
+# apps/web API 서버 개발 모드 실행 (http://localhost:3000)
 pnpm --filter @widget-creator/web dev
+
+# apps/admin Admin Dashboard 개발 모드 실행 (http://localhost:3001)
+pnpm --filter @widget-creator/admin dev
 
 # 또는 Turborepo를 통해 전체 워크스페이스 실행
 pnpm dev
@@ -140,8 +155,32 @@ pnpm test:coverage
 | 패키지 | 이름 | 설명 |
 |--------|------|------|
 | `apps/web` | `@widget-creator/web` | Next.js 15.x API 서버 - REST + tRPC 하이브리드 API (45+ 엔드포인트) |
+| `apps/admin` | `@widget-creator/admin` | Next.js 15.x Admin Dashboard - 26개 CRUD 테이블, 27개 tRPC 라우터, 7개 특수 에디터 |
 | `packages/shared` | `@widget-creator/shared` | 공유 타입, Zod 스키마, 카탈로그 파서, Drizzle ORM 스키마 |
 | `packages/pricing-engine` | `@widget-creator/pricing-engine` | 옵션 엔진, 가격 계산기, 제약 조건 평가기 |
+
+## Admin Dashboard (SPEC-WIDGET-ADMIN-001)
+
+후니프린팅 운영팀이 인쇄 상품, 소재, 공정, 가격, 옵션, MES 연동 데이터를 관리하는 풀스택 관리자 웹 애플리케이션.
+
+**URL**: http://localhost:3001
+
+### 주요 기능
+
+- **26개 CRUD 테이블**: 카탈로그(3), 소재(3), 공정(4), 가격(6), 옵션(5), 연동(5)
+- **27개 tRPC 도메인 라우터**: 모든 도메인에 대한 protectedProcedure 인증 적용
+- **7개 특수 에디터 컴포넌트**:
+  - `TreeEditor`: 카테고리 계층 구조 드래그 앤 드롭 편집
+  - `MatrixEditor`: 용지-상품 매핑 55x45 그리드 토글
+  - `SpreadsheetEditor`: 가격 단가 10,000행 가상화 스크롤 편집
+  - `ConstraintBuilder`: 옵션 제약조건 IF-THEN 비주얼 빌더
+  - `ProductConfigurator`: 상품별 옵션 구성 편집기
+  - `KanbanBoard`: MES 옵션 매핑 상태 관리 (Pending / Mapped / Verified)
+  - `VisualMapper`: 상품-MES 드래그 연결 시각화
+- **NextAuth.js v5**: credentials 기반 관리자 인증
+- **Huni 디자인 토큰**: Primary #5538B6, Noto Sans, 4px spacing grid
+- **23개 shadcn/ui 컴포넌트**: Tailwind CSS v4 기반
+- **727개 테스트**: 로직 커버리지 통과
 
 ## 주요 기능
 

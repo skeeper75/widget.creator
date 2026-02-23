@@ -7,6 +7,24 @@
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-02-23
+
+### Added
+
+- Widget Builder Admin Dashboard (SPEC-WIDGET-ADMIN-001)
+- apps/admin: Next.js 15.x admin application with full CRUD for all 26 data tables
+- 7 special editor components: TreeEditor, MatrixEditor, SpreadsheetEditor, ConstraintBuilder, ProductConfigurator, KanbanBoard, VisualMapper
+- 27 tRPC domain routers with protectedProcedure authentication
+- NextAuth.js v5 credentials-based admin authentication
+- Huni design tokens (#5538B6 primary, Noto Sans, 4px spacing grid)
+- 23 shadcn/ui components with Tailwind CSS v4
+- TanStack Table v8 DataTable with sort/filter/pagination
+- TanStack Virtual for SpreadsheetEditor (10,000 row virtualization)
+- dnd-kit for TreeEditor, KanbanBoard, ProductConfigurator drag-and-drop
+- 727 tests with comprehensive logic coverage
+
+---
+
 ## [0.4.0] - 2026-02-23
 
 ### Added
@@ -149,7 +167,8 @@
 - `packages/pricing-engine/__tests__/`: 옵션 엔진, 제약 조건, 계산기 테스트
 - TypeScript 컴파일 에러 0건
 
-[Unreleased]: https://github.com/skeeper75/widget.creator/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/skeeper75/widget.creator/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/skeeper75/widget.creator/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/skeeper75/widget.creator/compare/v0.2.0...v0.4.0
 [0.2.0]: https://github.com/skeeper75/widget.creator/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/skeeper75/widget.creator/releases/tag/v0.1.0
