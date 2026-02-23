@@ -18,6 +18,14 @@
   - All 5 acceptance criteria verified: 221 products, shopby_id=NULL, 5 inactive, correct edicus_code format, depth=1 categories
 
 ### Added
+- **SPEC-DATA-003**: Integrated Data Pipeline and Version Management Strategy (`scripts/import/`)
+  - MES v5 JSON import pipeline: option_definitions (30 records), option_choices (deduplicated), product_options (723 records), product_editor_mapping (111 records), option_dependencies (~300 records)
+  - Version management: SHA-256 source file checksums, `data_import_log` table for import history tracking, idempotent re-run support
+  - Base importer pattern with `INSERT ... ON CONFLICT ... DO UPDATE` for all tables
+  - Cross-reference validator and count validator for data integrity verification
+  - CLI interface: `--force`, `--dry-run`, `--table`, `--domain`, `--validate-only` flags
+  - Drizzle schema: `packages/shared/src/db/schema/huni-import-log.schema.ts`
+  - 61 unit tests, all passing
 - **SPEC-WIDGET-INTG-001**: External System Integration Layer (`packages/shared/src/events/`, `packages/shared/src/integration/`)
   - Domain Event Bus: In-process pub/sub with 12 typed event categories, fire-and-forget, handler error isolation, dead letter queue
   - Integration Adapter Pattern: Pluggable adapter architecture with circuit breaker (CLOSED/OPEN/HALF_OPEN), exponential backoff retry, health checks

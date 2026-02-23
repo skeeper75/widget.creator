@@ -6,4 +6,5 @@ export * from './huni-options.schema.js';
 export * from './huni-integration.schema.js';
 export * from './huni-orders.schema.js';
 export * from './huni-widgets.schema.js';
+export * from './huni-import-log.schema.js';
 export * from './relations.js';

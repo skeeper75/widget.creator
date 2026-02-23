@@ -110,6 +110,19 @@ pnpm db:migrate
 
 # 카탈로그 시드 데이터 투입 (326개 상품, 47개 카테고리)
 pnpm db:seed
+
+# MES JSON 데이터 임포트 파이프라인 (SPEC-DATA-003)
+# option_definitions(30), option_choices, product_options(723), product_editor_mapping(111), option_dependencies(~300)
+npx tsx scripts/import/index.ts
+
+# 특정 도메인만 임포트
+npx tsx scripts/import/index.ts --domain options
+
+# 강제 재임포트 (버전 체크 건너뜀)
+npx tsx scripts/import/index.ts --force
+
+# 드라이런 (DB 쓰기 없이 파싱/검증만 실행)
+npx tsx scripts/import/index.ts --dry-run
 ```
 
 ### 환경 변수
