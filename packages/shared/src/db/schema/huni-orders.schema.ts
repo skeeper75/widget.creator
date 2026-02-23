@@ -10,6 +10,7 @@ import {
   jsonb,
   index,
 } from 'drizzle-orm/pg-core';
+import { products } from './huni-catalog.schema.js';
 
 // HuniOrder: Master order record
 export const orders = pgTable('orders', {
@@ -31,7 +32,7 @@ export const orders = pgTable('orders', {
   shippingTrackingNumber: varchar('shipping_tracking_number', { length: 100 }),
   shippingEstimatedDate: varchar('shipping_estimated_date', { length: 30 }),
   widgetId: varchar('widget_id', { length: 50 }),
-  productId: integer('product_id'),
+  productId: integer('product_id').references(() => products.id, { onDelete: 'set null' }),
   isActive: boolean('is_active').default(true).notNull(),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().$onUpdate(() => new Date()).notNull(),
@@ -45,7 +46,7 @@ export const orders = pgTable('orders', {
 // HuniOrderStatusHistory: Audit trail for order status changes
 export const orderStatusHistory = pgTable('order_status_history', {
   id: serial('id').primaryKey(),
-  orderId: integer('order_id').notNull(),
+  orderId: integer('order_id').notNull().references(() => orders.id, { onDelete: 'cascade' }),
   status: varchar('status', { length: 30 }).notNull(),
   memo: text('memo'),
   changedAt: timestamp('changed_at', { withTimezone: true }).defaultNow().notNull(),
@@ -56,7 +57,7 @@ export const orderStatusHistory = pgTable('order_status_history', {
 // HuniOrderDesignFile: Design file records attached to orders
 export const orderDesignFiles = pgTable('order_design_files', {
   id: serial('id').primaryKey(),
-  orderId: integer('order_id').notNull(),
+  orderId: integer('order_id').notNull().references(() => orders.id, { onDelete: 'cascade' }),
   fileId: varchar('file_id', { length: 50 }).unique().notNull(),
   originalName: varchar('original_name', { length: 500 }).notNull(),
   fileNumber: varchar('file_number', { length: 500 }),

@@ -11,6 +11,8 @@ import {
   index,
   unique,
 } from 'drizzle-orm/pg-core';
+import { products } from './huni-catalog.schema.js';
+import { optionChoices } from './huni-options.schema.js';
 
 // HuniMesItem: MES system item master
 export const mesItems = pgTable('mes_items', {
@@ -32,7 +34,7 @@ export const mesItems = pgTable('mes_items', {
 // HuniMesItemOption: MES item option values (up to 10 per item)
 export const mesItemOptions = pgTable('mes_item_options', {
   id: serial('id').primaryKey(),
-  mesItemId: integer('mes_item_id').notNull(),
+  mesItemId: integer('mes_item_id').notNull().references(() => mesItems.id, { onDelete: 'cascade' }),
   optionNumber: smallint('option_number').notNull(),
   optionValue: varchar('option_value', { length: 200 }),
   isActive: boolean('is_active').default(true).notNull(),
@@ -46,8 +48,8 @@ export const mesItemOptions = pgTable('mes_item_options', {
 // HuniProductMesMapping: Product-to-MES item mapping
 export const productMesMappings = pgTable('product_mes_mapping', {
   id: serial('id').primaryKey(),
-  productId: integer('product_id').notNull(),
-  mesItemId: integer('mes_item_id').notNull(),
+  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'restrict' }),
+  mesItemId: integer('mes_item_id').notNull().references(() => mesItems.id, { onDelete: 'restrict' }),
   coverType: varchar('cover_type', { length: 10 }),
   isActive: boolean('is_active').default(true).notNull(),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
@@ -61,7 +63,7 @@ export const productMesMappings = pgTable('product_mes_mapping', {
 // HuniProductEditorMapping: Product-to-editor (Edicus) 1:1 mapping
 export const productEditorMappings = pgTable('product_editor_mapping', {
   id: serial('id').primaryKey(),
-  productId: integer('product_id').unique().notNull(),
+  productId: integer('product_id').unique().notNull().references(() => products.id, { onDelete: 'restrict' }),
   editorType: varchar('editor_type', { length: 30 }).default('edicus').notNull(),
   templateId: varchar('template_id', { length: 100 }),
   templateConfig: jsonb('template_config'),
@@ -75,8 +77,8 @@ export const productEditorMappings = pgTable('product_editor_mapping', {
 // HuniOptionChoiceMesMapping: Option choice to MES item mapping
 export const optionChoiceMesMappings = pgTable('option_choice_mes_mapping', {
   id: serial('id').primaryKey(),
-  optionChoiceId: integer('option_choice_id').notNull(),
-  mesItemId: integer('mes_item_id'),
+  optionChoiceId: integer('option_choice_id').notNull().references(() => optionChoices.id, { onDelete: 'restrict' }),
+  mesItemId: integer('mes_item_id').references(() => mesItems.id, { onDelete: 'set null' }),
   mesCode: varchar('mes_code', { length: 50 }),
   mappingType: varchar('mapping_type', { length: 20 }).notNull(),
   mappingStatus: varchar('mapping_status', { length: 20 }).default('pending').notNull(),
@@ -91,4 +93,21 @@ export const optionChoiceMesMappings = pgTable('option_choice_mes_mapping', {
   index('option_choice_mes_mapping_option_choice_id_idx').on(t.optionChoiceId),
   index('option_choice_mes_mapping_mes_item_id_idx').on(t.mesItemId),
   index('option_choice_mes_mapping_mapping_status_idx').on(t.mappingStatus),
+]);
+
+// IntegrationDeadLetter: Dead letter queue for failed integration events
+export const integrationDeadLetters = pgTable('integration_dead_letters', {
+  id: serial('id').primaryKey(),
+  eventType: varchar('event_type', { length: 100 }).notNull(),
+  eventPayload: jsonb('event_payload').notNull(),
+  adapterName: varchar('adapter_name', { length: 50 }).notNull(),
+  errorMessage: text('error_message').notNull(),
+  retryCount: integer('retry_count').default(0).notNull(),
+  status: varchar('status', { length: 20 }).default('pending').notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+  replayedAt: timestamp('replayed_at', { withTimezone: true }),
+}, (t) => [
+  index('integration_dead_letters_status_idx').on(t.status),
+  index('integration_dead_letters_adapter_name_idx').on(t.adapterName),
+  index('integration_dead_letters_created_at_idx').on(t.createdAt),
 ]);

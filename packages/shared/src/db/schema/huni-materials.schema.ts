@@ -11,6 +11,7 @@ import {
   index,
   unique,
 } from 'drizzle-orm/pg-core';
+import { products } from './huni-catalog.schema.js';
 
 // HuniPaper: Paper specifications
 export const papers = pgTable('papers', {
@@ -50,8 +51,8 @@ export const materials = pgTable('materials', {
 // HuniPaperProductMapping: Paper-to-product associations
 export const paperProductMappings = pgTable('paper_product_mapping', {
   id: serial('id').primaryKey(),
-  paperId: integer('paper_id').notNull(),
-  productId: integer('product_id').notNull(),
+  paperId: integer('paper_id').notNull().references(() => papers.id, { onDelete: 'restrict' }),
+  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'restrict' }),
   coverType: varchar('cover_type', { length: 10 }),
   isDefault: boolean('is_default').default(false).notNull(),
   isActive: boolean('is_active').default(true).notNull(),
