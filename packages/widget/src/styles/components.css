@@ -1,0 +1,514 @@
+/**
+ * Domain Component Styles
+ *
+ * Styles for 10 Domain Components:
+ * - SizeSelector
+ * - PaperSelect
+ * - NumberInput
+ * - ColorChipGroup
+ * - ImageChipGroup
+ * - FinishSection
+ * - DualInput
+ * - QuantitySlider
+ * - PriceSummary
+ * - UploadActions
+ *
+ * @see SPEC-WIDGET-SDK-001 Section 4.4
+ */
+
+/* ========================================
+ * COMMON SECTION STYLES
+ * ======================================== */
+
+.huni-section {
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-section:last-child {
+  margin-bottom: 0;
+}
+
+.huni-section__label {
+  display: block;
+  margin-bottom: var(--huni-spacing-2);
+  font-size: var(--huni-font-size-sm);
+  font-weight: var(--huni-font-weight-medium);
+  color: var(--huni-color-text-primary);
+}
+
+.huni-section__label--required::after {
+  content: ' *';
+  color: var(--huni-color-error);
+}
+
+.huni-section__hint {
+  font-size: var(--huni-font-size-xs);
+  color: var(--huni-color-text-tertiary);
+  margin-top: var(--huni-spacing-1);
+}
+
+.huni-section__error {
+  font-size: var(--huni-font-size-xs);
+  color: var(--huni-color-error);
+  margin-top: var(--huni-spacing-1);
+}
+
+.huni-section__warning {
+  font-size: var(--huni-font-size-xs);
+  color: var(--huni-color-warning);
+  margin-top: var(--huni-spacing-1);
+}
+
+/* ========================================
+ * SIZE SELECTOR
+ * Uses ToggleGroup for size selection
+ * ======================================== */
+
+.huni-size-selector {
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-size-selector__custom-hint {
+  font-size: var(--huni-font-size-xs);
+  color: var(--huni-color-text-tertiary);
+  margin-top: var(--huni-spacing-2);
+}
+
+/* ========================================
+ * PAPER SELECT
+ * Uses Select with color chip
+ * ======================================== */
+
+.huni-paper-select {
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-paper-select__chip-preview {
+  display: flex;
+  align-items: center;
+  gap: var(--huni-spacing-2);
+  margin-top: var(--huni-spacing-2);
+}
+
+.huni-paper-select__chip-color {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--huni-radius-full);
+  border: 1px solid var(--huni-color-border);
+}
+
+.huni-paper-select__chip-name {
+  font-size: var(--huni-font-size-sm);
+  color: var(--huni-color-text-secondary);
+}
+
+/* ========================================
+ * NUMBER INPUT
+ * Quantity and count input
+ * ======================================== */
+
+.huni-number-input {
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-number-input__range {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--huni-font-size-xs);
+  color: var(--huni-color-text-tertiary);
+  margin-top: var(--huni-spacing-1);
+}
+
+/* ========================================
+ * COLOR CHIP GROUP
+ * Uses RadioGroup color-chip variant
+ * ======================================== */
+
+.huni-color-chip-group {
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-color-chip-group__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--huni-spacing-3);
+}
+
+.huni-color-chip-group__chip-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--huni-spacing-1);
+}
+
+.huni-color-chip-group__chip-name {
+  font-size: var(--huni-font-size-xs);
+  color: var(--huni-color-text-secondary);
+  text-align: center;
+  max-width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========================================
+ * IMAGE CHIP GROUP
+ * Uses RadioGroup image-chip variant
+ * ======================================== */
+
+.huni-image-chip-group {
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-image-chip-group__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--huni-spacing-3);
+}
+
+/* ========================================
+ * FINISH SECTION
+ * Post-process options (박, 형압, 오시, 미싱, 가변, 귀돌이)
+ * ======================================== */
+
+.huni-finish-section {
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-finish-section__group {
+  margin-bottom: var(--huni-spacing-3);
+}
+
+.huni-finish-section__group:last-child {
+  margin-bottom: 0;
+}
+
+.huni-finish-section__group-label {
+  font-size: var(--huni-font-size-sm);
+  font-weight: var(--huni-font-weight-medium);
+  color: var(--huni-color-text-primary);
+  margin-bottom: var(--huni-spacing-2);
+}
+
+/* ========================================
+ * DUAL INPUT
+ * Width x Height custom size input
+ * ======================================== */
+
+.huni-dual-input {
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-dual-input__fields {
+  display: flex;
+  align-items: center;
+  gap: var(--huni-spacing-2);
+}
+
+.huni-dual-input__field {
+  flex: 1;
+}
+
+.huni-dual-input__separator {
+  color: var(--huni-color-text-secondary);
+  font-size: var(--huni-font-size-lg);
+  font-weight: var(--huni-font-weight-medium);
+}
+
+.huni-dual-input__unit {
+  font-size: var(--huni-font-size-sm);
+  color: var(--huni-color-text-secondary);
+}
+
+.huni-dual-input__constraints {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--huni-font-size-xs);
+  color: var(--huni-color-text-tertiary);
+  margin-top: var(--huni-spacing-1);
+}
+
+/* ========================================
+ * QUANTITY SLIDER
+ * Tier-based quantity selection with price display
+ * ======================================== */
+
+.huni-quantity-slider {
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-quantity-slider__current {
+  display: flex;
+  align-items: baseline;
+  gap: var(--huni-spacing-2);
+  margin-bottom: var(--huni-spacing-3);
+}
+
+.huni-quantity-slider__value {
+  font-size: var(--huni-font-size-2xl);
+  font-weight: var(--huni-font-weight-bold);
+  color: var(--huni-color-text-primary);
+}
+
+.huni-quantity-slider__unit {
+  font-size: var(--huni-font-size-base);
+  color: var(--huni-color-text-secondary);
+}
+
+.huni-quantity-slider__tier-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--huni-spacing-2) var(--huni-spacing-3);
+  background-color: var(--huni-color-surface);
+  border-radius: var(--huni-radius-default);
+  margin-top: var(--huni-spacing-2);
+}
+
+.huni-quantity-slider__tier-label {
+  font-size: var(--huni-font-size-sm);
+  color: var(--huni-color-text-secondary);
+}
+
+.huni-quantity-slider__tier-price {
+  font-size: var(--huni-font-size-sm);
+  font-weight: var(--huni-font-weight-semibold);
+  color: var(--huni-color-primary);
+}
+
+/* ========================================
+ * PRICE SUMMARY
+ * Itemized price breakdown + total
+ * ======================================== */
+
+.huni-price-summary {
+  padding: var(--huni-spacing-4);
+  background-color: var(--huni-color-surface);
+  border-radius: var(--huni-radius-default);
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-price-summary__title {
+  font-size: var(--huni-font-size-base);
+  font-weight: var(--huni-font-weight-semibold);
+  color: var(--huni-color-text-primary);
+  margin-bottom: var(--huni-spacing-3);
+}
+
+.huni-price-summary__breakdown {
+  margin-bottom: var(--huni-spacing-3);
+}
+
+.huni-price-summary__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--huni-spacing-2) 0;
+  border-bottom: 1px solid var(--huni-color-border);
+}
+
+.huni-price-summary__item:last-child {
+  border-bottom: none;
+}
+
+.huni-price-summary__item-label {
+  font-size: var(--huni-font-size-sm);
+  color: var(--huni-color-text-secondary);
+}
+
+.huni-price-summary__item-label--main {
+  color: var(--huni-color-text-primary);
+  font-weight: var(--huni-font-weight-medium);
+}
+
+.huni-price-summary__item-detail {
+  font-size: var(--huni-font-size-xs);
+  color: var(--huni-color-text-tertiary);
+  margin-top: var(--huni-spacing-1);
+}
+
+.huni-price-summary__item-amount {
+  font-size: var(--huni-font-size-sm);
+  color: var(--huni-color-text-primary);
+  font-weight: var(--huni-font-weight-medium);
+  text-align: right;
+}
+
+.huni-price-summary__divider {
+  height: 1px;
+  background-color: var(--huni-color-border);
+  margin: var(--huni-spacing-3) 0;
+}
+
+.huni-price-summary__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.huni-price-summary__total-label {
+  font-size: var(--huni-font-size-base);
+  font-weight: var(--huni-font-weight-semibold);
+  color: var(--huni-color-text-primary);
+}
+
+.huni-price-summary__total-amount {
+  font-size: var(--huni-font-size-xl);
+  font-weight: var(--huni-font-weight-bold);
+  color: var(--huni-color-text-primary);
+}
+
+.huni-price-summary__vat {
+  font-size: var(--huni-font-size-xs);
+  color: var(--huni-color-text-tertiary);
+  text-align: right;
+  margin-top: var(--huni-spacing-1);
+}
+
+.huni-price-summary__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--huni-spacing-4);
+}
+
+/* ========================================
+ * UPLOAD ACTIONS
+ * Action buttons for file upload, editor, cart
+ * ======================================== */
+
+.huni-upload-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--huni-spacing-3);
+}
+
+.huni-upload-actions__row {
+  display: flex;
+  gap: var(--huni-spacing-3);
+}
+
+.huni-upload-actions__button {
+  flex: 1;
+}
+
+/* Responsive layout for wider screens */
+@media (min-width: 481px) {
+  .huni-upload-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .huni-upload-actions__row {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+/* ========================================
+ * WIDGET SHELL
+ * Main container layout
+ * ======================================== */
+
+.huni-widget-shell {
+  width: 100%;
+  min-width: 280px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: var(--huni-spacing-4);
+  background-color: white;
+  border-radius: var(--huni-radius-large);
+  box-shadow: var(--huni-shadow-default);
+}
+
+@media (min-width: 481px) {
+  .huni-widget-shell {
+    padding: var(--huni-spacing-6);
+  }
+}
+
+/* ========================================
+ * LOADING & ERROR STATES
+ * ======================================== */
+
+.huni-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: var(--huni-spacing-8);
+}
+
+.huni-loading__spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--huni-color-surface);
+  border-top-color: var(--huni-color-primary);
+  border-radius: var(--huni-radius-full);
+  animation: huni-spin 1s linear infinite;
+}
+
+.huni-loading__text {
+  margin-top: var(--huni-spacing-4);
+  font-size: var(--huni-font-size-sm);
+  color: var(--huni-color-text-secondary);
+}
+
+.huni-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: var(--huni-spacing-8);
+  text-align: center;
+}
+
+.huni-error__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--huni-color-error);
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-error__message {
+  font-size: var(--huni-font-size-base);
+  color: var(--huni-color-text-primary);
+  margin-bottom: var(--huni-spacing-4);
+}
+
+/* ========================================
+ * SKELETON STATES
+ * ======================================== */
+
+.huni-skeleton-section {
+  margin-bottom: var(--huni-spacing-4);
+}
+
+.huni-skeleton-label {
+  width: 80px;
+  height: 14px;
+  margin-bottom: var(--huni-spacing-2);
+}
+
+.huni-skeleton-input {
+  width: 100%;
+  height: var(--huni-input-height-md);
+}
+
+.huni-skeleton-chips {
+  display: flex;
+  gap: var(--huni-spacing-3);
+}
+
+.huni-skeleton-chip {
+  width: var(--huni-chip-diameter);
+  height: var(--huni-chip-diameter);
+  border-radius: var(--huni-radius-full);
+}
+
+.huni-skeleton-button {
+  width: 100%;
+  height: var(--huni-button-height-lg);
+}

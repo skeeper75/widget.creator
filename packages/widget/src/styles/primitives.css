@@ -1,0 +1,582 @@
+/**
+ * Primitive Component Styles
+ *
+ * Base styles for 7 Primitive Components:
+ * - ToggleGroup
+ * - Select
+ * - RadioGroup
+ * - Collapsible
+ * - Input
+ * - Slider
+ * - Button
+ *
+ * @see SPEC-WIDGET-SDK-001 Section 4.3
+ */
+
+/* ========================================
+ * TOGGLE GROUP
+ * Multi-button single selection component
+ * ======================================== */
+
+.huni-toggle-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--huni-spacing-2);
+}
+
+.huni-toggle-group--compact {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.huni-toggle-group--compact::-webkit-scrollbar {
+  display: none;
+}
+
+.huni-toggle-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: var(--huni-button-height-md);
+  padding: 0 var(--huni-spacing-4);
+  font-size: var(--huni-font-size-sm);
+  font-weight: var(--huni-font-weight-medium);
+  color: var(--huni-color-text-primary);
+  background-color: var(--huni-color-surface);
+  border: 1px solid var(--huni-color-border);
+  border-radius: var(--huni-radius-default);
+  cursor: pointer;
+  transition: var(--huni-transition-colors);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.huni-toggle-item:hover:not(.huni-toggle-item--disabled) {
+  border-color: var(--huni-color-primary);
+  background-color: rgb(85 56 182 / 5%);
+}
+
+.huni-toggle-item--selected {
+  color: white;
+  background-color: var(--huni-color-primary);
+  border-color: var(--huni-color-primary);
+}
+
+.huni-toggle-item--selected:hover {
+  background-color: var(--huni-color-primary-hover);
+  border-color: var(--huni-color-primary-hover);
+}
+
+.huni-toggle-item--disabled {
+  color: var(--huni-color-text-tertiary);
+  background-color: var(--huni-color-surface);
+  border-color: var(--huni-color-disabled);
+  cursor: not-allowed;
+}
+
+.huni-toggle-item--required:not(.huni-toggle-item--selected) {
+  border-color: var(--huni-color-warning);
+}
+
+/* ========================================
+ * SELECT
+ * Dropdown selection component
+ * ======================================== */
+
+.huni-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.huni-select {
+  width: 100%;
+  height: var(--huni-input-height-md);
+  padding: 0 var(--huni-spacing-10) 0 var(--huni-spacing-3);
+  font-size: var(--huni-font-size-base);
+  color: var(--huni-color-text-primary);
+  background-color: white;
+  border: 1px solid var(--huni-color-border);
+  border-radius: var(--huni-radius-default);
+  cursor: pointer;
+  appearance: none;
+  transition: var(--huni-transition-colors);
+}
+
+.huni-select:hover:not(:disabled) {
+  border-color: var(--huni-color-primary);
+}
+
+.huni-select-icon {
+  position: absolute;
+  right: var(--huni-spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--huni-color-text-secondary);
+  pointer-events: none;
+}
+
+/* Chip variant - inline color chip display */
+.huni-select--with-chip {
+  padding-left: var(--huni-spacing-10);
+}
+
+.huni-select-chip {
+  position: absolute;
+  left: var(--huni-spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: var(--huni-radius-full);
+  border: 1px solid var(--huni-color-border);
+  pointer-events: none;
+}
+
+/* ========================================
+ * RADIO GROUP
+ * Radio selection component (color-chip, image-chip variants)
+ * ======================================== */
+
+.huni-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--huni-spacing-3);
+}
+
+/* Color Chip Variant */
+.huni-color-chip {
+  position: relative;
+  width: var(--huni-chip-diameter);
+  height: var(--huni-chip-diameter);
+  cursor: pointer;
+}
+
+.huni-color-chip__swatch {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--huni-radius-full);
+  border: 1px solid var(--huni-color-border);
+  transition: var(--huni-transition-fast);
+}
+
+.huni-color-chip--selected {
+  outline: var(--huni-chip-ring-width) solid var(--huni-chip-ring-color);
+  outline-offset: 0;
+  border-radius: var(--huni-radius-full);
+}
+
+.huni-color-chip__input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.huni-color-chip__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Image Chip Variant */
+.huni-image-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  padding: var(--huni-spacing-2);
+  background-color: var(--huni-color-surface);
+  border: 1px solid var(--huni-color-border);
+  border-radius: var(--huni-radius-default);
+  cursor: pointer;
+  transition: var(--huni-transition-colors);
+}
+
+.huni-image-chip:hover:not(.huni-image-chip--disabled) {
+  border-color: var(--huni-color-primary);
+}
+
+.huni-image-chip--selected {
+  border-color: var(--huni-color-primary);
+  background-color: rgb(85 56 182 / 5%);
+}
+
+.huni-image-chip__image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: var(--huni-radius-small);
+  margin-bottom: var(--huni-spacing-1);
+}
+
+.huni-image-chip__label {
+  font-size: var(--huni-font-size-xs);
+  color: var(--huni-color-text-primary);
+  text-align: center;
+  line-height: var(--huni-line-height-tight);
+}
+
+/* ========================================
+ * COLLAPSIBLE
+ * Expand/collapse section component
+ * ======================================== */
+
+.huni-collapsible {
+  border: 1px solid var(--huni-color-border);
+  border-radius: var(--huni-radius-default);
+  overflow: hidden;
+}
+
+.huni-collapsible__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--huni-spacing-3) var(--huni-spacing-4);
+  background-color: var(--huni-color-surface);
+  cursor: pointer;
+  transition: var(--huni-transition-colors);
+  user-select: none;
+}
+
+.huni-collapsible__header:hover {
+  background-color: rgb(246 246 246 / 80%);
+}
+
+.huni-collapsible__title {
+  font-size: var(--huni-font-size-base);
+  font-weight: var(--huni-font-weight-medium);
+  color: var(--huni-color-text-primary);
+}
+
+.huni-collapsible__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--huni-spacing-1);
+  margin-left: var(--huni-spacing-2);
+  font-size: var(--huni-font-size-xs);
+  font-weight: var(--huni-font-weight-semibold);
+  color: white;
+  background-color: var(--huni-color-primary);
+  border-radius: var(--huni-radius-full);
+}
+
+.huni-collapsible__icon {
+  width: 20px;
+  height: 20px;
+  color: var(--huni-color-text-secondary);
+  transition: transform var(--huni-transition-default);
+}
+
+.huni-collapsible--open .huni-collapsible__icon {
+  transform: rotate(180deg);
+}
+
+.huni-collapsible__content {
+  padding: var(--huni-spacing-4);
+  background-color: white;
+}
+
+/* ========================================
+ * INPUT
+ * Text/number input component
+ * ======================================== */
+
+.huni-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--huni-spacing-1);
+}
+
+.huni-input-label {
+  font-size: var(--huni-font-size-sm);
+  font-weight: var(--huni-font-weight-medium);
+  color: var(--huni-color-text-primary);
+}
+
+.huni-input-label--required::after {
+  content: ' *';
+  color: var(--huni-color-error);
+}
+
+.huni-input {
+  width: 100%;
+  height: var(--huni-input-height-md);
+  padding: 0 var(--huni-spacing-3);
+  font-size: var(--huni-font-size-base);
+  color: var(--huni-color-text-primary);
+  background-color: white;
+  border: 1px solid var(--huni-color-border);
+  border-radius: var(--huni-radius-default);
+  transition: var(--huni-transition-colors);
+}
+
+/* Number variant with stepper */
+.huni-input-number-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--huni-spacing-1);
+}
+
+.huni-input-number {
+  width: 80px;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.huni-input-number::-webkit-inner-spin-button,
+.huni-input-number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.huni-input-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.huni-input-stepper-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 16px;
+  background-color: var(--huni-color-surface);
+  border: 1px solid var(--huni-color-border);
+  color: var(--huni-color-text-secondary);
+  cursor: pointer;
+  transition: var(--huni-transition-colors);
+}
+
+.huni-input-stepper-btn:first-child {
+  border-radius: var(--huni-radius-small) var(--huni-radius-small) 0 0;
+}
+
+.huni-input-stepper-btn:last-child {
+  border-radius: 0 0 var(--huni-radius-small) var(--huni-radius-small);
+}
+
+.huni-input-stepper-btn:hover:not(:disabled) {
+  background-color: var(--huni-color-primary);
+  color: white;
+  border-color: var(--huni-color-primary);
+}
+
+.huni-input-unit {
+  font-size: var(--huni-font-size-sm);
+  color: var(--huni-color-text-secondary);
+  margin-left: var(--huni-spacing-1);
+}
+
+/* Dual variant (width x height) */
+.huni-input-dual-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--huni-spacing-2);
+}
+
+.huni-input-dual-separator {
+  color: var(--huni-color-text-secondary);
+  font-size: var(--huni-font-size-base);
+}
+
+/* ========================================
+ * SLIDER
+ * Range selection component
+ * ======================================== */
+
+.huni-slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--huni-spacing-2);
+}
+
+.huni-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--huni-color-surface);
+  border-radius: var(--huni-radius-full);
+  outline: none;
+  cursor: pointer;
+}
+
+.huni-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--huni-color-primary);
+  border-radius: var(--huni-radius-full);
+  cursor: pointer;
+  transition: var(--huni-transition-fast);
+}
+
+.huni-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.huni-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--huni-color-primary);
+  border: none;
+  border-radius: var(--huni-radius-full);
+  cursor: pointer;
+}
+
+/* Tier display variant */
+.huni-slider-tiers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--huni-spacing-2);
+}
+
+.huni-slider-tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--huni-font-size-xs);
+}
+
+.huni-slider-tier-qty {
+  color: var(--huni-color-text-secondary);
+}
+
+.huni-slider-tier-price {
+  color: var(--huni-color-primary);
+  font-weight: var(--huni-font-weight-medium);
+}
+
+/* ========================================
+ * BUTTON
+ * Action button component
+ * ======================================== */
+
+.huni-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--huni-spacing-2);
+  height: var(--huni-button-height-md);
+  padding: 0 var(--huni-spacing-5);
+  font-size: var(--huni-font-size-base);
+  font-weight: var(--huni-font-weight-medium);
+  border-radius: var(--huni-radius-default);
+  cursor: pointer;
+  transition: var(--huni-transition-colors);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.huni-button--full-width {
+  width: 100%;
+}
+
+/* Primary variant */
+.huni-button--primary {
+  color: white;
+  background-color: var(--huni-color-primary);
+  border: 1px solid var(--huni-color-primary);
+}
+
+.huni-button--primary:hover:not(:disabled) {
+  background-color: var(--huni-color-primary-hover);
+  border-color: var(--huni-color-primary-hover);
+}
+
+.huni-button--primary:active:not(:disabled) {
+  background-color: var(--huni-color-primary-active);
+  border-color: var(--huni-color-primary-active);
+}
+
+/* Secondary variant */
+.huni-button--secondary {
+  color: var(--huni-color-text-primary);
+  background-color: var(--huni-color-surface);
+  border: 1px solid var(--huni-color-border);
+}
+
+.huni-button--secondary:hover:not(:disabled) {
+  background-color: rgb(246 246 246 / 80%);
+  border-color: var(--huni-color-text-secondary);
+}
+
+/* Outline variant */
+.huni-button--outline {
+  color: var(--huni-color-text-primary);
+  background-color: transparent;
+  border: 1px solid var(--huni-color-border);
+}
+
+.huni-button--outline:hover:not(:disabled) {
+  border-color: var(--huni-color-primary);
+  color: var(--huni-color-primary);
+}
+
+/* Accent variant (editor button) */
+.huni-button--accent {
+  color: white;
+  background-color: var(--huni-color-accent);
+  border: 1px solid var(--huni-color-accent);
+}
+
+.huni-button--accent:hover:not(:disabled) {
+  background-color: var(--huni-color-accent-hover);
+  border-color: var(--huni-color-accent-hover);
+}
+
+/* Disabled state */
+.huni-button--disabled,
+.huni-button:disabled {
+  color: var(--huni-color-text-tertiary);
+  background-color: var(--huni-color-disabled);
+  border-color: var(--huni-color-disabled);
+  cursor: not-allowed;
+}
+
+/* Loading state */
+.huni-button--loading {
+  position: relative;
+  color: transparent;
+}
+
+.huni-button--loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--huni-radius-full);
+  animation: huni-spin 0.75s linear infinite;
+}
+
+.huni-button--loading.huni-button--primary::after,
+.huni-button--loading.huni-button--accent::after {
+  border-color: white;
+  border-right-color: transparent;
+}
+
+/* Icon in button */
+.huni-button__icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
