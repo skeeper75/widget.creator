@@ -35,10 +35,24 @@
 - Pure logic test pattern: re-implement component logic in tests (no direct component import)
 
 ### Admin Coverage Status (as of 2026-02-23)
-- 278 tests across 16 files, all passing
+- 727 tests across 28 files, all passing (449 new tests added for M3-M5)
 - circular-check.ts: 100% coverage (directly imported)
 - React component .tsx files: untestable without jsdom + @testing-library/react
 - tRPC routers excluded (drizzle-zod incompatible with stub approach)
+- New M3-M5 test files (9 files, 449 tests):
+  - editors/spreadsheet-editor.test.ts (54 tests) - reducer, validation, ratio, selection
+  - editors/constraint-builder.test.ts (45 tests) - operators, circular detection, filtering
+  - editors/kanban-board.test.ts (30 tests) - status transitions, filtering, column config
+  - editors/visual-mapper.test.ts (34 tests) - grouping, filtering, click interaction, SVG
+  - lib/processes-schemas.test.ts (55 tests) - binding/imposition/printMode/postProcess schemas
+  - lib/pricing-schemas.test.ts (45 tests) - REQ-N-003 negative blocking, all price schemas
+  - lib/integration-schemas.test.ts (42 tests) - mapping status, editor mapping, JSON editor
+  - lib/widget-config.test.ts (37 tests) - widget CRUD, embed code, status badges
+  - lib/product-options-router.test.ts (42 tests) - input validation, dedup, unassigned logic
+
+### Test Gotchas
+- `Number('')` returns 0, not NaN - empty string passes `>= 0` validation
+- filterProducts matches both name AND categoryName - test data must use distinct category names
 
 ### Known Limitations
 - tRPC routers use `drizzle-zod`'s `createInsertSchema()` which needs real Drizzle table objects

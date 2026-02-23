@@ -19,6 +19,7 @@ import { optionDefinitionsRouter } from './option-definitions';
 import { optionChoicesRouter } from './option-choices';
 import { optionConstraintsRouter } from './option-constraints';
 import { optionDependenciesRouter } from './option-dependencies';
+import { productOptionsRouter } from './product-options';
 import { mesItemsRouter } from './mes-items';
 import { productMesMappingsRouter } from './product-mes-mappings';
 import { productEditorMappingsRouter } from './product-editor-mappings';
@@ -57,6 +58,7 @@ export const appRouter = router({
   optionChoices: optionChoicesRouter,
   optionConstraints: optionConstraintsRouter,
   optionDependencies: optionDependenciesRouter,
+  productOptions: productOptionsRouter,
 
   // Domain 6: Integration
   mesItems: mesItemsRouter,

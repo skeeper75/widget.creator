@@ -70,7 +70,8 @@ export default function MappingsPage() {
   const mappings: PaperProductMapping[] = useMemo(
     () =>
       (matrixQuery.data?.mappings ?? []).map(
-        (m: Record<string, unknown>) => ({
+        (m: Record<string, unknown>, index: number) => ({
+          id: (m.id as number) ?? index,
           paperId: m.paperId as number,
           productId: m.productId as number,
           coverType: m.coverType as string,
