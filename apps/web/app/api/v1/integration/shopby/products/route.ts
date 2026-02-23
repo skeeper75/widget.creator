@@ -25,7 +25,7 @@ export const GET = withMiddleware(
     .from(products)
     .where(isNotNull(products.shopbyId));
 
-  const data = shopbyProducts.map((p) => ({
+  const data = shopbyProducts.map((p: typeof shopbyProducts[number]) => ({
     product_id: p.product_id,
     shopby_id: p.shopby_id,
     name: p.name,

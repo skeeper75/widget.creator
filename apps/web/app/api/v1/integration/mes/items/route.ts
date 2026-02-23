@@ -17,7 +17,7 @@ export const GET = withMiddleware(
 
   // Fetch options for all items
   const data = await Promise.all(
-    items.map(async (item) => {
+    items.map(async (item: typeof items[number]) => {
       const options = await db
         .select({
           option_number: mesItemOptions.optionNumber,
