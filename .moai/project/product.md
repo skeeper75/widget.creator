@@ -301,6 +301,7 @@
 - **Drizzle ORM 마이그레이션** (v0.2.0, SPEC-INFRA-001): 26개 Huni 도메인 테이블, Drizzle ORM 기반 타입 안전 DB 접근
 - **가격 엔진 및 공유 패키지** (v0.1.0): 옵션 우선순위 체인 엔진, 비선형 수량 가격 계산기, 제약 조건 평가기, Zod 스키마
 - **Embeddable Widget SDK** (v1.0.0-core, SPEC-WIDGET-SDK-001, 2026-02-23): Preact 10.x + Shadow DOM 기반 임베더블 위젯. `<script>` 태그 삽입으로 작동. 7개 Primitive + 10개 Domain 컴포넌트 완전 구현. 번들 사이즈 15.47 KB gzipped (한도 50 KB 대비 69% 여유). 468 테스트 (~97-98% 커버리지). 3개 Screen 구현 (PrintOption, StickerOption, AccessoryOption), 8개 Screen 다음 이터레이션 예정.
+- **External System Integration Layer** (SPEC-WIDGET-INTG-001, 2026-02-23): 3개 외부 시스템(Shopby, MES, Edicus) 연동 레이어. 도메인 이벤트 버스, 어댑터 패턴, 서킷 브레이커, 지수 백오프 재시도, Dead Letter Queue. 16개 Integration API 엔드포인트, 184 테스트
 
 ### 포함 범위 (In Scope)
 
@@ -315,8 +316,8 @@
 ### 제외 범위 (Out of Scope) - 추후 확장
 
 - 결제 PG 연동 (P2)
-- MES 시스템 완전 연동 (P2)
-- 디자인 에디터 통합 (P2)
+- MES 시스템 완전 연동 (P2) - 연동 어댑터 기반 구축 완료 (SPEC-WIDGET-INTG-001), 실제 MES API 연동은 차기 이터레이션
+- 디자인 에디터 통합 (P2) - Edicus 어댑터 기반 구축 완료 (SPEC-WIDGET-INTG-001), 실제 에디터 UI 연동은 차기 이터레이션
 - 모바일 네이티브 앱
 - 클레임 처리 자동화 (P2)
 - 세금계산서 발행 자동화 (P2)

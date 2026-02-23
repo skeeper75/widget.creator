@@ -37,13 +37,17 @@ graph TB
         CDN["CDN<br/>(위젯 스크립트 배포)"]
         S3["S3 호환 스토리지<br/>(파일 업로드)"]
         PG["PG사 (이니시스)<br/>(결제 - P2)"]
-        MES["MES 백오피스<br/>(TS.BackOffice.Huni - P2)"]
+        MES["MES 백오피스<br/>(TS.BackOffice.Huni)"]
+        SHOPBY["Shopby<br/>(이커머스 플랫폼)"]
+        EDICUS["Edicus<br/>(디자인 에디터)"]
     end
 
     WIDGET -.-> CDN
     API --> S3
     API -.-> PG
-    API -.-> MES
+    SHARED -->|"어댑터 (INTG-001)"| MES
+    SHARED -->|"어댑터 (INTG-001)"| SHOPBY
+    SHARED -->|"어댑터 (INTG-001)"| EDICUS
 ```
 
 ---
@@ -269,6 +273,20 @@ packages/shared/
 │   │       ├── huni-pricing.schema.ts     # HuniPriceTable, HuniPriceTier, HuniFixedPrice, HuniPackagePrice, HuniFoilPrice, HuniLossQuantityConfig
 │   │       ├── huni-options.schema.ts     # HuniOptionDefinition, HuniProductOption, HuniOptionChoice, HuniOptionConstraint, HuniOptionDependency
 │   │       └── huni-integration.schema.ts # HuniMesItem, HuniMesItemOption, HuniProductMesMapping, HuniProductEditorMapping, HuniOptionChoiceMesMapping
+│   ├── events/                 # 도메인 이벤트 버스 (SPEC-WIDGET-INTG-001)
+│   │   ├── types.ts            # DomainEvent union (12 타입), EventMetadata
+│   │   ├── bus.ts              # InProcessEventBus (fire-and-forget)
+│   │   ├── dead-letter.ts      # Dead Letter Queue (InMemory + Database)
+│   │   └── index.ts            # 퍼블릭 exports
+│   ├── integration/            # 외부 시스템 연동 어댑터 (SPEC-WIDGET-INTG-001)
+│   │   ├── types.ts            # IntegrationAdapter, AdapterRegistry, AdapterStatus
+│   │   ├── circuit-breaker.ts  # CircuitBreaker (CLOSED/OPEN/HALF_OPEN)
+│   │   ├── retry.ts            # Exponential backoff with jitter
+│   │   ├── adapter-registry.ts # 어댑터 등록/해제/발견
+│   │   ├── shopby/             # Shopby 어댑터 (상품 동기화, 주문 수신)
+│   │   ├── mes/                # MES 어댑터 (생산 발주, 상태 추적)
+│   │   ├── edicus/             # Edicus 어댑터 (에디터 설정, 디자인/렌더)
+│   │   └── index.ts            # 퍼블릭 exports
 │   ├── types/                  # 공유 타입 정의
 │   │   ├── widget.ts           # Widget, WidgetConfig 타입
 │   │   ├── option.ts           # WidgetOption, OptionLayer, OptionValue 타입
@@ -476,6 +494,8 @@ OrderStatus: UNPAID, PAID, PRODUCTION_WAITING, PRODUCING,
 | 프로젝트 설정 | `.moai/config/sections/*.yaml` |
 | 빌드 설정 | `turbo.json` |
 | DB 스키마 (Drizzle) | `packages/shared/src/db/schema/` |
+| 도메인 이벤트 버스 | `packages/shared/src/events/` |
+| 외부 연동 어댑터 | `packages/shared/src/integration/` |
 | DB 마이그레이션 | `drizzle/` |
 | Drizzle 설정 | `drizzle.config.ts` |
 | 시드 스크립트 | `scripts/seed.ts` |
@@ -491,6 +511,6 @@ OrderStatus: UNPAID, PAID, PRODUCTION_WAITING, PRODUCING,
 
 ---
 
-문서 버전: 1.1.0
+문서 버전: 1.2.0
 작성일: 2026-02-22
-최종 수정: 2026-02-22 (SPEC-INFRA-001 Drizzle ORM 마이그레이션 반영)
+최종 수정: 2026-02-23 (SPEC-WIDGET-INTG-001 외부 시스템 연동 레이어 반영)

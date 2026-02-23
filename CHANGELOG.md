@@ -17,6 +17,16 @@
   - Fix 4-priority category lookup in `seedProductsAndMes`
   - All 5 acceptance criteria verified: 221 products, shopby_id=NULL, 5 inactive, correct edicus_code format, depth=1 categories
 
+### Added
+- **SPEC-WIDGET-INTG-001**: External System Integration Layer (`packages/shared/src/events/`, `packages/shared/src/integration/`)
+  - Domain Event Bus: In-process pub/sub with 12 typed event categories, fire-and-forget, handler error isolation, dead letter queue
+  - Integration Adapter Pattern: Pluggable adapter architecture with circuit breaker (CLOSED/OPEN/HALF_OPEN), exponential backoff retry, health checks
+  - Shopby Adapter: Bidirectional product sync and order reception with data mapper
+  - MES Adapter: Production dispatch with option-to-MES-code translation, status tracking (제작대기→제작중→제작완료→출고완료)
+  - Edicus Adapter: Editor configuration, design save/render pipeline with edicus_code derivation
+  - 16 Integration API endpoints: Shopby (5), MES (5), Edicus (6) under `/api/v1/integration/`
+  - 184 unit tests across 11 test files
+
 ## [0.5.0] - 2026-02-23
 
 ### Added
