@@ -7,6 +7,29 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-02-23
+
+### Added
+
+#### Widget Builder API Layer (SPEC-WIDGET-API-001)
+
+- `apps/web`: Next.js 15.x App Router 기반 새 패키지 (pnpm workspace 추가)
+- **Catalog API** (`/api/v1/catalog/`) - 9개 엔드포인트: 카테고리 트리/상세, 상품 목록/상세/사이즈/용지/옵션/제약조건/의존성
+- **Pricing API** (`/api/v1/pricing/`) - 4개 엔드포인트: 견적 계산, 빠른 가격 미리보기, 수량별 가격표, 고정 가격 조회
+- **Orders API** (`/api/v1/orders/`) - 3개 엔드포인트: 주문 생성, 목록 조회, 상세 조회
+- **Widget API** (`/api/widget/`) - 2개 엔드포인트: 위젯 설정, 임베드 스크립트
+- **Integration API** (`/api/v1/integration/`) - 12개 엔드포인트: Shopby(4), MES(4), Edicus(4) 연동
+- **Admin tRPC** (`/api/v1/admin/trpc/`) - 16개 도메인 라우터 (category, product, size, paper, material, printMode, postProcess, binding, priceTable, priceTier, fixedPrice, option, constraint, dependency, order, dashboard)
+- `createCrudRouter` 제네릭 팩토리 - list, getById, create, update, softDelete, bulkUpdate 표준 CRUD 자동 생성
+- RFC 7807 Problem Details 에러 핸들링 (`withMiddleware` HOF 컴포지션 패턴)
+- Widget Token (JWT) / Admin JWT (NextAuth.js v5) / API Key 3종 인증 레이어
+- 범위별 CORS 정책 (Widget Token allowed_origins, Admin only, Server-to-server)
+- 인증 방식별 In-memory Sliding Window Rate Limiting (Widget Token 100 req/min, Admin JWT 5000 req/min, API Key 1000 req/min, 미인증 30 req/min)
+- Drizzle ORM 스키마 추가: `huni-orders.schema.ts` (orders, orderStatusHistory, orderDesignFiles), `huni-widgets.schema.ts` (widgets)
+- 341개 단위 테스트 (Vitest), 93.97% statement coverage (tRPC 제외)
+
+---
+
 ## [0.2.0] - 2026-02-22
 
 ### Added
@@ -126,6 +149,7 @@
 - `packages/pricing-engine/__tests__/`: 옵션 엔진, 제약 조건, 계산기 테스트
 - TypeScript 컴파일 에러 0건
 
-[Unreleased]: https://github.com/skeeper75/widget.creator/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/skeeper75/widget.creator/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/skeeper75/widget.creator/compare/v0.2.0...v0.4.0
 [0.2.0]: https://github.com/skeeper75/widget.creator/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/skeeper75/widget.creator/releases/tag/v0.1.0
