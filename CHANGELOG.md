@@ -18,6 +18,11 @@
   - All 5 acceptance criteria verified: 221 products, shopby_id=NULL, 5 inactive, correct edicus_code format, depth=1 categories
 
 ### Added
+- **SPEC-SEED-002**: Comprehensive DB Seeding Pipeline - Zod validation and transaction safety
+  - New `scripts/lib/schemas.ts`: Zod schemas for all seed JSON inputs (PaperJsonSchema, GoodsJsonSchema, OptionConstraintsJsonSchema, DigitalPrintJsonSchema, BindingJsonSchema, FinishingJsonSchema) with generic `loadAndValidate<T>()` helper
+  - `scripts/seed.ts` - `seedGoodsFixedPrices()`: Zod validation on goods.json load, price=0 skip logic with warning counter, transaction-wrapped DELETE+INSERT
+  - Drizzle `__drizzle_migrations` tracking synced (migrations 0001-0003 registered); `drizzle-kit migrate` runs cleanly
+  - 57 new unit tests across 3 files: `seed-goods-prices.test.ts` (21), `seed-transactions.test.ts` (11), `seed-schemas.test.ts` (25)
 - **SPEC-DATA-003**: Integrated Data Pipeline and Version Management Strategy (`scripts/import/`)
   - MES v5 JSON import pipeline: option_definitions (30 records), option_choices (deduplicated), product_options (723 records), product_editor_mapping (111 records), option_dependencies (~300 records)
   - Version management: SHA-256 source file checksums, `data_import_log` table for import history tracking, idempotent re-run support

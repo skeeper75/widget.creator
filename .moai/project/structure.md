@@ -79,7 +79,10 @@ widget.creator/
 │   └── 0001_drop_wowpress.sql  # WowPress 10개 테이블 DROP (수동 SQL)
 ├── drizzle.config.ts           # Drizzle Kit 루트 설정
 ├── scripts/                    # 유틸리티 스크립트
-│   └── seed.ts                 # Drizzle API 기반 시드 스크립트
+│   ├── seed.ts                 # Drizzle API 기반 시드 스크립트 (14 phases)
+│   └── lib/
+│       ├── data-paths.ts       # 날짜 기반 데이터 버전 해석 유틸리티
+│       └── schemas.ts          # Zod JSON 검증 스키마 (6종 + loadAndValidate 헬퍼)
 ├── ref/                        # 참조 자료 (기존 문서, 코드)
 │   ├── TS.BackOffice.Huni/     # 기존 백오피스 참조 프로젝트
 │   ├── prisma/                 # 아카이브: 기존 Prisma 스키마 및 시드 (삭제 금지)
@@ -499,6 +502,8 @@ OrderStatus: UNPAID, PAID, PRODUCTION_WAITING, PRODUCING,
 | DB 마이그레이션 | `drizzle/` |
 | Drizzle 설정 | `drizzle.config.ts` |
 | 시드 스크립트 | `scripts/seed.ts` |
+| 시드 Zod 스키마 | `scripts/lib/schemas.ts` |
+| 데이터 경로 유틸 | `scripts/lib/data-paths.ts` |
 | Prisma 아카이브 | `ref/prisma/` |
 | 환경변수 | `.env.example` |
 | API 라우트 | `apps/api/src/routes/` |
@@ -511,6 +516,6 @@ OrderStatus: UNPAID, PAID, PRODUCTION_WAITING, PRODUCING,
 
 ---
 
-문서 버전: 1.2.0
+문서 버전: 1.3.0
 작성일: 2026-02-22
-최종 수정: 2026-02-23 (SPEC-WIDGET-INTG-001 외부 시스템 연동 레이어 반영)
+최종 수정: 2026-02-24 (SPEC-SEED-002 scripts/lib/ Zod 검증 레이어 반영)

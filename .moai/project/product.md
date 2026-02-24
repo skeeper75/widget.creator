@@ -302,6 +302,7 @@
 - **가격 엔진 및 공유 패키지** (v0.1.0): 옵션 우선순위 체인 엔진, 비선형 수량 가격 계산기, 제약 조건 평가기, Zod 스키마
 - **Embeddable Widget SDK** (v1.0.0-core, SPEC-WIDGET-SDK-001, 2026-02-23): Preact 10.x + Shadow DOM 기반 임베더블 위젯. `<script>` 태그 삽입으로 작동. 7개 Primitive + 10개 Domain 컴포넌트 완전 구현. 번들 사이즈 15.47 KB gzipped (한도 50 KB 대비 69% 여유). 468 테스트 (~97-98% 커버리지). 3개 Screen 구현 (PrintOption, StickerOption, AccessoryOption), 8개 Screen 다음 이터레이션 예정.
 - **External System Integration Layer** (SPEC-WIDGET-INTG-001, 2026-02-23): 3개 외부 시스템(Shopby, MES, Edicus) 연동 레이어. 도메인 이벤트 버스, 어댑터 패턴, 서킷 브레이커, 지수 백오프 재시도, Dead Letter Queue. 16개 Integration API 엔드포인트, 184 테스트
+- **Comprehensive DB Seeding Pipeline** (SPEC-SEED-002, 2026-02-24): seed.ts 검증 레이어 강화. `scripts/lib/schemas.ts` Zod 스키마 (6종 JSON 타입), `loadAndValidate<T>()` 헬퍼, `seedGoodsFixedPrices()` 트랜잭션 래핑 + price=0 스킵 로직, Drizzle 마이그레이션 동기화. 57개 신규 테스트 (seed-goods-prices, seed-transactions, seed-schemas)
 
 ### 포함 범위 (In Scope)
 
