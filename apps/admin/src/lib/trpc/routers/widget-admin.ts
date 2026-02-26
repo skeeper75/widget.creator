@@ -4,6 +4,7 @@ import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { TRPCError } from '@trpc/server';
 import {
   wbProducts,
+  productCategories,
   productRecipes,
   recipeOptionBindings,
   optionElementChoices,
@@ -186,13 +187,16 @@ export const widgetAdminRouter = router({
         isVisible: wbProducts.isVisible,
         edicusCode: wbProducts.edicusCode,
         mesItemCd: wbProducts.mesItemCd,
+        categoryId: wbProducts.categoryId,
+        categoryNameKo: productCategories.categoryNameKo,
       })
       .from(wbProducts)
+      .innerJoin(productCategories, eq(wbProducts.categoryId, productCategories.id))
       .where(eq(wbProducts.isActive, true))
       .orderBy(asc(wbProducts.displayOrder), asc(wbProducts.id));
 
     const results = await Promise.all(
-      products.map(async (product: { id: number; productKey: string; productNameKo: string; isActive: boolean; isVisible: boolean; edicusCode: string | null; mesItemCd: string | null }) => {
+      products.map(async (product: { id: number; productKey: string; productNameKo: string; isActive: boolean; isVisible: boolean; edicusCode: string | null; mesItemCd: string | null; categoryId: number; categoryNameKo: string }) => {
         const completenessInput = await fetchCompletenessInput(db, product.id);
         const completeness = checkCompleteness(completenessInput);
         return { ...product, completeness };
