@@ -189,6 +189,20 @@ Feature: 제약조건 Side Sheet
 
 ## Step 3 -- 가격룰 & 계산식
 
+> **구현 완료** (2026-02-26): tRPC sub-routers (`priceConfig`, `printCostBase`, `postprocessCost`, `qtyDiscount`) + `pricingTest` procedure + 8개 컴포넌트 구현. 100개 단위 테스트 통과.
+>
+> **구현 파일:**
+> - `apps/admin/src/app/(dashboard)/widget-admin/[productId]/pricing/page.tsx`
+> - `apps/admin/src/components/widget-admin/price-mode-selector.tsx`
+> - `apps/admin/src/components/widget-admin/lookup-price-editor.tsx`
+> - `apps/admin/src/components/widget-admin/area-price-editor.tsx`
+> - `apps/admin/src/components/widget-admin/page-price-editor.tsx`
+> - `apps/admin/src/components/widget-admin/composite-price-editor.tsx`
+> - `apps/admin/src/components/widget-admin/postprocess-cost-editor.tsx`
+> - `apps/admin/src/components/widget-admin/qty-discount-editor.tsx`
+> - `apps/admin/src/components/widget-admin/price-test-panel.tsx`
+> - `apps/admin/__tests__/widget-admin/pricing-procedures.test.ts` (100 tests)
+
 ### AC-10: 가격 계산 방식 선택 (FR-WA001-10)
 
 ```gherkin

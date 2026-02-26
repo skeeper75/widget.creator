@@ -12,6 +12,9 @@ import {
   simulationRuns,
   simulationCases,
   publishHistory,
+  printCostBase,
+  postprocessCost,
+  qtyDiscount,
 } from '@widget-creator/db';
 import {
   productOptions,
@@ -694,6 +697,334 @@ export const widgetAdminRouter = router({
           .from(optionDefinitions)
           .where(eq(optionDefinitions.isActive, true))
           .orderBy(asc(optionDefinitions.displayOrder), asc(optionDefinitions.id));
+      }),
+  }),
+
+  // @MX:NOTE: [AUTO] pricingTest — real-time admin price quote preview for Step 3 testing
+  // @MX:SPEC: SPEC-WA-001 FR-WA001-15
+  pricingTest: protectedProcedure
+    .input(z.object({
+      productId: z.number().int().positive(),
+      plateType: z.string().optional(),
+      printMode: z.string().optional(),
+      qty: z.number().int().min(1).default(100),
+      selectedProcessCodes: z.array(z.string()).default([]),
+    }))
+    .query(async ({ ctx, input }) => {
+      const db = ctx.db as unknown as AnyDb;
+      const { productId, plateType, printMode, qty, selectedProcessCodes } = input;
+
+      // 1. Get price config
+      const [config] = await db
+        .select()
+        .from(productPriceConfigs)
+        .where(eq(productPriceConfigs.productId, productId));
+
+      if (!config) {
+        return { baseCost: '0', postprocessTotal: '0', discountAmount: '0', total: '0', perUnit: '0', note: '가격 설정이 없습니다.' };
+      }
+
+      let baseCostNum = 0;
+
+      // 2. Calculate base cost based on priceMode
+      if (config.priceMode === 'LOOKUP' && plateType && printMode) {
+        const [row] = await db
+          .select({ unitPrice: printCostBase.unitPrice })
+          .from(printCostBase)
+          .where(
+            and(
+              eq(printCostBase.productId, productId),
+              eq(printCostBase.plateType, plateType),
+              eq(printCostBase.printMode, printMode),
+              eq(printCostBase.isActive, true),
+              sql`${printCostBase.qtyMin} <= ${qty}`,
+              sql`${printCostBase.qtyMax} >= ${qty}`,
+            )
+          )
+          .limit(1);
+        baseCostNum = row ? parseFloat(row.unitPrice) : 0;
+      } else if (config.priceMode === 'AREA' && config.unitPriceSqm) {
+        // Simple area calculation: assume standard A4 = 0.0623 sqm
+        const unitSqm = parseFloat(config.unitPriceSqm);
+        const minArea = parseFloat(config.minAreaSqm ?? '0.1');
+        baseCostNum = unitSqm * Math.max(minArea, 0.0623) * qty;
+      } else if (config.priceMode === 'PAGE' && config.coverPrice) {
+        baseCostNum = (parseFloat(config.coverPrice ?? '0') + parseFloat(config.bindingCost ?? '0')) * qty;
+      } else if (config.priceMode === 'COMPOSITE' && config.baseCost) {
+        baseCostNum = parseFloat(config.baseCost) * qty;
+      }
+
+      // 3. Calculate postprocess costs
+      let postprocessTotalNum = 0;
+      if (selectedProcessCodes.length > 0) {
+        const processes = await db
+          .select()
+          .from(postprocessCost)
+          .where(
+            and(
+              sql`(${postprocessCost.productId} = ${productId} OR ${postprocessCost.productId} IS NULL)`,
+              sql`${postprocessCost.processCode} IN ${selectedProcessCodes}`,
+              eq(postprocessCost.isActive, true),
+              sql`${postprocessCost.qtyMin} <= ${qty}`,
+              sql`${postprocessCost.qtyMax} >= ${qty}`,
+            )
+          );
+
+        for (const p of processes) {
+          const unitP = parseFloat(p.unitPrice);
+          if (p.priceType === 'per_unit') {
+            postprocessTotalNum += unitP * qty;
+          } else {
+            postprocessTotalNum += unitP;
+          }
+        }
+      }
+
+      // 4. Calculate quantity discount
+      const [discountRow] = await db
+        .select({ discountRate: qtyDiscount.discountRate, discountLabel: qtyDiscount.discountLabel })
+        .from(qtyDiscount)
+        .where(
+          and(
+            sql`(${qtyDiscount.productId} = ${productId} OR ${qtyDiscount.productId} IS NULL)`,
+            eq(qtyDiscount.isActive, true),
+            sql`${qtyDiscount.qtyMin} <= ${qty}`,
+            sql`${qtyDiscount.qtyMax} >= ${qty}`,
+          )
+        )
+        .orderBy(asc(qtyDiscount.displayOrder))
+        .limit(1);
+
+      const discountRate = discountRow ? parseFloat(discountRow.discountRate) : 0;
+      const subtotal = baseCostNum + postprocessTotalNum;
+      const discountAmount = Math.round(subtotal * discountRate);
+      const total = subtotal - discountAmount;
+      const perUnit = qty > 0 ? Math.round(total / qty) : 0;
+
+      return {
+        baseCost: baseCostNum.toFixed(0),
+        postprocessTotal: postprocessTotalNum.toFixed(0),
+        discountAmount: discountAmount.toFixed(0),
+        discountRate: discountRow ? discountRow.discountRate : '0',
+        discountLabel: discountRow?.discountLabel ?? null,
+        total: total.toFixed(0),
+        perUnit: perUnit.toString(),
+        priceMode: config.priceMode,
+      };
+    }),
+
+  // @MX:NOTE: [AUTO] priceConfig sub-router — get/update price mode config for a product (LOOKUP/AREA/PAGE/COMPOSITE)
+  // @MX:SPEC: SPEC-WA-001 FR-WA001-10, FR-WA001-12
+  priceConfig: router({
+    get: protectedProcedure
+      .input(z.object({ productId: z.number().int().positive() }))
+      .query(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        const [config] = await db
+          .select()
+          .from(productPriceConfigs)
+          .where(eq(productPriceConfigs.productId, input.productId));
+        return config ?? null;
+      }),
+
+    update: protectedProcedure
+      .input(z.object({
+        productId: z.number().int().positive(),
+        priceMode: z.enum(['LOOKUP', 'AREA', 'PAGE', 'COMPOSITE']),
+        formulaText: z.string().max(1000).nullable().optional(),
+        unitPriceSqm: z.string().nullable().optional(),
+        minAreaSqm: z.string().nullable().optional(),
+        imposition: z.number().int().nullable().optional(),
+        coverPrice: z.string().nullable().optional(),
+        bindingCost: z.string().nullable().optional(),
+        baseCost: z.string().nullable().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        const { productId, ...config } = input;
+
+        // Upsert: insert on conflict update
+        const [result] = await db
+          .insert(productPriceConfigs)
+          .values({ productId, ...config })
+          .onConflictDoUpdate({
+            target: productPriceConfigs.productId,
+            set: { ...config, updatedAt: new Date() },
+          })
+          .returning();
+
+        return result;
+      }),
+  }),
+
+  // @MX:NOTE: [AUTO] printCostBase sub-router — LOOKUP mode price table management (plateType × printMode × qty tier)
+  // @MX:SPEC: SPEC-WA-001 FR-WA001-11
+  printCostBase: router({
+    list: protectedProcedure
+      .input(z.object({ productId: z.number().int().positive() }))
+      .query(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        return db
+          .select()
+          .from(printCostBase)
+          .where(and(eq(printCostBase.productId, input.productId), eq(printCostBase.isActive, true)))
+          .orderBy(asc(printCostBase.plateType), asc(printCostBase.printMode), asc(printCostBase.qtyMin));
+      }),
+
+    upsert: protectedProcedure
+      .input(z.object({
+        productId: z.number().int().positive(),
+        rows: z.array(z.object({
+          id: z.number().int().optional(),
+          plateType: z.string().min(1).max(50),
+          printMode: z.string().min(1).max(50),
+          qtyMin: z.number().int().min(0),
+          qtyMax: z.number().int().min(1),
+          unitPrice: z.string(),
+        })),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        const { productId, rows } = input;
+
+        // Delete all existing active rows for this product, then re-insert
+        await db
+          .delete(printCostBase)
+          .where(eq(printCostBase.productId, productId));
+
+        if (rows.length === 0) return { count: 0 };
+
+        const inserted = await db
+          .insert(printCostBase)
+          .values(rows.map((r) => ({
+            productId,
+            plateType: r.plateType,
+            printMode: r.printMode,
+            qtyMin: r.qtyMin,
+            qtyMax: r.qtyMax,
+            unitPrice: r.unitPrice,
+          })))
+          .returning({ id: printCostBase.id });
+
+        return { count: inserted.length };
+      }),
+  }),
+
+  // @MX:NOTE: [AUTO] postprocessCost sub-router — post-processing cost management (product-specific and global)
+  // @MX:SPEC: SPEC-WA-001 FR-WA001-13
+  postprocessCost: router({
+    list: protectedProcedure
+      .input(z.object({ productId: z.number().int().positive() }))
+      .query(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        // Return both product-specific and global (productId IS NULL) rows
+        return db
+          .select()
+          .from(postprocessCost)
+          .where(
+            sql`(${postprocessCost.productId} = ${input.productId} OR ${postprocessCost.productId} IS NULL)`
+          )
+          .orderBy(asc(postprocessCost.processCode));
+      }),
+
+    upsert: protectedProcedure
+      .input(z.object({
+        productId: z.number().int().positive(),
+        rows: z.array(z.object({
+          id: z.number().int().optional(),
+          processCode: z.string().min(1).max(50),
+          processNameKo: z.string().min(1).max(100),
+          qtyMin: z.number().int().min(0).default(0),
+          qtyMax: z.number().int().min(1).default(999999),
+          unitPrice: z.string(),
+          priceType: z.enum(['fixed', 'per_unit', 'per_sqm']).default('fixed'),
+          isActive: z.boolean().default(true),
+        })),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        const { productId, rows } = input;
+
+        // Delete product-specific rows, then re-insert
+        await db
+          .delete(postprocessCost)
+          .where(eq(postprocessCost.productId, productId));
+
+        if (rows.length === 0) return { count: 0 };
+
+        const inserted = await db
+          .insert(postprocessCost)
+          .values(rows.map((r) => ({
+            productId,
+            processCode: r.processCode,
+            processNameKo: r.processNameKo,
+            qtyMin: r.qtyMin,
+            qtyMax: r.qtyMax,
+            unitPrice: r.unitPrice,
+            priceType: r.priceType,
+            isActive: r.isActive,
+          })))
+          .returning({ id: postprocessCost.id });
+
+        return { count: inserted.length };
+      }),
+  }),
+
+  // @MX:NOTE: [AUTO] qtyDiscount sub-router — quantity discount tier management
+  // @MX:SPEC: SPEC-WA-001 FR-WA001-14
+  qtyDiscount: router({
+    list: protectedProcedure
+      .input(z.object({ productId: z.number().int().positive() }))
+      .query(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        // Return both product-specific and global (productId IS NULL) rows
+        return db
+          .select()
+          .from(qtyDiscount)
+          .where(
+            sql`(${qtyDiscount.productId} = ${input.productId} OR ${qtyDiscount.productId} IS NULL)`
+          )
+          .orderBy(asc(qtyDiscount.displayOrder), asc(qtyDiscount.qtyMin));
+      }),
+
+    upsert: protectedProcedure
+      .input(z.object({
+        productId: z.number().int().positive(),
+        rows: z.array(z.object({
+          id: z.number().int().optional(),
+          qtyMin: z.number().int().min(0),
+          qtyMax: z.number().int().min(1),
+          discountRate: z.string(),
+          discountLabel: z.string().max(50).optional(),
+          displayOrder: z.number().int().default(0),
+          isActive: z.boolean().default(true),
+        })),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        const { productId, rows } = input;
+
+        // Delete product-specific rows, then re-insert
+        await db
+          .delete(qtyDiscount)
+          .where(eq(qtyDiscount.productId, productId));
+
+        if (rows.length === 0) return { count: 0 };
+
+        const inserted = await db
+          .insert(qtyDiscount)
+          .values(rows.map((r, idx) => ({
+            productId,
+            qtyMin: r.qtyMin,
+            qtyMax: r.qtyMax,
+            discountRate: r.discountRate,
+            discountLabel: r.discountLabel,
+            displayOrder: r.displayOrder ?? idx,
+            isActive: r.isActive,
+          })))
+          .returning({ id: qtyDiscount.id });
+
+        return { count: inserted.length };
       }),
   }),
 
