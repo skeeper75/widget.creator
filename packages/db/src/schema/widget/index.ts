@@ -16,3 +16,4 @@ export * from './04-postprocess-cost';
 export * from './04-qty-discount';
 export * from './05-simulation-runs';
 export * from './05-publish-history';
+export * from './06-orders';
