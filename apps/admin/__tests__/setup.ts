@@ -45,7 +45,7 @@ const stubProductSizes = createStubTable('product_sizes', [
 
 const stubPapers = createStubTable('papers', [
   'id', 'code', 'name', 'abbreviation', 'weight', 'sheetSize',
-  'costPerRear', 'sellingPerRear', 'costPer4Cut', 'sellingPer4Cut',
+  'costPerReam', 'sellingPerReam', 'costPer4Cut', 'sellingPer4Cut',
   'displayOrder', 'isActive',
 ]);
 
@@ -327,8 +327,8 @@ export function createMockPaper(overrides: Record<string, unknown> = {}) {
     abbreviation: 'TP',
     weight: 150,
     sheetSize: 'A3',
-    costPerRear: 1000,
-    sellingPerRear: 1500,
+    costPerReam: 1000,
+    sellingPerReam: 1500,
     costPer4Cut: 250,
     sellingPer4Cut: 375,
     displayOrder: 1,

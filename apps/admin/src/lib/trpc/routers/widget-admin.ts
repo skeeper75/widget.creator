@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { eq, and, desc, asc, count, sql } from 'drizzle-orm';
+import { eq, and, desc, asc, count, sql, max } from 'drizzle-orm';
 import type { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { TRPCError } from '@trpc/server';
 import {
@@ -13,6 +13,12 @@ import {
   simulationCases,
   publishHistory,
 } from '@widget-creator/db';
+import {
+  productOptions,
+  optionDefinitions,
+  optionChoices,
+  optionConstraints,
+} from '@widget-creator/shared/db/schema';
 import { router, protectedProcedure } from '../server';
 import {
   checkCompleteness,
@@ -474,4 +480,404 @@ export const widgetAdminRouter = router({
         .where(eq(publishHistory.productId, input.productId))
         .orderBy(desc(publishHistory.createdAt));
     }),
+
+  // ─── SPEC-WA-001 Step 2: 주문옵션 설정 ────────────────────────────────────
+
+  // @MX:NOTE: [AUTO] productOptions sub-router — CRUD for product-level option assignments
+  // @MX:SPEC: SPEC-WA-001 FR-WA001-05, FR-WA001-06, FR-WA001-07, FR-WA001-08
+  productOptions: router({
+    // FR-WA001-05: 상품별 옵션 목록 표시
+    list: protectedProcedure
+      .input(z.object({ productId: z.number() }))
+      .query(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+
+        const rows = await db
+          .select({
+            id: productOptions.id,
+            productId: productOptions.productId,
+            optionDefinitionId: productOptions.optionDefinitionId,
+            displayOrder: productOptions.displayOrder,
+            isRequired: productOptions.isRequired,
+            isVisible: productOptions.isVisible,
+            isInternal: productOptions.isInternal,
+            uiComponentOverride: productOptions.uiComponentOverride,
+            defaultChoiceId: productOptions.defaultChoiceId,
+            isActive: productOptions.isActive,
+            definitionName: optionDefinitions.name,
+            definitionKey: optionDefinitions.key,
+            definitionClass: optionDefinitions.optionClass,
+            choiceCount: sql<number>`(
+              SELECT COUNT(*) FROM option_choices
+              WHERE option_definition_id = ${productOptions.optionDefinitionId}
+              AND is_active = true
+            )`.mapWith(Number),
+            constraintCount: sql<number>`(
+              SELECT COUNT(*) FROM option_constraints
+              WHERE product_id = ${productOptions.productId}
+              AND (source_option_id = ${productOptions.optionDefinitionId}
+                   OR target_option_id = ${productOptions.optionDefinitionId})
+              AND is_active = true
+            )`.mapWith(Number),
+          })
+          .from(productOptions)
+          .leftJoin(optionDefinitions, eq(productOptions.optionDefinitionId, optionDefinitions.id))
+          .where(and(
+            eq(productOptions.productId, input.productId),
+            eq(productOptions.isActive, true),
+          ))
+          .orderBy(asc(productOptions.displayOrder), asc(productOptions.id));
+
+        return rows;
+      }),
+
+    // FR-WA001-06: 드래그 정렬
+    reorder: protectedProcedure
+      .input(z.object({
+        productId: z.number(),
+        orderedIds: z.array(z.number()),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+
+        await Promise.all(
+          input.orderedIds.map((id, index) =>
+            db
+              .update(productOptions)
+              .set({ displayOrder: index })
+              .where(and(
+                eq(productOptions.id, id),
+                eq(productOptions.productId, input.productId),
+              )),
+          ),
+        );
+
+        return { success: true as const };
+      }),
+
+    // FR-WA001-08: 옵션 추가 Dialog
+    addToProduct: protectedProcedure
+      .input(z.object({
+        productId: z.number(),
+        optionDefinitionId: z.number(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+
+        // Get max displayOrder for this product to append at end
+        const [maxResult] = await db
+          .select({ maxOrder: max(productOptions.displayOrder) })
+          .from(productOptions)
+          .where(and(
+            eq(productOptions.productId, input.productId),
+            eq(productOptions.isActive, true),
+          ));
+
+        const nextOrder = (maxResult?.maxOrder ?? -1) + 1;
+
+        const [row] = await db
+          .insert(productOptions)
+          .values({
+            productId: input.productId,
+            optionDefinitionId: input.optionDefinitionId,
+            displayOrder: nextOrder,
+          })
+          .onConflictDoNothing()
+          .returning();
+
+        return row ?? null;
+      }),
+
+    // Soft delete option from product
+    remove: protectedProcedure
+      .input(z.object({
+        productId: z.number(),
+        productOptionId: z.number(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+
+        const [row] = await db
+          .update(productOptions)
+          .set({ isActive: false })
+          .where(and(
+            eq(productOptions.id, input.productOptionId),
+            eq(productOptions.productId, input.productId),
+          ))
+          .returning();
+
+        if (!row) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Product option not found' });
+        }
+
+        return { success: true as const };
+      }),
+
+    // FR-WA001-07: 옵션 값 인라인 편집
+    updateValues: protectedProcedure
+      .input(z.object({
+        productOptionId: z.number(),
+        values: z.object({
+          add: z.array(z.object({ code: z.string(), name: z.string() })).optional(),
+          remove: z.array(z.number()).optional(),
+          reorder: z.array(z.object({ id: z.number(), displayOrder: z.number() })).optional(),
+        }),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+
+        // Get the optionDefinitionId for this productOption
+        const [productOption] = await db
+          .select({ optionDefinitionId: productOptions.optionDefinitionId })
+          .from(productOptions)
+          .where(eq(productOptions.id, input.productOptionId));
+
+        if (!productOption) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Product option not found' });
+        }
+
+        const { optionDefinitionId } = productOption;
+
+        // Batch operations
+        await Promise.all([
+          // Add new choices
+          ...(input.values.add ?? []).map((choice) =>
+            db.insert(optionChoices).values({
+              optionDefinitionId,
+              code: choice.code,
+              name: choice.name,
+            }).onConflictDoNothing(),
+          ),
+          // Soft-delete removed choices
+          ...(input.values.remove ?? []).map((choiceId) =>
+            db
+              .update(optionChoices)
+              .set({ isActive: false })
+              .where(and(
+                eq(optionChoices.id, choiceId),
+                eq(optionChoices.optionDefinitionId, optionDefinitionId),
+              )),
+          ),
+          // Reorder choices
+          ...(input.values.reorder ?? []).map((item) =>
+            db
+              .update(optionChoices)
+              .set({ displayOrder: item.displayOrder })
+              .where(and(
+                eq(optionChoices.id, item.id),
+                eq(optionChoices.optionDefinitionId, optionDefinitionId),
+              )),
+          ),
+        ]);
+
+        return { success: true as const };
+      }),
+  }),
+
+  // @MX:NOTE: [AUTO] optionDefs sub-router — read-only global option definition library for add-dialog
+  // @MX:SPEC: SPEC-WA-001 FR-WA001-08
+  optionDefs: router({
+    list: protectedProcedure
+      .query(async ({ ctx }) => {
+        const db = ctx.db as unknown as AnyDb;
+
+        return db
+          .select({
+            id: optionDefinitions.id,
+            key: optionDefinitions.key,
+            name: optionDefinitions.name,
+            optionClass: optionDefinitions.optionClass,
+            optionType: optionDefinitions.optionType,
+            uiComponent: optionDefinitions.uiComponent,
+            displayOrder: optionDefinitions.displayOrder,
+          })
+          .from(optionDefinitions)
+          .where(eq(optionDefinitions.isActive, true))
+          .orderBy(asc(optionDefinitions.displayOrder), asc(optionDefinitions.id));
+      }),
+  }),
+
+  // @MX:NOTE: [AUTO] constraints sub-router — CRUD for ECA constraint rules on product's default recipe
+  // @MX:SPEC: SPEC-WA-001 FR-WA001-16 through FR-WA001-21
+  constraints: router({
+    list: protectedProcedure
+      .input(z.object({ productId: z.number().int().positive() }))
+      .query(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        const [defaultRecipe] = await db
+          .select({ id: productRecipes.id })
+          .from(productRecipes)
+          .where(and(eq(productRecipes.productId, input.productId), eq(productRecipes.isDefault, true)));
+
+        if (!defaultRecipe) return [];
+
+        return db
+          .select()
+          .from(recipeConstraints)
+          .where(eq(recipeConstraints.recipeId, defaultRecipe.id))
+          .orderBy(asc(recipeConstraints.priority), asc(recipeConstraints.id));
+      }),
+
+    create: protectedProcedure
+      .input(z.object({
+        productId: z.number().int().positive(),
+        name: z.string().min(1).max(100),
+        triggerOptionKey: z.string().min(1).max(50),
+        triggerOperator: z.enum(['equals', 'in', 'not_in', 'contains', 'beginsWith', 'endsWith']),
+        triggerValues: z.array(z.string()).min(1),
+        extraConditions: z.record(z.unknown()).nullable().optional(),
+        actions: z.array(z.object({
+          type: z.enum(['show_addon_list', 'filter_options', 'exclude_options', 'auto_add', 'require_option', 'show_message', 'change_price_mode', 'set_default']),
+        }).passthrough()).min(1),
+        priority: z.number().int().default(0),
+        comment: z.string().max(500).optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        const [defaultRecipe] = await db
+          .select({ id: productRecipes.id })
+          .from(productRecipes)
+          .where(and(eq(productRecipes.productId, input.productId), eq(productRecipes.isDefault, true)));
+
+        if (!defaultRecipe) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Default recipe not found for product' });
+        }
+
+        const [created] = await db
+          .insert(recipeConstraints)
+          .values({
+            recipeId: defaultRecipe.id,
+            constraintName: input.name,
+            triggerOptionType: input.triggerOptionKey,
+            triggerOperator: input.triggerOperator,
+            triggerValues: input.triggerValues,
+            extraConditions: input.extraConditions ?? null,
+            actions: input.actions,
+            priority: input.priority,
+            comment: input.comment,
+            inputMode: 'manual',
+          })
+          .returning();
+
+        return created;
+      }),
+
+    update: protectedProcedure
+      .input(z.object({
+        id: z.number().int().positive(),
+        productId: z.number().int().positive(),
+        name: z.string().min(1).max(100).optional(),
+        triggerOptionKey: z.string().min(1).max(50).optional(),
+        triggerOperator: z.enum(['equals', 'in', 'not_in', 'contains', 'beginsWith', 'endsWith']).optional(),
+        triggerValues: z.array(z.string()).min(1).optional(),
+        extraConditions: z.record(z.unknown()).nullable().optional(),
+        actions: z.array(z.object({
+          type: z.enum(['show_addon_list', 'filter_options', 'exclude_options', 'auto_add', 'require_option', 'show_message', 'change_price_mode', 'set_default']),
+        }).passthrough()).min(1).optional(),
+        priority: z.number().int().optional(),
+        comment: z.string().max(500).optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        const { id, productId, ...updateData } = input;
+
+        const [defaultRecipe] = await db
+          .select({ id: productRecipes.id })
+          .from(productRecipes)
+          .where(and(eq(productRecipes.productId, productId), eq(productRecipes.isDefault, true)));
+
+        if (!defaultRecipe) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Default recipe not found' });
+        }
+
+        const updateValues: Record<string, unknown> = { updatedAt: new Date() };
+        if (updateData.name !== undefined) updateValues.constraintName = updateData.name;
+        if (updateData.triggerOptionKey !== undefined) updateValues.triggerOptionType = updateData.triggerOptionKey;
+        if (updateData.triggerOperator !== undefined) updateValues.triggerOperator = updateData.triggerOperator;
+        if (updateData.triggerValues !== undefined) updateValues.triggerValues = updateData.triggerValues;
+        if (updateData.extraConditions !== undefined) updateValues.extraConditions = updateData.extraConditions;
+        if (updateData.actions !== undefined) updateValues.actions = updateData.actions;
+        if (updateData.priority !== undefined) updateValues.priority = updateData.priority;
+        if (updateData.comment !== undefined) updateValues.comment = updateData.comment;
+
+        const [updated] = await db
+          .update(recipeConstraints)
+          .set(updateValues)
+          .where(and(
+            eq(recipeConstraints.id, id),
+            eq(recipeConstraints.recipeId, defaultRecipe.id),
+          ))
+          .returning();
+
+        if (!updated) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Constraint not found' });
+        }
+
+        return updated;
+      }),
+
+    delete: protectedProcedure
+      .input(z.object({
+        id: z.number().int().positive(),
+        productId: z.number().int().positive(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        const [defaultRecipe] = await db
+          .select({ id: productRecipes.id })
+          .from(productRecipes)
+          .where(and(eq(productRecipes.productId, input.productId), eq(productRecipes.isDefault, true)));
+
+        if (!defaultRecipe) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Default recipe not found' });
+        }
+
+        const [deleted] = await db
+          .delete(recipeConstraints)
+          .where(and(
+            eq(recipeConstraints.id, input.id),
+            eq(recipeConstraints.recipeId, defaultRecipe.id),
+          ))
+          .returning({ id: recipeConstraints.id });
+
+        if (!deleted) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Constraint not found' });
+        }
+
+        return { success: true };
+      }),
+
+    toggle: protectedProcedure
+      .input(z.object({
+        id: z.number().int().positive(),
+        productId: z.number().int().positive(),
+        isActive: z.boolean(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = ctx.db as unknown as AnyDb;
+        const [defaultRecipe] = await db
+          .select({ id: productRecipes.id })
+          .from(productRecipes)
+          .where(and(eq(productRecipes.productId, input.productId), eq(productRecipes.isDefault, true)));
+
+        if (!defaultRecipe) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Default recipe not found' });
+        }
+
+        const [updated] = await db
+          .update(recipeConstraints)
+          .set({ isActive: input.isActive, updatedAt: new Date() })
+          .where(and(
+            eq(recipeConstraints.id, input.id),
+            eq(recipeConstraints.recipeId, defaultRecipe.id),
+          ))
+          .returning({ id: recipeConstraints.id, isActive: recipeConstraints.isActive });
+
+        if (!updated) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Constraint not found' });
+        }
+
+        return updated;
+      }),
+  }),
 });
