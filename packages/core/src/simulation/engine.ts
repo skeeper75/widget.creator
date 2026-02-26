@@ -136,8 +136,8 @@ function calculateSimulationPrice(priceConfig: SimulationPriceConfig): number {
 // @MX:ANCHOR: [AUTO] runSimulation — async simulation entry point; processes all option combinations
 // @MX:REASON: fan_in >= 3: engine.test.ts, widget-admin tRPC startSimulation, future batch job runner
 // @MX:SPEC: SPEC-WB-005 FR-WB005-03, FR-WB005-04
-// @MX:WARN: [AUTO] Runs synchronously for up to 10K iterations in the calling thread
-// @MX:REASON: No async job queue; acceptable for current scale. Monitor for timeout issues in tRPC context.
+// @MX:WARN: [AUTO] Synchronous execution for up to 10K iterations in calling thread — no async job queue
+// @MX:REASON: Acceptable for current scale (< 5 sec per 10K cases); monitor for tRPC timeout issues if workload increases
 export async function runSimulation(
   input: SimulationInput,
   options?: SimulationOptions,
