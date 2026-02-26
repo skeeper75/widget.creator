@@ -18,7 +18,9 @@
   - QuoteService: Parallel constraint + pricing evaluation
   - OrderService: Server-side re-quote validation, price discrepancy detection
   - MesClient: HTTP client with 3-retry exponential backoff
-  - 41 new integration tests covering all endpoints and edge cases
+  - 48 comprehensive tests (13 quote API + 9 init API + 19 orders API + 7 MES client unit tests)
+  - @MX:ANCHOR tags on public API boundaries (quote endpoint, orders endpoint)
+  - @MX:NOTE tags on complex business logic (constraint evaluation, pricing calculation, MES dispatch)
 
 ### Fixed
 - **SPEC-SEED-001**: Fix seed data correctness bugs in `scripts/seed.ts`

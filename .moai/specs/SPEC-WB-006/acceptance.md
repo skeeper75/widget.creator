@@ -64,7 +64,7 @@ SPEC-WB-006 (Runtime Auto-Quote Engine) has been fully implemented with all acce
 
 ## Test Coverage
 
-### New Tests Created: 41 tests, all passing
+### New Tests Created: 48 tests, all passing
 
 **File: apps/web/__tests__/widget/quote-api.test.ts (13 tests)**
 - Quote API request validation
@@ -89,6 +89,15 @@ SPEC-WB-006 (Runtime Auto-Quote Engine) has been fully implemented with all acce
 - Order status retrieval
 - Rate limiting enforcement
 - Authentication validation (X-Widget-Token header)
+
+**File: apps/web/__tests__/widget/mes-client.test.ts (7 tests) — NEW in commit 22c8a8d**
+- No-op when MES_API_URL not configured
+- Successful MES dispatch with mesStatus='sent'
+- Dispatch with missing mesOrderId field in response
+- Dispatch with invalid JSON in response body
+- HTTP failure with 3-retry exponential backoff strategy
+- Network error with full retry cycle and mesStatus='failed'
+- Successful recovery on second attempt after initial failure
 
 ---
 
