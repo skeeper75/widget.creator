@@ -4,8 +4,8 @@
 
 **프로젝트명**: Widget Creator (후니프린팅 위젯 빌더)
 **유형**: 웹 애플리케이션 (SaaS)
-**버전**: 0.5.0
-**최종 업데이트**: 2026-02-23
+**버전**: 0.6.0
+**최종 업데이트**: 2026-02-26
 
 ### 프로젝트 설명
 
@@ -301,8 +301,15 @@
 - **Drizzle ORM 마이그레이션** (v0.2.0, SPEC-INFRA-001): 26개 Huni 도메인 테이블, Drizzle ORM 기반 타입 안전 DB 접근
 - **가격 엔진 및 공유 패키지** (v0.1.0): 옵션 우선순위 체인 엔진, 비선형 수량 가격 계산기, 제약 조건 평가기, Zod 스키마
 - **Embeddable Widget SDK** (v1.0.0-core, SPEC-WIDGET-SDK-001, 2026-02-23): Preact 10.x + Shadow DOM 기반 임베더블 위젯. `<script>` 태그 삽입으로 작동. 7개 Primitive + 10개 Domain 컴포넌트 완전 구현. 번들 사이즈 15.47 KB gzipped (한도 50 KB 대비 69% 여유). 468 테스트 (~97-98% 커버리지). 3개 Screen 구현 (PrintOption, StickerOption, AccessoryOption), 8개 Screen 다음 이터레이션 예정.
-- **External System Integration Layer** (SPEC-WIDGET-INTG-001, 2026-02-23): 3개 외부 시스템(Shopby, MES, Edicus) 연동 레이어. 도메인 이벤트 버스, 어댑터 패턴, 서킷 브레이커, 지수 백오프 재시도, Dead Letter Queue. 16개 Integration API 엔드포인트, 184 테스트
+- **External System Integration Layer** (SPEC-WIDGET-INTG-001, 2026-02-23): 3개 외부 시스템(Shopby, MES, Edicus) 연동 레이어. 도메인 이벤트 버스, 어댑터 패턴, 서킷 브레이커, 지수 백오프 재시도, Dead Letter Queue. 16개 Integration API 엔드포인트, 184 테스트. Shopby 통합: OAuth 2.0 토큰 라이프사이클, 상품 등록(500-조합 Cartesian 행렬), 카테고리 계층 구조, 이중 가격 전략, 서킷 브레이커 + Rate Limiting. 9개 테스트 파일
 - **Comprehensive DB Seeding Pipeline** (SPEC-SEED-002, 2026-02-24): seed.ts 검증 레이어 강화. `scripts/lib/schemas.ts` Zod 스키마 (6종 JSON 타입), `loadAndValidate<T>()` 헬퍼, `seedGoodsFixedPrices()` 트랜잭션 래핑 + price=0 스킵 로직, Drizzle 마이그레이션 동기화. 57개 신규 테스트 (seed-goods-prices, seed-transactions, seed-schemas)
+- **Product Category & Recipe System** (SPEC-WB-002, 2026-02-25): 11개 상품 카테고리 정의, Recipe 편집기 구현
+- **Constraint System - ECA Pattern** (SPEC-WB-003, 2026-02-25): ECA 패턴 기반 제약조건 평가, json-rules-engine 적용, 8개 Action 타입, react-querybuilder UI
+- **Pricing Rules & Calculation Engine** (SPEC-WB-004, 2026-02-26): 4가지 가격 계산 모드 (LOOKUP/AREA/PAGE/COMPOSITE). 기본가(상품+사이즈) → 레이어별 옵션가 → 수량할인 → 최종가 계산 흐름. 5개 스키마 테이블(product_price_configs, print_cost_base, postprocess_cost, qty_discount, final_price_rules) + Drizzle ORM 타입 안전성. @MX:ANCHOR 태그로 fan_in>=3 제약조건 시그널링. 48개 테스트 완료
+- **Admin Console 6-Step Wizard** (SPEC-WB-005, 2026-02-25): 위젯 발행 워크플로우, 시뮬레이션 엔진
+- **Runtime Auto-Quote Engine** (SPEC-WB-006, 2026-02-26): 300ms SLA 목표 달성, Redis 캐싱, 제약조건+가격 통합 평가. 472개 테스트, MES 자동 발주, 견적 만료 관리
+- **File Upload System** (SPEC-WB-006, 2026-02-26): 6개 파일 형식(PDF, JPEG, PNG, TIFF, AI, PSD), Magic Bytes 검증, 300 DPI 확인. S3(500MB) + Shopby Storage(12MB) 타겟, 업로드 진행률 추적
+- **NextAuth v5 Configuration** (apps/web/auth.ts): 초기 설정 완료, Provider 통합 대기
 
 ### 포함 범위 (In Scope)
 
@@ -322,9 +329,11 @@
 - 모바일 네이티브 앱
 - 클레임 처리 자동화 (P2)
 - 세금계산서 발행 자동화 (P2)
+- SPEC-WB-001: Option Element Type Library (현재 Draft 상태)
 
 ---
 
-문서 버전: 1.0.0
+문서 버전: 1.2.0
 작성일: 2026-02-22
+최종 수정: 2026-02-26 (SPEC-WB-004 동기화: 4가지 가격계산모드, 5개 스키마테이블, @MX:ANCHOR 추가)
 작성 기준: 프로젝트 요구사항 분석, 후니프린팅 주문프로세스 문서, 상품마스터/가격표 엑셀, hooni-unified-validator.jsx 참조 코드

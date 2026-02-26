@@ -12,7 +12,8 @@ import { wbProducts } from './02-products';
 
 // postprocess_cost: Post-processing (후가공) cost table
 // SPEC-WB-004 FR-WB004-05
-// @MX:NOTE: [AUTO] product_id is nullable — NULL means the rule applies globally to all products
+// @MX:ANCHOR: [AUTO] product_id nullable for global rules — used by pricing engine, seed, admin UI
+// @MX:REASON: fan_in >= 3 (pricing engine, seed data, admin interface)
 // @MX:SPEC: SPEC-WB-004 FR-WB004-05
 export const postprocessCost = pgTable(
   'postprocess_cost',

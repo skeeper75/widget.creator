@@ -5,49 +5,65 @@
 ```mermaid
 graph TB
     subgraph "프론트엔드"
-        NEXTJS["Next.js 16<br/>(App Router)"]
+        NEXTJS["Next.js 15<br/>(App Router)"]
         REACT["React 19"]
         TAILWIND["Tailwind CSS v4"]
         SHADCN["shadcn/ui"]
-        PREACT["Preact / Vanilla TS<br/>(위젯 전용)"]
+        PREACT["Preact 10.x<br/>(위젯 SDK)"]
+        SIGNALS["Preact Signals<br/>(반응형 상태)"]
     end
 
-    subgraph "백엔드"
-        API_ROUTES["Next.js API Routes<br/>또는 Hono"]
-        DRIZZLE["Drizzle ORM<br/>(postgres.js 드라이버)"]
-        POSTGRES["PostgreSQL"]
+    subgraph "백엔드 + 비즈니스 로직"
+        API_ROUTES["Next.js API Routes<br/>(apps/web/app/api/)"]
+        CORE["packages/core<br/>(순수 TS 로직)"]
+        SHARED["packages/shared<br/>(DB + 통합)"]
+        DRIZZLE["Drizzle ORM<br/>(postgres.js)"]
+        POSTGRES["PostgreSQL 16"]
         S3_STORAGE["S3 호환 스토리지"]
+        REDIS["Redis<br/>(300ms SLA 캐싱)"]
+    end
+
+    subgraph "외부 시스템"
+        SHOPBY["Shopby<br/>(이커머스)"]
+        MES["MES<br/>(생산 시스템)"]
+        EDICUS["Edicus<br/>(에디터)"]
     end
 
     subgraph "인증"
-        NEXTAUTH["NextAuth.js v5<br/>또는 Clerk"]
+        NEXTAUTH["NextAuth.js v5"]
     end
 
     subgraph "빌드 / 배포"
         TURBOREPO["Turborepo"]
-        VITE["Vite<br/>(위젯 빌드)"]
+        VITE["Vite 6.x<br/>(위젯 빌드)"]
         VERCEL["Vercel<br/>(Admin + API)"]
-        CDN["CDN<br/>(위젯 스크립트)"]
+        CDN["CDN<br/>(위젯 배포)"]
     end
 
     subgraph "개발 도구"
         TS["TypeScript 5.7+"]
-        ESLINT["ESLint v9 (Flat Config)"]
-        PRETTIER["Prettier"]
-        VITEST["Vitest"]
-        PLAYWRIGHT["Playwright (E2E)"]
+        VITEST["Vitest 3.x"]
+        PLAYWRIGHT["Playwright"]
     end
 
     NEXTJS --> REACT
     NEXTJS --> TAILWIND
     NEXTJS --> SHADCN
     NEXTJS --> API_ROUTES
-    API_ROUTES --> DRIZZLE
+    API_ROUTES --> CORE
+    API_ROUTES --> SHARED
+    SHARED --> DRIZZLE
     DRIZZLE --> POSTGRES
+    SHARED --> REDIS
     API_ROUTES --> S3_STORAGE
     API_ROUTES --> NEXTAUTH
+    SHARED --> SHOPBY
+    SHARED --> MES
+    SHARED --> EDICUS
+    PREACT --> SIGNALS
     TURBOREPO --> NEXTJS
     TURBOREPO --> VITE
+    TURBOREPO --> CORE
     VITE --> PREACT
 ```
 
@@ -55,18 +71,21 @@ graph TB
 
 ## 프레임워크 선정 및 근거
 
-### Next.js 16 (App Router) - 관리자 대시보드 및 API
+### Next.js 15 (App Router) - 관리자 대시보드 + 메인 앱
 
 **선정 근거**:
 - App Router의 Server Components로 초기 로딩 성능 최적화
 - API Routes로 별도 백엔드 서버 없이 풀스택 구현 가능
 - React 19 Server Actions를 활용한 폼 처리 간소화
 - Vercel 배포 시 자동 최적화 (엣지 펑션, ISR, 이미지 최적화)
-- 관리자 대시보드 특성상 SEO가 중요하지 않아 CSR/SSR 하이브리드 적합
 
-**버전**: Next.js 16.x (2026년 안정 버전)
+**버전**: Next.js 15.x (2026년 안정 버전)
+**아키텍처**:
+- apps/admin: 관리자 대시보드 (포트 3001)
+- apps/web: 메인 앱 = API 서버 + 위젯 사용자 UI (포트 3000)
+
 **라우팅**: App Router (`app/` 디렉토리)
-**렌더링**: 대시보드 페이지는 클라이언트 컴포넌트 위주, 목록/통계는 Server Components 활용
+**API Routes**: `apps/web/app/api/` 통합 API 서버
 
 ### React 19 - UI 라이브러리
 
@@ -93,45 +112,49 @@ graph TB
 - Border: #e9e9e9
 - Destructive: #e6b93f (Gold)
 
-### Preact 10.x + Preact Signals - 임베더블 위젯 (SPEC-WIDGET-SDK-001, 2026-02-23)
+### Preact 10.x + Preact Signals - 임베더블 위젯 SDK (SPEC-WIDGET-SDK-001, 2026-02-23)
 
 **선정 근거**:
-- 번들 사이즈 50KB 미만 제약 충족 (React는 약 40KB gzipped로 위젯 코드 용량 부족)
+- 번들 사이즈 50KB 미만 제약 충족 (React는 약 40KB gzipped로 불충분)
 - Preact: React 호환 API로 ~3KB gzipped, 개발 편의성과 경량성 양립
 - Preact Signals (~1KB gzipped): 세밀한 반응형 상태 관리, 불필요한 리렌더링 최소화
 - Shadow DOM 격리로 호스트 페이지 CSS 충돌 방지
+- 이중 평가 패턴: 클라이언트(빠른 UX) + 서버(권한 검증)
 
 **구현 결과** (SPEC-WIDGET-SDK-001):
-- 번들 사이즈: 15.47 KB gzipped (목표 34 KB 대비 55% 절감, 한도 50 KB 대비 69% 여유)
-- 빌드 도구: Vite 6.x Library Mode (IIFE 단일 번들, inlineDynamicImports: true)
-- 상태 관리: Preact Signals - 5개 핵심 Signal (widgetState, selections, available, constraints, price)
-- 테스트: 468 tests, ~97-98% coverage (Vitest + @testing-library/preact)
-- 스타일: 순수 CSS 파일 Shadow DOM 내 인라인 (CSS Custom Properties 테마 주입)
+- 번들 사이즈: 15.47 KB gzipped (한도 50 KB 대비 69% 여유)
+- 빌드 도구: Vite 6.x Library Mode (IIFE + terser minification)
+- 상태 관리: Preact Signals - 5개 핵심 Signal
+- 테스트: 468개 테스트 (~97-98% 커버리지)
+- 스타일: 순수 CSS Shadow DOM 내 인라인
+- 기능: 7개 Primitive + 10개 Domain 컴포넌트 + 3개 Screen
 
 **기술 스택**:
 - Runtime: Preact 10.x (~3KB gzipped)
 - State: @preact/signals (~1KB gzipped)
 - Isolation: Shadow DOM (mode: 'open')
-- Build: Vite 6.x Library Mode (IIFE, terser minification)
+- Build: Vite 6.x Library Mode (IIFE)
 - Language: TypeScript 5.7+ strict mode
 
-### Drizzle ORM - 데이터베이스 접근 (SPEC-INFRA-001, 2026-02-22)
+### Drizzle ORM + PostgreSQL - 데이터베이스 (SPEC-INFRA-001, 2026-02-22)
 
 **선정 근거**:
 - TypeScript 네이티브 타입 안전성 (`$inferSelect`, `$inferInsert` 자동 타입 추론)
-- Vercel serverless 환경 최적화 (postgres.js 드라이버, 연결 풀링 지원)
-- 경량화된 번들 사이즈 (Prisma 대비 현저히 작음)
+- Vercel serverless 환경 최적화 (postgres.js pure JS 드라이버, 연결 풀링)
+- 경량화된 번들 (Prisma 대비 현저히 작음)
 - SQL-like 쿼리 빌더로 복잡 쿼리 직관적 표현
 - `drizzle-zod`로 Zod 스키마 자동 생성 가능
 
-**버전**: drizzle-orm latest
-**데이터베이스**: PostgreSQL 16
-**드라이버**: postgres (postgres.js) - Vercel serverless 최적화된 pure JS 드라이버
-**마이그레이션 도구**: drizzle-kit - 스키마 기반 마이그레이션 파일 생성 및 관리
-**검증 통합**: drizzle-zod - Drizzle 스키마로부터 Zod 스키마 자동 생성
+**버전 및 구성**:
+- **Drizzle ORM**: ^0.45.1
+- **Database**: PostgreSQL 16
+- **Driver**: postgres.js (Vercel serverless 최적화)
+- **Migration Tool**: drizzle-kit
+- **Schema Validation**: drizzle-zod (자동 생성)
+- **Schema Coverage**: 26개 huni_ 테이블 (SPEC-INFRA-001)
 
-> **참고**: Prisma ORM (6.x)은 2026-02-22 Drizzle ORM으로 완전 교체되었다 (SPEC-INFRA-001).
-> 기존 Prisma 스키마 및 시드 파일은 `ref/prisma/`에 아카이브 보관되어 있다.
+> **이전 기술**: Prisma ORM (6.x)은 2026-02-22 Drizzle로 완전 교체.
+> 기존 파일은 `ref/prisma/`에 아카이브 보관.
 
 ### PostgreSQL - 데이터베이스
 
@@ -145,24 +168,37 @@ graph TB
 
 ---
 
+## 캐싱 및 성능 최적화
+
+### Redis - 견적 캐싱 (SPEC-WB-006, 2026-02-26)
+
+**선정 근거**:
+- 300ms SLA 목표 달성 (견적 계산 결과 캐싱)
+- 이중 평가 캐시 (클라이언트 UX + 서버 권한 검증)
+- 제약조건 + 가격 통합 평가 결과 저장
+- 만료 TTL 관리 (견적 유효기간)
+
+**구성**:
+- 캐시 키: `quote:{widgetId}:{optionHash}:{quantity}`
+- TTL: 견적 유효기간 (기본 24시간)
+- 캐시 레이어: API 응답 직전
+
+---
+
 ## 인증 및 보안
 
-### NextAuth.js v5 (Auth.js) 또는 Clerk
+### NextAuth.js v5 - 관리자 인증
 
-**NextAuth.js v5 선정 시 근거**:
+**선정 근거**:
 - Next.js 생태계 최적 통합
 - 자체 호스팅으로 데이터 주권 보장
 - Credentials Provider로 이메일/비밀번호 인증
 - JWT + 세션 하이브리드 지원
 - 무료
 
-**Clerk 선정 시 근거**:
-- 구현 시간 대폭 단축 (임베디드 UI 컴포넌트)
-- 2FA, SSO, 조직 관리 기본 제공
-- 위젯 API 키 기반 인증에 Clerk Backend API 활용 가능
-- 유료 (프리 티어 제한)
-
-**결정 기준**: MVP 단계에서는 NextAuth.js v5로 시작, 필요 시 Clerk으로 마이그레이션
+**버전**: 5.0.0-beta.30
+**설정**: apps/web/auth.ts
+**상태**: 초기 설정 완료, Provider 통합 대기
 
 ### API 키 인증 (위젯 -> API)
 
@@ -177,24 +213,32 @@ graph TB
 
 ## 파일 스토리지
 
-### S3 호환 스토리지
+### 파일 업로드 시스템 (SPEC-WB-006, 2026-02-26)
 
-**선정 근거**:
-- 인쇄용 디자인 파일은 대용량 (PDF, AI 파일 수십MB~수백MB)
-- Presigned URL로 클라이언트 직접 업로드 (서버 부하 제거)
-- 버킷 정책으로 접근 제어
-- AWS S3, Cloudflare R2, MinIO 등 호환 서비스 다수
+**지원 형식** (6가지):
+- PDF: 디지털인쇄, 시트커팅, 화이트인쇄, UV평판출력, 책자
+- JPEG: 실사출력, 패브릭출력, 전사인쇄
+- PNG: 투명 배경 지원
+- TIFF: 높은 색감 표현
+- AI (PostScript): 레이저커팅, 도장, 박 가공
+- PSD: Photoshop 레이어 지원
+
+**검증**:
+- Magic Bytes 검증 (파일 시그니처 확인)
+- 300 DPI 확인 (인쇄 품질 보장)
+- 파일 크기 제한
+
+**스토리지 타겟**:
+- S3 호환 (500MB 한도)
+- Shopby Storage (12MB 한도)
 
 **업로드 흐름**:
 1. 클라이언트가 API에 업로드 URL 요청
-2. API가 Presigned URL 생성 후 반환
-3. 클라이언트가 S3에 직접 업로드
+2. API가 Presigned URL 생성 + 파일 검증 규칙 반환
+3. 클라이언트가 S3에 직접 업로드 (진행률 추적)
 4. 업로드 완료 콜백으로 API에 파일 메타데이터 등록
 
-**파일 형식별 처리** (주문프로세스 문서 기반):
-- PDF: 디지털인쇄, 시트커팅, 화이트인쇄, UV평판출력, 책자, 합판, 고주파
-- AI: 레이저커팅, 도장, 박(외주), 커팅(반칼/완칼)
-- JPG: 실사출력, 패브릭출력, 전사인쇄, 현수막(외주)
+**Location**: packages/widget/src/upload/
 
 ---
 
@@ -218,19 +262,20 @@ packages/shared (빌드)
         -> apps/widget (빌드, shared + pricing-engine 의존)
 ```
 
-### Vite - 위젯 빌드
+### Vite 6.x - 위젯 빌드
 
 **선정 근거**:
 - 라이브러리 모드로 단일 JS 번들 생성
 - Tree-shaking 및 코드 분할 최적화
-- 빠른 HMR로 위젯 개발 생산성 향상
-- ES 모듈 네이티브 지원
+- 빠른 HMR로 개발 생산성 향상
+- Turbopack 호환성
 
 **빌드 설정**:
 - 출력 형식: IIFE (전역 스코프에 즉시 등록)
 - 타겟: ES2020 (모던 브라우저)
-- 인라인 CSS (외부 파일 없이 단일 JS로 배포)
+- CSS: Shadow DOM 내 인라인 (외부 파일 없음)
 - 압축: Terser로 최소화
+- 최종 크기: 15.47 KB gzipped
 
 ### Vercel - 호스팅 및 배포
 
@@ -375,7 +420,7 @@ volumes:
 - `strict: true` (엄격 모드 필수)
 - `noUncheckedIndexedAccess: true` (인덱스 접근 타입 안전)
 - 패키지 간 프로젝트 레퍼런스 (composite + references)
-- 패스 매핑으로 깔끔한 import (`@shared/`, `@pricing/`, `@ui/`)
+- 패스 매핑으로 깔끔한 import (`@shared/`, `@core/`, `@widget/`)
 
 ### ESLint v9 (Flat Config)
 
@@ -396,7 +441,7 @@ volumes:
 - `tabWidth: 2`
 - ESLint와 통합 (`eslint-config-prettier`)
 
-### Vitest - 유닛/통합 테스트
+### Vitest 3.x - 유닛/통합 테스트
 
 **선정 근거**:
 - Vite 기반으로 빠른 실행
@@ -405,12 +450,14 @@ volumes:
 - 코드 커버리지 내장 (v8 provider)
 
 **테스트 전략**:
-- `packages/pricing-engine/`: 가격 계산 로직 100% 커버리지 목표
-- `packages/shared/`: 유틸리티 함수 테스트
-- `apps/api/`: API 라우트 통합 테스트
-- `apps/widget/`: 위젯 컴포넌트 단위 테스트
+- `packages/core/`: 비즈니스 로직 100% 커버리지 목표
+- `packages/shared/`: DB + 통합 테스트 (184개 테스트)
+- `packages/widget/`: 위젯 컴포넌트 (468개 테스트, 97-98% 커버리지)
+- `apps/admin/`: 대시보드 테스트 (727개 테스트)
+- `apps/web/`: API 라우트 + 미들웨어 통합 테스트
 
 **커버리지 목표**: 85% 이상 (MoAI TRUST 5 기준)
+**현재 성과**: Widget 97-98%, Admin 고커버리지
 
 ### Playwright - E2E 테스트
 
@@ -432,26 +479,45 @@ volumes:
 
 ---
 
+## Drizzle ORM 데이터베이스 스키마
+
+### 가격 엔진 테이블 (SPEC-WB-004)
+
+| 테이블 | 파일 | 설명 | 버전 |
+|--------|------|------|------|
+| **product_price_configs** | `04-product-price-configs.ts` | 상품별 기본가 + 가격 계산 규칙 설정. 4가지 calcMode(LOOKUP/AREA/PAGE/COMPOSITE), 가격 규칙 테이블 참조 | 2026-02-26 |
+| **print_cost_base** | `04-print-cost-base.ts` | 인쇄 기본비용 (단면 150원, 양면 280원, 코팅 500원 등 고정가). 인쇄방식별 단가 저장 | 2026-02-26 |
+| **postprocess_cost** | `04-postprocess-cost.ts` | 후가공(박/형압/코팅/포장) 비용. product_id nullable(NULL=전사품에 적용). @MX:ANCHOR fan_in>=3 | 2026-02-26 |
+| **qty_discount** | `04-qty-discount.ts` | 수량대별 할인율. product_id nullable(NULL=전사품에 적용). @MX:ANCHOR fan_in>=3 | 2026-02-26 |
+| **final_price_rules** | (구현 예정) | 최종가 계산 규칙 테이블 | 미구현 |
+
+**가격 계산 흐름**: product_price_configs → [인쇄기본 + 옵션 레이어별] → qty_discount → 최종가
+
+---
+
 ## 핵심 의존성 목록
 
 ### 런타임 의존성
 
 | 패키지 | 버전 | 용도 | 사용 위치 |
 |--------|------|------|-----------|
-| next | 16.x | 풀스택 프레임워크 | admin, api |
-| react / react-dom | 19.x | UI 라이브러리 | admin |
+| next | 15.x | 풀스택 프레임워크 | admin, web |
+| react / react-dom | 19.x | UI 라이브러리 | admin, web |
 | preact | 10.x | 경량 UI (위젯 전용) | widget |
-| drizzle-orm | latest | ORM 및 쿼리 빌더 | shared (packages/shared/src/db/) |
-| postgres (postgres.js) | latest | PostgreSQL 드라이버 (serverless 최적화) | shared |
+| @preact/signals | latest | 반응형 상태 관리 | widget |
+| drizzle-orm | ^0.45.1 | ORM + 쿼리 빌더 | shared |
+| postgres (postgres.js) | latest | PostgreSQL 드라이버 (serverless) | shared |
 | drizzle-zod | latest | Zod 스키마 자동 생성 | shared |
-| tailwindcss | 4.x | 유틸리티 CSS | admin, ui |
-| @radix-ui/* | latest | 접근성 UI 프리미티브 (shadcn 기반) | admin, ui |
-| next-auth | 5.x | 인증 | admin, api |
-| zod | 3.x | 스키마 검증 (API 입력, 폼 데이터) | shared, api |
-| @tanstack/react-query | 5.x | 서버 상태 관리 (캐싱, 리패칭) | admin |
+| tailwindcss | 4.x | 유틸리티 CSS | admin, web |
+| @radix-ui/* | latest | 접근성 UI 프리미티브 (shadcn) | admin, web |
+| next-auth | 5.0.0-beta.30 | 인증 | web |
+| zod | 3.x | 스키마 검증 | core, shared, web |
+| @tanstack/react-query | 5.x | 서버 상태 관리 | admin, web |
 | zustand | 5.x | 클라이언트 상태 관리 | admin, widget |
-| @aws-sdk/client-s3 | 3.x | S3 호환 파일 업로드 | api |
-| lucide-react | latest | 아이콘 라이브러리 | admin, ui |
+| @aws-sdk/client-s3 | 3.x | S3 호환 파일 업로드 | web |
+| redis | latest | 캐싱 (300ms SLA) | web (app/api/v1/pricing/quote) |
+| json-rules-engine | latest | 제약조건 평가 (ECA 패턴) | core, widget |
+| lucide-react | latest | 아이콘 라이브러리 | admin, web |
 
 ### 개발 의존성
 
@@ -459,16 +525,19 @@ volumes:
 |--------|------|------|
 | typescript | 5.7+ | TypeScript 컴파일러 |
 | turbo | latest | 모노레포 빌드 시스템 |
-| drizzle-kit | latest | Drizzle ORM 마이그레이션 CLI 도구 |
-| tsx | latest | TypeScript 스크립트 직접 실행 (seed.ts 등) |
-| vite | 6.x | 위젯 빌드 도구 |
+| drizzle-kit | latest | Drizzle ORM 마이그레이션 CLI |
+| tsx | latest | TypeScript 스크립트 실행 |
+| vite | 6.x | 위젯 빌드 도구 (Turbopack 호환) |
 | eslint | 9.x | 코드 린팅 |
 | prettier | 3.x | 코드 포맷팅 |
 | vitest | 3.x | 테스트 프레임워크 |
+| @testing-library/preact | latest | Preact 컴포넌트 테스트 |
+| @testing-library/react | latest | React 컴포넌트 테스트 |
 | @playwright/test | latest | E2E 테스트 |
 | husky | 9.x | Git 훅 |
 | lint-staged | 15.x | 스테이징 파일 린트 |
 | @commitlint/cli | 19.x | 커밋 메시지 검증 |
+| pyright | latest | 타입 검사 |
 
 ---
 
@@ -514,7 +583,6 @@ volumes:
 
 | 기술 | 용도 | 시기 |
 |------|------|------|
-| Redis | API 캐싱, 세션 스토어, Rate Limiting | P1 |
 | Bull/BullMQ | 주문 처리 큐, 알림 발송 큐 | P1 |
 | Resend / Nodemailer | 이메일 발송 (주문 확인, 상태 알림) | P1 |
 | Aligo API | 알림톡/문자 발송 (11개 알림 포인트) | P1 |
@@ -523,8 +591,11 @@ volumes:
 | Sentry | 에러 모니터링 | P1 |
 | PostHog / Mixpanel | 위젯 사용 분석 | P2 |
 
+**이미 도입된 기술**:
+- Redis: 견적 캐싱 (300ms SLA) - SPEC-WB-006
+
 ---
 
-문서 버전: 1.1.0
+문서 버전: 1.3.0
 작성일: 2026-02-22
-최종 수정: 2026-02-22 (SPEC-INFRA-001 Drizzle ORM 마이그레이션 반영)
+최종 수정: 2026-02-26 (SPEC-WB-004: Drizzle ORM 가격엔진 스키마 4개 테이블 문서화)

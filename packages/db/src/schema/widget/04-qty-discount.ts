@@ -13,7 +13,8 @@ import { wbProducts } from './02-products';
 
 // qty_discount: Quantity-based discount tier table
 // SPEC-WB-004 FR-WB004-06
-// @MX:NOTE: [AUTO] product_id is nullable — NULL means global discount rules applied to all products
+// @MX:ANCHOR: [AUTO] product_id nullable for global rules — used by pricing engine, seed, admin UI
+// @MX:REASON: fan_in >= 3 (pricing engine, seed data, admin interface)
 // @MX:SPEC: SPEC-WB-004 FR-WB004-06
 export const qtyDiscount = pgTable(
   'qty_discount',
