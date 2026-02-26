@@ -14,3 +14,5 @@ export * from './04-product-price-configs';
 export * from './04-print-cost-base';
 export * from './04-postprocess-cost';
 export * from './04-qty-discount';
+export * from './05-simulation-runs';
+export * from './05-publish-history';
