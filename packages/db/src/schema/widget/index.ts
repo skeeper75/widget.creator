@@ -5,3 +5,8 @@ export * from './02-products';
 export * from './02-product-recipes';
 export * from './02-recipe-option-bindings';
 export * from './02-recipe-choice-restrictions';
+export * from './03-constraint-templates';
+export * from './03-addon-groups';
+export * from './03-recipe-constraints';
+export * from './03-addon-group-items';
+export * from './03-constraint-nl-history';

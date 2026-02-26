@@ -15,6 +15,9 @@ import { constraintRouter } from './routers/constraint.router.js';
 import { dependencyRouter } from './routers/dependency.router.js';
 import { orderRouter } from './routers/order.router.js';
 import { dashboardRouter } from './routers/dashboard.router.js';
+import { recipeConstraintRouter } from './routers/recipe-constraint.router.js';
+import { addonGroupRouter } from './routers/addon-group.router.js';
+import { constraintTemplateRouter } from './routers/constraint-template.router.js';
 
 /**
  * Root tRPC router for the Widget Creator Admin API.
@@ -37,6 +40,9 @@ export const appRouter = router({
   dependency: dependencyRouter,
   order: orderRouter,
   dashboard: dashboardRouter,
+  recipeConstraint: recipeConstraintRouter,
+  addonGroup: addonGroupRouter,
+  constraintTemplate: constraintTemplateRouter,
 });
 
 export type AppRouter = typeof appRouter;
