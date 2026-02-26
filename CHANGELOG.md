@@ -18,6 +18,17 @@
   - All 5 acceptance criteria verified: 221 products, shopby_id=NULL, 5 inactive, correct edicus_code format, depth=1 categories
 
 ### Added
+- **SPEC-WB-002**: Product Category & Recipe System
+  - `product_categories` table: 11 Figma-based categories for 후니프린팅 (digital-print, sticker, book, photobook, calendar, design-calendar, sign-poster, acrylic, goods, apparel, packaging)
+  - `products` table: Product master with edicus_code IMMUTABLE constraint, huni_code isolation, MES/Shopby/Edicus external code support
+  - `product_recipes` table: Recipe versioning system with version_status (draft/active/archived)
+  - `recipe_option_bindings` table: Dual display_order + processing_order design for UI layout vs. MES/price processing
+  - `recipe_choice_restrictions` table: allow_only/exclude restriction modes with choice_ids JSONB array
+  - Category seed data: 11 standard categories matched to Figma specification (not legacy catalog.json 12 categories)
+  - @MX:ANCHOR tags added: productCategories (fan_in >= 3), wbProducts (fan_in >= 3)
+  - @MX:NOTE tags added: edicus_code immutability rule, huni_code isolation principle, dual-order design rationale, category seed data origin
+  - 181 unit tests passing (schema, seed, recipes, bindings, choice restrictions)
+  - TypeScript strict mode compliance, full type safety via Drizzle ORM
 - **SPEC-SEED-002**: Comprehensive DB Seeding Pipeline - Zod validation and transaction safety
   - New `scripts/lib/schemas.ts`: Zod schemas for all seed JSON inputs (PaperJsonSchema, GoodsJsonSchema, OptionConstraintsJsonSchema, DigitalPrintJsonSchema, BindingJsonSchema, FinishingJsonSchema) with generic `loadAndValidate<T>()` helper
   - `scripts/seed.ts` - `seedGoodsFixedPrices()`: Zod validation on goods.json load, price=0 skip logic with warning counter, transaction-wrapped DELETE+INSERT

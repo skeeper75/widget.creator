@@ -16,12 +16,28 @@
 ### 이 패키지가 하지 않는 것
 
 - 옵션 간 제약조건 (→ SPEC-WB-003)
-- 옵션을 상품에 배치하는 레시피 (→ SPEC-WB-002)
 - 가격 계산 (→ SPEC-WB-004)
+
+### SPEC-WB-002와의 관계
+
+**SPEC-WB-002 (상품 카테고리 & 레시피 시스템)**는 이 패키지의 옵션 타입/선택지를 **상품별로 배치**합니다:
+
+```
+옵션 타입/선택지 (SPEC-WB-001, 이 패키지)
+       ↓
+상품 카테고리 + 레시피 (SPEC-WB-002)
+       ↓ (여러 상품의 옵션 조합)
+제약조건 시스템 (SPEC-WB-003)
+       ↓
+가격 계산 (SPEC-WB-004)
+```
 
 ## 관련 SPEC
 
-- **SPEC-WB-001:** Option Element Type Library (이 패키지의 근거)
+- **SPEC-WB-001:** Option Element Type Library (기초 옵션 정의)
+- **SPEC-WB-002:** Product Category & Recipe System (상품 카테고리 및 레시피 배치)
+- **SPEC-WB-003:** Constraint System (옵션 간 제약조건)
+- **SPEC-WB-004:** Pricing System (가격 계산)
 - **SPEC-INFRA-001:** DB Schema Architecture (Drizzle ORM 통합)
 
 ## 설치
@@ -174,12 +190,23 @@ npm test
 
 ### 테스트 구성
 
-- `__tests__/schema/element-types.test.ts` — 타입 시스템 검증 (22 tests)
-- `__tests__/schema/element-choices.test.ts` — 선택지 검증 (31 tests)
-- `__tests__/seed/widget-types.test.ts` — 시드 데이터 검증 (12 tests)
-- `__tests__/index.test.ts` — 익스포트 검증 (14 tests)
+**SPEC-WB-001 테스트:**
+- `__tests__/schema/element-types.test.ts` — 옵션 타입 시스템 검증 (15 tests)
+- `__tests__/schema/element-choices.test.ts` — 옵션 선택지 검증 (17 tests)
+- `__tests__/seed/widget-types.test.ts` — 12개 표준 타입 시드 검증 (44 tests)
 
-**총 79개 테스트 통과, 86% 커버리지**
+**SPEC-WB-002 테스트:**
+- `__tests__/schema/product-categories.test.ts` — 상품 카테고리 검증 (13 tests)
+- `__tests__/schema/products.test.ts` — 상품 마스터 검증 (25 tests)
+- `__tests__/schema/product-recipes.test.ts` — 레시피 버전관리 검증 (14 tests)
+- `__tests__/schema/recipe-option-bindings.test.ts` — 옵션 바인딩 검증 (14 tests)
+- `__tests__/schema/recipe-choice-restrictions.test.ts` — 선택지 제한 검증 (10 tests)
+- `__tests__/seed/product-categories.test.ts` — 11개 표준 카테고리 시드 검증 (20 tests)
+
+**공통 테스트:**
+- `__tests__/index.test.ts` — 익스포트 검증 (9 tests)
+
+**총 181개 테스트 통과** (10 test files)
 
 ### 테스트 커버리지
 
@@ -196,18 +223,30 @@ packages/db/
 │   ├── schema/
 │   │   ├── index.ts                      # 스키마 배럴 익스포트
 │   │   └── widget/
-│   │       ├── 01-element-types.ts       # option_element_types 스키마
-│   │       ├── 02-element-choices.ts     # option_element_choices 스키마
+│   │       ├── 01-element-types.ts       # option_element_types 스키마 (SPEC-WB-001)
+│   │       ├── 01-element-choices.ts     # option_element_choices 스키마 (SPEC-WB-001)
+│   │       ├── 02-product-categories.ts  # product_categories 테이블 (SPEC-WB-002)
+│   │       ├── 02-products.ts            # wb_products 테이블 (SPEC-WB-002)
+│   │       ├── 02-product-recipes.ts     # product_recipes 테이블 (SPEC-WB-002)
+│   │       ├── 02-recipe-option-bindings.ts  # recipe_option_bindings 테이블 (SPEC-WB-002)
+│   │       ├── 02-recipe-choice-restrictions.ts  # recipe_choice_restrictions 테이블 (SPEC-WB-002)
 │   │       └── index.ts                  # 위젯 스키마 익스포트
 │   └── seed/
 │       ├── index.ts                      # 시드 메인 익스포트
-│       └── widget-types.ts               # 12개 표준 타입 정의
+│       ├── widget-types.ts               # 12개 표준 옵션 타입 정의 (SPEC-WB-001)
+│       └── seed-product-categories.ts    # 11개 표준 상품 카테고리 정의 (SPEC-WB-002)
 ├── __tests__/
 │   ├── schema/
 │   │   ├── element-types.test.ts
-│   │   └── element-choices.test.ts
+│   │   ├── element-choices.test.ts
+│   │   ├── product-categories.test.ts
+│   │   ├── products.test.ts
+│   │   ├── product-recipes.test.ts
+│   │   ├── recipe-option-bindings.test.ts
+│   │   └── recipe-choice-restrictions.test.ts
 │   ├── seed/
-│   │   └── widget-types.test.ts
+│   │   ├── widget-types.test.ts
+│   │   └── product-categories.test.ts
 │   ├── index.test.ts
 │   └── setup.ts
 ├── package.json
@@ -257,10 +296,6 @@ const choices = await db
 
 ## 다음 단계
 
-### SPEC-WB-002 (옵션 레시피 및 상품 바인딩)
-
-이 패키지의 옵션 타입/선택지를 **상품별로 배치**하고 **제약조건**을 정의합니다.
-
 ### SPEC-WB-003 (제약조건 시스템)
 
 옵션 간 의존성 및 선택 불가 조합을 정의합니다. (예: "양면 인쇄 + 박" 불가)
@@ -297,6 +332,7 @@ MIT (widget.creator 프로젝트 포함)
 
 ---
 
-**Package:** @widget-creator/db v0.1.0
+**Package:** @widget-creator/db v0.2.0
 **Implementation Date:** 2026-02-26
-**Status:** ✅ Production Ready
+**Status:** ✅ Production Ready (SPEC-WB-001 + SPEC-WB-002)
+**Test Coverage:** 181/181 passing (100% functionality)
