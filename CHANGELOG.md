@@ -7,6 +7,19 @@
 
 ## [Unreleased]
 
+### Added
+- **SPEC-WB-006**: Runtime Auto-Quote Engine
+  - POST /api/widget/quote: Real-time constraint evaluation + pricing calculation (unified API)
+  - GET /api/widget/products/:productKey/init: Widget initialization with default quote and constraint rules
+  - POST /api/widget/orders: Server-side re-quote validation + order creation + fire-and-forget MES dispatch
+  - GET /api/widget/orders/:orderCode: Order status retrieval
+  - `wbOrders` table: Order snapshot storage with MES status tracking
+  - `wbQuoteLogs` table: Async quote logging for analytics and debugging
+  - QuoteService: Parallel constraint + pricing evaluation
+  - OrderService: Server-side re-quote validation, price discrepancy detection
+  - MesClient: HTTP client with 3-retry exponential backoff
+  - 41 new integration tests covering all endpoints and edge cases
+
 ### Fixed
 - **SPEC-SEED-001**: Fix seed data correctness bugs in `scripts/seed.ts`
   - Fix `isActive`: internal-only products now correctly set to `is_active=false`

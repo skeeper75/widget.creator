@@ -73,6 +73,7 @@ Widget Builder API Layer는 외부 소비자를 위한 REST API와 Admin 대시�
 | API 범위 | 패턴 | 인증 | 목적 |
 |---------|------|------|------|
 | Catalog, Pricing | REST | Widget Token (JWT) | 위젯 SDK 및 외부 소비자 |
+| Widget Quote & Orders | REST | Widget Token (JWT) | 위젯 런타임 견적 및 주문 |
 | Orders | REST | JWT 또는 API Key | 주문 생성 및 조회 |
 | Admin | tRPC 11.x | Admin JWT (NextAuth.js v5) | 관리자 대시보드 내부 API |
 | Integration | REST | API Key | Shopby, MES, Edicus 연동 |
@@ -231,6 +232,95 @@ jobPresetNo -> sizeNo -> paperNo -> optNo -> colorNo -> colorNoAdd
 ### 카탈로그 파서 (CatalogParser)
 
 WowPress 카탈로그 JSON에서 326개 상품을 파싱하며, 오류 응답 3개(40078, 40089, 40297)는 제외된다.
+
+## 위젯 런타임 API (SPEC-WB-006)
+
+### Real-Time Auto-Quote Engine
+
+위젯 클라이언트가 고객의 옵션 선택에 따라 실시간 견적을 얻기 위한 API 집합.
+
+#### POST /api/widget/quote
+
+통합 견적 API — 제약 조건 평가 + 가격 계산을 단일 호출로 처리.
+
+**인증**: X-Widget-Token (Widget JWT)
+
+**Request**:
+```json
+{
+  "productId": 42,
+  "selections": {
+    "SIZE": "100x148mm",
+    "PRINT_TYPE": "단면칼라",
+    "PAPER": "아트지 250g",
+    "FINISHING": ["무광PP"],
+    "QUANTITY": 100
+  }
+}
+```
+
+**Response**:
+```json
+{
+  "isValid": true,
+  "uiActions": [
+    {
+      "type": "show_message",
+      "level": "info",
+      "message": "코팅 추천: 무광PP"
+    }
+  ],
+  "pricing": {
+    "printCost": 6500,
+    "processCost": 1700,
+    "subtotal": 8200,
+    "discountRate": 0.03,
+    "discountAmount": 246,
+    "totalPrice": 7954,
+    "pricePerUnit": 79.54
+  },
+  "violations": [],
+  "addons": []
+}
+```
+
+**성능**: <300ms 응답 시간 목표
+
+#### GET /api/widget/products/:productKey/init
+
+위젯 초기 데이터 로드 — 상품 정보, 레시피 구조, 제약 조건 규칙, 기본 견적.
+
+**인증**: X-Widget-Token (Widget JWT)
+
+**응답 필드**:
+- `product`: 상품 정보
+- `recipe`: 레시피 구조 (옵션 타입, 선택지, 순서)
+- `constraintRules`: 클라이언트 평가용 json-rules-engine JSON
+- `defaultQuote`: 기본 선택지 기준 견적가
+
+#### POST /api/widget/orders
+
+주문 생성 — 서버 재검증 + MES 생산지시 자동 전송.
+
+**인증**: X-Widget-Token (Widget JWT)
+
+**기능**:
+- 선택 옵션 + 가격 스냅샷 저장 (JSONB)
+- auto_add 상품 처리
+- 가격 차이 감지 및 로깅
+- MES 생산지시 fire-and-forget 전송 (있을 경우)
+- 3회 재시도 지수 백오프
+
+#### GET /api/widget/orders/:orderCode
+
+주문 상태 조회 — MES 생산 진행 상황, 배송 정보 등.
+
+**인증**: X-Widget-Token (Widget JWT)
+
+**응답 필드**:
+- `order`: 주문 상세
+- `mesStatus`: MES 생산 상태 (pending, sent, confirmed, failed, not_linked)
+- `statusHistory`: 주문 상태 변경 이력
 
 ## 기술 스택
 
