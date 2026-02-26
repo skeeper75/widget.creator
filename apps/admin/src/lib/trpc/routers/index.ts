@@ -27,6 +27,7 @@ import { optionChoiceMesMappingsRouter } from './option-choice-mes-mappings';
 import { widgetsRouter } from './widgets';
 import { dashboardRouter } from './dashboard';
 import { settingsRouter } from './settings';
+import { widgetAdminRouter } from './widget-admin';
 
 export const appRouter = router({
   // Domain 1: Product Catalog
@@ -70,6 +71,9 @@ export const appRouter = router({
   widgets: widgetsRouter,
   dashboard: dashboardRouter,
   settings: settingsRouter,
+
+  // Widget Builder Admin Console (SPEC-WB-005)
+  widgetAdmin: widgetAdminRouter,
 });
 
 export type AppRouter = typeof appRouter;

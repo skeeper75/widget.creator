@@ -17,6 +17,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@widget-creator/core": ["../../packages/core/src"],
+      "@widget-creator/db": ["../../packages/db/src"],
       "@widget-creator/shared": ["../../packages/shared/src"],
       "@widget-creator/shared/*": ["../../packages/shared/src/*"]
     }
