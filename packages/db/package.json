@@ -1,0 +1,25 @@
+{
+  "name": "@widget-creator/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "drizzle-orm": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "~3.0.9",
+    "drizzle-orm": "^0.45.1",
+    "typescript": "~5.7.0",
+    "vitest": "~3.0.0"
+  }
+}
