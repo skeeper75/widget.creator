@@ -41,7 +41,7 @@
 
 | 라우트 | 설계 Step | 구현 상태 | 비고 |
 |--------|----------|----------|------|
-| `/widget-admin` (page.tsx) | Step 1 | 부분 구현 | 상품 목록 + 완성도 바 있음, 통계 카드 없음 |
+| `/widget-admin` (page.tsx) | Step 1 | 구현됨 | 통계 카드 4종, 카테고리 필터, 상태 필터, 빠른 진입 버튼 완료 (commit 2a7e589) |
 | `/widget-admin/[id]/options` | Step 2 | 구현됨 | 옵션 CRUD, 드래그 정렬, 제약조건 연결 완료 (commit 29921c3) |
 | `/widget-admin/[id]/pricing` | Step 3 | 구현됨 | 가격 방식 선택, 단가표 편집, 후가공비, 수량할인, 실시간 테스트 완료 |
 | `/widget-admin/[id]/constraints` | Step 4 | 구현됨 | IF-THEN Rule Builder, 8종 액션, AI 자연어 변환 완료 (commit 29921c3) |
@@ -53,7 +53,7 @@
 - Step 2 (주문옵션 설정): ✅ 구현 완료 -- 옵션 CRUD, 드래그 정렬, 제약조건 연결 (commit 29921c3)
 - Step 3 (가격룰): ✅ 구현 완료 -- priceConfig/printCostBase/postprocessCost/qtyDiscount/pricingTest tRPC + 8개 컴포넌트
 - Step 4 (제약조건 빌더): ✅ 구현 완료 -- IF-THEN Rule Builder, 8종 액션, AI 자연어 변환 (commit 29921c3)
-- Step 1 (대시보드): 부분 갭 -- 통계 카드, 카테고리 필터, 상품 검색 강화 미구현
+- Step 1 (대시보드): ✅ 구현 완료 -- 통계 카드 4종, 카테고리 필터, 상태 필터 (commit 2a7e589)
 
 ### 1.4 핵심 설계 원칙
 
