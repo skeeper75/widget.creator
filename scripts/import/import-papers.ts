@@ -1,6 +1,7 @@
-// @MX:NOTE: [AUTO] Paper master import script — reads !디지털인쇄용지 sheet from product-master.toon
-// @MX:NOTE: [AUTO] Target table: papers. Rows 1-3 are headers; data starts at row 4.
-// @MX:REASON: Skip rows with color A5A5A5 (discontinued) or D8D8D8 (inactive) per product-master-mapping.yaml
+// @MX:NOTE: [AUTO] Paper master import — Step 2 of SPEC-IM-003
+// @MX:NOTE: [AUTO] Primary source: 출력소재관리_extracted.json (!출력소재 sheet, columns C-I)
+// @MX:NOTE: [AUTO] Fallback: 랑데뷰 WH 240g/310g use hardcoded values from 상품마스터.xlsx (Q19-001)
+// @MX:SPEC: SPEC-IM-003 M1-REQ-005
 
 import * as fs from "fs";
 import * as path from "path";
@@ -8,126 +9,75 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import { sql } from "drizzle-orm";
 import { papers } from "../../packages/shared/src/db/schema/huni-materials.schema.js";
+import { dataImportLog } from "../../packages/shared/src/db/schema/huni-import-log.schema.js";
+
+// ---------------------------------------------------------------------------
+// CLI Flags
+// ---------------------------------------------------------------------------
+
+const args = process.argv.slice(2);
+const DRY_RUN = args.includes("--dry-run");
+const VALIDATE_ONLY = args.includes("--validate-only");
+
+// ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
+
+const LABEL = "[import-papers]";
+const BATCH_SIZE = 50;
+
+const DATA_PATH = path.resolve(
+  __dirname,
+  "../../ref/huni/extracted/출력소재관리_extracted.json"
+);
+
+// @MX:NOTE: [AUTO] Color skip rules: A5A5A5 = deprecated/unavailable, D8D8D8 = discontinued
+// @MX:REASON: Must exclude non-active papers from pricing engine
+const SKIP_COLORS = new Set(["A5A5A5", "D8D8D8"]);
+
+// @MX:NOTE: [AUTO] 랑데뷰 WH hardcoded overrides per Q19-001 decision
+// @MX:REASON: 출력소재관리.xlsx values are incorrect for 랑데뷰; use 상품마스터.xlsx values (157원/203원)
+const RANDEVOO_OVERRIDES: Record<string, { sellingPer4Cut: string }> = {
+  "랑데뷰 WH 240g": { sellingPer4Cut: "157" },
+  "랑데뷰 WH 310g": { sellingPer4Cut: "203" },
+};
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
-interface ToonRow {
-  _row: string;
-  [column: string]: string;
-}
+type Cell = { col: string; colIndex: number; value: unknown; bgColor?: string };
+type Row = { rowIndex: number; cells: Cell[] };
+type Sheet = { name: string; totalRows: number; rows: Row[] };
+type ExtractedData = { sheets: Sheet[] };
 
-interface ParsedSheet {
+type PaperRecord = {
+  code: string;
   name: string;
-  headers: string[];
-  rows: ToonRow[];
-}
+  abbreviation: string | null;
+  weight: number | null;
+  sheetSize: string | null;
+  costPerReam: string | null;
+  costPer4Cut: string | null;
+  sellingPerReam: string | null;
+  sellingPer4Cut: string | null;
+  displayOrder: number;
+  isActive: boolean;
+};
 
 // ---------------------------------------------------------------------------
-// TOON Parser (multi-sheet)
-// ---------------------------------------------------------------------------
-// @MX:NOTE: [AUTO] Reused parser pattern — same logic as import-mes-items.ts
-// @MX:REASON: TOON is a project-wide format; parser logic must be consistent
-
-function parseToon(filePath: string): Map<string, ParsedSheet> {
-  const content = fs.readFileSync(filePath, "utf-8");
-  const lines = content.split("\n");
-
-  const sheets = new Map<string, ParsedSheet>();
-  let currentSheet: ParsedSheet | null = null;
-  let headers: string[] = [];
-
-  for (const rawLine of lines) {
-    const line = rawLine.trimEnd();
-
-    // Skip comment lines; detect sheet section headers
-    if (line.startsWith("#")) {
-      const sheetMatch = line.match(/^##\s+Sheet:\s+(.+?)\s*\(/);
-      if (sheetMatch) {
-        const sheetName = sheetMatch[1].trim();
-        currentSheet = { name: sheetName, headers: [], rows: [] };
-        headers = [];
-        sheets.set(sheetName, currentSheet);
-      }
-      continue;
-    }
-
-    if (!line.trim() || !currentSheet) continue;
-
-    const parts = line.split("|");
-
-    // Detect header row
-    if (parts[0] === "_row") {
-      headers = parts;
-      currentSheet.headers = headers;
-      continue;
-    }
-
-    if (headers.length === 0) continue;
-
-    const row: ToonRow = { _row: parts[0] ?? "" };
-    for (let i = 1; i < headers.length; i++) {
-      const colName = headers[i];
-      if (colName) {
-        row[colName] = parts[i] ?? "";
-      }
-    }
-    currentSheet.rows.push(row);
-  }
-
-  return sheets;
-}
-
-// ---------------------------------------------------------------------------
-// Business Logic Helpers
+// Code generation — must match import-paper-mappings.ts logic exactly
 // ---------------------------------------------------------------------------
 
-// @MX:NOTE: [AUTO] Color skip rules from product-master-mapping.yaml colorRules
-// @MX:REASON: A5A5A5 = discontinued/unavailable; D8D8D8 = inactive/reference — both must be excluded
-const SKIP_COLORS = new Set(["A5A5A5", "D8D8D8"]);
-
-function shouldSkipRow(row: ToonRow): boolean {
-  // Check if any key color column indicates row should be skipped
-  // In TOON, color columns end with _clr suffix
-  // The 종이명_clr and D_clr columns reliably indicate the row's display status
-  const nameColor = (row["종이명_clr"] ?? "").trim().toUpperCase();
-  const weightColor = (row["D_clr"] ?? "").trim().toUpperCase();
-
-  if (SKIP_COLORS.has(nameColor) || SKIP_COLORS.has(weightColor)) {
-    return true;
-  }
-
-  return false;
-}
-
-function parseWeight(value: string): number | null {
-  const trimmed = value.trim();
-  if (!trimmed) return null;
-  const n = parseFloat(trimmed);
-  if (isNaN(n) || n <= 0) return null;
-  return Math.round(n); // weight is stored as integer grams
-}
-
-function parseNumeric(value: string): string | null {
-  const trimmed = value.trim();
-  if (!trimmed || trimmed === "=undefined") return null;
-  // Remove comma separators if any
-  const cleaned = trimmed.replace(/,/g, "");
-  const n = parseFloat(cleaned);
-  if (isNaN(n)) return null;
-  return n.toString();
-}
-
-// @MX:NOTE: [AUTO] Code generation: name.trim().replace(/\s+/g, '-').toLowerCase() + '-' + weight + 'g'
-// @MX:REASON: papers.code is UNIQUE NOT NULL; must be derived deterministically from paper attributes
+// @MX:ANCHOR: [AUTO] Paper code generation — FK foundation for paper_product_mapping
+// @MX:REASON: fan_in >= 3 — referenced by import-paper-mappings.ts, import-fixed-prices.ts, and pricing engine
 function generateCode(name: string, weight: number | null): string {
   const namePart = name
     .trim()
     .replace(/\s+/g, "-")
     .toLowerCase()
-    .replace(/[^\w\-가-힣]/g, "") // keep alphanumeric, hyphens, Korean
-    .slice(0, 40); // limit length to fit within varchar(50)
+    .replace(/[^\w\-가-힣]/g, "")
+    .slice(0, 40);
 
   if (weight !== null) {
     return `${namePart}-${weight}g`.slice(0, 50);
@@ -136,168 +86,204 @@ function generateCode(name: string, weight: number | null): string {
 }
 
 // ---------------------------------------------------------------------------
-// Import Runner
+// Parser
 // ---------------------------------------------------------------------------
 
-const LABEL = "[import-papers]";
-const BATCH_SIZE = 50;
-
-// @MX:NOTE: [AUTO] Header row numbers 1-3 are skipped per product-master-mapping.yaml
-// @MX:REASON: Rows 1-3 contain multi-level headers (category labels, usage marks, processing marks)
-const HEADER_ROW_THRESHOLD = 3;
-
-async function run(): Promise<void> {
-  const toonPath = path.resolve(
-    __dirname,
-    "../../ref/huni/toon/product-master.toon"
-  );
-
-  console.log(
-    `${LABEL} Reading TOON file: ref/huni/toon/product-master.toon`
-  );
-
-  if (!fs.existsSync(toonPath)) {
-    console.error(`${LABEL} ERROR: TOON file not found at ${toonPath}`);
-    process.exit(1);
+function parseNumericField(val: unknown): string | null {
+  if (typeof val === "number" && val > 0) return String(val);
+  if (typeof val === "string") {
+    const cleaned = val.replace(/,/g, "").trim();
+    const n = parseFloat(cleaned);
+    if (!isNaN(n) && n > 0) return String(n);
   }
+  return null;
+}
 
-  // Parse TOON
-  const sheets = parseToon(toonPath);
-
-  // @MX:NOTE: [AUTO] Target sheet is "!디지털인쇄용지" (note the leading "!")
-  // @MX:REASON: Sheet name includes "!" prefix as stored in the TOON file's section header
-  const SHEET_NAME = "!디지털인쇄용지";
-  const sheet = sheets.get(SHEET_NAME);
-
+// @MX:NOTE: [AUTO] Parses !출력소재 sheet from 출력소재관리_extracted.json
+// Column C = name, D = weight, E = abbreviation, F = purchaseInfo (unused — not in schema)
+// Column G = sheetSize (전지), H = sellingPerReam (연당가), I = sellingPer4Cut (국4절 단가)
+// Active papers have D9EAD3 bgColor on column I; skip A5A5A5/D8D8D8 on column B or C
+function parsePapersFromJson(data: ExtractedData): PaperRecord[] {
+  const sheet = data.sheets.find((s) => s.name === "!출력소재");
   if (!sheet) {
-    console.error(`${LABEL} ERROR: Sheet "${SHEET_NAME}" not found in TOON file`);
-    console.error(
-      `${LABEL} Available sheets: ${Array.from(sheets.keys()).join(", ")}`
-    );
-    process.exit(1);
+    throw new Error("Sheet '!출력소재' not found in 출력소재관리_extracted.json");
   }
 
-  console.log(`${LABEL} Parsing ${SHEET_NAME} (${sheet.rows.length} rows)...`);
-
-  // Build database connection
-  const connectionString = process.env.DATABASE_URL;
-  if (!connectionString) {
-    console.error(`${LABEL} ERROR: DATABASE_URL environment variable is not set`);
-    process.exit(1);
-  }
-
-  const client = postgres(connectionString, { max: 5 });
-  const db = drizzle(client);
-
-  // Stats
-  let processed = 0;
-  let inserted = 0;
-  let skipped = 0;
-  const errors: string[] = [];
-
-  type PaperRecord = {
-    code: string;
-    name: string;
-    abbreviation: string | null;
-    weight: number | null;
-    sheetSize: string | null;
-    costPerReam: string | null;
-    costPer4Cut: string | null;
-    sellingPerReam: string | null;
-    displayOrder: number;
-    isActive: boolean;
-  };
-
-  const records: PaperRecord[] = [];
+  const result: PaperRecord[] = [];
   let displayOrder = 0;
 
-  // @MX:NOTE: [AUTO] Column mapping for !디지털인쇄용지 sheet (verified from TOON header):
-  //   구분 = category (A), 종이명 = name (G), 파일명약어 = abbreviation (H)
-  //   D = weight (J index), 전지 = sheetSize (L), 연당가 = costPerReam (M)
-  //   가격_(국4절) = costPer4Cut (N), 현재(A4) = sellingPerReam (O)
-  // @MX:REASON: TOON uses Korean header names; must map explicitly to schema fields
-
   for (const row of sheet.rows) {
-    processed++;
+    if (row.rowIndex <= 3) continue; // skip 3 header rows
 
-    const rowNum = parseInt(row._row, 10);
+    const cellsMap: Record<string, unknown> = {};
+    const colorsMap: Record<string, string> = {};
 
-    // Skip header rows 1-3
-    if (rowNum <= HEADER_ROW_THRESHOLD) {
-      skipped++;
-      continue;
+    for (const cell of row.cells) {
+      cellsMap[cell.col] = cell.value;
+      if (cell.bgColor) colorsMap[cell.col] = cell.bgColor.toUpperCase();
     }
 
-    // Skip rows with deprecated/discontinued colors
-    if (shouldSkipRow(row)) {
-      console.log(`${LABEL}   SKIP row ${rowNum}: deprecated color (A5A5A5 or D8D8D8)`);
-      skipped++;
-      continue;
+    const name = cellsMap["C"];
+    if (!name || typeof name !== "string" || name.trim() === "") continue;
+    if (name.trim() === "종이명" || name.trim() === "대분류" || name.trim() === "구분") continue;
+
+    // Skip discontinued papers (A5A5A5 on column C or B)
+    const nameColor = colorsMap["C"] ?? colorsMap["B"] ?? "";
+    if (SKIP_COLORS.has(nameColor)) continue;
+
+    // Skip rows without active pricing (no D9EAD3 on column I)
+    // Rows 86+ have no D9EAD3 pricing — they use Roll/Box pricing not in scope
+    const pricingColor = colorsMap["I"] ?? "";
+    if (pricingColor && pricingColor !== "D9EAD3") continue;
+    // If I column has no color at all and I value is empty/null, skip
+    if (!pricingColor && !cellsMap["I"]) continue;
+
+    const nameStr = name.trim();
+
+    const weightRaw = cellsMap["D"];
+    let weight: number | null = null;
+    if (typeof weightRaw === "number") {
+      weight = Math.round(weightRaw);
     }
+    // Skip rows with D="X" (non-standard sticker rolls — no weight)
+    if (weightRaw === "X") continue;
 
-    const rawName = (row["종이명"] ?? "").trim();
+    const abbreviation = cellsMap["E"];
+    const sheetSizeRaw = cellsMap["G"];
+    const sellingPerReamRaw = cellsMap["H"];
+    const sellingPer4CutRaw = cellsMap["I"];
 
-    // Skip rows with empty name
-    if (!rawName) {
-      skipped++;
-      continue;
-    }
-
-    // Skip names that are clearly formatting artifacts
-    if (rawName.startsWith("=") || rawName === "-") {
-      skipped++;
-      continue;
-    }
-
-    const abbreviation = (row["파일명약어"] ?? "").trim() || null;
-    const weight = parseWeight(row["D"] ?? "");
-    const sheetSize = (row["전지"] ?? "").trim() || null;
-    const costPerReam = parseNumeric(row["연당가"] ?? "");
-    const costPer4Cut = parseNumeric(row["가격_(국4절)"] ?? "");
-    const sellingPerReam = parseNumeric(row["현재(A4)"] ?? "");
-
-    // Generate deterministic unique code
-    const code = generateCode(rawName, weight);
-
-    if (!code) {
-      console.log(`${LABEL}   SKIP row ${rowNum}: could not generate code for name "${rawName}"`);
-      skipped++;
-      continue;
-    }
+    const code = generateCode(nameStr, weight);
+    if (!code) continue;
 
     displayOrder++;
 
-    records.push({
+    let sellingPer4Cut = parseNumericField(sellingPer4CutRaw);
+
+    // Apply 랑데뷰 override (Q19-001: 출력소재관리.xlsx values are incorrect)
+    const override = RANDEVOO_OVERRIDES[nameStr];
+    if (override) {
+      sellingPer4Cut = override.sellingPer4Cut;
+    }
+
+    result.push({
       code,
-      name: rawName,
-      abbreviation,
+      name: nameStr,
+      abbreviation: typeof abbreviation === "string" && abbreviation.trim() ? abbreviation.trim() : null,
       weight,
-      sheetSize,
-      costPerReam,
-      costPer4Cut,
-      sellingPerReam,
+      sheetSize: typeof sheetSizeRaw === "string" && sheetSizeRaw.trim() ? sheetSizeRaw.trim() : null,
+      costPerReam: null,  // cost data not in 출력소재관리.xlsx
+      costPer4Cut: null,
+      sellingPerReam: parseNumericField(sellingPerReamRaw),
+      sellingPer4Cut,
       displayOrder,
       isActive: true,
     });
   }
 
-  console.log(`${LABEL} Valid records to upsert: ${records.length}`);
+  return result;
+}
 
-  // Batch upsert
+// ---------------------------------------------------------------------------
+// DB Connection
+// ---------------------------------------------------------------------------
+
+function createDb() {
+  const connectionString = process.env.DATABASE_URL;
+  if (!connectionString) {
+    console.error(`${LABEL} ERROR: DATABASE_URL not set`);
+    process.exit(1);
+  }
+  const client = postgres(connectionString, { max: 5 });
+  return { db: drizzle(client), client };
+}
+
+// ---------------------------------------------------------------------------
+// Import Log
+// ---------------------------------------------------------------------------
+
+async function writeImportLog(
+  db: ReturnType<typeof drizzle>,
+  opts: {
+    total: number;
+    inserted: number;
+    updated: number;
+    skipped: number;
+    errored: number;
+    status: string;
+    errorMessage?: string;
+    startedAt: Date;
+  }
+): Promise<void> {
+  await db.insert(dataImportLog).values({
+    tableName: "papers",
+    sourceFile: "출력소재관리_extracted.json",
+    sourceHash: "extracted-v1",
+    importVersion: 1,
+    recordsTotal: opts.total,
+    recordsInserted: opts.inserted,
+    recordsUpdated: opts.updated,
+    recordsSkipped: opts.skipped,
+    recordsErrored: opts.errored,
+    status: opts.status,
+    errorMessage: opts.errorMessage ?? null,
+    completedAt: new Date(),
+    metadata: {
+      phase: "M1",
+      step: "import-papers",
+      executionTime: Date.now() - opts.startedAt.getTime(),
+    },
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Main
+// ---------------------------------------------------------------------------
+
+async function main(): Promise<void> {
+  console.log(`${LABEL} Starting papers import (출력소재관리_extracted.json)`);
+
+  if (!fs.existsSync(DATA_PATH)) {
+    console.error(`${LABEL} ERROR: Data file not found: ${DATA_PATH}`);
+    process.exit(1);
+  }
+
+  const rawData = fs.readFileSync(DATA_PATH, "utf-8");
+  const data: ExtractedData = JSON.parse(rawData);
+
+  const records = parsePapersFromJson(data);
+  console.log(`${LABEL} Parsed ${records.length} active paper records`);
+
+  if (VALIDATE_ONLY) {
+    console.log(`${LABEL} Mode: validate-only`);
+    if (records.length === 0) {
+      console.error(`${LABEL} ERROR: No paper records found`);
+      process.exit(1);
+    }
+    console.log(`${LABEL} Validation OK`);
+    return;
+  }
+
+  if (DRY_RUN) {
+    console.log(`${LABEL} Mode: dry-run (no DB writes)`);
+    return;
+  }
+
+  const { db, client } = createDb();
+  const startedAt = new Date();
+  let inserted = 0;
+  let errored = 0;
+
   const totalBatches = Math.ceil(records.length / BATCH_SIZE);
 
   for (let batchIdx = 0; batchIdx < totalBatches; batchIdx++) {
     const batchStart = batchIdx * BATCH_SIZE;
     const batch = records.slice(batchStart, batchStart + BATCH_SIZE);
-    const batchNum = batchIdx + 1;
-
-    console.log(
-      `${LABEL} Inserting batch ${batchNum}/${totalBatches} (${batch.length} items)...`
-    );
+    console.log(`${LABEL} Inserting batch ${batchIdx + 1}/${totalBatches} (${batch.length} items)...`);
 
     try {
-      // @MX:ANCHOR: [AUTO] Upsert entry point for papers — ON CONFLICT (code) DO UPDATE
-      // @MX:REASON: Must be idempotent; code is the stable unique identifier derived from name+weight
+      // @MX:ANCHOR: [AUTO] Paper upsert entry point — ON CONFLICT (code) DO UPDATE
+      // @MX:REASON: fan_in >= 3 — called by import orchestrator, paper-mappings, and pricing engine FK lookups
       await db
         .insert(papers)
         .values(
@@ -310,6 +296,7 @@ async function run(): Promise<void> {
             costPerReam: r.costPerReam,
             costPer4Cut: r.costPer4Cut,
             sellingPerReam: r.sellingPerReam,
+            sellingPer4Cut: r.sellingPer4Cut,
             displayOrder: r.displayOrder,
             isActive: r.isActive,
           }))
@@ -324,6 +311,7 @@ async function run(): Promise<void> {
             costPerReam: sql`excluded.cost_per_ream`,
             costPer4Cut: sql`excluded.cost_per4_cut`,
             sellingPerReam: sql`excluded.selling_per_ream`,
+            sellingPer4Cut: sql`excluded.selling_per4_cut`,
             displayOrder: sql`excluded.display_order`,
             updatedAt: sql`now()`,
           },
@@ -332,30 +320,29 @@ async function run(): Promise<void> {
       inserted += batch.length;
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
-      console.error(`${LABEL}   ERROR in batch ${batchNum}: ${message}`);
-      errors.push(`batch ${batchNum}: ${message}`);
+      console.error(`${LABEL} ERROR in batch ${batchIdx + 1}: ${message}`);
+      errored += batch.length;
     }
   }
+
+  const status = errored > 0 ? "partial" : "success";
+  await writeImportLog(db, {
+    total: records.length,
+    inserted,
+    updated: 0,
+    skipped: 0,
+    errored,
+    status,
+    startedAt,
+  });
 
   await client.end();
 
-  // Summary
-  console.log(
-    `${LABEL} Done: ${processed} processed, ${inserted} inserted/updated, ${skipped} skipped${
-      errors.length > 0 ? `, ${errors.length} errors` : ""
-    }`
-  );
-
-  if (errors.length > 0) {
-    console.error(`${LABEL} Errors summary:`);
-    for (const e of errors) {
-      console.error(`  - ${e}`);
-    }
-    process.exit(1);
-  }
+  console.log(`${LABEL} Done: inserted/updated=${inserted}, errored=${errored}`);
+  if (errored > 0) process.exit(1);
 }
 
-run().catch((err) => {
+main().catch((err) => {
   console.error(`${LABEL} Fatal error:`, err);
   process.exit(1);
 });

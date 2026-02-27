@@ -22,18 +22,21 @@ interface ImportStep {
   script: string;
 }
 
-// @MX:NOTE: [AUTO] Import order matters — 4-step sequence with FK dependencies
-// @MX:NOTE: [AUTO] 1) MES Items — no FK deps, must be first; 2) Papers — paper data for FK refs;
-// @MX:NOTE: [AUTO] 3) Options — option_definitions needed before product_options;
-// @MX:NOTE: [AUTO] 4) Product Options — requires option_definitions + products
-// @MX:REASON: papers table has no FK to mes_items, but conceptually MES items are foundational; option_definitions must exist before product_options can reference them
+// @MX:NOTE: [AUTO] Import order matters — 14-step sequence with FK dependencies
+// @MX:NOTE: [AUTO] M0: MES Items, Papers, Options, Product Options (foundation)
+// @MX:NOTE: [AUTO] M1: Categories → Products (catalog with FK to categories)
+// @MX:NOTE: [AUTO] M2: Processes → Imposition Rules → Paper Mappings (manufacturing data)
+// @MX:NOTE: [AUTO] M3: Price Tiers → Fixed Prices → Package Prices → Foil Prices (pricing data)
+// @MX:NOTE: [AUTO] M4: Loss Config (production loss rates, no FK deps)
+// @MX:REASON: FK dependency order: categories → products → sizes; processes → imposition_rules; papers → paper_product_mapping; price_tables → price_tiers; products+papers+print_modes → fixed/package prices
 const STEPS: ImportStep[] = [
+  // M0: Foundation layer (Steps 1-4)
   {
     name: "MES Items (item-management.toon)",
     script: "import-mes-items.ts",
   },
   {
-    name: "Papers (product-master.toon → !디지털인쇄용지)",
+    name: "Papers (출력소재관리_extracted.json → !출력소재)",
     script: "import-papers.ts",
   },
   {
@@ -43,6 +46,50 @@ const STEPS: ImportStep[] = [
   {
     name: "Product Options (product_options + special colors)",
     script: "import-product-opts.ts",
+  },
+  // M1: Catalog layer (Steps 5-6)
+  {
+    name: "Categories (hardcoded 12 roots + ~36 subs)",
+    script: "import-categories.ts",
+  },
+  {
+    name: "Products (상품마스터_extracted.json → 11 sheets)",
+    script: "import-products.ts",
+  },
+  // M2: Manufacturing layer (Steps 7-9)
+  {
+    name: "Processes (print modes + post-processes + bindings)",
+    script: "import-processes.ts",
+  },
+  {
+    name: "Imposition Rules (가격표_extracted.json → 사이즈별 판걸이수)",
+    script: "import-imposition-rules.ts",
+  },
+  {
+    name: "Paper Mappings (출력소재관리_extracted.json → !출력소재 K-Y columns)",
+    script: "import-paper-mappings.ts",
+  },
+  // M3: Pricing layer (Steps 10-13)
+  {
+    name: "Price Tiers (가격표_extracted.json → 디지털출력비 + 후가공)",
+    script: "import-price-tiers.ts",
+  },
+  {
+    name: "Fixed Prices (가격표_extracted.json → 명함 sheet)",
+    script: "import-fixed-prices.ts",
+  },
+  {
+    name: "Package Prices (가격표_extracted.json → 옵션결합상품 sheet)",
+    script: "import-package-prices.ts",
+  },
+  {
+    name: "Foil Prices (가격표_extracted.json → 후가공_박 sheet)",
+    script: "import-foil-prices.ts",
+  },
+  // M4: Configuration layer (Step 14)
+  {
+    name: "Loss Config (hardcoded defaults: global lossRate=0.05)",
+    script: "import-loss-config.ts",
   },
 ];
 
