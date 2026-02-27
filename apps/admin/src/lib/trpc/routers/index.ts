@@ -28,6 +28,7 @@ import { widgetsRouter } from './widgets';
 import { dashboardRouter } from './dashboard';
 import { settingsRouter } from './settings';
 import { widgetAdminRouter } from './widget-admin';
+import { glmRouter } from './glm';
 
 export const appRouter = router({
   // Domain 1: Product Catalog
@@ -74,6 +75,9 @@ export const appRouter = router({
 
   // Widget Builder Admin Console (SPEC-WB-005)
   widgetAdmin: widgetAdminRouter,
+
+  // GLM Natural Language Rule Builder (SPEC-WB-007)
+  glm: glmRouter,
 });
 
 export type AppRouter = typeof appRouter;

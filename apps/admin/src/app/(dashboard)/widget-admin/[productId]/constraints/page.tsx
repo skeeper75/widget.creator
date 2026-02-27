@@ -2,15 +2,21 @@
 
 // @MX:NOTE: [AUTO] ConstraintsPage — Step 4 of Widget Admin wizard; ECA constraint rule management
 // @MX:SPEC: SPEC-WA-001 FR-WA001-16 through FR-WA001-21
+// @MX:NOTE: [AUTO] GLM NL panel integrated per SPEC-WB-007 FR-WB007-05
 
 import { use, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Plus, TestTube2 } from 'lucide-react';
+import { ArrowLeft, Plus, TestTube2, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { trpc } from '@/lib/trpc/client';
 import { ConstraintList } from '@/components/widget-admin/constraint-list';
 import { RuleBuilderDialog } from '@/components/widget-admin/rule-builder-dialog';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { NlRulePanel } from '@/components/glm/nl-rule-panel';
+import { ConversionPreview } from '@/components/glm/conversion-preview';
+import type { ConversionResult } from '@/components/glm/conversion-preview';
+import { useGlmConvert } from '@/hooks/use-glm-convert';
 
 interface PageProps {
   params: Promise<{ productId: string }>;
@@ -32,10 +38,14 @@ export default function ConstraintsPage({ params }: PageProps) {
 
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editId, setEditId] = useState<number | null>(null);
+  const [isNlPanelOpen, setIsNlPanelOpen] = useState(false);
+  const [conversionResult, setConversionResult] = useState<ConversionResult | null>(null);
 
   // Get option fields for the trigger editor (using shared optionDefinitions)
   const { data: optionDefs } = trpc.widgetAdmin.optionDefs.list.useQuery();
-  const { data: constraints } = trpc.widgetAdmin.constraints.list.useQuery({ productId });
+  const { data: constraints, refetch: refetchConstraints } = trpc.widgetAdmin.constraints.list.useQuery({ productId });
+
+  const { convertConstraint, confirmConstraint, isConverting, isConfirming } = useGlmConvert();
 
   const optionFields = (optionDefs ?? []).map((d) => ({ key: d.key, name: d.name }));
 
@@ -52,6 +62,29 @@ export default function ConstraintsPage({ params }: PageProps) {
   const handleTestAll = () => {
     // Placeholder — rule conflict check would call a future API endpoint
     toast.info('규칙 전체 테스트 기능은 준비 중입니다.');
+  };
+
+  const handleNlConvert = async (nlInput: unknown) => {
+    const { nlText } = nlInput as { nlText: string };
+    try {
+      const result = await convertConstraint({ productId, nlText });
+      setConversionResult(result.data as ConversionResult);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'GLM 변환에 실패했습니다');
+    }
+  };
+
+  const handleNlApply = async () => {
+    if (!conversionResult) return;
+    try {
+      await confirmConstraint({ productId, nlText: '', glmOutput: conversionResult });
+      setConversionResult(null);
+      setIsNlPanelOpen(false);
+      await refetchConstraints();
+      toast.success('제약조건이 GLM 변환으로 추가되었습니다');
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : '적용에 실패했습니다');
+    }
   };
 
   const constraintCount = constraints?.length ?? 0;

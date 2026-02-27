@@ -2,12 +2,19 @@
 
 // @MX:NOTE: [AUTO] PricingPage — Step 4 of Widget Admin wizard; price mode config and real-time test
 // @MX:SPEC: SPEC-WA-001 FR-WA001-10 through FR-WA001-15
+// @MX:NOTE: [AUTO] GLM NL panel integrated per SPEC-WB-007 FR-WB007-05
 
-import { use } from 'react';
+import { use, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
 import { trpc } from '@/lib/trpc/client';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { NlRulePanel } from '@/components/glm/nl-rule-panel';
+import { ConversionPreview } from '@/components/glm/conversion-preview';
+import type { ConversionResult } from '@/components/glm/conversion-preview';
+import { useGlmConvert } from '@/hooks/use-glm-convert';
 import { PriceModeSelector } from '@/components/widget-admin/price-mode-selector';
 import { LookupPriceEditor } from '@/components/widget-admin/lookup-price-editor';
 import { AreaPriceEditor } from '@/components/widget-admin/area-price-editor';
@@ -36,12 +43,40 @@ export default function PricingPage({ params }: PageProps) {
   const { productId: productIdStr } = use(params);
   const productId = parseInt(productIdStr, 10);
 
+  const [isNlPanelOpen, setIsNlPanelOpen] = useState(false);
+  const [conversionResult, setConversionResult] = useState<ConversionResult | null>(null);
+
   const { data: priceConfig, refetch: refetchConfig } = trpc.widgetAdmin.priceConfig.get.useQuery(
     { productId },
     { staleTime: 5_000 },
   );
 
+  const { convertPriceRule, confirmPriceRule, isConverting, isConfirming } = useGlmConvert();
+
   const currentMode: PriceMode = (priceConfig?.priceMode as PriceMode) ?? 'LOOKUP';
+
+  const handleNlConvert = async (nlInput: unknown) => {
+    const { nlText } = nlInput as { nlText: string };
+    try {
+      const result = await convertPriceRule({ productId, nlText, ruleType: 'qty_discount' });
+      setConversionResult(result.data as ConversionResult);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'GLM 변환에 실패했습니다');
+    }
+  };
+
+  const handleNlApply = async () => {
+    if (!conversionResult) return;
+    try {
+      await confirmPriceRule({ productId, nlText: '', ruleType: 'qty_discount', glmOutput: conversionResult });
+      setConversionResult(null);
+      setIsNlPanelOpen(false);
+      await refetchConfig();
+      toast.success('가격룰이 GLM 변환으로 추가되었습니다');
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : '적용에 실패했습니다');
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -93,6 +128,31 @@ export default function PricingPage({ params }: PageProps) {
           );
         })}
       </nav>
+
+      {/* GLM AI 가격룰 자동 생성 */}
+      <Collapsible open={isNlPanelOpen} onOpenChange={setIsNlPanelOpen}>
+        <CollapsibleTrigger asChild>
+          <Button variant="outline" size="sm" className="gap-1.5 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800 hover:bg-purple-50 dark:hover:bg-purple-900/20">
+            {isNlPanelOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            GLM AI 가격룰 자동 생성
+          </Button>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="mt-2 space-y-2">
+          <NlRulePanel
+            mode="price_rule"
+            productId={productId}
+            onConvert={(result) => void handleNlConvert(result)}
+          />
+          {conversionResult && (
+            <ConversionPreview
+              result={conversionResult}
+              onApply={() => void handleNlApply()}
+              onCancel={() => setConversionResult(null)}
+              isApplying={isConfirming}
+            />
+          )}
+        </CollapsibleContent>
+      </Collapsible>
 
       {/* Price Mode Selector */}
       <PriceModeSelector
