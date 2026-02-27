@@ -1,0 +1,126 @@
+# 변경 이력
+
+프로젝트 버전 히스토리, 마이그레이션 가이드, Breaking Changes를 안내합니다.
+
+## 최신 변경사항
+
+### [Unreleased]
+
+#### Infrastructure (2026-02-16)
+- .gitignore 정리: coverage/ 디렉토리 패턴 추가
+- coverage 파일 362개 Git 추적 해제
+
+#### Database (2026-02-16)
+- 20+ 테이블 스키마 확장: products, options, constraints, pricing, integrations
+- 새로운 스키마 파일 추가: channels, delivery, orders, pricing-components 등
+
+#### API Server (2026-02-16)
+- Hono에서 NestJS 11 + Fastify로 마이그레이션 시작
+- 15 modules, 40+ endpoints
+
+---
+
+## 패키지별 버전 이력
+
+### @huni/pricing-engine v0.1.0 (2026-02-11)
+
+#### 추가
+- 8개 Calculator 구현
+  - DigitalPrintCalculator: 디지털 인쇄
+  - BookletCalculator: 책자
+  - BusinessCardCalculator: 명함
+  - StickerDirectLookup: 스티커
+  - LargeFormatDirectLookup: 대형 인쇄
+  - AcrylicDirectLookup: 아크릴
+  - GoodsDirectLookup: 굿즈
+  - StationeryDirectLookup: 문구
+- 유틸리티 모듈: DataValidator, QuantityTier, DataLoader, TestCaseGenerator, BatchVerifier
+
+#### 테스트 결과
+- 총 테스트: 402개 (100% 통과)
+- 전체 커버리지: 93.7%
+
+### @huni/widget-core v0.3.0 (2026-02-14)
+
+#### 추가
+- Shopby Headless API 어댑터 보완
+- Zod 에러 표시 버그 수정
+- ESM 내보내기 검증 완료
+
+#### 변경
+- Shopby API 어댑터 Zod 스키마 검증 개선
+
+#### 테스트 결과
+- 총 테스트: 1,162개 (100% 통과)
+- SPEC 범위 커버리지: 97.55%
+
+### @huni/widget-core v0.2.0 (2026-02-13)
+
+#### 추가
+- SPEC-INTEGRATION-001: Shopby Enterprise 통합 구현
+- CustomEvent 프로토콜 구현
+- Shopby API 어댑터 구현
+
+#### 테스트 결과
+- 총 테스트: 47개 (100% 통과)
+- 전체 커버리지: 95.67%
+
+#### 빌드 결과
+- 번들 크기 (gzipped): ~48.71 KB
+
+---
+
+## 마이그레이션 가이드
+
+### v0.2.0 → v0.3.0
+
+**Breaking Changes:** 없음
+
+**변경 사항:**
+- Shopby API 어댑터 타입 안전성 향상
+- Zod 스키마 검증 강화
+
+**마이그레이션 단계:**
+1. `pnpm install @huni/widget-core@latest`
+2. Zod 에러 처리 코드 확인
+3. 타입 정의 업데이트
+
+---
+
+## SPEC 완료 이력
+
+### 전체 완료 현황
+
+| Sprint | 완료 SPEC | 주요 성과 |
+|--------|-----------|----------|
+| Sprint 1 | SPEC-ADMIN-001, SPEC-PRICE-001, SPEC-UI-DESIGN-001 | Admin Dashboard, 가격 엔진, UI 디자인 시스템 |
+| Sprint 2 | SPEC-INTEGRATION-001, SPEC-CART-SYNC-001, SPEC-CSS-COMPAT-001, SPEC-WIDGET-EXPORT-001 | Shopby 통합, 장바구니 동기화, CSS 호환성 |
+| Sprint 3 | SPEC-SHOPBY-API-001, SPEC-SHOPBY-SKIN-001 | Shopby API 어댑터, Aurora 슂� 위젯 교체 |
+| Sprint 4 | SPEC-DB-001, SPEC-DB-003, SPEC-DB-004, SPEC-DB-005 | 데이터베이스 스키마 완성 |
+| Sprint 5 | SPEC-NEST-001, SPEC-API-002, SPEC-API-003 | NestJS 마이그레이션, REST API |
+| Sprint 6 | SPEC-EDICUS-WIDGET-001 | Edicus 온라인 편집기 통합 |
+| Sprint 7 | SPEC-MES-INTEGRATION-001, SPEC-MES-API-001, SPEC-MES-FE-001 | MES 통합 완료 |
+| Sprint 8 | SPEC-EXCEL-CORE-001, SPEC-EXCEL-PRODUCT-001, SPEC-EXCEL-PRICING-001, SPEC-EXCEL-ETL-001 | Excel 파싱 파이프라인 |
+| Sprint 9 | SPEC-DATA-MASTER-001, SPEC-INTEGRATION-ARCH-001 | 데이터 통합, 시스템 아키텍처 |
+| Sprint 10 | SPEC-REACT-PERF-001, SPEC-VERIFY-001 | React 최적화, 데이터 검증 대시보드 |
+
+### 도메인별 SPEC 그룹
+
+| 도메인 | SPEC 수 | 완료 |
+|--------|---------|------|
+| Core Foundation | 3 | ✅ |
+| Database | 4 | ✅ |
+| API | 3 | ✅ |
+| Shopby Integration | 8 | ✅ |
+| Edicus Integration | 1 | ✅ |
+| MES Integration | 3 | ✅ |
+| Excel Processing | 4 | ✅ |
+| Data Integration | 1 | ✅ |
+| System Integration | 1 | ✅ |
+| Quality & Performance | 2 | ✅ |
+
+---
+
+## 다음 단계
+
+- [로드맵](./roadmap) - 현재 상태 및 미래 비전

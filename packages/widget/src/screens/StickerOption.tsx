@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.5 Screen 02
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import {
   SizeSelector,
   PaperSelect,

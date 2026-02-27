@@ -94,7 +94,7 @@ describe('NumberInput', () => {
       fireEvent.change(input, { target: { value: '200' } });
 
       expect(onChange).toHaveBeenCalledWith(200);
-      expect(typeof onChange.mock.calls[0][0]).toBe('number');
+      expect(typeof onChange.mock.calls[0]![0]).toBe('number');
     });
 
     it('calls onChange when increment button clicked', () => {
@@ -153,7 +153,7 @@ describe('NumberInput', () => {
       // Should call onChange even with invalid input (value is parsed/clamped)
       expect(onChange).toHaveBeenCalled();
       // The value is parsed to 0 and then clamped to min (1)
-      expect(typeof onChange.mock.calls[0][0]).toBe('number');
+      expect(typeof onChange.mock.calls[0]![0]).toBe('number');
     });
   });
 

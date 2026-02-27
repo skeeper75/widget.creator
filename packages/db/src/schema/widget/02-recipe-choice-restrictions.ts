@@ -17,10 +17,12 @@ export const recipeChoiceRestrictions = pgTable(
     id: serial('id').primaryKey(),
     recipeBindingId: integer('recipe_binding_id')
       .notNull()
-      .references(() => recipeOptionBindings.id, { onDelete: 'cascade' }),
+      .references(() => recipeOptionBindings.id, { onDelete: 'cascade' })
+      ,
     choiceId: integer('choice_id')
       .notNull()
-      .references(() => optionElementChoices.id),
+      .references(() => optionElementChoices.id)
+      ,
     // restriction_mode: 'allow_only' | 'exclude' — CHECK constraint applied at DB migration level
     restrictionMode: varchar('restriction_mode', { length: 20 }).notNull(),
   },

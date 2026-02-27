@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.4.10
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { Button } from '../primitives';
 import type { UploadVariant } from '../types';
 

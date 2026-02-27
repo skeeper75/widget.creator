@@ -1,22 +1,22 @@
 import { relations } from 'drizzle-orm';
 
-import { categories, products, productSizes } from './huni-catalog.schema.js';
-import { papers, materials, paperProductMappings } from './huni-materials.schema.js';
-import { printModes, postProcesses, bindings, impositionRules } from './huni-processes.schema.js';
+import { categories, products, productSizes } from './huni-catalog.schema';
+import { papers, materials, paperProductMappings } from './huni-materials.schema';
+import { printModes, postProcesses, bindings, impositionRules } from './huni-processes.schema';
 import {
   priceTables, priceTiers, fixedPrices, packagePrices,
   foilPrices, lossQuantityConfigs,
-} from './huni-pricing.schema.js';
+} from './huni-pricing.schema';
 import {
   optionDefinitions, productOptions, optionChoices,
   optionConstraints, optionDependencies,
-} from './huni-options.schema.js';
+} from './huni-options.schema';
 import {
   mesItems, mesItemOptions, productMesMappings,
   productEditorMappings, optionChoiceMesMappings,
-} from './huni-integration.schema.js';
-import { orders, orderStatusHistory, orderDesignFiles } from './huni-orders.schema.js';
-import { widgets } from './huni-widgets.schema.js';
+} from './huni-integration.schema';
+import { huniOrders, orderStatusHistory, orderDesignFiles } from './huni-orders.schema';
+import { widgets } from './huni-widgets.schema';
 
 // ============================================================
 // Domain 1: Catalog Relations
@@ -306,9 +306,9 @@ export const optionChoiceMesMappingsRelations = relations(optionChoiceMesMapping
 // Domain 7: Orders Relations
 // ============================================================
 
-export const ordersRelations = relations(orders, ({ one, many }) => ({
+export const huniOrdersRelations = relations(huniOrders, ({ one, many }) => ({
   product: one(products, {
-    fields: [orders.productId],
+    fields: [huniOrders.productId],
     references: [products.id],
   }),
   statusHistory: many(orderStatusHistory),
@@ -316,16 +316,16 @@ export const ordersRelations = relations(orders, ({ one, many }) => ({
 }));
 
 export const orderStatusHistoryRelations = relations(orderStatusHistory, ({ one }) => ({
-  order: one(orders, {
+  order: one(huniOrders, {
     fields: [orderStatusHistory.orderId],
-    references: [orders.id],
+    references: [huniOrders.id],
   }),
 }));
 
 export const orderDesignFilesRelations = relations(orderDesignFiles, ({ one }) => ({
-  order: one(orders, {
+  order: one(huniOrders, {
     fields: [orderDesignFiles.orderId],
-    references: [orders.id],
+    references: [huniOrders.id],
   }),
 }));
 

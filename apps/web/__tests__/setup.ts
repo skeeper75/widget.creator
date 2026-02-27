@@ -272,7 +272,7 @@ export function createMockRequest(
     (init.headers as Headers).set('Content-Type', 'application/json');
   }
 
-  return new NextRequest(url, init);
+  return new NextRequest(url, { ...init, signal: init.signal ?? undefined });
 }
 
 // ─── Mock: Widget Token JWT ─────────────────────────────────────

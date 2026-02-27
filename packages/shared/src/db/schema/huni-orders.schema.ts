@@ -10,10 +10,11 @@ import {
   jsonb,
   index,
 } from 'drizzle-orm/pg-core';
-import { products } from './huni-catalog.schema.js';
+import { products } from './huni-catalog.schema';
 
 // HuniOrder: Master order record
-export const orders = pgTable('orders', {
+// @MX:NOTE: [AUTO] Table named 'huni_orders' (not 'orders') to avoid collision with widget builder 'orders' table
+export const huniOrders = pgTable('huni_orders', {
   id: serial('id').primaryKey(),
   orderId: varchar('order_id', { length: 50 }).unique().notNull(),
   orderNumber: varchar('order_number', { length: 30 }).unique().notNull(),
@@ -37,16 +38,16 @@ export const orders = pgTable('orders', {
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().$onUpdate(() => new Date()).notNull(),
 }, (t) => [
-  index('orders_status_idx').on(t.status),
-  index('orders_customer_email_idx').on(t.customerEmail),
-  index('orders_widget_id_idx').on(t.widgetId),
-  index('orders_created_at_idx').on(t.createdAt),
+  index('huni_orders_status_idx').on(t.status),
+  index('huni_orders_customer_email_idx').on(t.customerEmail),
+  index('huni_orders_widget_id_idx').on(t.widgetId),
+  index('huni_orders_created_at_idx').on(t.createdAt),
 ]);
 
 // HuniOrderStatusHistory: Audit trail for order status changes
 export const orderStatusHistory = pgTable('order_status_history', {
   id: serial('id').primaryKey(),
-  orderId: integer('order_id').notNull().references(() => orders.id, { onDelete: 'cascade' }),
+  orderId: integer('order_id').notNull().references(() => huniOrders.id, { onDelete: 'cascade' }),
   status: varchar('status', { length: 30 }).notNull(),
   memo: text('memo'),
   changedAt: timestamp('changed_at', { withTimezone: true }).defaultNow().notNull(),
@@ -57,7 +58,7 @@ export const orderStatusHistory = pgTable('order_status_history', {
 // HuniOrderDesignFile: Design file records attached to orders
 export const orderDesignFiles = pgTable('order_design_files', {
   id: serial('id').primaryKey(),
-  orderId: integer('order_id').notNull().references(() => orders.id, { onDelete: 'cascade' }),
+  orderId: integer('order_id').notNull().references(() => huniOrders.id, { onDelete: 'cascade' }),
   fileId: varchar('file_id', { length: 50 }).unique().notNull(),
   originalName: varchar('original_name', { length: 500 }).notNull(),
   fileNumber: varchar('file_number', { length: 500 }),

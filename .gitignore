@@ -196,7 +196,11 @@ dist-ssr/
 .netlify/
 .firebase/
 
-# ===========================================
-# Reference Data (Large files, not for VCS)
-# ===========================================
+# User Custom Patterns (preserved by moai update)
+data/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+data/pricing/
+data/products/
+data/_raw/
+data/integration/
+!data/.current-version
 ref/

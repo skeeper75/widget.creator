@@ -1,0 +1,200 @@
+# Product Management
+
+Product CRUD operations and builder canvas usage.
+
+> **Core**: Manage 12 categories, 229 products, and configure component-based products.
+
+<Callout type="info">
+**Builder**: Visually configure options via drag-and-drop component interface.
+</Callout>
+
+## 1. Product List View
+
+### 1.1 Category Tree
+
+Select one of 12 categories in Navigator:
+
+| Category | MES Prefix | Product Count |
+|----------|------------|---------------|
+| Postcard | 001 | 15 |
+| Sticker | 002 | 12 |
+| Poster | 003 | 18 |
+| Flyer | 004 | 22 |
+| Business Card | 005 | 25 |
+| Leaflet | 006 | 20 |
+| Booklet | 007 | 30 |
+| NCR (Forms) | 008 | 15 |
+| Banner | 009 | 18 |
+| Gift Certificate | 010 | 10 |
+| Goods | 011 | 25 |
+| Digital | 012 | 19 |
+
+### 1.2 Product Search
+
+- Name search: Filter by product name
+- MES code search: `001-0001` format
+- Status filter: Active/Inactive
+
+### 1.3 Status Badges
+
+- 🟢 Active: Displayed in widget
+- ⚪ Inactive: Hidden in widget
+
+## 2. Creating a New Product
+
+<Steps>
+### Step 1: Click [+ Product]
+
+Or right-click category > Add Product
+
+### Step 2: Fill Product Header
+
+- **Name**: Product name (e.g., A4 Postcard)
+- **MES Code**: `XXX-XXXX` format (e.g., `001-0001`)
+- **Huni Code**: Product identifier code
+- **Product Type**: Category-specific type
+
+### Step 3: Select Category
+
+Choose category from tree
+
+### Step 4: Set Initial Status
+
+Active/Inactive toggle
+
+### Step 5: Choose Category Group Template
+
+Select from G1-G8 (auto-configured)
+</Steps>
+
+<Callout type="info">
+**MES Code Format**: `001-0001` format, first 3 digits = category, last 4 digits = product number.
+</Callout>
+
+<Callout type="warning">
+**Category Assignment**: Category determines available option templates. Choose carefully.
+</Callout>
+
+## 3. Builder Canvas: Component-Based Product Configuration
+
+### 3.1 What is Builder Canvas?
+
+Visual drag-and-drop interface for configuring product options.
+
+### 3.2 ComponentPalette (Left Panel)
+
+8 draggable components:
+
+| Component | Description | Option Key |
+|-----------|-------------|-------------|
+| SizeSelector | Size selection | size |
+| ColorSelector | Color selection | color |
+| PaperSelector | Paper selection | paper |
+| QuantitySelector | Quantity selection | quantity |
+| PostProcessSelector | Finishing selection | finishing |
+| AccessorySelector | Accessory selection | accessory |
+| DeliverySelector | Delivery selection | delivery |
+| CoverTypeSelector | Cover type | cover_type |
+
+### 3.3 BuilderCanvas (Center Panel)
+
+Drop zone for components:
+
+```
+┌─────────────────────────────────────────┐
+│  Builder Canvas                         │
+│  ┌─────────────────────────────────────┐ │
+│  │ [Size] v   [Paper] v   [Qty] v     │ │
+│  │ (component cards...)                │ │
+│  └─────────────────────────────────────┘ │
+└─────────────────────────────────────────┘
+```
+
+Operations:
+- Drag: ComponentPalette → Canvas
+- Reorder: Drag within canvas
+- Delete: Click x button on card
+
+### 3.4 PropertyPanel (Right Panel)
+
+Configuration for selected component:
+
+**Common fields**:
+- label: Display name
+- optionKey: Option key (English)
+- optionType: Display type
+- isRequired: Required status
+- displayOrder: Display order
+
+**Type-specific fields**:
+- SizeSelector: allowCustom, unitType, minWidth/maxWidth
+- PaperSelector: paperGroups, ncrMode, showGrammage
+- QuantitySelector: quantityMode, showUnitPrice
+
+### 3.5 TemplateSelector
+
+Apply category group defaults (G1-G8)
+
+| Group | Name | Default Components |
+|-------|------|-------------------|
+| G1 | Flat Prints | Size, Color, Paper, Qty, PostProcess, Delivery |
+| G2 | Stickers | Shape, Size, Material, Color, Qty, DieCut, Delivery |
+| G3 | Booklets | CoverType, Size, Paper, Color, Qty, PostProcess, Delivery |
+| G4 | Forms (NCR) | NCRType, Size, Paper(1-4), Color, Qty, Numbering, Delivery |
+| G5 | Large Signs | Material, Width(cm), Height(cm), Color, Qty, Fixtures, Delivery |
+| G6 | Goods/Fancy | Product, Size, Color, Print, Qty, Package, AddOns, Delivery |
+| G7 | Digital Print | Printer, Size, Paper, Color, Qty, Finishing, Delivery |
+| G8 | Apparel | Size(chart), Color(swatch), PrintPos, PrintSize, Qty, Delivery |
+
+<Callout type="info">
+**Save**: Changes are saved automatically (optimistic updates).
+</Callout>
+
+## 4. Editing a Product
+
+### 4.1 Product Header
+
+| Field | Description |
+|-------|-------------|
+| Name | Product name |
+| MES Code | `001-0001` format |
+| Huni Code | Product identifier |
+| Type | Product type |
+| Category Path | Category hierarchy path |
+
+### 4.2 Status Toggle
+
+- Active: Displayed in widget
+- Inactive: Hidden in widget
+
+### 4.3 Complexity Score
+
+Product option complexity score (0-100)
+
+## 5. Layer-Based Option Setup
+
+| Layer | Description | Example Options |
+|-------|-------------|-----------------|
+| Basic | Core product attributes | Size, Color |
+| Inner | Inner page properties | Inner paper, Inner printing, Page count |
+| Cover | Cover properties | Cover paper, Cover printing, Coating |
+| Binding | Binding method | Binding type, Spine thickness |
+| Finishing | Post-processing | Foil stamp, Embossing, Lamination |
+| Packaging | Packaging options | Package type, Accessories |
+
+## 6. Deleting a Product
+
+<Callout type="warning">
+**Warning**: Deletion is irreversible. Backup before deleting.
+</Callout>
+
+**Cascading effects**:
+- Linked options are also deleted
+- Constraint rules are also deleted
+- Price rules are also deleted
+
+## Related Documentation
+
+- [Option Management](./option-management) - Option types, card anatomy
+- [Constraint Editor](./constraints) - Option dependency configuration
+- [Data Management](./data-management) - Backup methods

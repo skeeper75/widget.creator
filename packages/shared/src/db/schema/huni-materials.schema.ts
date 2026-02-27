@@ -11,7 +11,7 @@ import {
   index,
   unique,
 } from 'drizzle-orm/pg-core';
-import { products } from './huni-catalog.schema.js';
+import { products } from './huni-catalog.schema';
 
 // HuniPaper: Paper specifications
 export const papers = pgTable('papers', {
@@ -21,8 +21,8 @@ export const papers = pgTable('papers', {
   abbreviation: varchar('abbreviation', { length: 20 }),
   weight: smallint('weight'),
   sheetSize: varchar('sheet_size', { length: 50 }),
-  costPerRear: numeric('cost_per_rear', { precision: 12, scale: 2 }),
-  sellingPerRear: numeric('selling_per_rear', { precision: 12, scale: 2 }),
+  costPerReam: numeric('cost_per_ream', { precision: 12, scale: 2 }),
+  sellingPerReam: numeric('selling_per_ream', { precision: 12, scale: 2 }),
   costPer4Cut: numeric('cost_per4_cut', { precision: 10, scale: 2 }),
   sellingPer4Cut: numeric('selling_per4_cut', { precision: 10, scale: 2 }),
   displayOrder: smallint('display_order').default(0).notNull(),

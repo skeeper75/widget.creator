@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["dom", "dom.iterable", "ES2022"],
+    "types": ["vitest/globals"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -17,7 +18,10 @@
     "paths": {
       "@/*": ["./app/*"],
       "@widget-creator/core": ["../../packages/core/src"],
-      "@widget-creator/shared": ["../../packages/shared/src"]
+      "@widget-creator/db": ["../../packages/db/src"],
+      "@widget-creator/shared": ["../../packages/shared/src"],
+      "@widget-creator/shared/db": ["../../packages/shared/src/db"],
+      "@widget-creator/shared/db/schema": ["../../packages/shared/src/db/schema"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

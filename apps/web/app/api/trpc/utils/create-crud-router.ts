@@ -85,12 +85,12 @@ export function createCrudRouter<TTable extends PgTableWithColumns<any>>(
 
         const [countResult] = await ctx.db
           .select({ count: sql<number>`count(*)::int` })
-          .from(table);
+          .from(table as any); // eslint-disable-line @typescript-eslint/no-explicit-any -- generic table type requires cast for drizzle-orm
         const total = countResult?.count ?? 0;
 
         const items = await ctx.db
           .select()
-          .from(table)
+          .from(table as any) // eslint-disable-line @typescript-eslint/no-explicit-any
           .orderBy(sortColumn ? orderFn(sortColumn) : asc((table as Record<string, PgColumn>).id))
           .limit(limit)
           .offset(offset);
@@ -112,7 +112,7 @@ export function createCrudRouter<TTable extends PgTableWithColumns<any>>(
         const idColumn = (table as Record<string, PgColumn>).id;
         const [item] = await ctx.db
           .select()
-          .from(table)
+          .from(table as any) // eslint-disable-line @typescript-eslint/no-explicit-any
           .where(eq(idColumn, input.id));
 
         if (!item) {
@@ -126,7 +126,7 @@ export function createCrudRouter<TTable extends PgTableWithColumns<any>>(
       .input(createSchema)
       .mutation(async ({ input, ctx }) => {
         const [created] = await ctx.db
-          .insert(table)
+          .insert(table as any) // eslint-disable-line @typescript-eslint/no-explicit-any
           .values(input as Record<string, unknown>)
           .returning();
         return created;
@@ -137,7 +137,7 @@ export function createCrudRouter<TTable extends PgTableWithColumns<any>>(
       .mutation(async ({ input, ctx }) => {
         const idColumn = (table as Record<string, PgColumn>).id;
         const [updated] = await ctx.db
-          .update(table)
+          .update(table as any) // eslint-disable-line @typescript-eslint/no-explicit-any
           .set(input.data as Record<string, unknown>)
           .where(eq(idColumn, input.id))
           .returning();
@@ -160,7 +160,7 @@ export function createCrudRouter<TTable extends PgTableWithColumns<any>>(
         }
 
         const [deleted] = await ctx.db
-          .update(table)
+          .update(table as any) // eslint-disable-line @typescript-eslint/no-explicit-any
           .set({ [softDeleteColumn]: false } as Record<string, unknown>)
           .where(eq(idColumn, input.id))
           .returning();
@@ -180,7 +180,7 @@ export function createCrudRouter<TTable extends PgTableWithColumns<any>>(
 
         for (const item of input.items) {
           const [updated] = await ctx.db
-            .update(table)
+            .update(table as any) // eslint-disable-line @typescript-eslint/no-explicit-any
             .set(item.data as Record<string, unknown>)
             .where(eq(idColumn, item.id))
             .returning();

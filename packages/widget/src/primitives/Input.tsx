@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.3.5
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { useCallback } from 'preact/hooks';
 import { clamp, roundToStep } from '../utils/formatting';
 

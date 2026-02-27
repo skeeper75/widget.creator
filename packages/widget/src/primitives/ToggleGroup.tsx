@@ -4,8 +4,8 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.3.1
  */
 
-import { h, FunctionalComponent } from 'preact';
-import { useState, useCallback } from 'preact/hooks';
+import { FunctionalComponent } from 'preact';
+import { useCallback } from 'preact/hooks';
 
 export interface ToggleGroupItem {
   /** Choice code */

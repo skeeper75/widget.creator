@@ -22,7 +22,8 @@ export const simulationRuns = pgTable(
     id: serial('id').primaryKey(),
     productId: integer('product_id')
       .notNull()
-      .references(() => wbProducts.id, { onDelete: 'cascade' }),
+      .references(() => wbProducts.id, { onDelete: 'cascade' })
+      ,
     totalCases: integer('total_cases').notNull(),
     passedCount: integer('passed_count').notNull().default(0),
     warnedCount: integer('warned_count').notNull().default(0),
@@ -50,7 +51,8 @@ export const simulationCases = pgTable(
     id: serial('id').primaryKey(),
     runId: integer('run_id')
       .notNull()
-      .references(() => simulationRuns.id, { onDelete: 'cascade' }),
+      .references(() => simulationRuns.id, { onDelete: 'cascade' })
+      ,
     // selections: {SIZE: "90x50mm", PAPER: "아트지", ...}
     selections: jsonb('selections').notNull(),
     // result_status: 'pass' | 'warn' | 'error'

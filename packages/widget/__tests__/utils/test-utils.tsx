@@ -5,8 +5,6 @@
 
 import { render, type RenderResult } from '@testing-library/preact';
 import type { ComponentChildren, VNode } from 'preact';
-import { createContext } from 'preact';
-import { useContext } from 'preact/hooks';
 
 /**
  * Wrapper component for providing context in tests

@@ -35,7 +35,7 @@ export type MiddlewareFn = (
 export type RouteHandler = (
   req: NextRequest,
   ctx: MiddlewareContext,
-) => Promise<NextResponse>;
+) => Promise<NextResponse | Response>;
 
 /**
  * Next.js App Router route handler signature.
@@ -43,7 +43,7 @@ export type RouteHandler = (
 type NextRouteHandler = (
   req: NextRequest,
   routeCtx: { params: Promise<Record<string, string>> },
-) => Promise<NextResponse>;
+) => Promise<NextResponse | Response>;
 
 /**
  * Higher-order function that composes middleware and a route handler.
@@ -95,7 +95,7 @@ export function withMiddleware(...middlewares: MiddlewareFn[]) {
 /**
  * Apply accumulated headers (CORS, rate-limit) from middleware context to the response.
  */
-function applyHeaders(response: NextResponse, ctx: MiddlewareContext): NextResponse {
+function applyHeaders(response: NextResponse | Response, ctx: MiddlewareContext): NextResponse | Response {
   if (ctx.corsHeaders) {
     for (const [key, value] of Object.entries(ctx.corsHeaders)) {
       response.headers.set(key, value);

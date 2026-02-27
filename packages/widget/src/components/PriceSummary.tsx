@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.4.9
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { formatKRW } from '../utils/formatting';
 import type { PriceBreakdownItem } from '../types';
 

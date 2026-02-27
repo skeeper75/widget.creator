@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.3.3
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { useCallback, useId } from 'preact/hooks';
 
 export interface RadioGroupItem {

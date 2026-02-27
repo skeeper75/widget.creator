@@ -1,0 +1,257 @@
+---
+title: Atom 컴포넌트
+description: widget-core의 Atom 컴포넌트 카탈로그
+---
+
+# Atom 컴포넌트
+
+Atom 컴포넌트는 가장 기본적인 UI 요소들로, 단독으로 사용되거나 Molecule 컴포넌트를 구성하는 재료로 활용됩니다.
+
+## Button
+
+버튼 컴포넌트는 4가지 변형과 4가지 크기를 제공합니다.
+
+### Props
+
+| Prop | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `variant` | `'primary' \| 'secondary' \| 'outline' \| 'ghost'` | `'primary'` | 버튼 변형 |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | 버튼 크기 |
+| `disabled` | `boolean` | `false` | 비활성 상태 |
+| `children` | `ReactNode` | - | 버튼 내용 |
+| `className` | `string` | `''` | 추가 클래스 |
+| `...buttonProps` | `ButtonHTMLAttributes` | - | 네이티브 버튼 속성 |
+
+### 사용 예시
+
+```tsx
+import { Button } from '@huni/widget-core'
+
+<Button variant="primary" size="md">
+  주문하기
+</Button>
+
+<Button variant="outline" size="sm" disabled>
+  품절
+</Button>
+```
+
+## Input
+
+텍스트 입력 필드 컴포넌트입니다.
+
+### Props
+
+| Prop | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `type` | `'text' \| 'email' \| 'tel' \| 'number'` | `'text'` | 입력 타입 |
+| `value` | `string` | - | 입력 값 |
+| `onChange` | `(value: string) => void` | - | 변경 핸들러 |
+| `placeholder` | `string` | - | 플레이스홀더 |
+| `disabled` | `boolean` | `false` | 비활성 상태 |
+| `error` | `boolean` | `false` | 에러 상태 |
+| `className` | `string` | `''` | 추가 클래스 |
+
+### 사용 예시
+
+```tsx
+<Input
+  type="text"
+  value={name}
+  onChange={setName}
+  placeholder="이름을 입력하세요"
+/>
+```
+
+## Checkbox
+
+체크박스 컴포넌트입니다.
+
+### Props
+
+| Prop | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `checked` | `boolean` | `false` | 체크 상태 |
+| `onChange` | `(checked: boolean) => void` | - | 변경 핸들러 |
+| `disabled` | `boolean` | `false` | 비활성 상태 |
+| `label` | `string` | - | 라벨 텍스트 |
+| `className` | `string` | `''` | 추가 클래스 |
+
+### 사용 예시
+
+```tsx
+<Checkbox
+  checked={agreed}
+  onChange={setAgreed}
+  label="이용약관에 동의합니다"
+/>
+```
+
+## Radio
+
+라디오 버튼 컴포넌트입니다.
+
+### Props
+
+| Prop | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `name` | `string` | - | 그룹 이름 |
+| `value` | `string` | - | 버튼 값 |
+| `checked` | `boolean` | `false` | 체크 상태 |
+| `onChange` | `(checked: boolean) => void` | - | 변경 핸들러 |
+| `disabled` | `boolean` | `false` | 비활성 상태 |
+| `label` | `string` | - | 라벨 텍스트 |
+| `className` | `string` | `''` | 추가 클래스 |
+
+### 사용 예시
+
+```tsx
+<Radio
+  name="paper-type"
+  value="art"
+  checked={paperType === 'art'}
+  onChange={(checked) => checked && setPaperType('art')}
+  label="아트지"
+/>
+```
+
+## Badge
+
+배지 컴포넌트입니다.
+
+### Props
+
+| Prop | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `variant` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'error'` | `'default'` | 배지 변형 |
+| `size` | `'sm' \| 'md'` | `'md'` | 배지 크기 |
+| `children` | `ReactNode` | - | 배지 내용 |
+
+### 사용 예시
+
+```tsx
+<Badge variant="success">완료</Badge>
+<Badge variant="error">에러</Badge>
+```
+
+## Card
+
+카드 컨테이너 컴포넌트입니다.
+
+### Props
+
+| Prop | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `variant` | `'default' \| 'interactive' \| 'selected' \| 'bordered'` | `'default'` | 카드 변형 |
+| `padding` | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | 내부 패딩 |
+| `children` | `ReactNode` | - | 카드 내용 |
+| `className` | `string` | `''` | 추가 클래스 |
+
+### 사용 예시
+
+```tsx
+<Card variant="selected" padding="md">
+  <Text>선택된 옵션입니다</Text>
+</Card>
+```
+
+## Text
+
+텍스트 컴포넌트입니다.
+
+### Props
+
+| Prop | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `variant` | `'primary' \| 'secondary' \| 'muted' \| 'accent' \| 'error'` | `'primary'` | 텍스트 변형 |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | 텍스트 크기 |
+| `children` | `ReactNode` | - | 텍스트 내용 |
+| `className` | `string` | `''` | 추가 클래스 |
+
+### 사용 예시
+
+```tsx
+<Text variant="primary" size="lg">제목</Text>
+<Text variant="secondary" size="sm">보조 텍스트</Text>
+```
+
+## PriceDisplay
+
+가격 표시 컴포넌트입니다.
+
+### Props
+
+| Prop | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `amount` | `number` | - | 가격 |
+| `variant` | `'default' \| 'primary' \| 'accent' \| 'muted'` | `'default'` | 표시 변형 |
+| `size` | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | 표시 크기 |
+| `currency` | `string` | `'원'` | 통화 단위 |
+| `className` | `string` | `''` | 추가 클래스 |
+
+### 사용 예시
+
+```tsx
+<PriceDisplay amount={12500} size="lg" variant="accent" />
+```
+
+## CategoryTab
+
+카테고리 탭 컴포넌트입니다.
+
+### Props
+
+| Prop | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `categories` | `Category[]` | - | 카테고리 목록 |
+| `activeId` | `string` | - | 활성 카테고리 ID |
+| `onChange` | `(id: string) => void` | - | 변경 핸들러 |
+| `className` | `string` | `''` | 추가 클래스 |
+
+### 사용 예시
+
+```tsx
+<CategoryTab
+  categories={categories}
+  activeId={activeCategory}
+  onChange={setActiveCategory}
+/>
+```
+
+## Toggle
+
+토글 스위치 컴포넌트입니다.
+
+### Props
+
+| Prop | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `checked` | `boolean` | `false` | 체크 상태 |
+| `onChange` | `(checked: boolean) => void` | - | 변경 핸들러 |
+| `disabled` | `boolean` | `false` | 비활성 상태 |
+| `label` | `string` | - | 라벨 텍스트 |
+| `className` | `string` | `''` | 추가 클래스 |
+
+### 사용 예시
+
+```tsx
+<Toggle
+  checked={enabled}
+  onChange={setEnabled}
+  label="사용하기"
+/>
+```
+
+## 접근성 (Accessibility)
+
+모든 Atom 컴포넌트는 WCAG 2.1 AA 표준을 준수합니다:
+
+- **키보드 내비게이션**: `Tab`, `Enter`, `Space` 키 지원
+- **ARIA 속성**: `role`, `aria-label`, `aria-checked` 등 제공
+- **포커스 관리**: 명확한 포커스 표시
+- **색상 대비**: 최소 4.5:1 대비비 준수
+
+## 관련 파일
+
+- `packages/widget-core/src/components/atoms/` - 컴포넌트 소스
+- `packages/widget-core/src/components/atoms/*.test.tsx` - 컴포넌트 테스트

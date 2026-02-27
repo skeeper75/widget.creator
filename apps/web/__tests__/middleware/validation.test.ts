@@ -24,7 +24,7 @@ function createRequest(options: {
     init.headers = { 'Content-Type': 'application/json' };
   }
 
-  return new NextRequest(url, init);
+  return new NextRequest(url, { ...init, signal: undefined });
 }
 
 function createContext(params: Record<string, string> = {}): MiddlewareContext {

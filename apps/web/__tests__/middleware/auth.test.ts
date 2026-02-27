@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { NextRequest } from 'next/server';
 import { SignJWT } from 'jose';
 import { verifyWidgetToken, verifyApiKey, withApiKeyAuth } from '../../app/api/_lib/middleware/auth.js';
+import type { MiddlewareContext } from '../../app/api/_lib/middleware/with-middleware.js';
 import { ApiError } from '../../app/api/_lib/middleware/error-handler.js';
 
 const TEST_SECRET = new TextEncoder().encode('widget-token-secret-change-in-production');
@@ -151,7 +152,7 @@ describe('withApiKeyAuth', () => {
   it('should add apiKey to context on valid key', async () => {
     const validKey = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890';
     const req = createRequest({ 'x-api-key': validKey });
-    const ctx: Record<string, unknown> = {};
+    const ctx: MiddlewareContext = { params: {} };
 
     const middleware = withApiKeyAuth();
     await middleware(req, ctx);

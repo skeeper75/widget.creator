@@ -556,6 +556,144 @@ describe('POST /api/widget/orders', () => {
     expect(response.status).not.toBe(401);
     expect(response.status).not.toBe(403);
   });
+
+  it('should handle orderCode collision by regenerating orderCode', async () => {
+    // First collision check returns an existing order, second returns empty
+    let selectCall = 0;
+    (db.select as ReturnType<typeof vi.fn>).mockImplementation(() => {
+      selectCall++;
+
+      if (selectCall === 1) {
+        // wbProducts
+        return {
+          from: vi.fn().mockReturnValue({
+            where: vi.fn().mockReturnValue({
+              limit: vi.fn().mockResolvedValue([mockProductWithMes]),
+            }),
+          }),
+        };
+      }
+      if (selectCall === 2) {
+        // productRecipes .then
+        return {
+          from: vi.fn().mockReturnValue({
+            where: vi.fn().mockReturnValue({
+              limit: vi.fn().mockReturnValue({
+                then: vi.fn((resolve: (v: unknown) => unknown) =>
+                  Promise.resolve(resolve([mockRecipe])),
+                ),
+              }),
+            }),
+          }),
+        };
+      }
+      if (selectCall === 3) {
+        // productPriceConfigs .then
+        return {
+          from: vi.fn().mockReturnValue({
+            where: vi.fn().mockReturnValue({
+              limit: vi.fn().mockReturnValue({
+                then: vi.fn((resolve: (v: unknown) => unknown) =>
+                  Promise.resolve(resolve([mockPriceConfig])),
+                ),
+              }),
+            }),
+          }),
+        };
+      }
+      if (selectCall === 4) {
+        // recipeConstraints
+        return {
+          from: vi.fn().mockReturnValue({
+            where: vi.fn().mockResolvedValue([]),
+          }),
+        };
+      }
+      if (selectCall === 5) {
+        // qtyDiscount (pricing)
+        return {
+          from: vi.fn().mockReturnValue({
+            where: vi.fn().mockReturnValue({
+              limit: vi.fn().mockResolvedValue([]),
+            }),
+          }),
+        };
+      }
+      if (selectCall === 6) {
+        // First orderCode collision check → returns an existing order (collision!)
+        return {
+          from: vi.fn().mockReturnValue({
+            where: vi.fn().mockReturnValue({
+              limit: vi.fn().mockResolvedValue([{ id: 99 }]),
+            }),
+          }),
+        };
+      }
+      // Fallback for any extra calls
+      return {
+        from: vi.fn().mockReturnValue({
+          where: vi.fn().mockReturnValue({
+            limit: vi.fn().mockResolvedValue([]),
+          }),
+        }),
+      };
+    });
+
+    (db.insert as ReturnType<typeof vi.fn>).mockImplementation(() => ({
+      values: vi.fn().mockReturnValue({
+        returning: vi.fn().mockResolvedValue([mockCreatedOrder]),
+      }),
+    }));
+
+    const { POST } = await import('../../app/api/widget/orders/route.js');
+    const req = new NextRequest('http://localhost:3000/api/widget/orders', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(validOrderBody),
+    });
+
+    const response = await POST(req, routeCtx());
+
+    // Despite collision, order is still created (regenerated code)
+    expect(response.status).toBe(201);
+    expect(response.status).toBe(201);
+  });
+
+  it('should include addon items in order when auto_add constraint fires', async () => {
+    const autoAddConstraint = {
+      id: 7,
+      recipeId: 10,
+      constraintName: 'auto-add-envelope',
+      triggerOptionType: 'PAPER',
+      triggerOperator: 'IN',
+      triggerValues: ['아트지 250g'],
+      actions: [{ type: 'auto_add', addonGroupId: 1, addonItemId: 5 }],
+      priority: 5,
+      isActive: true,
+    };
+
+    const orderWithAddons = {
+      ...mockCreatedOrder,
+      addonItems: [{ type: 'auto_add', addonGroupId: 1, addonItemId: 5 }],
+    };
+
+    mockOrderDbCalls({ constraints: [autoAddConstraint], insertedOrder: orderWithAddons });
+
+    const { POST } = await import('../../app/api/widget/orders/route.js');
+    const req = new NextRequest('http://localhost:3000/api/widget/orders', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        productId: 42,
+        selections: { PAPER: '아트지 250g', QUANTITY: 100 },
+      }),
+    });
+
+    const response = await POST(req, routeCtx());
+
+    // Order creation succeeds even with addon items
+    expect(response.status).toBe(201);
+  });
 });
 
 describe('GET /api/widget/orders/:orderCode', () => {

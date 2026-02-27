@@ -1,0 +1,155 @@
+# Option Management
+
+10 option display types and option card management methods.
+
+> **Core**: 30 option keys can be displayed using 10 different UI components.
+
+<Callout type="info">
+**Drag-and-Drop**: Option order can be easily changed via drag-and-drop.
+</Callout>
+
+## 1. Option Display Types (10)
+
+| Type | Korean Label | UI Component | Description | Example |
+|------|--------------|--------------|-------------|---------|
+| button-group | 버튼 그룹 | Button chips | Single selection (buttons) | Size selection |
+| select-box | 드롭다운 | Dropdown | Single selection (list) | Paper type |
+| count-input | 숫자 입력 | Numeric stepper | Numeric value (min/max/step) | Page count |
+| color-chip | 칼라 칩 | Color swatch | Color selection (visual) | Foil color |
+| image-chip | 이미지 칩 | Image cards | Image-based selection | Accessory preview |
+| toggle-group | 토글 그룹 | Toggle switches | Multiple boolean toggles | Finishing options |
+| finish-button | 후가공 버튼 | Finishing button | Post-processing selection | Coating type |
+| finish-title-bar | 후가공 그룹 | Group header | Finishing category header | Foil stamp group |
+| summary | 요약 표시 | Read-only | Summary of current selections | Order summary |
+| upload | 파일 업로드 | File input | Custom artwork upload | Design file |
+
+## 2. Option Card Anatomy
+
+```
+┌─────────────────────────────────────────────┐
+│  ●  Size                         [≡] [⨉]    │
+│  Single Selection / select-box               │
+└─────────────────────────────────────────────┘
+```
+
+**Icon Legend**:
+
+| Icon | Color | Meaning |
+|------|-------|---------|
+| ● (Filled circle) | Red | Required option |
+| ₩ (Won sign) | Green | Price rule attached |
+| ! (Exclamation) | Orange | Has constraint |
+| → (Right arrow) | Blue | Triggers another option |
+| ← (Left arrow) | Purple | Depends on another option |
+| ⋮⋮ (Grip dots) | Gray | Drag handle |
+
+## 3. Adding/Editing Options
+
+<Steps>
+### Step 1: Click [+ Add Option]
+
+In the desired layer
+
+### Step 2: Fill Option Form
+
+- **Name**: Display name
+- **Key (English)**: Option key
+- **Type**: Display type (one of 10)
+- **Required**: Required status
+- **Layer**: Layer assignment
+- **Default Value**: Default selection
+
+### Step 3: For count-input Type
+
+Set min, max, step values
+
+### Step 4: For select-box Type
+
+Manage choice list
+
+### Step 5: Save and Verify
+</Steps>
+
+## 4. Choice Management
+
+### 4.1 Adding Choices
+
+- Manual entry: Add one by one
+- CSV import: Bulk add
+- Paste: Bulk paste
+
+### 4.2 Choice Properties
+
+| Property | Description |
+|----------|-------------|
+| label | Display name |
+| value | Internal value |
+| priceKey | Price key |
+| code | Code |
+| specs | Specifications |
+
+### 4.3 Reordering Choices
+
+Drag-and-drop to reorder choices
+
+<Callout type="info">
+**Save**: Changes are saved automatically (optimistic updates).
+</Callout>
+
+## 5. Hierarchical Option Tree
+
+```
+option_templates (option templates)
+    ↓
+product_options (product options)
+    ↓
+option_choices (option choices)
+```
+
+- **Templates**: Provide per-product_type defaults
+- **Product Options**: Customize templates per product
+- **Option Choices**: Define selectable values
+
+## 6. Drag-and-Drop Ordering
+
+### 6.1 Within Layer Reordering
+
+Drag handle to move up/down
+
+### 6.2 Between Layer Moving
+
+Drag option card to different layer section
+
+### 6.3 Keyboard Shortcuts
+
+- Alt+Up: Move up
+- Alt+Down: Move down
+
+### 6.4 Visual Feedback
+
+Blue drop indicator line
+
+## 7. Dependent Options and Constraints
+
+### 7.1 Visual Indicators
+
+Arrow icons on option cards:
+- → (Right arrow): Triggers another option
+- ← (Left arrow): Depends on another option
+
+### 7.2 Trigger/Dependency Behavior
+
+Option selection affects other options' availability
+
+### 7.3 Constraint Configuration
+
+Manage in detail on [Constraint Editor](./constraints) page
+
+### 7.4 EdicusOptionManager
+
+Edicus online design editor integration (custom artwork editing)
+
+## Related Documentation
+
+- [Constraint Editor](./constraints) - Dependent option management
+- [Product Management](./product-management) - Option tree setup

@@ -58,7 +58,7 @@ export interface DashboardStats {
 // @MX:ANCHOR: [AUTO] computeDashboardStats — stat card computation, fan_in >= 3 (page, tests, future)
 // @MX:REASON: Public pure function used by stat cards and tests
 // @MX:SPEC: SPEC-WA-001 FR-WA001-01
-export function computeDashboardStats(products: DashboardProduct[]): DashboardStats {
+function computeDashboardStats(products: DashboardProduct[]): DashboardStats {
   const total = products.length;
   const active = products.filter((p) => p.isVisible === true).length;
   const draft = products.filter(
@@ -72,7 +72,7 @@ export function computeDashboardStats(products: DashboardProduct[]): DashboardSt
 
 // @MX:NOTE: [AUTO] filterByCategory — returns all when categoryId is null
 // @MX:SPEC: SPEC-WA-001 FR-WA001-02
-export function filterByCategory(
+function filterByCategory(
   products: DashboardProduct[],
   categoryId: number | null
 ): DashboardProduct[] {
@@ -82,7 +82,7 @@ export function filterByCategory(
 
 // @MX:NOTE: [AUTO] filterByStatus — filters by '활성', '임시저장', '미완성', or 'all'
 // @MX:SPEC: SPEC-WA-001 FR-WA001-03
-export function filterByStatus(
+function filterByStatus(
   products: DashboardProduct[],
   status: string
 ): DashboardProduct[] {
@@ -99,7 +99,7 @@ export function filterByStatus(
 
 // @MX:NOTE: [AUTO] filterProducts — combines category and status filters
 // @MX:SPEC: SPEC-WA-001 FR-WA001-02, FR-WA001-03
-export function filterProducts(
+function filterProducts(
   products: DashboardProduct[],
   categoryId: number | null,
   status: string

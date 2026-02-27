@@ -7,7 +7,6 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import {
   dispatchWidgetEvent,
   widgetEvents,
-  type WidgetEventMap,
 } from '@/utils/events';
 
 describe('events utils', () => {
@@ -32,7 +31,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail).toEqual({
         widgetId: 'wgt_123',
         productId: 42,
@@ -53,7 +52,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.optionKey).toBe('print_type');
       expect(event.detail.oldValue).toBe('single');
       expect(event.detail.newValue).toBe('double');
@@ -78,7 +77,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.total).toBe(60500);
       expect(event.detail.quantity).toBe(100);
 
@@ -98,7 +97,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.productId).toBe(1);
       expect(event.detail.productName).toBe('명함');
 
@@ -116,7 +115,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.fileName).toBe('design.pdf');
 
       document.removeEventListener('widget:file-uploaded', eventListener);
@@ -132,7 +131,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.quoteId).toBe('quote_123');
 
       document.removeEventListener('widget:order-submitted', eventListener);
@@ -147,7 +146,7 @@ describe('events utils', () => {
         screenType: 'PRINT_OPTION',
       });
 
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.bubbles).toBe(true);
 
       document.removeEventListener('widget:loaded', eventListener);
@@ -162,7 +161,7 @@ describe('events utils', () => {
         screenType: 'PRINT_OPTION',
       });
 
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.cancelable).toBe(true);
 
       document.removeEventListener('widget:loaded', eventListener);
@@ -180,7 +179,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.widgetId).toBe('wgt_456');
 
       document.removeEventListener('widget:loaded', eventListener);
@@ -197,7 +196,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.optionKey).toBe('paper');
 
       document.removeEventListener('widget:option-changed', eventListener);
@@ -215,7 +214,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.total).toBe(110000);
 
       document.removeEventListener('widget:quote-calculated', eventListener);
@@ -234,7 +233,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.productName).toBe('전단지');
 
       document.removeEventListener('widget:add-to-cart', eventListener);
@@ -251,7 +250,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.fileName).toBe('artwork.ai');
 
       document.removeEventListener('widget:file-uploaded', eventListener);
@@ -267,7 +266,7 @@ describe('events utils', () => {
       });
 
       expect(eventListener).toHaveBeenCalledTimes(1);
-      const event = eventListener.mock.calls[0][0] as CustomEvent;
+      const event = eventListener.mock.calls[0]![0] as CustomEvent;
       expect(event.detail.quoteId).toBe('quote_xyz');
 
       document.removeEventListener('widget:order-submitted', eventListener);

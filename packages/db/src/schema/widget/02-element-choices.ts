@@ -23,7 +23,8 @@ export const optionElementChoices = pgTable(
     id: serial('id').primaryKey(),
     typeId: integer('type_id')
       .notNull()
-      .references(() => optionElementTypes.id, { onDelete: 'cascade' }),
+      .references(() => optionElementTypes.id, { onDelete: 'cascade' })
+      ,
     choiceKey: varchar('choice_key', { length: 100 }).notNull(),
     displayName: varchar('display_name', { length: 200 }).notNull(),
     value: varchar('value', { length: 100 }),

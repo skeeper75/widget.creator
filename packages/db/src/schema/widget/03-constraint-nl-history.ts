@@ -24,7 +24,8 @@ export const constraintNlHistory = pgTable(
     }),
     recipeId: integer('recipe_id')
       .notNull()
-      .references(() => productRecipes.id),
+      .references(() => productRecipes.id)
+      ,
     nlInputText: text('nl_input_text').notNull(),
     nlInterpretation: jsonb('nl_interpretation'),
     aiModelVersion: varchar('ai_model_version', { length: 50 }),

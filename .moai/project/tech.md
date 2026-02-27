@@ -596,6 +596,432 @@ volumes:
 
 ---
 
-문서 버전: 1.3.0
-작성일: 2026-02-22
-최종 수정: 2026-02-26 (SPEC-WB-004: Drizzle ORM 가격엔진 스키마 4개 테이블 문서화)
+# Widget Creator - Technology Stack (English)
+
+## Technology Stack Summary
+
+| Layer | Technology | Version | Purpose |
+|-------|-----------|---------|---------|
+| **Frontend Admin** | React | 19.x | Admin dashboard UI framework |
+| **Frontend Admin** | Next.js | 15.x | Admin app (App Router) |
+| **Frontend Admin** | Tailwind CSS | 4.x | Utility-first CSS framework |
+| **Frontend Admin** | shadcn/ui | latest | Accessible UI components |
+| **Frontend Widget** | Preact | 10.x | Lightweight widget (15.47 KB gzipped) |
+| **Frontend Widget** | @preact/signals | latest | Fine-grained reactivity |
+| **Frontend Widget** | Shadow DOM | native | CSS isolation in widgets |
+| **Backend** | Next.js | 15.x | API server + App Router |
+| **Backend** | Node.js | 22.x | Runtime environment |
+| **Backend** | tRPC | 11.x | TypeScript RPC framework |
+| **Database** | PostgreSQL | 16.x | Relational database |
+| **Database** | Drizzle ORM | 0.45.x | Type-safe query builder |
+| **Database Driver** | postgres.js | latest | PostgreSQL JS driver (serverless) |
+| **Caching** | Redis | latest | Quote caching (300ms SLA) |
+| **File Storage** | S3 compatible | - | File uploads (500MB) |
+| **AI/ML** | OpenAI API | latest | Natural language rule builder |
+| **Validation** | Zod | 3.24.x | Runtime type validation |
+| **Validation** | drizzle-zod | latest | Auto Zod schema generation |
+| **State Management** | @tanstack/react-query | 5.x | Server state (admin) |
+| **State Management** | Zustand | 5.x | Client state (admin, widget) |
+| **State Management** | @preact/signals | latest | Reactive state (widget) |
+| **Rules Engine** | json-rules-engine | latest | ECA pattern evaluation |
+| **Icons** | lucide-react | latest | Icon library |
+| **HTTP Client** | axios | latest | HTTP requests |
+| **Auth** | NextAuth.js | 5.0-beta | Session management |
+| **Auth** | JSON Web Tokens | native | JWT authentication |
+| **Build** | Turborepo | latest | Monorepo orchestration |
+| **Build** | Vite | 6.x | Widget build tool |
+| **Build** | esbuild | latest | JavaScript bundler |
+| **Build** | terser | latest | JavaScript minifier |
+| **Testing** | Vitest | 3.x | Unit & integration tests |
+| **Testing** | Testing Library | latest | Component testing utilities |
+| **Testing** | Playwright | latest | End-to-end tests |
+| **Code Quality** | TypeScript | 5.7+ | Type-safe language |
+| **Code Quality** | ESLint | 9.x | Code linting |
+| **Code Quality** | Prettier | 3.x | Code formatting |
+| **Code Quality** | Pyright | latest | Type checking |
+| **DevOps** | Vercel | latest | Hosting & deployment |
+| **DevOps** | CDN | varies | Widget script delivery |
+| **DevOps** | Docker | 27.x | Container runtime |
+| **DevOps** | Git** | 2.45+ | Version control |
+
+## Core Framework Decisions & Rationale
+
+### Next.js 15 (App Router) - Admin Dashboard + API Server
+
+**Why Next.js 15**:
+- **Server Components**: Native rendering optimization reduces client JavaScript
+- **API Routes**: Full-stack development without separate backend server
+- **App Router**: File-system routing with streamlined organization
+- **React 19 Integration**: Server Actions eliminate form boilerplate
+- **Vercel Deployment**: Native optimization for serverless Edge Functions
+- **Incremental Static Regeneration (ISR)**: Cache frequently accessed pages
+
+**Architecture**:
+- `apps/admin`: Admin dashboard (port 3001) with 26 CRUD routers
+- `apps/web`: API server + user widget (port 3000) with 20 tRPC routers
+
+### React 19 - Admin UI Framework
+
+**Why React 19**:
+- **Server Components**: Native support alongside Client Components
+- **Concurrent Features**: Smooth UI for complex option selection flows
+- **Improved Hooks**: useOptimistic, useFormStatus for better form handling
+- **Ecosystem Maturity**: shadcn/ui, React Query, Zustand all fully compatible
+- **Developer Experience**: Cleaner syntax with async components
+
+### Preact 10.x + Preact Signals - Embeddable Widget (SPEC-WIDGET-SDK-001, 2026-02-23)
+
+**Why Preact for Widgets**:
+- **Bundle Size**: 3 KB gzipped vs React's 40+ KB
+- **API Compatibility**: Handles 90%+ React patterns with minimal learning curve
+- **Performance**: Faster Virtual DOM implementation
+- **Shadow DOM**: Perfect for CSS isolation in embedded scenarios
+- **Final Size**: 15.47 KB gzipped (69% under 50 KB target)
+
+**State Management**:
+- **@preact/signals**: Minimal overhead (~1 KB), fine-grained reactivity
+- **5 Core Signals**: Widget state, selections, prices, status, options
+- **No Re-renders**: Only affected components re-render on signal changes
+
+**Build Configuration**:
+- **Vite Library Mode**: IIFE output for script tag inclusion
+- **Tree Shaking**: Remove unused code at build time
+- **Terser Minification**: Maximum compression
+- **Target**: ES2020 (modern browsers)
+
+### Tailwind CSS v4 + shadcn/ui - Styling System
+
+**Why Tailwind CSS v4**:
+- **Utility-First**: Fast development with pre-built classes
+- **Custom Properties**: CSS variables for theming (Huni Purple #5538b6)
+- **Content Detection**: Auto-detection of used classes
+- **Build Performance**: Native CSS layer improvements
+
+**Design System Integration**:
+- **shadcn/ui**: Copy-paste components built on Radix UI
+- **Accessibility**: a11y features included by default
+- **Customizable**: Full control over component styling
+- **Huni Design Tokens**: Primary #5538b6, Secondary #eeebf9, Accent #351d87
+
+### Drizzle ORM + PostgreSQL - Data Layer (SPEC-INFRA-001, 2026-02-22)
+
+**Why Drizzle ORM**:
+- **Type Safety**: $inferSelect, $inferInsert auto-generate types from schema
+- **Lightweight**: 50% smaller than Prisma, perfect for serverless
+- **SQL-Like**: Queries read like SQL but are type-safe
+- **Vercel Serverless**: postgres.js driver optimized for edge
+- **Migration Management**: drizzle-kit handles schema versions
+- **Zod Integration**: drizzle-zod auto-generates validation schemas
+
+**Database Design**:
+- **PostgreSQL 16**: JSON/JSONB for flexible option storage
+- **26 Huni Tables**: Catalog, materials, options, constraints, pricing, orders
+- **6-Layer Architecture**: From element types → products → constraints → pricing
+- **Relationships**: 30+ foreign key relationships with Drizzle relations
+
+**Why PostgreSQL**:
+- **JSON/JSONB Support**: Native storage for widget configs, option values
+- **Complex Queries**: Powerful aggregation for analytics and reports
+- **Transaction Safety**: ACID compliance for order/payment processing
+- **Managed Services**: Vercel Postgres, Supabase, Neon all available
+
+### Redis - Caching Layer (SPEC-WB-006, 2026-02-26)
+
+**Quote API Performance**:
+- **Target SLA**: 300ms for quote generation
+- **Cache Key**: `quote:{widgetId}:{optionHash}:{quantity}`
+- **Cache TTL**: 24 hours (configurable per widget)
+- **Cache Strategy**: Write-through on quote update, read-through on query
+- **Hit Rate**: ~80% expected for repeat products
+
+### OpenAI API - Natural Language Rules (SPEC-WB-007, 2026-02-27)
+
+**GLM Natural Language Rule Builder**:
+- **Constraint Generation**: Convert natural language to constraint rules
+- **Two-Step Conversion**: NL input → GPT-4 → constraint rule → widget config
+- **History Tracking**: All conversions logged for audit and improvement
+- **Cost Optimization**: Batch requests, cache results
+
+### NextAuth.js v5 - Authentication
+
+**Admin Authentication**:
+- **Credentials Provider**: Email/password authentication
+- **Session Management**: JWT + session hybrid mode
+- **User Roles**: ADMIN, MANAGER, VIEWER (role-based access)
+- **Data Ownership**: Serverless-friendly session storage
+
+**Widget API Authentication**:
+- **API Key Model**: UUID v4 keys issued per widget
+- **Domain Binding**: API key restricted to registered shopUrl
+- **Rate Limiting**: Token Bucket (60 requests/minute default)
+- **Security**: Server-side validation only, no client exposure
+
+## Constraint System - ECA Pattern
+
+**Event-Condition-Action Architecture**:
+- **Event**: User selects option (e.g., "Paper Type: Art Board")
+- **Condition**: Evaluate business rule (e.g., "IF paper type is Art Board AND cost > 1000")
+- **Action**: Execute consequence (e.g., "SHOW coating options", "SET price += 500")
+
+**Implementation**:
+- **json-rules-engine**: JavaScript rule evaluation engine
+- **8 Action Types**: show, hide, require, enable, disable, validate, calculate, notify
+- **Dependency Resolution**: Cascade constraint updates through option tree
+- **Client + Server**: Client for UX responsiveness, server for authorization
+
+## Development Environment
+
+### Required Software
+
+| Tool | Version | Purpose |
+|------|---------|---------|
+| Node.js | 22.x LTS | JavaScript runtime |
+| pnpm | 9.x | Package manager (Turborepo preferred) |
+| PostgreSQL | 16.x | Database (local or Docker) |
+| Docker | 27.x | Container runtime for local services |
+| Git | 2.45+ | Version control |
+| TypeScript | 5.7+ | Type checking |
+
+### Initial Setup
+
+```bash
+# Clone and install
+git clone <repo> widget.creator
+cd widget.creator
+pnpm install
+
+# Setup environment
+cp .env.example .env.local
+
+# Start local services (PostgreSQL, MinIO/S3)
+docker compose up -d
+
+# Apply database migrations
+pnpm drizzle-kit push
+
+# Start development servers
+pnpm dev
+```
+
+**Development Servers**:
+- Admin Dashboard: http://localhost:3001
+- API Server: http://localhost:3000
+- Widget Dev: http://localhost:5173
+
+### Environment Variables
+
+```
+# Database
+DATABASE_URL="postgresql://user:pass@localhost:5432/widget_creator"
+
+# Authentication
+NEXTAUTH_SECRET="<random-secret>"
+NEXTAUTH_URL="http://localhost:3000"
+
+# S3 Storage
+S3_ENDPOINT="http://localhost:9000"
+S3_ACCESS_KEY="minioadmin"
+S3_SECRET_KEY="minioadmin"
+S3_BUCKET="widget-uploads"
+
+# Widget API
+NEXT_PUBLIC_API_URL="http://localhost:3000"
+NEXT_PUBLIC_WIDGET_CDN_URL="http://localhost:5173"
+
+# OpenAI (for GLM rules)
+OPENAI_API_KEY="<api-key>"
+
+# Redis (for quote caching)
+REDIS_URL="redis://localhost:6379"
+```
+
+## Build & Deployment Pipeline
+
+### Turborepo Orchestration
+
+**Build Dependency Graph**:
+```
+packages/core (build)
+    ↓
+packages/db (build, depends on core)
+    ↓
+packages/shared (build, depends on core)
+    ↓
+packages/widget (build, depends on core)
+    ↓
+apps/admin (build, depends on shared)
+apps/web (build, depends on shared, core)
+    ↓
+packages/docs (build, depends on all)
+```
+
+**Remote Caching**: Turborepo cache stored in Vercel for CI/CD speedup
+
+### Vite Library Mode - Widget Build
+
+**Build Output**:
+- **Format**: IIFE (Immediately Invoked Function Expression)
+- **Size**: 15.47 KB gzipped (includes Preact, Signals, styles, and all components)
+- **Target**: ES2020 (modern browsers, ~95% coverage)
+- **Minification**: Terser with dead code elimination
+
+**Build Command**: `pnpm build:widget`
+**Output**: `packages/widget/dist/widget.js`
+
+### Vercel Deployment
+
+**Configuration**:
+- `apps/admin`: Main deployment (admin.hooniprinting.com)
+- `apps/web`: API functions (api.hooniprinting.com)
+- Preview deployments for each PR
+- Automatic rollback on build failure
+
+**Edge Features**:
+- Edge Functions for global API latency reduction
+- Automatic image optimization
+- Font loading optimization
+- Security headers
+
+### CDN Distribution
+
+**Widget Script Deployment**:
+- **Path**: `/widget/v1/widget.js` (versioned)
+- **CDN**: Vercel Edge Network (default)
+- **Caching**: Aggressive (immutable versioned URLs)
+- **Fallback**: Cloudflare or AWS CloudFront
+
+## Testing Strategy
+
+### Unit Tests (Vitest)
+
+| Package | Tests | Coverage | Focus |
+|---------|-------|----------|-------|
+| **packages/core** | 50+ | 100% | Pricing, constraints, quote logic |
+| **packages/db** | 79 | 86% | Schema validation, seed data |
+| **packages/shared** | 184 | 85%+ | Integration, adapters, events |
+| **packages/widget** | 468 | 97-98% | Components, state, engines |
+| **apps/admin** | 727 | 85%+ | CRUD operations, forms |
+| **apps/web** | 100+ | 80%+ | API routes, middleware |
+
+**Coverage Target**: 85% minimum (MoAI TRUST 5 framework)
+
+### Integration Tests
+
+- **Vitest**: Database queries, API client behavior
+- **tRPC Integration**: Cross-service communication
+- **Event Bus**: Domain event propagation
+
+### End-to-End Tests (Playwright)
+
+- **Widget Embedding**: Script injection, Shadow DOM access
+- **Admin Workflows**: Create widget → configure options → publish
+- **API Workflows**: Quote generation → order creation
+- **Cross-Browser**: Chrome, Firefox, Safari
+
+### Test Execution
+
+```bash
+# Unit tests
+pnpm test
+
+# Integration tests
+pnpm test:integration
+
+# E2E tests
+pnpm test:e2e
+
+# Coverage report
+pnpm test:coverage
+```
+
+## Code Quality Tools
+
+### TypeScript 5.7+
+
+**Configuration**:
+- `strict: true` (all strict rules enabled)
+- `noUncheckedIndexedAccess: true` (safe index access)
+- `composite: true` (project references for faster builds)
+- Path aliases: `@core/`, `@shared/`, `@widget/`
+
+### ESLint 9.x (Flat Config)
+
+**Ruleset**:
+- `@typescript-eslint/strict-type-checked` (strictest rules)
+- `eslint-plugin-react-hooks` (hooks compliance)
+- `eslint-plugin-import-x` (import organization)
+- Custom rules per package (apps, packages)
+
+### Prettier 3.x
+
+**Formatting**:
+- `printWidth: 100`
+- `singleQuote: true`
+- `trailingComma: 'all'`
+- `tabWidth: 2`
+
+### Commit Hooks (Husky + lint-staged)
+
+- **pre-commit**: ESLint, Prettier, TypeScript check
+- **commit-msg**: Conventional Commits validation
+- **pre-push**: Full test suite (optional)
+
+## Performance Targets
+
+| Metric | Target | Current | Notes |
+|--------|--------|---------|-------|
+| Widget Bundle | < 50 KB | 15.47 KB | 69% under limit |
+| Widget Load | < 1s | ~0.5s | CDN + cache |
+| Quote API | < 100ms | <50ms (cached) | Redis caching |
+| Admin Page | < 2s | ~1.5s | Server Components |
+| API P95 | < 200ms | ~150ms | Edge Functions |
+| File Upload | < 30s | <15s | 100MB Presigned URL |
+| Lighthouse | > 85 | 88+ | Performance, Accessibility |
+
+## Security Architecture
+
+### OWASP Compliance
+
+| Control | Implementation | Location |
+|---------|----------------|----------|
+| **Input Validation** | Zod schemas | Core, apps/web |
+| **Authentication** | NextAuth.js + API Keys | apps/web/auth.ts |
+| **Authorization** | Role-based access | Admin dashboard |
+| **CORS** | shopUrl domain restriction | apps/web/api |
+| **Rate Limiting** | Token Bucket | apps/web/api/_lib |
+| **SQL Injection** | Drizzle parameterized queries | packages/shared |
+| **XSS Protection** | React auto-escaping + Shadow DOM | packages/widget |
+| **CSRF** | SameSite cookies + CSRF tokens | apps/web |
+| **File Upload** | Type/size validation + scanning | packages/widget |
+| **Secrets** | Environment variables only | .env.local (git-ignored) |
+
+### Secret Management
+
+- `.env.local`: Development (git-ignored)
+- `.env.production`: Production secrets (Vercel env)
+- `.env.example`: Template (git-included)
+- CI/CD: Vercel environment variables
+
+## Future Technology Expansion
+
+| Technology | Use Case | Priority | Status |
+|-----------|----------|----------|--------|
+| **Bull/BullMQ** | Order processing queue | P1 | Planned |
+| **Resend** | Email notifications | P1 | Planned |
+| **Aligo API** | SMS/KakaoTalk (11 points) | P1 | Planned |
+| **Toss Payments** | Payment gateway | P2 | Planned |
+| **WebSocket** | Real-time order status | P2 | Planned |
+| **Sentry** | Error monitoring | P1 | Planned |
+| **PostHog** | Analytics & usage | P2 | Planned |
+
+**Already Integrated**:
+- Redis: Quote caching (300ms SLA) - SPEC-WB-006
+- OpenAI: Natural language rules - SPEC-WB-007
+- Shopby: E-commerce integration - SPEC-WIDGET-INTG-001
+
+---
+
+Document Version: 1.4.0
+Created: 2026-02-22
+Last Updated: 2026-02-27
+Based on: Technology decisions, implementation artifacts, and performance metrics

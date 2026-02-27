@@ -693,6 +693,475 @@ OrderStatus: UNPAID, PAID, PRODUCTION_WAITING, PRODUCING,
 
 ---
 
-문서 버전: 1.5.0
-작성일: 2026-02-22
-최종 수정: 2026-02-26 (packages/db 추가: 옵션 타입 라이브러리, 79개 테스트, 86% 커버리지, SPEC-WB-001 구현 완료)
+# Widget Creator - Project Structure (English)
+
+## Monorepo Architecture Overview
+
+Widget Creator is organized as a TypeScript monorepo using pnpm workspaces and Turborepo. The project separates concerns into two applications (admin, web) and multiple shared packages (core, db, shared, widget, docs) to maximize code reuse and modularity.
+
+## Complete Directory Tree
+
+```
+widget.creator/
+├── .claude/                      # Claude Code configuration
+│   ├── agents/moai/              # MoAI agent definitions
+│   ├── commands/moai/            # MoAI slash commands
+│   ├── rules/moai/               # MoAI rules (coding standards, workflows)
+│   ├── skills/                   # MoAI skill definitions
+│   ├── agent-memory/             # Persistent agent memory
+│   └── hooks/                    # Git and lifecycle hooks
+│
+├── .moai/                        # MoAI project metadata
+│   ├── config/sections/          # Project configuration
+│   │   ├── quality.yaml          # TRUST 5 framework settings
+│   │   ├── user.yaml             # User preferences
+│   │   ├── language.yaml         # Language configuration (ko)
+│   │   ├── mx.yaml               # @MX tag configuration
+│   │   ├── workflow.yaml         # Workflow settings
+│   │   └── ...
+│   ├── specs/                    # SPEC documents
+│   │   ├── SPEC-WB-001/          # Option Element Type Library
+│   │   ├── SPEC-WB-002/          # Product Category & Recipe System
+│   │   ├── SPEC-WB-003/          # Constraint System - ECA Pattern
+│   │   ├── SPEC-WB-004/          # Pricing Rules & Calculation Engine
+│   │   ├── SPEC-WB-005/          # Simulation Engine & Publish Workflow
+│   │   ├── SPEC-WB-006/          # Runtime Auto-Quote Engine
+│   │   ├── SPEC-WB-007/          # GLM Natural Language Rule Builder
+│   │   ├── SPEC-WA-001/          # Widget Admin Features
+│   │   └── ...
+│   ├── project/                  # Project documentation
+│   │   ├── product.md            # Product overview
+│   │   ├── structure.md          # This file
+│   │   ├── tech.md               # Technology stack
+│   │   └── codemaps/             # Code relationship maps
+│   ├── analysis/                 # Project analysis artifacts
+│   ├── memory/                   # Checkpoint and memory storage
+│   └── cache/                    # Build and analysis cache
+│
+├── apps/                         # Application modules
+│   ├── admin/                    # Admin dashboard (Next.js 15, port 3001)
+│   │   ├── src/
+│   │   │   ├── app/              # Next.js 15 App Router
+│   │   │   │   ├── (auth)/       # Authentication pages
+│   │   │   │   ├── (dashboard)/  # Dashboard layout
+│   │   │   │   │   ├── page.tsx  # Dashboard home with stats
+│   │   │   │   │   ├── products/ # Product CRUD
+│   │   │   │   │   ├── materials/papers/ # Paper form editor
+│   │   │   │   │   ├── options/  # Option management
+│   │   │   │   │   ├── pricing/  # Pricing rules
+│   │   │   │   │   ├── widget-admin/ # Widget Admin console (SPEC-WA-001)
+│   │   │   │   │   │   ├── options/  # Options editor (Step 2)
+│   │   │   │   │   │   ├── constraints/ # Constraint builder (Step 4)
+│   │   │   │   │   │   ├── pricing-rules/ # Pricing editor (Step 3)
+│   │   │   │   │   │   ├── simulation/ # Multi-case simulation (Step 5)
+│   │   │   │   │   │   └── publish/   # Publish workflow
+│   │   │   │   │   ├── integration/ # External system management
+│   │   │   │   │   └── settings/  # System settings
+│   │   │   │   ├── api/          # Admin API routes (if any)
+│   │   │   │   ├── layout.tsx    # App shell layout
+│   │   │   │   └── page.tsx      # Root page
+│   │   │   ├── components/
+│   │   │   │   ├── widget-admin/ # Widget Admin UI components
+│   │   │   │   ├── glm/          # GLM NL rule builder UI (SPEC-WB-007)
+│   │   │   │   ├── ui/           # Radix-based design system (shadcn/ui)
+│   │   │   │   └── layout/       # App shell components
+│   │   │   ├── lib/
+│   │   │   │   ├── trpc/
+│   │   │   │   │   ├── routers/  # tRPC routers (26 CRUD routers)
+│   │   │   │   │   │   └── papers.ts # Paper form schema router
+│   │   │   │   │   ├── context.ts # tRPC context setup
+│   │   │   │   │   └── index.ts  # tRPC setup
+│   │   │   │   ├── api.ts        # API client helpers
+│   │   │   │   ├── auth.ts       # Auth helpers
+│   │   │   │   └── utils.ts      # Utility functions
+│   │   │   ├── styles/           # Global styles
+│   │   │   └── types/            # Type definitions
+│   │   ├── __tests__/            # Test files (727 tests)
+│   │   │   ├── lib/paper-form-schema.test.ts
+│   │   │   ├── setup.ts          # Test setup
+│   │   │   └── ...
+│   │   ├── next.config.ts
+│   │   ├── tailwind.config.ts
+│   │   ├── tsconfig.json
+│   │   ├── postcss.config.mjs
+│   │   └── package.json
+│   │
+│   └── web/                      # Main app (Next.js 15, port 3000) = API Server + Widget UI
+│       ├── app/                  # Next.js 15 App Router
+│       │   ├── api/              # REST API + tRPC routes
+│       │   │   ├── v1/           # REST API v1
+│       │   │   │   ├── pricing/
+│       │   │   │   │   └── quote/route.ts   # Integrated quote API (300ms SLA, Redis cache)
+│       │   │   │   ├── orders/route.ts      # Order creation + MES dispatch
+│       │   │   │   ├── catalog/             # Product catalog
+│       │   │   │   ├── integration/         # External system integration
+│       │   │   │   │   ├── shopby/          # Shopby adapter
+│       │   │   │   │   ├── mes/             # MES adapter
+│       │   │   │   │   └── edicus/          # Edicus adapter
+│       │   │   │   └── ...
+│       │   │   └── trpc/[trpc]/route.ts     # tRPC unified handler
+│       │   ├── _lib/             # App-level libraries
+│       │   │   └── middleware/   # Middleware utilities
+│       │   │       ├── rate-limit.ts     # Token Bucket Rate Limiting
+│       │   │       ├── with-middleware.ts # Middleware composition
+│       │   │       ├── auth.test.ts
+│       │   │       └── validation.test.ts
+│       │   ├── auth.ts           # NextAuth.js v5 configuration
+│       │   ├── middleware.ts     # Global middleware (auth, validation)
+│       │   ├── layout.tsx        # Root layout
+│       │   └── page.tsx          # Home page
+│       ├── components/           # User-facing components
+│       ├── lib/
+│       │   ├── middleware/       # Middleware implementations
+│       │   │   ├── rate-limit.ts
+│       │   │   ├── with-middleware.ts
+│       │   │   ├── auth.ts
+│       │   │   └── validation.ts
+│       │   ├── trpc/
+│       │   │   ├── routers/      # tRPC routers (20 routers)
+│       │   │   │   ├── order.router.ts
+│       │   │   │   └── ...
+│       │   │   ├── utils/
+│       │   │   │   └── create-crud-router.ts
+│       │   │   └── context.ts
+│       │   └── ...
+│       ├── __tests__/            # Integration tests
+│       │   ├── middleware/
+│       │   ├── pricing/
+│       │   ├── widget/
+│       │   └── setup.ts
+│       ├── next.config.ts
+│       ├── tailwind.config.ts
+│       ├── tsconfig.json
+│       └── package.json
+│
+├── packages/                     # Shared packages
+│   ├── core/                     # Pure TypeScript business logic
+│   │   └── src/
+│   │       ├── errors.ts         # Custom error definitions
+│   │       ├── crypto.ts         # Encryption utilities
+│   │       ├── validation.ts     # Validation helpers
+│   │       ├── constraints/      # ECA pattern evaluator
+│   │       ├── options/          # Option state machine
+│   │       ├── pricing/          # Pricing calculation engines
+│   │       │   ├── formula-cutting/
+│   │       │   ├── fixed-unit/
+│   │       │   ├── component/
+│   │       │   ├── formula/
+│   │       │   ├── fixed-size/
+│   │       │   ├── fixed-per-unit/
+│   │       │   ├── package/
+│   │       │   ├── engine.ts     # Integrated engine
+│   │       │   ├── types.ts
+│   │       │   ├── lookup.ts     # Price table lookup
+│   │       │   ├── loss.ts       # Loss rate calculation
+│   │       │   ├── utils.ts
+│   │       │   └── registry.ts   # Pricing rule registry
+│   │       ├── quote/            # Quote calculation
+│   │       │   ├── types.ts
+│   │       │   ├── snapshot.ts   # Immutable snapshots
+│   │       │   ├── calculator.ts # Quote calculator (300ms SLA)
+│   │       │   └── expiry.ts     # Expiry management
+│   │       └── index.ts
+│   │   ├── __tests__/            # Unit tests
+│   │   ├── tsconfig.json
+│   │   └── package.json
+│   │
+│   ├── db/                       # Drizzle ORM schemas (NEW - SPEC-WB-001)
+│   │   └── src/
+│   │       ├── index.ts          # Main export
+│   │       ├── schema/
+│   │       │   ├── widget/       # Widget-specific schemas
+│   │       │   │   ├── 01-element-types.ts # option_element_types (12 standard types)
+│   │       │   │   ├── 02-element-choices.ts # option_element_choices (values library)
+│   │       │   │   ├── 02-product-categories.ts
+│   │       │   │   ├── 02-product-recipes.ts
+│   │       │   │   ├── 02-products.ts
+│   │       │   │   ├── 02-recipe-choice-restrictions.ts
+│   │       │   │   ├── 02-recipe-option-bindings.ts
+│   │       │   │   ├── 03-addon-group-items.ts
+│   │       │   │   ├── 03-addon-groups.ts
+│   │       │   │   ├── 03-constraint-nl-history.ts
+│   │       │   │   ├── 03-constraint-templates.ts
+│   │       │   │   ├── 03-recipe-constraints.ts
+│   │       │   │   ├── 04-print-cost-base.ts
+│   │       │   │   ├── 04-product-price-configs.ts
+│   │       │   │   ├── 05-publish-history.ts
+│   │       │   │   ├── 05-simulation-runs.ts
+│   │       │   │   ├── 06-...ts
+│   │       │   │   └── index.ts
+│   │       │   └── index.ts
+│   │       └── seed/
+│   │           ├── widget-types.ts # 12 standard option types seed data
+│   │           └── index.ts
+│   │   ├── __tests__/            # Tests (79 tests, 86% coverage)
+│   │   │   ├── schema/
+│   │   │   │   ├── element-types.test.ts
+│   │   │   │   └── element-choices.test.ts
+│   │   │   ├── seed/
+│   │   │   │   └── widget-types.test.ts
+│   │   │   ├── index.test.ts
+│   │   │   └── setup.ts
+│   │   ├── README.md
+│   │   ├── tsconfig.json
+│   │   └── package.json
+│   │
+│   ├── shared/                   # DB + Integration layer (SPEC-INFRA-001)
+│   │   └── src/
+│   │       ├── db/               # Drizzle ORM (26 huni_ tables)
+│   │       │   ├── index.ts      # postgres.js driver + Drizzle instance
+│   │       │   └── schema/
+│   │       │       ├── index.ts
+│   │       │       ├── relations.ts # 30+ relationships
+│   │       │       ├── huni-catalog.schema.ts
+│   │       │       ├── huni-materials.schema.ts
+│   │       │       ├── huni-options.schema.ts
+│   │       │       ├── huni-orders.schema.ts
+│   │       │       ├── huni-pricing.schema.ts
+│   │       │       └── huni-integration.schema.ts
+│   │       ├── events/           # Domain event bus (SPEC-WIDGET-INTG-001)
+│   │       │   ├── types.ts      # DomainEvent union (12 types)
+│   │       │   ├── bus.ts        # InProcessEventBus
+│   │       │   ├── dead-letter.ts # DLQ (InMemory + Database)
+│   │       │   └── index.ts
+│   │       ├── integration/      # External system adapters (SPEC-WIDGET-INTG-001)
+│   │       │   ├── types.ts      # IntegrationAdapter, AdapterRegistry
+│   │       │   ├── adapter-registry.ts
+│   │       │   ├── circuit-breaker.ts # Circuit Breaker (CLOSED/OPEN/HALF_OPEN)
+│   │       │   ├── retry.ts      # Exponential Backoff
+│   │       │   ├── shopby/       # Shopby integration (NEW)
+│   │       │   │   ├── __tests__/ # 9 test files
+│   │       │   │   ├── admin-client.ts # Circuit Breaker + Rate Limiting
+│   │       │   │   ├── auth.ts   # OAuth 2.0 token management
+│   │       │   │   ├── api-config.ts # Prod + Sandbox endpoints
+│   │       │   │   ├── category-service.ts # Category hierarchy
+│   │       │   │   ├── option-generator.ts # 500-combination matrix
+│   │       │   │   ├── price-mapper.ts # Dual pricing strategy
+│   │       │   │   ├── product-registration.ts
+│   │       │   │   └── schemas.ts # Zod validation
+│   │       │   ├── mes/          # MES adapter
+│   │       │   └── edicus/       # Edicus adapter
+│   │       ├── types/            # Shared types
+│   │       ├── constants/        # Constants and enums
+│   │       ├── utils/            # Utility functions
+│   │       └── index.ts
+│   │   ├── __tests__/            # Integration tests (184 tests)
+│   │   │   ├── integration/
+│   │       ├── shopby/
+│   │       └── ...
+│   │   ├── coverage/             # Coverage reports
+│   │   ├── tsconfig.json
+│   │   └── package.json
+│   │
+│   ├── widget/                   # Embeddable SDK (SPEC-WIDGET-SDK-001, 2026-02-23)
+│   │   └── src/
+│   │       ├── index.tsx         # Entry: Bootstrap + Shadow DOM Mount
+│   │       ├── embed.ts          # Script tag parser, container creation
+│   │       ├── app.tsx           # Root Preact component (WidgetShell)
+│   │       ├── primitives/       # 7 Primitive Components (all complete)
+│   │       │   ├── ToggleGroup.tsx
+│   │       │   ├── Select.tsx
+│   │       │   ├── RadioGroup.tsx
+│   │       │   ├── Collapsible.tsx
+│   │       │   ├── Input.tsx
+│   │       │   ├── Slider.tsx
+│   │       │   ├── Button.tsx
+│   │       │   └── index.ts
+│   │       ├── components/       # 10 Domain Components (all complete)
+│   │       │   ├── SizeSelector.tsx
+│   │       │   ├── PaperSelect.tsx
+│   │       │   ├── NumberInput.tsx
+│   │       │   ├── ColorChipGroup.tsx
+│   │       │   ├── ImageChipGroup.tsx
+│   │       │   ├── FinishSection.tsx
+│   │       │   ├── DualInput.tsx
+│   │       │   ├── QuantitySlider.tsx
+│   │       │   ├── PriceSummary.tsx
+│   │       │   ├── UploadActions.tsx
+│   │       │   └── index.ts
+│   │       ├── screens/          # Screen Renderers (3/11 complete)
+│   │       │   ├── PrintOption.tsx # Screen 01 (complete)
+│   │       │   ├── StickerOption.tsx # Screen 02 (complete)
+│   │       │   ├── AccessoryOption.tsx # Screen 11 (complete)
+│   │       │   ├── ScreenRenderer.tsx
+│   │       │   └── index.ts
+│   │       ├── state/            # Preact Signals state management
+│   │       │   ├── widget.state.ts # Widget state + status machine
+│   │       │   ├── selections.state.ts # User selections
+│   │       │   ├── price.state.ts # Price calculation
+│   │       │   └── index.ts
+│   │       ├── engine/           # Client-side engines
+│   │       │   ├── option-engine.ts # Constraint resolver
+│   │       │   ├── price-engine.ts # Price calculator
+│   │       │   └── index.ts
+│   │       ├── upload/           # NEW: File upload system (SPEC-WB-006)
+│   │       │   # 6 formats, Magic Bytes, 300DPI, progress tracking
+│   │       │   # S3 (500MB) + Shopby Storage (12MB)
+│   │       ├── shopby/           # NEW: Shopby bridge
+│   │       │   # Aurora Skin integration, widget lifecycle, payment callbacks
+│   │       ├── api/              # API client
+│   │       ├── styles/           # CSS (Shadow DOM inline)
+│   │       │   ├── tokens.css    # CSS Custom Properties
+│   │       │   ├── primitives.css
+│   │       │   ├── components.css
+│   │       │   └── base.css
+│   │       ├── utils/            # Utilities
+│   │       │   ├── events.ts
+│   │       │   ├── shadow-dom.ts
+│   │       │   ├── formatting.ts
+│   │       │   └── index.ts
+│   │       ├── types/            # Widget types
+│   │       │   ├── widget.types.ts
+│   │       │   ├── option.types.ts
+│   │       │   ├── price.types.ts
+│   │       │   ├── screen.types.ts
+│   │       │   └── index.ts
+│   │   ├── __tests__/            # Tests (468 tests, 97-98% coverage)
+│   │   │   ├── primitives/
+│   │   │   ├── components/
+│   │   │   ├── engine/
+│   │   │   ├── state/
+│   │   │   ├── utils/
+│   │   │   └── integration/
+│   │   ├── coverage/             # Coverage reports
+│   │   ├── README.md
+│   │   ├── vite.config.ts        # Vite Library Mode (IIFE)
+│   │   ├── tsconfig.json
+│   │   └── package.json
+│   │
+│   ├── pricing-engine/           # NEW: Standalone quote pricing
+│   │   └── src/
+│   │       ├── wb-pricing-engine.ts # Widget builder pricing
+│   │       ├── calculator.ts     # Price computation
+│   │       ├── constraints/      # Pricing constraints
+│   │       └── ...
+│   │
+│   └── docs/                     # NEW: Documentation site (Nextra)
+│       ├── content/              # Documentation pages (English + Korean)
+│       │   ├── en/               # English documentation
+│       │   │   ├── index.mdx
+│       │   │   ├── getting-started/
+│       │   │   ├── api-reference/
+│       │   │   ├── widget-guide/
+│       │   │   ├── integration/
+│       │   │   ├── design-system/
+│       │   │   └── ...
+│       │   └── ko/               # Korean documentation
+│       │       └── ...
+│       ├── src/
+│       │   └── pages/
+│       ├── mdx-components.tsx    # MDX component overrides
+│       ├── next.config.mjs       # Next.js config
+│       ├── theme.config.tsx      # Nextra theme config
+│       ├── vercel.json           # Vercel deployment config
+│       ├── tsconfig.json
+│       └── package.json
+│
+├── drizzle/                      # Drizzle ORM migrations
+│   ├── meta/                     # Migration metadata
+│   │   └── _journal.json
+│   ├── 0000_silky_sentry.sql     # Initial schema (26 tables, 48 indexes)
+│   ├── 0001_drop_wowpress.sql
+│   ├── 0002_create_missing_huni.sql
+│   ├── 0003_add_korean_comments.sql
+│   └── shared/                   # Shared migration utilities
+│
+├── scripts/                      # Utility scripts
+│   ├── seed.ts                   # Data seed script (14 phases)
+│   ├── import/                   # Data import utilities
+│   │   ├── index.ts              # Main import orchestrator
+│   │   ├── import-papers.ts      # Paper data import
+│   │   ├── import-mes-items.ts   # MES item import
+│   │   └── ...
+│   ├── analyze-*.ts              # Analysis scripts
+│   ├── excel-*.ts                # Excel processing utilities
+│   └── lib/
+│       ├── schemas.ts            # Zod validation (SPEC-SEED-002)
+│       ├── data-paths.ts         # Date-based data paths
+│       └── ...
+│
+├── ref/                          # Reference materials
+│   ├── TS.BackOffice.Huni/       # Legacy back office reference
+│   ├── hooni-unified-validator.jsx # Option validation reference code
+│   ├── 후니프린팅_주문프로세스.pdf # Order process document
+│   └── *.xlsx                    # Product master, pricing tables
+│
+├── .env.example                  # Environment variables template
+├── .gitignore                    # Git exclusion patterns
+├── .mcp.json                     # MCP server configuration
+├── CLAUDE.md                     # MoAI execution directives
+├── CHANGELOG.md                  # Version history
+├── package.json                  # Root package configuration
+├── pnpm-workspace.yaml           # pnpm workspace configuration
+├── turbo.json                    # Turborepo build settings
+├── vitest.config.ts              # Vitest configuration
+├── playwright.config.ts          # Playwright E2E configuration
+├── pyrightconfig.json            # Pyright type checking
+├── tsconfig.base.json            # TypeScript root configuration
+├── tsconfig.json                 # TypeScript configuration
+└── README.md                     # Project README
+```
+
+## Package Dependencies & Architecture
+
+```
+packages/widget (Preact SDK)
+    ↓
+packages/core (business logic) + packages/db (schemas)
+    ↓
+packages/shared (DB + integrations)
+    ↓
+apps/admin (Next.js dashboard) + apps/web (API server)
+    ↓
+packages/docs (Nextra documentation)
+```
+
+## Database Schema Layers (6-Layer Architecture)
+
+**Layer 01**: Element types (12 standard option types)
+**Layer 02**: Products, categories, recipes, relationships
+**Layer 03**: Constraints, addon groups, constraint history
+**Layer 04**: Pricing configs, print costs, postprocess costs
+**Layer 05**: Simulation runs, publish history
+**Layer 06**: Orders, order items, order files
+
+## Key File Locations Reference
+
+| Purpose | Location |
+|---------|----------|
+| Project documentation | `.moai/project/` |
+| SPEC documents | `.moai/specs/SPEC-WB-001~008/` |
+| Project configuration | `.moai/config/sections/*.yaml` |
+| Build configuration | `turbo.json` |
+| DB schemas (Drizzle) | `packages/db/src/schema/` |
+| DB seed data | `packages/db/src/seed/` |
+| Business logic (pure TS) | `packages/core/src/` |
+| DB migrations (legacy) | `packages/shared/src/db/schema/` |
+| Domain event bus | `packages/shared/src/events/` |
+| Shopby integration | `packages/shared/src/integration/shopby/` |
+| MES adapter | `packages/shared/src/integration/mes/` |
+| Edicus adapter | `packages/shared/src/integration/edicus/` |
+| DB migrations | `drizzle/` |
+| Drizzle configuration | `drizzle.config.ts` |
+| Data seed script | `scripts/seed.ts` |
+| Seed schemas | `scripts/lib/schemas.ts` |
+| Environment variables | `.env.example` |
+| Admin Dashboard API | `apps/admin/src/lib/trpc/routers/` |
+| Main app API | `apps/web/app/api/` |
+| Quote API (300ms SLA) | `apps/web/app/api/v1/pricing/quote/` |
+| Order API + MES dispatch | `apps/web/app/api/v1/orders/` |
+| NextAuth configuration | `apps/web/auth.ts` |
+| Rate limiting middleware | `apps/web/app/api/_lib/middleware/rate-limit.ts` |
+| Widget SDK entry | `packages/widget/src/index.tsx` |
+| Widget file upload | `packages/widget/src/upload/` |
+| Widget Shopby bridge | `packages/widget/src/shopby/` |
+| Documentation site | `packages/docs/` |
+| Reference code | `ref/hooni-unified-validator.jsx` |
+| Reference documents | `ref/후니프린팅_주문프로세스.pdf` |
+
+---
+
+Document Version: 1.6.0
+Created: 2026-02-22
+Last Updated: 2026-02-27
+Based on: Current monorepo structure, SPEC documents, and implementation status

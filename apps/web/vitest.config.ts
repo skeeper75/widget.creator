@@ -7,6 +7,9 @@ export default defineConfig({
     environment: 'node',
     include: ['__tests__/**/*.test.ts'],
     setupFiles: ['__tests__/setup.ts'],
+    env: {
+      WIDGET_TOKEN_SECRET: 'widget-token-secret-change-in-production',
+    },
     coverage: {
       provider: 'v8',
       include: ['app/api/**/*.ts'],
@@ -32,6 +35,7 @@ export default defineConfig({
       '@widget-creator/shared/db/schema': path.resolve(__dirname, '../../packages/shared/src/db/schema/index.ts'),
       '@widget-creator/shared/db': path.resolve(__dirname, '../../packages/shared/src/db/index.ts'),
       '@widget-creator/core': path.resolve(__dirname, '../../packages/core/src/index.ts'),
+      '@widget-creator/db': path.resolve(__dirname, '../../packages/db/src/index.ts'),
     },
   },
 });

@@ -175,7 +175,7 @@ describe('Select', () => {
       fireEvent.click(screen.getByRole('button'));
 
       const options = screen.getAllByRole('option');
-      expect(options[0].querySelector('.select__option-chip')).toBeInTheDocument();
+      expect(options[0]!.querySelector('.select__option-chip')).toBeInTheDocument();
     });
 
     it('does not render chip when item has no chipColor', () => {
@@ -272,7 +272,7 @@ describe('Select', () => {
     });
 
     it('handles single item', () => {
-      render(<Select {...defaultProps} items={[defaultItems[0]]} />);
+      render(<Select {...defaultProps} items={[defaultItems[0]!]} />);
       fireEvent.click(screen.getByRole('button'));
       expect(screen.getAllByRole('option').length).toBe(1);
     });

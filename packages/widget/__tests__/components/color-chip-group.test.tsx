@@ -132,7 +132,7 @@ describe('ColorChipGroup', () => {
     });
 
     it('handles single choice', () => {
-      render(<ColorChipGroup {...defaultProps} choices={[defaultChoices[0]]} />);
+      render(<ColorChipGroup {...defaultProps} choices={[defaultChoices[0]!]} />);
       expect(screen.getAllByRole('radio').length).toBe(1);
     });
 

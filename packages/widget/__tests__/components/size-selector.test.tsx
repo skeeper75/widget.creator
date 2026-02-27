@@ -116,7 +116,7 @@ describe('SizeSelector', () => {
       render(<SizeSelector {...defaultProps} onSelect={onSelect} />);
 
       fireEvent.click(screen.getByText('A4'));
-      expect(typeof onSelect.mock.calls[0][0]).toBe('number');
+      expect(typeof onSelect.mock.calls[0]![0]).toBe('number');
     });
   });
 
@@ -127,7 +127,7 @@ describe('SizeSelector', () => {
     });
 
     it('handles single size', () => {
-      render(<SizeSelector {...defaultProps} sizes={[mockSizes[0]]} />);
+      render(<SizeSelector {...defaultProps} sizes={[mockSizes[0]!]} />);
       expect(screen.getByText('A4')).toBeInTheDocument();
       expect(screen.getAllByRole('button').length).toBe(1);
     });

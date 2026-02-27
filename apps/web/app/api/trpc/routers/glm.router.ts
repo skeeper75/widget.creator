@@ -1,11 +1,11 @@
-// @MX:ANCHOR: [AUTO] GLM tRPC Router — all AI-powered NL conversion endpoints
-// @MX:REASON: [AUTO] Public API boundary: Admin UI client calls these 4 endpoints for NL rule conversion
+// @MX:ANCHOR: [AUTO] GLM tRPC 라우터 — 모든 AI 기반 NL 변환 엔드포인트
+// @MX:REASON: [AUTO] 공개 API 경계: Admin UI 클라이언트가 NL 규칙 변환을 위해 4개 엔드포인트 호출
 // @MX:SPEC: SPEC-WB-007 FR-WB007-02, FR-WB007-03
 
 import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 import { router, protectedProcedure } from '../trpc.js';
-import { convertConstraint, convertPriceRule } from '../../_lib/services/glm.service.js';
+import { convertConstraint, convertPriceRule, GlmConstraintOutputSchema, GlmPriceRuleOutputSchema } from '../../_lib/services/glm.service.js';
 import { transformConstraintToInsert } from '../utils/constraint-transformer.js';
 import { extractQtyDiscountTiers } from '../utils/price-rule-transformer.js';
 import {
@@ -50,12 +50,12 @@ export const glmRouter = router({
       z.object({
         recipeId: z.number().int().positive(),
         nlText: z.string().min(5).max(500),
-        glmOutput: z.unknown(), // Pre-validated GlmConstraintOutput
+        glmOutput: GlmConstraintOutputSchema,
       }),
     )
     .mutation(async ({ input, ctx }) => {
       const userId = ctx.user?.id ?? 'unknown';
-      const glmOutput = input.glmOutput as Parameters<typeof transformConstraintToInsert>[0];
+      const glmOutput = input.glmOutput;
 
       return await ctx.db.transaction(async (tx) => {
         // 1. Insert recipe_constraints
@@ -73,7 +73,7 @@ export const glmRouter = router({
           nlInputText: input.nlText,
           nlInterpretation: { output: glmOutput, allConstraintIds: inserted.map((r) => r.id) },
           aiModelVersion: GLM_MODEL,
-          interpretationScore: String((glmOutput as { confidence?: number }).confidence ?? 0),
+          interpretationScore: String(glmOutput.confidence ?? 0),
           isApproved: true,
           approvedBy: userId,
           approvedAt: new Date(),
@@ -117,14 +117,14 @@ export const glmRouter = router({
         priceConfigId: z.number().int().positive().optional(),
         nlText: z.string().min(5).max(500),
         ruleType: z.enum(['qty_discount', 'price_mode', 'postprocess', 'formula_hint']),
-        glmOutput: z.unknown(), // Pre-validated GlmPriceRuleOutput
+        glmOutput: GlmPriceRuleOutputSchema,
       }),
     )
     .mutation(async ({ input, ctx }) => {
       const userId = ctx.user?.id ?? 'unknown';
-      const glmOutput = input.glmOutput as Parameters<typeof extractQtyDiscountTiers>[0];
+      const glmOutput = input.glmOutput;
       const tiers = extractQtyDiscountTiers(glmOutput);
-      const confidence = (glmOutput as { confidence?: number }).confidence ?? 0;
+      const confidence = glmOutput.confidence ?? 0;
 
       return await ctx.db.transaction(async (tx) => {
         // 1. Record in price_nl_history

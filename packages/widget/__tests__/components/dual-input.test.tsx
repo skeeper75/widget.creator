@@ -62,13 +62,13 @@ describe('DualInput', () => {
     it('displays current width value', () => {
       render(<DualInput {...defaultProps} width={300} />);
       const inputs = screen.getAllByRole('spinbutton') as HTMLInputElement[];
-      expect(inputs[0].value).toBe('300');
+      expect(inputs[0]!.value).toBe('300');
     });
 
     it('displays current height value', () => {
       render(<DualInput {...defaultProps} height={400} />);
       const inputs = screen.getAllByRole('spinbutton') as HTMLInputElement[];
-      expect(inputs[1].value).toBe('400');
+      expect(inputs[1]!.value).toBe('400');
     });
 
     it('marks field as required', () => {
@@ -109,7 +109,7 @@ describe('DualInput', () => {
       render(<DualInput {...defaultProps} onWidthChange={onWidthChange} />);
 
       const inputs = screen.getAllByRole('spinbutton');
-      fireEvent.change(inputs[0], { target: { value: '400' } });
+      fireEvent.change(inputs[0]!, { target: { value: '400' } });
 
       expect(onWidthChange).toHaveBeenCalledWith(400);
     });
@@ -119,7 +119,7 @@ describe('DualInput', () => {
       render(<DualInput {...defaultProps} onHeightChange={onHeightChange} />);
 
       const inputs = screen.getAllByRole('spinbutton');
-      fireEvent.change(inputs[1], { target: { value: '500' } });
+      fireEvent.change(inputs[1]!, { target: { value: '500' } });
 
       expect(onHeightChange).toHaveBeenCalledWith(500);
     });
@@ -129,10 +129,10 @@ describe('DualInput', () => {
       render(<DualInput {...defaultProps} onWidthChange={onWidthChange} />);
 
       const inputs = screen.getAllByRole('spinbutton');
-      fireEvent.change(inputs[0], { target: { value: '350' } });
+      fireEvent.change(inputs[0]!, { target: { value: '350' } });
 
       expect(onWidthChange).toHaveBeenCalledWith(350);
-      expect(typeof onWidthChange.mock.calls[0][0]).toBe('number');
+      expect(typeof onWidthChange.mock.calls[0]![0]).toBe('number');
     });
 
     it('handles invalid input gracefully', () => {
@@ -140,7 +140,7 @@ describe('DualInput', () => {
       render(<DualInput {...defaultProps} onWidthChange={onWidthChange} />);
 
       const inputs = screen.getAllByRole('spinbutton');
-      fireEvent.change(inputs[0], { target: { value: 'abc' } });
+      fireEvent.change(inputs[0]!, { target: { value: 'abc' } });
 
       expect(onWidthChange).toHaveBeenCalledWith(0);
     });
@@ -150,15 +150,15 @@ describe('DualInput', () => {
     it('handles zero values', () => {
       render(<DualInput {...defaultProps} width={0} height={0} />);
       const inputs = screen.getAllByRole('spinbutton') as HTMLInputElement[];
-      expect(inputs[0].value).toBe('0');
-      expect(inputs[1].value).toBe('0');
+      expect(inputs[0]!.value).toBe('0');
+      expect(inputs[1]!.value).toBe('0');
     });
 
     it('handles large values', () => {
       render(<DualInput {...defaultProps} width={10000} height={10000} />);
       const inputs = screen.getAllByRole('spinbutton') as HTMLInputElement[];
-      expect(inputs[0].value).toBe('10000');
-      expect(inputs[1].value).toBe('10000');
+      expect(inputs[0]!.value).toBe('10000');
+      expect(inputs[1]!.value).toBe('10000');
     });
 
     it('handles negative values', () => {
@@ -171,8 +171,8 @@ describe('DualInput', () => {
         />
       );
       const inputs = screen.getAllByRole('spinbutton') as HTMLInputElement[];
-      expect(inputs[0].value).toBe('-100');
-      expect(inputs[1].value).toBe('-200');
+      expect(inputs[0]!.value).toBe('-100');
+      expect(inputs[1]!.value).toBe('-200');
     });
 
     it('handles equal min and max constraints', () => {

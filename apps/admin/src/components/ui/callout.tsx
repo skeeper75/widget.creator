@@ -11,8 +11,10 @@ const calloutVariants = cva(
       variant: {
         /* Pencil Callout (toUDX): circle "!" icon, text #5538B6 */
         info:    "border-primary/30 bg-primary-50 text-primary",
-        warning: "border-warning/30 bg-[#FDF8E7] text-[#7A6020]",
-        error:   "border-error/30 bg-[#FEF2F2] text-error",
+        /* Warning surface: warning/15 tint approximates Pencil spec warm-yellow bg; text uses warning-foreground (#424242) */
+        warning: "border-warning/30 bg-warning/15 text-warning-foreground",
+        /* Error surface: error/10 tint approximates Pencil spec pink bg; text uses error token */
+        error:   "border-error/30 bg-error/10 text-error",
       },
     },
     defaultVariants: {

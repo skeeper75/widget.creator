@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.4.8
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { Slider, type SliderTier } from '../primitives';
 
 export interface QuantityTier {
@@ -37,7 +37,7 @@ export const QuantitySlider: FunctionalComponent<QuantitySliderProps> = ({
   tiers,
 }) => {
   // Convert QuantityTier to SliderTier format
-  const sliderTiers: SliderTier[] = tiers.map((tier, index) => ({
+  const sliderTiers: SliderTier[] = tiers.map((tier, _index) => ({
     qty: tier.minQty,
     unitPrice: tier.unitPrice,
     label: tier.maxQty

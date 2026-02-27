@@ -1,0 +1,175 @@
+# 설치 및 설정
+
+huni.builder 개발 환경을 설정하고 위젯을 웹사이트에 임베드하는 방법을 안내합니다.
+
+## 시스템 요구사항
+
+<div className="warning-block">
+
+개발 환경 설정을 시작하기 전에 다음 요구사항을 확인하세요:
+
+| 도구 | 최소 버전 | 용도 |
+|------|----------|------|
+| Node.js | 20+ | 런타임 |
+| pnpm | 10.17+ | 패키지 관리 |
+| PostgreSQL | 14+ | 데이터베이스 |
+| Redis | 7+ | 캐시 |
+| Git | 2.x+ | 소스 관리 |
+
+</div>
+
+---
+
+## 개발 환경 설정
+
+### 1. 저장소 클론
+
+```bash
+# 프로젝트 클론
+git clone https://github.com/your-org/huni.builder.git
+cd huni.builder
+```
+
+### 2. 의존성 설치
+
+```bash
+# pnpm 설치 (corepack 활성화)
+corepack enable
+corepack prepare pnpm@latest --activate
+
+# 전체 워크스페이스 설치
+pnpm install
+```
+
+### 3. 데이터베이스 설정
+
+<div className="tip-block">
+
+**Docker Compose로 PostgreSQL 실행 (권장)**
+
+```bash
+# Docker Compose로 PostgreSQL 실행
+docker-compose up -d postgres redis
+
+# 데이터베이스 초기화
+pnpm -F @huni/db db:push
+pnpm -F @huni/db db:seed
+```
+
+</div>
+
+```bash
+# Drizzle Studio로 데이터 확인
+pnpm -F @huni/db db:studio
+```
+
+### 4. 환경 변수 설정
+
+`.env.example` 파일을 복사하여 환경 변수를 설정합니다:
+
+```bash
+# .env 파일 생성
+cp .env.example .env
+```
+
+필수 환경 변수:
+
+```env
+# Database
+DATABASE_URL=postgresql://user:password@localhost:5432/huni_builder
+
+# Redis
+REDIS_URL=redis://localhost:6379
+
+# API
+API_PORT=4000
+CORS_ORIGIN=http://localhost:3000
+```
+
+### 5. 첫 빌드 검증
+
+```bash
+# TypeScript 타입 체크
+pnpm type-check
+
+# 전체 테스트 실행
+pnpm test
+
+# 개발 서버 실행
+pnpm -F @huni/widget-core dev    # 위젯 개발 서버
+pnpm -F @huni/api-server dev      # API 서버 (포트 4000)
+pnpm -F @huni/widget-admin dev    # Admin 대시보드
+```
+
+---
+
+## 위젯 임베드 코드 가이드
+
+위젯을 웹사이트에 임베드하는 두 가지 방법을 제공합니다.
+
+### IIFE Script 방식
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>huni.builder Widget</title>
+</head>
+<body>
+    <div id="huni-widget-container"></div>
+
+    <script src="https://huni.builder/widget/huni-widget.iife.js"></script>
+    <script>
+        huniWidget.mount({
+            target: '#huni-widget-container',
+            apiBaseUrl: 'https://api.huni.builder',
+            locale: 'ko-KR',
+            onQuoteChange: (quote) => {
+                console.log('Quote updated:', quote);
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+### ESM Module 방식
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>huni.builder Widget</title>
+</head>
+<body>
+    <div id="huni-widget-container"></div>
+
+    <script type="module">
+        import { HuniWidget } from 'https://huni.builder/widget/huni-widget.esm.js';
+
+        const widget = new HuniWidget({
+            containerId: 'huni-widget-container',
+            apiBaseUrl: 'https://api.huni.builder',
+            locale: 'ko-KR',
+            onQuoteChange: (quote) => {
+                console.log('Quote updated:', quote);
+            }
+        });
+
+        widget.mount();
+    </script>
+</body>
+</html>
+```
+
+### Shopby Aurora Skin 연동
+
+Shopby 쇼핑몰에 위젯을 연동하는 방법은 [통합 가이드](../integration/shopby)를 참조하세요.
+
+---
+
+## 다음 단계
+
+- [빠른 시작](./quick-start) - 5분 만에 위젯 임베드하기 튜토리얼
+- [아키텍처 개요](./architecture) - 모노레포 구조와 패키지 의존 관계
+- [통합 가이드](../integration) - Shopby, 자사몰 연동 방법

@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.3.6
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { useCallback, useMemo } from 'preact/hooks';
 import { formatKRW } from '../utils/formatting';
 

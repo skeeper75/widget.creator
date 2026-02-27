@@ -30,6 +30,7 @@ const BREAKDOWN_LABELS: Record<keyof PriceBreakdown, string> = {
   discountAmount: 'Discount',
 };
 
+// @MX:NOTE: [AUTO] Zero-cost line items are silently omitted (amount === 0 filter). Consumers must not assume all breakdown keys are present in output.
 export function buildLineItems(breakdown: PriceBreakdown): QuoteLineItem[] {
   const items: QuoteLineItem[] = [];
 
@@ -61,6 +62,10 @@ export function buildOptionSummary(selectedOptions: SelectedOption[]): string {
   return selectedOptions.map(o => o.choiceCode).join(', ');
 }
 
+// @MX:ANCHOR: [AUTO] Quote assembly entry point - constructs complete quote from pricing result
+// @MX:REASON: Public API called by quote API route (apps/web) and integration tests; embeds 10% VAT business rule and 30-minute expiry
+// @MX:SPEC: SPEC-WB-003
+// @MX:NOTE: [AUTO] VAT rate is hardcoded at 10% (Korean standard). expiresAt = createdAt + 30 min. snapshotHash prevents replay attacks.
 export async function assembleQuote(input: QuoteInput): Promise<QuoteResult> {
   const { pricingResult, selectedOptions, quantity } = input;
   const lineItems = buildLineItems(pricingResult.breakdown);

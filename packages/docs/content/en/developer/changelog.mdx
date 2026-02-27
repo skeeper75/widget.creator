@@ -1,0 +1,126 @@
+# Changelog
+
+Project version history, migration guide, and breaking changes.
+
+## Latest Changes
+
+### [Unreleased]
+
+#### Infrastructure (2026-02-16)
+- .gitignore cleanup: Add coverage/ directory pattern
+- Untrack 362 coverage files from Git
+
+#### Database (2026-02-16)
+- 20+ table schema expansion: products, options, constraints, pricing, integrations
+- New schema files: channels, delivery, orders, pricing-components, etc.
+
+#### API Server (2026-02-16)
+- Migration from Hono to NestJS 11 + Fastify
+- 15 modules, 40+ endpoints
+
+---
+
+## Package Version History
+
+### @huni/pricing-engine v0.1.0 (2026-02-11)
+
+#### Added
+- 8 Calculator implementations
+  - DigitalPrintCalculator: Digital print
+  - BookletCalculator: Booklets
+  - BusinessCardCalculator: Business cards
+  - StickerDirectLookup: Stickers
+  - LargeFormatDirectLookup: Large format
+  - AcrylicDirectLookup: Acrylic
+  - GoodsDirectLookup: Goods
+  - StationeryDirectLookup: Stationery
+- Utility modules: DataValidator, QuantityTier, DataLoader, TestCaseGenerator, BatchVerifier
+
+#### Test Results
+- Total tests: 402 (100% passing)
+- Overall coverage: 93.7%
+
+### @huni/widget-core v0.3.0 (2026-02-14)
+
+#### Added
+- Shopby Headless API adapter enhancements
+- Fix Zod error display bug
+- Verify ESM exports
+
+#### Changed
+- Improve Shopby API adapter Zod schema validation
+
+#### Test Results
+- Total tests: 1,162 (100% passing)
+- SPEC scope coverage: 97.55%
+
+### @huni/widget-core v0.2.0 (2026-02-13)
+
+#### Added
+- SPEC-INTEGRATION-001: Shopby Enterprise integration
+- CustomEvent protocol implementation
+- Shopby API adapter implementation
+
+#### Test Results
+- Total tests: 47 (100% passing)
+- Overall coverage: 95.67%
+
+#### Build Results
+- Bundle size (gzipped): ~48.71 KB
+
+---
+
+## Migration Guide
+
+### v0.2.0 → v0.3.0
+
+**Breaking Changes:** None
+
+**Changes:**
+- Improved Shopby API adapter type safety
+- Enhanced Zod schema validation
+
+**Migration Steps:**
+1. `pnpm install @huni/widget-core@latest`
+2. Verify Zod error handling code
+3. Update type definitions
+
+---
+
+## SPEC Completion History
+
+### Overall Completion Status
+
+| Sprint | Completed SPECs | Key Achievements |
+|--------|----------------|------------------|
+| Sprint 1 | SPEC-ADMIN-001, SPEC-PRICE-001, SPEC-UI-DESIGN-001 | Admin Dashboard, Pricing Engine, UI Design System |
+| Sprint 2 | SPEC-INTEGRATION-001, SPEC-CART-SYNC-001, SPEC-CSS-COMPAT-001, SPEC-WIDGET-EXPORT-001 | Shopby integration, Cart sync, CSS compatibility |
+| Sprint 3 | SPEC-SHOPBY-API-001, SPEC-SHOPBY-SKIN-001 | Shopby API adapter, Aurora skin widget replacement |
+| Sprint 4 | SPEC-DB-001, SPEC-DB-003, SPEC-DB-004, SPEC-DB-005 | Database schema completion |
+| Sprint 5 | SPEC-NEST-001, SPEC-API-002, SPEC-API-003 | NestJS migration, REST API |
+| Sprint 6 | SPEC-EDICUS-WIDGET-001 | Edicus online editor integration |
+| Sprint 7 | SPEC-MES-INTEGRATION-001, SPEC-MES-API-001, SPEC-MES-FE-001 | MES integration completion |
+| Sprint 8 | SPEC-EXCEL-CORE-001, SPEC-EXCEL-PRODUCT-001, SPEC-EXCEL-PRICING-001, SPEC-EXCEL-ETL-001 | Excel parsing pipeline |
+| Sprint 9 | SPEC-DATA-MASTER-001, SPEC-INTEGRATION-ARCH-001 | Data integration, System architecture |
+| Sprint 10 | SPEC-REACT-PERF-001, SPEC-VERIFY-001 | React optimization, Data verification dashboard |
+
+### SPEC by Domain
+
+| Domain | SPEC Count | Completed |
+|---------|-----------|-----------|
+| Core Foundation | 3 | ✅ |
+| Database | 4 | ✅ |
+| API | 3 | ✅ |
+| Shopby Integration | 8 | ✅ |
+| Edicus Integration | 1 | ✅ |
+| MES Integration | 3 | ✅ |
+| Excel Processing | 4 | ✅ |
+| Data Integration | 1 | ✅ |
+| System Integration | 1 | ✅ |
+| Quality & Performance | 2 | ✅ |
+
+---
+
+## Next Steps
+
+- [Roadmap](./roadmap) - Current state and future vision

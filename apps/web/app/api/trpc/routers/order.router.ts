@@ -46,7 +46,7 @@ function generateOrderId(): string {
 /**
  * Generate a unique order number based on the max existing order number for today.
  */
-async function generateOrderNumber(txDb: typeof dbInstance): Promise<string> {
+async function generateOrderNumber(txDb: Pick<typeof dbInstance, 'select'>): Promise<string> {
   const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
   const prefix = `HN-${today}-`;
   const [result] = await txDb

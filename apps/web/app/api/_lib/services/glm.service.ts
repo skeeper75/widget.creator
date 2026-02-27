@@ -1,5 +1,5 @@
-// @MX:ANCHOR: [AUTO] GLM Service — primary AI integration point for NL rule conversion
-// @MX:REASON: [AUTO] Central integration: 4 tRPC endpoints + 2 transformer utils depend on this service
+// @MX:ANCHOR: [AUTO] GLM 서비스 — NL 규칙 변환을 위한 중앙 AI 통합 포인트
+// @MX:REASON: [AUTO] 4개 tRPC 엔드포인트 + 2개 변환 유틸리티가 이 서비스에 의존
 // @MX:SPEC: SPEC-WB-007 FR-WB007-01, FR-WB007-02, FR-WB007-03
 
 import OpenAI from 'openai';

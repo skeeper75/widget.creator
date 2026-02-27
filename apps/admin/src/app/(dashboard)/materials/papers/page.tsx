@@ -20,8 +20,8 @@ interface Paper {
   abbreviation: string | null;
   weight: number | null;
   sheetSize: string | null;
-  costPerRear: string | null;
-  sellingPerRear: string | null;
+  costPerReam: string | null;
+  sellingPerReam: string | null;
   costPer4Cut: string | null;
   sellingPer4Cut: string | null;
   displayOrder: number;
@@ -31,7 +31,7 @@ interface Paper {
 export default function PapersPage() {
   const [formOpen, setFormOpen] = useState(false);
   const [editedPrices, setEditedPrices] = useState<
-    Map<number, { costPerRear?: string; sellingPerRear?: string; costPer4Cut?: string; sellingPer4Cut?: string }>
+    Map<number, { costPerReam?: string; sellingPerReam?: string; costPer4Cut?: string; sellingPer4Cut?: string }>
   >(new Map());
 
   const utils = trpc.useUtils();
@@ -45,7 +45,7 @@ export default function PapersPage() {
     },
   });
 
-  // batchUpdatePrices takes array of { id, costPerRear?, sellingPerRear?, costPer4Cut?, sellingPer4Cut? }
+  // batchUpdatePrices takes array of { id, costPerReam?, sellingPerReam?, costPer4Cut?, sellingPer4Cut? }
   const batchUpdatePricesMutation = trpc.papers.batchUpdatePrices.useMutation({
     onSuccess: () => {
       utils.papers.list.invalidate();
@@ -59,7 +59,7 @@ export default function PapersPage() {
 
   const handlePriceEdit = (
     paperId: number,
-    field: "costPerRear" | "sellingPerRear" | "costPer4Cut" | "sellingPer4Cut",
+    field: "costPerReam" | "sellingPerReam" | "costPer4Cut" | "sellingPer4Cut",
     value: string
   ) => {
     setEditedPrices((prev) => {
@@ -132,8 +132,8 @@ export default function PapersPage() {
         size: 100,
       },
       {
-        accessorKey: "costPerRear",
-        header: "Cost/Rear",
+        accessorKey: "costPerReam",
+        header: "Cost/Ream",
         cell: ({ row }) => {
           const paper = row.original;
           const edited = editedPrices.get(paper.id);
@@ -142,10 +142,10 @@ export default function PapersPage() {
               type="number"
               className="h-7 w-24 text-xs text-right"
               defaultValue={
-                edited?.costPerRear ?? paper.costPerRear ?? ""
+                edited?.costPerReam ?? paper.costPerReam ?? ""
               }
               onBlur={(e) =>
-                handlePriceEdit(paper.id, "costPerRear", e.target.value)
+                handlePriceEdit(paper.id, "costPerReam", e.target.value)
               }
             />
           );
@@ -153,8 +153,8 @@ export default function PapersPage() {
         size: 100,
       },
       {
-        accessorKey: "sellingPerRear",
-        header: "Sell/Rear",
+        accessorKey: "sellingPerReam",
+        header: "Sell/Ream",
         cell: ({ row }) => {
           const paper = row.original;
           const edited = editedPrices.get(paper.id);
@@ -163,10 +163,10 @@ export default function PapersPage() {
               type="number"
               className="h-7 w-24 text-xs text-right"
               defaultValue={
-                edited?.sellingPerRear ?? paper.sellingPerRear ?? ""
+                edited?.sellingPerReam ?? paper.sellingPerReam ?? ""
               }
               onBlur={(e) =>
-                handlePriceEdit(paper.id, "sellingPerRear", e.target.value)
+                handlePriceEdit(paper.id, "sellingPerReam", e.target.value)
               }
             />
           );

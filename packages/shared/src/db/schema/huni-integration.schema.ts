@@ -11,8 +11,8 @@ import {
   index,
   unique,
 } from 'drizzle-orm/pg-core';
-import { products } from './huni-catalog.schema.js';
-import { optionChoices } from './huni-options.schema.js';
+import { products } from './huni-catalog.schema';
+import { optionChoices } from './huni-options.schema';
 
 // HuniMesItem: MES system item master
 export const mesItems = pgTable('mes_items', {

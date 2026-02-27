@@ -18,10 +18,12 @@ export const addonGroupItems = pgTable(
     id: serial('id').primaryKey(),
     groupId: integer('group_id')
       .notNull()
-      .references(() => addonGroups.id, { onDelete: 'cascade' }),
+      .references(() => addonGroups.id, { onDelete: 'cascade' })
+      ,
     productId: integer('product_id')
       .notNull()
-      .references(() => wbProducts.id),
+      .references(() => wbProducts.id)
+      ,
     labelOverride: varchar('label_override', { length: 100 }),
     isDefault: boolean('is_default').notNull().default(false),
     displayOrder: integer('display_order').notNull().default(0),

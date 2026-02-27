@@ -6,7 +6,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/preact';
 import { FinishSection, type FinishSectionProps } from '@/components/FinishSection';
-import { createMockPostProcessGroup } from '../utils/mock-factories';
+
 
 describe('FinishSection', () => {
   const mockGroups = [
@@ -55,7 +55,7 @@ describe('FinishSection', () => {
     });
 
     it('is collapsed by default', () => {
-      render(<FinishSection {...defaultProps} defaultOpen={false} />);
+      render(<FinishSection {...defaultProps} />);
       // Content should not be visible
       expect(screen.queryByText('박')).not.toBeInTheDocument();
     });
@@ -170,7 +170,7 @@ describe('FinishSection', () => {
       fireEvent.click(screen.getByRole('button'));
 
       const noneButtons = screen.getAllByText('없음');
-      fireEvent.click(noneButtons[2]); // 오시 group
+      fireEvent.click(noneButtons[2]!); // 오시 group
       expect(onOptionChange).toHaveBeenCalledWith('creasing', '');
     });
   });
@@ -184,7 +184,7 @@ describe('FinishSection', () => {
     });
 
     it('handles single group', () => {
-      render(<FinishSection {...defaultProps} groups={[mockGroups[0]]} />);
+      render(<FinishSection {...defaultProps} groups={[mockGroups[0]!]} />);
       fireEvent.click(screen.getByRole('button'));
 
       expect(screen.getByText('박')).toBeInTheDocument();

@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.3.4
  */
 
-import { h, FunctionalComponent, ComponentChildren } from 'preact';
+import { FunctionalComponent, ComponentChildren } from 'preact';
 import { useState, useCallback } from 'preact/hooks';
 
 export interface CollapsibleProps {

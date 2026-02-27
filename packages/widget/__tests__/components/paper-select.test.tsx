@@ -73,8 +73,8 @@ describe('PaperSelect', () => {
     it('shows all papers when coverType is null', () => {
       const papers = [
         { id: 1, name: '모조지 80g', color: '#FFF', coverType: null },
-        { id: 2, name: '내지용', color: '#FFF', coverType: 'inner' },
-        { id: 3, name: '표지용', color: '#FFF', coverType: 'cover' },
+        { id: 2, name: '내지용', color: '#FFF', coverType: 'inner' as const },
+        { id: 3, name: '표지용', color: '#FFF', coverType: 'cover' as const },
       ];
       render(<PaperSelect {...defaultProps} papers={papers} coverType={null} />);
 
@@ -87,8 +87,8 @@ describe('PaperSelect', () => {
     it('filters papers by inner coverType', () => {
       const papers = [
         { id: 1, name: '모조지 80g', color: '#FFF', coverType: null },
-        { id: 2, name: '내지용', color: '#FFF', coverType: 'inner' },
-        { id: 3, name: '표지용', color: '#FFF', coverType: 'cover' },
+        { id: 2, name: '내지용', color: '#FFF', coverType: 'inner' as const },
+        { id: 3, name: '표지용', color: '#FFF', coverType: 'cover' as const },
       ];
       render(<PaperSelect {...defaultProps} papers={papers} coverType="inner" />);
 
@@ -101,8 +101,8 @@ describe('PaperSelect', () => {
     it('filters papers by cover coverType', () => {
       const papers = [
         { id: 1, name: '모조지 80g', color: '#FFF', coverType: null },
-        { id: 2, name: '내지용', color: '#FFF', coverType: 'inner' },
-        { id: 3, name: '표지용', color: '#FFF', coverType: 'cover' },
+        { id: 2, name: '내지용', color: '#FFF', coverType: 'inner' as const },
+        { id: 3, name: '표지용', color: '#FFF', coverType: 'cover' as const },
       ];
       render(<PaperSelect {...defaultProps} papers={papers} coverType="cover" />);
 
@@ -155,8 +155,8 @@ describe('PaperSelect', () => {
 
       fireEvent.click(screen.getByRole('button'));
       const options = screen.getAllByRole('option');
-      expect(options[0].querySelector('.select__option-chip')).toBeInTheDocument();
-      expect(options[1].querySelector('.select__option-chip')).toBeInTheDocument();
+      expect(options[0]!.querySelector('.select__option-chip')).toBeInTheDocument();
+      expect(options[1]!.querySelector('.select__option-chip')).toBeInTheDocument();
     });
   });
 
@@ -178,7 +178,7 @@ describe('PaperSelect', () => {
       fireEvent.click(screen.getByRole('button'));
       fireEvent.click(screen.getByText('모조지 80g'));
 
-      expect(typeof onSelect.mock.calls[0][0]).toBe('number');
+      expect(typeof onSelect.mock.calls[0]![0]).toBe('number');
     });
   });
 
@@ -199,7 +199,7 @@ describe('PaperSelect', () => {
 
     it('handles selectedPaperId not in filtered list', () => {
       const papers = [
-        { id: 1, name: '내지용', color: '#FFF', coverType: 'inner' },
+        { id: 1, name: '내지용', color: '#FFF', coverType: 'inner' as const },
       ];
       render(
         <PaperSelect

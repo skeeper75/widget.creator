@@ -1,0 +1,173 @@
+# Price Rules
+
+5 calculation types, rule management, coverage analysis, and verification.
+
+> **Core**: Express complex pricing logic using 5 calculation types.
+
+<Callout type="info">
+**Verification Simulator**: Compare DB-calculated vs expected values to prevent pricing errors.
+</Callout>
+
+## 1. Price Rule Overview
+
+### 1.1 What are Price Rules?
+
+Rules determining pricing based on option selections
+
+### 1.2 5 Calculation Types
+
+| Type | Description | Use Case |
+|------|-------------|----------|
+| fixed | Single unit price | Flat rate finishing |
+| percentage | Percentage-based | Bulk discount tiers, premium surcharge |
+| tiered | Quantity-bracket | Volume discount tables |
+| formula | Expression-based | Paper cost x (pages / 2) x output |
+| lookup | Table lookup | Multi-dimensional price matrix |
+
+## 2. PricingRuleEditor Component
+
+Assign price rules to options
+
+**Features**:
+- Rule type selection dropdown
+- Type-specific form rendering
+- Priority ordering for multiple rules on same option
+
+## 3. 5 Calculation Types Detail
+
+### 3.1 fixed (Fixed Price)
+
+**Description**: Single unit price
+
+**Use case**: Flat rate finishing (e.g., coating base price)
+
+**Form fields**:
+- unit price (number)
+- description (text)
+
+**Example**: Coating = 500 KRW fixed
+
+### 3.2 percentage (Percentage-Based)
+
+**Description**: Percentage markup/discount on base price
+
+**Use case**: Bulk discount tiers, premium surcharge
+
+**Form fields**:
+- percentage (number)
+- base reference (dropdown)
+
+**Example**: Volume discount = -15% on base price
+
+### 3.3 tiered (Quantity-Tiered)
+
+**Description**: Quantity bracket pricing
+
+**Use case**: Volume discount tables
+
+**Form fields**: Editable table
+- quantity range (column)
+- unit price (column)
+
+**Operations**:
+- Adding/removing tiers
+- Auto-fill next range start
+
+<Callout type="warning">
+**Constraint**: At least one tier must remain.
+</Callout>
+
+### 3.4 formula (Formula-Based)
+
+**Description**: Expression-based calculation
+
+**Use case**: Paper cost = paper price x (pages / 2) x output
+
+**Form fields**:
+- formula expression (text)
+- reference pricing table (dropdown)
+
+**Supported variables**:
+- `quantity`
+- `pageCount`
+- `width`
+- `height`
+
+### 3.5 lookup (Table Lookup)
+
+**Description**: Multi-dimensional price matrix reference
+
+**Use case**: Foil stamp pricing by size and quantity
+
+**Form fields**:
+- Reference pricing table selector
+
+**Matrix**: Size x quantity with unit prices
+
+## 4. PriceMatrixTable Component
+
+Multi-dimensional pricing table editing
+
+**Features**:
+- Row/column headers from option choices
+- Inline cell editing
+- Excel import for bulk price data
+
+<Callout type="info">
+**Excel Import**: Use Excel import for large pricing tables (50+ cells).
+</Callout>
+
+## 5. CoverageAnalyzer Component
+
+**Features**:
+- Coverage percentage calculation
+- Gap detection: uncovered option combinations
+- Visual indicator:
+  - Green (full)
+  - Yellow (partial)
+  - Red (missing)
+
+**Action**: [Show Gaps] to list uncovered combinations
+
+## 6. PriceSimulator Component
+
+**Features**:
+- Option selection interface for test scenarios
+- Real-time price calculation
+- Quantity tier display with unit prices
+- Step-by-step calculation breakdown
+
+## 7. PriceVerificationSimulator Component
+
+Full verification workflow
+
+<Steps>
+### Step 1: Select Product and Options
+
+### Step 2: System Calculates Price
+
+Using pricing-engine
+
+### Step 3: DB Calculated vs Expected Comparison
+
+### Step 4: Tolerance Range Check
+
+### Step 5: Pass/Fail Status Display
+</Steps>
+
+**PriceBreakdown showing**:
+- Paper cost
+- Print cost
+- Finishing cost
+- Binding cost
+- Total
+- Unit price
+
+<Callout type="info">
+**Recommendation**: Run verification before publishing products to catch pricing errors.
+</Callout>
+
+## Related Documentation
+
+- [Constraint Editor](./constraints) - Pricing-affecting constraints
+- [Data Management](./data-management) - Excel price table import

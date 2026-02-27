@@ -3,12 +3,12 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.2
  */
 
-import type { WidgetConfig } from '../types';
+import type { WidgetConfig } from './types';
 
 /**
  * Default CDN URL
  */
-const DEFAULT_CDN_URL = 'https://widget.huni.co.kr/embed.js';
+export const DEFAULT_CDN_URL = 'https://widget.huni.co.kr/embed.js';
 
 /**
  * Parse embed script attributes to get widget configuration

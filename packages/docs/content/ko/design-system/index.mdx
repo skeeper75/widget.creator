@@ -1,0 +1,146 @@
+---
+title: 디자인 시스템
+description: huni.builder의 디자인 시스템과 컴포넌트 라이브러리 개요
+---
+
+# 디자인 시스템
+
+huni.builder의 디자인 시스템은 Atomic Design 패턴을 기반으로 구축되었으며, 일관된 UI/UX를 제공하기 위해 디자인 토큰, 컴포넌트 라이브러리, 스타일 가이드라인을 체계적으로 관리합니다.
+
+## 개요
+
+디자인 시스템은 다음과 같은 핵심 요소로 구성됩니다:
+
+- **디자인 토큰**: 색상, 타이포그래피, 스페이싱, 보더 레디우스 등의 시스템 전반 재사용 가능한 값
+- **Atomic Design**: Atom, Molecule, Organism 계층 구조로 구성된 컴포넌트 라이브러리
+- **Shadow DOM 격리**: 위젯이 호스트 페이지의 스타일과 독립적으로 동작하도록 보장
+- **CSS Variables**: 테마 커스터마이징과 다크/라이트 모드 지원
+
+## 기술 스택
+
+| 요소 | 기술 | 버전 |
+|------|------|------|
+| 프레임워크 | React | 18+ |
+| 스타일링 | CSS Variables + Shadow DOM | - |
+| 디자인 도구 | Figma | gEJhQRtmKI66BPhOpqoW3j |
+| 패키지 | `@huni/widget-core` | - |
+
+## 컴포넌트 구성
+
+### Atom (10개)
+
+가장 기본적인 UI 요소들입니다:
+
+- **Button** - 버튼 컴포넌트
+- **Input** - 입력 필드
+- **Checkbox** - 체크박스
+- **Radio** - 라디오 버튼
+- **Badge** - 배지
+- **Card** - 카드
+- **Text** - 텍스트
+- **PriceDisplay** - 가격 표시
+- **CategoryTab** - 카테고리 탭
+- **Toggle** - 토글
+
+### Molecule (22개)
+
+Atom 컴포넌트들을 조합하여 형성되는 복합 컴포넌트들입니다:
+
+- **ButtonType** - 버튼 타입 선택
+- **OptionCard** - 옵션 카드
+- **OptionGroup** - 옵션 그룹
+- **QuantitySelector** - 수량 선택기
+- **SelectBoxType** - 셀렉트 박스 타입
+- **FinishButtonType** - 마무리 버튼 타입
+- **FinishColorChipType** - 마무리 컬러칩 타입
+- **FinishInputType** - 마무리 입력 타입
+- **FinishOptionCard** - 마무리 옵션 카드
+- **FinishSelectBoxType** - 마무리 셀렉트 박스 타입
+- **FinishTitleBar** - 마무리 타이틀 바
+- **FoilEmbossType** - 박/엠보 타입
+- **EmbossType** - 엠보 타입
+- **PostProcessingType** - 후가공 타입
+- **CategoryTabs** - 카테고리 탭
+- **StepIndicator** - 단계 표시기
+- **WizardNavigation** - 위자드 내비게이션
+- **SummaryType** - 요약 타입
+- **UploadType** - 업로드 타입
+- **CountInputType** - 카운트 입력 타입
+- **EnvelopeSelectType** - 봉투 선택 타입
+- **SpecialColorPrintType** - 특수 인쇄 타입
+
+### Organism (5개)
+
+Molecule 컴포넌트들을 조합하여 완전한 UI 섹션을 형성합니다:
+
+- **ConfiguratorWizard** - 설정 위자드
+- **ProductSection** - 상품 섹션
+- **PosterSection** - 포스터 섹션
+- **StickerSection** - 스티커 섹션
+- **PostcardSection** - 엽서 섹션
+
+## Admin Components (32개)
+
+위젯 관리자를 위한 전용 컴포넌트들입니다:
+
+### Editor (3개)
+- OptionEditor, OptionLayer, OptionCard, EdicusOptionManager
+
+### Builder (6개)
+- ComponentCard, ComponentPalette, BuilderCanvas, PropertyPanel, TemplateSelector
+
+### Node Editor (7개)
+- OptionNode, ConstraintEdge, ConstraintNodeEditor, EdgeInspector, Toolbar, ValidationPanel
+
+### Constraints (3개)
+- ConstraintsEditor, SimpleConstraintForm, AdvancedConstraintForm, DecisionTable
+
+### Pricing (5개)
+- PriceRuleEditor, PricingRuleEditor, PriceMatrixTable, PriceVerificationSimulator, CoverageAnalyzer, PriceSimulator
+
+### Preview (4개)
+- WidgetPreview, ViewportToggle, PriceBreakdown, ConstraintVisualizer
+
+### Layout (2개)
+- AdminLayout, Navigator, Inspector
+
+## Shadow DOM 스타일링
+
+huni.builder 위젯은 Shadow DOM을 사용하여 호스트 페이지의 스타일과 완전히 격리됩니다.
+
+```typescript
+// 위젯 초기화 시 Shadow DOM 생성
+const shadowRoot = this.attachShadow({ mode: 'open' })
+
+// CSS Variables 주입을 통한 테마 커스터마이징
+const sheet = new CSSStyleSheet()
+sheet.replaceSync(`
+  :host {
+    --hw-color-primary: #5538b6;
+    --hw-color-accent: #f0831e;
+    /* ... */
+  }
+`)
+shadowRoot.adoptedStyleSheets = [sheet]
+```
+
+## 테마 커스터마이징
+
+CSS Variables를 사용하여 위젯의 외형을 커스터마이징할 수 있습니다:
+
+```css
+/* 호스트 페이지에서 위젯 테마 재정의 */
+huni-widget {
+  --hw-color-primary: #your-brand-color;
+  --hw-font-family: 'Your Font', sans-serif;
+  --hw-radius-md: 8px;
+}
+```
+
+## 관련 문서
+
+- [디자인 토큰](./tokens) - 모든 디자인 토큰 상세
+- [Atom 컴포넌트](./atoms) - Atom 컴포넌트 카탈로그
+- [Molecule & Organism](./molecules-organisms) - 복합 컴포넌트 카탈로그
+- [UI/UX 패턴](./patterns) - 디자인 패턴과 아키텍처
+- [경쟁사 UI 비교](./competitive-analysis) - 경쟁사 대비 차별점

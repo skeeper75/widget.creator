@@ -22,7 +22,7 @@ export async function createContext(
   let session: Session | null = null;
 
   try {
-    const { auth } = await import('../../../../auth.js');
+    const { auth } = await import('../../../auth.js');
     const authSession = await auth();
     if (authSession?.user) {
       session = {

@@ -1,0 +1,175 @@
+# Installation & Setup
+
+Guide to setting up the huni.builder development environment and embedding the widget on your website.
+
+## System Requirements
+
+<div className="warning-block">
+
+Before starting the development environment setup, ensure you have the following:
+
+| Tool | Minimum Version | Purpose |
+|------|----------------|---------|
+| Node.js | 20+ | Runtime |
+| pnpm | 10.17+ | Package management |
+| PostgreSQL | 14+ | Database |
+| Redis | 7+ | Cache |
+| Git | 2.x+ | Source control |
+
+</div>
+
+---
+
+## Development Environment Setup
+
+### 1. Clone Repository
+
+```bash
+# Clone project
+git clone https://github.com/your-org/huni.builder.git
+cd huni.builder
+```
+
+### 2. Install Dependencies
+
+```bash
+# Install pnpm (enable corepack)
+corepack enable
+corepack prepare pnpm@latest --activate
+
+# Install entire workspace
+pnpm install
+```
+
+### 3. Database Setup
+
+<div className="tip-block">
+
+**Run PostgreSQL with Docker Compose (Recommended)**
+
+```bash
+# Run PostgreSQL with Docker Compose
+docker-compose up -d postgres redis
+
+# Initialize database
+pnpm -F @huni/db db:push
+pnpm -F @huni/db db:seed
+```
+
+</div>
+
+```bash
+# Verify data with Drizzle Studio
+pnpm -F @huni/db db:studio
+```
+
+### 4. Environment Variables
+
+Copy `.env.example` file to configure environment variables:
+
+```bash
+# Create .env file
+cp .env.example .env
+```
+
+Required environment variables:
+
+```env
+# Database
+DATABASE_URL=postgresql://user:password@localhost:5432/huni_builder
+
+# Redis
+REDIS_URL=redis://localhost:6379
+
+# API
+API_PORT=4000
+CORS_ORIGIN=http://localhost:3000
+```
+
+### 5. First Build Verification
+
+```bash
+# TypeScript type check
+pnpm type-check
+
+# Run all tests
+pnpm test
+
+# Start development servers
+pnpm -F @huni/widget-core dev    # Widget dev server
+pnpm -F @huni/api-server dev      # API server (port 4000)
+pnpm -F @huni/widget-admin dev    # Admin dashboard
+```
+
+---
+
+## Widget Embed Code Guide
+
+Two methods are provided for embedding the widget on your website.
+
+### IIFE Script Method
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>huni.builder Widget</title>
+</head>
+<body>
+    <div id="huni-widget-container"></div>
+
+    <script src="https://huni.builder/widget/huni-widget.iife.js"></script>
+    <script>
+        huniWidget.mount({
+            target: '#huni-widget-container',
+            apiBaseUrl: 'https://api.huni.builder',
+            locale: 'en-US',
+            onQuoteChange: (quote) => {
+                console.log('Quote updated:', quote);
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+### ESM Module Method
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>huni.builder Widget</title>
+</head>
+<body>
+    <div id="huni-widget-container"></div>
+
+    <script type="module">
+        import { HuniWidget } from 'https://huni.builder/widget/huni-widget.esm.js';
+
+        const widget = new HuniWidget({
+            containerId: 'huni-widget-container',
+            apiBaseUrl: 'https://api.huni.builder',
+            locale: 'en-US',
+            onQuoteChange: (quote) => {
+                console.log('Quote updated:', quote);
+            }
+        });
+
+        widget.mount();
+    </script>
+</body>
+</html>
+```
+
+### Shopby Aurora Skin Integration
+
+For Shopby store integration, see the [Integration Guide](../integration/shopby).
+
+---
+
+## Next Steps
+
+- [Quick Start](./quick-start) - Embed widget in 5 minutes tutorial
+- [Architecture Overview](./architecture) - Monorepo structure and package dependencies
+- [Integration Guide](../integration) - Shopby, own store integration methods

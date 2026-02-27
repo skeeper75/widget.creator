@@ -25,7 +25,8 @@ export const recipeConstraints = pgTable(
     id: serial('id').primaryKey(),
     recipeId: integer('recipe_id')
       .notNull()
-      .references(() => productRecipes.id, { onDelete: 'cascade' }),
+      .references(() => productRecipes.id, { onDelete: 'cascade' })
+      ,
     constraintName: varchar('constraint_name', { length: 100 }).notNull(),
     triggerOptionType: varchar('trigger_option_type', { length: 50 }).notNull(),
     triggerOperator: varchar('trigger_operator', { length: 20 }).notNull(),

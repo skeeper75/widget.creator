@@ -38,6 +38,9 @@ interface NavItem {
  * Navigation groups matching SPEC Section 4.6.
  * REQ-U-008: Responsive sidebar navigation with 6 domain groups + icons.
  */
+// @MX:ANCHOR: [AUTO] navItems - navigation configuration consumed by Sidebar render and route matching logic
+// @MX:REASON: fan_in >= 3; used by isActive, isGroupActive, expandedGroups initialization, and the main render loop
+// @MX:SPEC: SPEC-WA-001 REQ-U-008
 const navItems: NavItem[] = [
   {
     label: "Dashboard",
@@ -125,6 +128,9 @@ const navItems: NavItem[] = [
   },
 ];
 
+// @MX:ANCHOR: [AUTO] Sidebar component - primary navigation shell used by all admin layout pages
+// @MX:REASON: fan_in >= 10; rendered by root layout wrapping every admin route; collapse state, active route logic, and tooltip behavior all colocated here
+// @MX:SPEC: SPEC-WA-001 REQ-U-008
 export function Sidebar() {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
@@ -161,6 +167,7 @@ export function Sidebar() {
     <TooltipProvider delayDuration={0}>
       <aside
         className={cn(
+          // @MX:NOTE: [AUTO] bg-card (#FFFFFF) is intentional light design - sidebar background is pure white per SPEC-WA-001 light theme
           "flex h-screen flex-col border-r bg-card transition-all duration-200",
           collapsed ? "w-16" : "w-64"
         )}
@@ -199,6 +206,7 @@ export function Sidebar() {
                 <Link
                   href={item.href}
                   className={cn(
+                    // @MX:NOTE: [AUTO] cn() merges base styles with active-state conditional classes; active = bg-primary/10 (violet tint), inactive = muted-foreground
                     "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
                     isActive(item.href)
                       ? "bg-primary/10 text-primary"

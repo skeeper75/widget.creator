@@ -3,11 +3,10 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.1
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { useEffect, useErrorBoundary } from 'preact/hooks';
 import { ScreenRenderer } from './screens';
 import {
-  widgetState,
   isLoading,
   hasError,
   setWidgetStatus,

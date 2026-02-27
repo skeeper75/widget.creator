@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.4.1
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { ToggleGroup, type ToggleGroupItem } from '../primitives';
 import type { ProductSize } from '../types';
 

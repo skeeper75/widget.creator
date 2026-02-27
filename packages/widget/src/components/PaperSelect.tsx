@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.4.2
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { Select, type SelectItem } from '../primitives';
 import type { PaperOption } from '../types';
 

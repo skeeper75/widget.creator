@@ -211,7 +211,7 @@ describe('Input', () => {
         render(<Input {...defaultProps} onChange={onChange} />);
 
         const inputs = screen.getAllByRole('spinbutton');
-        fireEvent.change(inputs[0], { target: { value: '300' } });
+        fireEvent.change(inputs[0]!, { target: { value: '300' } });
 
         expect(onChange).toHaveBeenCalledWith(300);
       });
@@ -221,17 +221,16 @@ describe('Input', () => {
         render(<Input {...defaultProps} onChange2={onChange2} />);
 
         const inputs = screen.getAllByRole('spinbutton');
-        fireEvent.change(inputs[1], { target: { value: '400' } });
+        fireEvent.change(inputs[1]!, { target: { value: '400' } });
 
         expect(onChange2).toHaveBeenCalledWith(400);
       });
 
       it('clamps width value to min/max', () => {
-        const onChange = vi.fn();
         render(<Input {...defaultProps} min={100} max={500} onChange2={undefined} />);
 
         const inputs = screen.getAllByRole('spinbutton');
-        fireEvent.change(inputs[1], { target: { value: '50' } }); // onChange2 is undefined, no clamping test
+        fireEvent.change(inputs[1]!, { target: { value: '50' } }); // onChange2 is undefined, no clamping test
         // Note: onChange2 undefined means no clamping happens
       });
 
@@ -240,7 +239,7 @@ describe('Input', () => {
         render(<Input {...defaultProps} min2={100} max2={700} onChange2={onChange2} />);
 
         const inputs = screen.getAllByRole('spinbutton');
-        fireEvent.change(inputs[1], { target: { value: '50' } });
+        fireEvent.change(inputs[1]!, { target: { value: '50' } });
 
         expect(onChange2).toHaveBeenCalledWith(100); // clamped to min2
       });
@@ -268,7 +267,7 @@ describe('Input', () => {
         />
       );
 
-      const input = screen.getByRole('spinbutton');
+      const input = screen.getByRole('spinbutton') as HTMLInputElement;
       expect(input.value).toBe('100');
     });
 

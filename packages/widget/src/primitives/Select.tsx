@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.3.2
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { useState, useCallback, useRef, useEffect } from 'preact/hooks';
 
 export interface SelectItem {

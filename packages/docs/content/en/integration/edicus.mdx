@@ -1,0 +1,638 @@
+---
+title: Edicus Integration
+description: Guide for integrating Huni.Builder widgets with Edicus design editor
+---
+
+# Edicus Integration
+
+Edicus is an online design editor provided by MotionOne, offering design editing capabilities for Huni.Builder widgets.
+
+## Overview
+
+Edicus integration is provided in the following ways:
+
+- **JS SDK v2**: Browser-based design editor (iframe + postMessage)
+- **Server API**: Backend proxy for API key protection
+- **Dual Mode**: Shopby mode (page navigation) / Standalone mode (modal)
+
+## SDK Methods Reference
+
+### init()
+
+Initialize the editor SDK.
+
+```typescript
+const editor = window.edicusSDK.init(config)
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `base_url` | string | No | Base URL (default: "https://edicusbase.firebaseapp.com") |
+| `landing_path` | string | No | Landing page path |
+| `tnview_path` | string | No | Thumbnail view path |
+| `preview_path` | string | No | Preview path |
+| `lite_path` | string | No | Lite mode path |
+| `test_path` | string | No | Test path |
+
+**Returns:** Editor context object
+
+**Example:**
+
+```typescript
+const editor = window.edicusSDK.init({
+  base_url: 'https://edicusbase.firebaseapp.com'
+})
+```
+
+---
+
+### open_project()
+
+Open an existing project.
+
+```typescript
+editor.open_project(params, callback)
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `partner` | string | No | Partner code |
+| `mobile` | boolean | No | Mobile mode |
+| `parent_element` | HTMLElement | No | Parent element |
+| `token` | string | Yes | User token |
+| `prjid` | string | Yes | Project ID |
+| `ui_locale` | string | No | UI locale (ko/en/ja) |
+| `ui_style` | string | No | UI style (tab-less/tab-top-less) |
+| `lang` | string | No | Template language (ko/en/ja) |
+| `editor_type` | string | No | Editor type (template/print) |
+| `env_mode` | string | No | Environment mode (dev/demo) |
+| `run_mode` | string | No | Run mode (passive) |
+| `master_mode` | string | No | Master mode (view/edit) |
+| `div` | string | No | Division setting |
+
+**Returns:** void
+
+**Example:**
+
+```typescript
+editor.open_project({
+  partner: 'huni.builder',
+  mobile: false,
+  parent_element: document.getElementById('editor-container'),
+  token: userToken,
+  prjid: '12345',
+  ui_locale: 'ko',
+  env_mode: 'demo'
+}, (err, data) => {
+  console.log('Callback:', data)
+})
+```
+
+---
+
+### create_project()
+
+Create a new project.
+
+```typescript
+editor.create_project(params, callback)
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `parent_element` | HTMLElement | No | Parent element |
+| `partner` | string | No | Partner code |
+| `mobile` | boolean | No | Mobile mode |
+| `ps_code` | string | Yes | Product code |
+| `template_uri` | string | No | Template URI |
+| `title` | string | No | Project title |
+| `token` | string | Yes | User token |
+| `edit_mode` | string | No | Edit mode |
+
+**Returns:** void
+
+**Example:**
+
+```typescript
+editor.create_project({
+  parent_element: container,
+  partner: 'huni.builder',
+  mobile: false,
+  ps_code: 'postcard-001',
+  template_uri: '/templates/postcard-001',
+  title: 'Business Card Design',
+  token: userToken
+}, (err, data) => {
+  if (data.action === 'project-id-created') {
+    console.log('Project ID:', data.project_id)
+  }
+})
+```
+
+---
+
+### open_preview()
+
+Open preview mode.
+
+```typescript
+editor.open_preview(params, callback)
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `token` | string | Yes | User token |
+| `partner` | string | Yes | Partner code |
+| `uid` | string | No | User ID |
+| `prjid` | string | Yes | Project ID |
+| `div` | string | No | Division (default: 'host') |
+| `lang` | string | No | Language (default: 'ko') |
+| `npage` | number | No | Page number |
+| `flow` | string | No | Flow direction (horizontal/vertical) |
+| `mode` | string | No | Mode (default: 'default') |
+| `options` | object | No | Options object |
+
+**Returns:** void
+
+**Example:**
+
+```typescript
+editor.open_preview({
+  token: userToken,
+  partner: 'huni.builder',
+  uid: userId,
+  prjid: '12345',
+  lang: 'ko',
+  npage: 1,
+  flow: 'horizontal',
+  mode: 'default'
+}, (err, data) => {
+  // Preview callback
+})
+```
+
+---
+
+### open_portal()
+
+Open debugging portal.
+
+```typescript
+editor.open_portal(params, callback)
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `token` | string | Yes | User token |
+| `parent_element` | HTMLElement | No | Parent element (default: document.body) |
+
+**Returns:** void
+
+**Example:**
+
+```typescript
+editor.open_portal({
+  token: userToken
+}, (err, data) => {
+  // Debug portal callback
+})
+```
+
+---
+
+### close() / destroy()
+
+Close editor or completely exit SDK.
+
+```typescript
+// Close only editor
+editor.close(params)
+
+// Complete SDK shutdown
+editor.destroy(params)
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `parent_element` | HTMLElement | No | Parent element |
+
+**Returns:** void
+
+**Example:**
+
+```typescript
+// Close editor
+editor.close({ parent_element: container })
+
+// Complete SDK shutdown
+editor.destroy({ parent_element: container })
+```
+
+---
+
+### change_project()
+
+Change project within the editor.
+
+```typescript
+editor.change_project(projectID)
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `project_id` | string | Yes | Project ID |
+
+**Returns:** void
+
+**Example:**
+
+```typescript
+editor.change_project('67890')
+```
+
+---
+
+### change_template()
+
+Change template.
+
+```typescript
+editor.change_template(psCode, templateUri)
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `psCode` | string | Yes | Product code |
+| `template_uri` | string | Yes | Template URI |
+
+**Returns:** void
+
+**Example:**
+
+```typescript
+editor.change_template('businesscard-001', '/templates/businesscard-001')
+```
+
+---
+
+### execute_ddp_block()
+
+Execute DDP block.
+
+```typescript
+editor.execute_ddp_block(ddpBlock, historyLabel)
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `ddp_block` | string | No | DDP block content |
+| `history_label` | string | No | History label |
+
+**Returns:** void
+
+**Example:**
+
+```typescript
+editor.execute_ddp_block(
+  '<ddp_block>...</ddp_block>',
+  'Initial Design'
+)
+```
+
+---
+
+### post_to_editor()
+
+Send message to editor.
+
+```typescript
+editor.post_to_editor(action, info)
+```
+
+**Parameters:**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `action` | string | Yes | Action type |
+| `info` | object | No | Action info |
+
+**Returns:** void
+
+**Example:**
+
+```typescript
+editor.post_to_editor('send-user-token', {
+  token: 'new-token-value'
+})
+```
+
+---
+
+## Parameters Guide
+
+### Core Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `partner` | string | - | Partner code (production) |
+| `token` | string | - | Edicus user token (required) |
+| `mobile` | boolean | false | Mobile mode |
+| `parent_element` | HTMLElement | - | Parent element (required) |
+
+### UI Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `lang` | string | 'ko' | Template language (ko/en/ja) |
+| `ui_locale` | string | 'ko' | UI language (ko/en/ja) |
+| `editor_type` | string | 'template' | Editor type (template/print) |
+| `ui_style` | string | - | UI style (tab-less/tab-top-less) |
+| `parent_type` | string | - | Parent type (.. / web_in_app) |
+
+### Environment Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `env_mode` | string | 'prod' | Environment mode (prod/dev/demo) |
+| `run_mode` | string | 'active' | Run mode (active/passive) |
+| `master_mode` | string | 'edit' | Master mode (view/edit) |
+
+### Data Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `data_row` | object | - | Initial data row |
+| `data_feed` | string | - | Data feed URI |
+| `data_content` | string | - | Data content (VDP) |
+
+### Advanced Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `ddp_block` | string | null | DDP block |
+| `private_css` | string | null | Private CSS |
+| `i18n` | object | null | Internationalization settings |
+| `prod_info` | object | null | Product information |
+| `options` | object | null | Options configuration |
+| `zoom` | number | null | Zoom level |
+| `template_list` | array | null | Template list |
+
+---
+
+## Resource API
+
+Template queries and product listings use the Resource API.
+
+### Query Templates
+
+```http
+POST /resapi/query
+```
+
+**Headers:**
+
+```
+edicus-api-key: {API_KEY}
+```
+
+**Body:**
+
+```json
+{
+  "cmd": "get_template_list",
+  "partner": "{partner_code}",
+  "lang": "{language}"
+}
+```
+
+**Response:**
+
+```json
+{
+  "result": {
+    "templates": [
+      {
+        "ps_code": "postcard-001",
+        "title": "Business Card",
+        "thumbnail_url": "/thumbs/postcard-001.jpg"
+      }
+    ]
+  }
+}
+```
+
+---
+
+### Get Products
+
+```http
+GET /resapi/product/list
+```
+
+**Headers:**
+
+```
+edicus-api-key: {API_KEY}
+```
+
+**Response:**
+
+```json
+{
+  "result": {
+    "products": [
+      {
+        "ps_code": "postcard-001",
+        "title": "Business Card",
+        "category": "Cards",
+        "category_code": "1999"
+      }
+    ]
+  }
+}
+```
+
+---
+
+## SDK Callbacks
+
+### project-id-created
+
+Called when project ID is created.
+
+```typescript
+function handleProjectCreated(data) {
+  const { project_id, project_code, thumbnail_url } = data
+  // Save project ID
+  saveProjectId(project_id)
+}
+```
+
+---
+
+### close
+
+Called when editor is closed.
+
+```typescript
+function handleClose() {
+  // Editor close handler
+  closeEditor()
+}
+```
+
+---
+
+### goto-cart
+
+Called when cart navigation is requested.
+
+```typescript
+function handleGotoCart() {
+  // Navigate to cart
+  router.push('/cart')
+}
+```
+
+---
+
+### request-user-token
+
+Called when token refresh is needed.
+
+```typescript
+async function handleTokenRequest(): Promise<string> {
+  // Request token from backend
+  const response = await fetch('/api/edicus/token', {
+    method: 'POST'
+  })
+  const { token } = await response.json()
+  return token
+}
+```
+
+---
+
+### save-doc-report
+
+Called when document save is complete.
+
+```typescript
+function handleSaveDocReport(data) {
+  const { docInfo } = data.info
+  // Handle save result
+  console.log('Saved:', docInfo)
+}
+```
+
+---
+
+### request-help-message
+
+Called when help button is clicked.
+
+```typescript
+function handleRequestHelpMessage(data) {
+  const { case_type } = data.info
+
+  if (case_type === 'photo-import') {
+    // Photo import help
+    alert('Photo import help')
+  }
+}
+```
+
+---
+
+## Preview Mode
+
+### Start Preview Mode
+
+```typescript
+editor.open_preview({
+  token: userToken,
+  partner: 'huni.builder',
+  uid: userId,
+  prjid: projectId,
+  lang: 'ko',
+  npage: 1,
+  flow: 'horizontal'
+})
+```
+
+### Page Navigation Callbacks
+
+Page navigation callbacks are supported in preview mode.
+
+```typescript
+// Preview previous page
+function onPreviewPrev() {
+  editor.post_to_editor('preview-prev', {})
+}
+
+// Preview next page
+function onPreviewNext() {
+  editor.post_to_editor('preview-next', {})
+}
+```
+
+### Zoom Controls
+
+```typescript
+// Zoom in
+function onZoomIn() {
+  editor.post_to_editor('zoom-in', { level: 1.2 })
+}
+
+// Zoom out
+function onZoomOut() {
+  editor.post_to_editor('zoom-out', { level: 0.8 })
+}
+```
+
+---
+
+## Cleanup and Resource Management
+
+### Editor Destruction
+
+```typescript
+useEffect(() => {
+  return () => {
+    // Clean up editor on unmount
+    if (editorRef.current) {
+      editorRef.current.destroy()
+      editorRef.current = null
+    }
+  }
+}, [])
+```
+
+### Remove Script Tag
+
+```typescript
+function removeEdicusScript() {
+  const script = document.querySelector('script[src*="edicus.js"]')
+  if (script) {
+    script.remove()
+  }
+}
+```

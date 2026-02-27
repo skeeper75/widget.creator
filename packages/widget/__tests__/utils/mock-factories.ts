@@ -6,8 +6,6 @@
 import type {
   WidgetConfig,
   WidgetState,
-  DesignTokens,
-  DEFAULT_DESIGN_TOKENS,
   OptionChoice,
   OptionDefinition,
   ConstraintRule,

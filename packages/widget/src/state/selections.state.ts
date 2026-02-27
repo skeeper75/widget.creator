@@ -5,7 +5,7 @@
 
 import { signal, computed } from '@preact/signals';
 import { widgetEvents } from '../utils/events';
-import type { PostProcessGroup } from '../types';
+
 
 /**
  * User selections state

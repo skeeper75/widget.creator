@@ -22,7 +22,8 @@ export const productRecipes = pgTable(
     id: serial('id').primaryKey(),
     productId: integer('product_id')
       .notNull()
-      .references(() => wbProducts.id),
+      .references(() => wbProducts.id)
+      ,
     recipeName: varchar('recipe_name', { length: 100 }).notNull(),
     recipeVersion: integer('recipe_version').notNull().default(1),
     isDefault: boolean('is_default').notNull().default(false),

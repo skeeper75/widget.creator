@@ -8,10 +8,17 @@
     "test:coverage": "vitest run --coverage",
     "lint": "turbo run lint",
     "db:seed": "tsx scripts/seed.ts",
+    "db:verify": "tsx scripts/seed-verify.ts",
+    "db:setup": "pnpm db:migrate && pnpm db:seed && pnpm db:verify",
     "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "db:import": "tsx scripts/import/index.ts",
+    "db:import:dry": "tsx scripts/import/index.ts --dry-run",
+    "db:import:validate": "tsx scripts/import/index.ts --validate-only",
+    "db:import:mes-items": "tsx scripts/import/import-mes-items.ts",
+    "db:import:papers": "tsx scripts/import/import-papers.ts"
   },
   "dependencies": {
     "@widget-creator/shared": "workspace:*",
@@ -23,6 +30,7 @@
     "@types/node": "^22.0.0",
     "@vitest/coverage-v8": "~3.0.9",
     "drizzle-kit": "^0.31.9",
+    "exceljs": "^4.4.0",
     "playwright": "^1.58.2",
     "tsx": "^4.0.0",
     "turbo": "^2.0.0",

@@ -3,7 +3,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.2.2
  */
 
-import { render, h } from 'preact';
+import { render } from 'preact';
 import { WidgetShell } from './app';
 import { parseScriptAttributes, getProductConfigUrl } from './embed';
 import {
@@ -24,12 +24,12 @@ import {
   price,
   hasRequiredSelections,
 } from './state';
-import type { WidgetConfig, ScreenType, ProductSize, PaperOption, PostProcessGroup } from './types';
+import type { ScreenType, ProductSize, PaperOption, PostProcessGroup } from './types';
 
 /**
  * Mock product data for development
  */
-function getMockProductData(screenType: ScreenType) {
+function getMockProductData(_screenType: ScreenType) {
   return {
     sizes: [
       { id: 1, name: 'A4', width: 210, height: 297, isCustom: false },
@@ -166,8 +166,8 @@ async function bootstrap(): Promise<void> {
     render(
       <WidgetShell
         config={{
-          widgetId: config.widgetId,
-          productId: config.productId,
+          widgetId: config?.widgetId ?? '',
+          productId: config?.productId ?? 0,
           screenType,
         }}
         productData={productData}

@@ -15,7 +15,7 @@ export const WIDGET_CONTAINER_ID = 'huni-widget-root';
  * Create the Shadow DOM container and attach shadow root
  */
 export function createShadowContainer(
-  config: WidgetConfig
+  _config: WidgetConfig
 ): { container: HTMLDivElement; shadowRoot: ShadowRoot } {
   // Check if container already exists
   let container = document.getElementById(WIDGET_CONTAINER_ID) as HTMLDivElement | null;

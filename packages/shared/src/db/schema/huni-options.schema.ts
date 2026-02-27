@@ -10,9 +10,9 @@ import {
   index,
   unique,
 } from 'drizzle-orm/pg-core';
-import { products } from './huni-catalog.schema.js';
-import { papers, materials } from './huni-materials.schema.js';
-import { printModes, postProcesses, bindings } from './huni-processes.schema.js';
+import { products } from './huni-catalog.schema';
+import { papers, materials } from './huni-materials.schema';
+import { printModes, postProcesses, bindings } from './huni-processes.schema';
 
 // HuniOptionDefinition: Master option type definitions
 export const optionDefinitions = pgTable('option_definitions', {
@@ -29,26 +29,6 @@ export const optionDefinitions = pgTable('option_definitions', {
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().$onUpdate(() => new Date()).notNull(),
 }, (t) => [
   index('option_definitions_option_class_idx').on(t.optionClass),
-]);
-
-// HuniProductOption: Product-specific option configurations
-export const productOptions = pgTable('product_options', {
-  id: serial('id').primaryKey(),
-  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'cascade' }),
-  optionDefinitionId: integer('option_definition_id').notNull().references(() => optionDefinitions.id, { onDelete: 'cascade' }),
-  displayOrder: smallint('display_order').default(0).notNull(),
-  isRequired: boolean('is_required').default(false).notNull(),
-  isVisible: boolean('is_visible').default(true).notNull(),
-  isInternal: boolean('is_internal').default(false).notNull(),
-  uiComponentOverride: varchar('ui_component_override', { length: 30 }),
-  defaultChoiceId: integer('default_choice_id').references(() => optionChoices.id, { onDelete: 'set null' }),
-  isActive: boolean('is_active').default(true).notNull(),
-  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
-  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().$onUpdate(() => new Date()).notNull(),
-}, (t) => [
-  unique('product_options_product_id_option_definition_id_key').on(t.productId, t.optionDefinitionId),
-  index('product_options_product_id_idx').on(t.productId),
-  index('product_options_product_id_is_visible_display_order_idx').on(t.productId, t.isVisible, t.displayOrder),
 ]);
 
 // HuniOptionChoice: Available choices per option definition
@@ -73,6 +53,26 @@ export const optionChoices = pgTable('option_choices', {
   index('option_choices_price_key_idx').on(t.priceKey),
   index('option_choices_ref_paper_id_idx').on(t.refPaperId),
   index('option_choices_ref_print_mode_id_idx').on(t.refPrintModeId),
+]);
+
+// HuniProductOption: Product-specific option configurations
+export const productOptions = pgTable('product_options', {
+  id: serial('id').primaryKey(),
+  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'cascade' }),
+  optionDefinitionId: integer('option_definition_id').notNull().references(() => optionDefinitions.id, { onDelete: 'cascade' }),
+  displayOrder: smallint('display_order').default(0).notNull(),
+  isRequired: boolean('is_required').default(false).notNull(),
+  isVisible: boolean('is_visible').default(true).notNull(),
+  isInternal: boolean('is_internal').default(false).notNull(),
+  uiComponentOverride: varchar('ui_component_override', { length: 30 }),
+  defaultChoiceId: integer('default_choice_id').references(() => optionChoices.id, { onDelete: 'set null' }),
+  isActive: boolean('is_active').default(true).notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().$onUpdate(() => new Date()).notNull(),
+}, (t) => [
+  unique('product_options_product_id_option_definition_id_key').on(t.productId, t.optionDefinitionId),
+  index('product_options_product_id_idx').on(t.productId),
+  index('product_options_product_id_is_visible_display_order_idx').on(t.productId, t.isVisible, t.displayOrder),
 ]);
 
 // HuniOptionConstraint: UI visibility and value constraints per product

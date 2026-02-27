@@ -100,6 +100,7 @@ export class PriceEngine {
     };
   }
 
+  // @MX:NOTE: [AUTO] Tier lookup uses linear scan; falls back to last tier when quantity exceeds all maxQty bounds. Returns 0 when no price table is found for sizeId.
   /**
    * Get unit price for size and quantity
    */

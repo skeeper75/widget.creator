@@ -541,4 +541,254 @@ describe('POST /api/widget/quote', () => {
     expect(response.status).toBe(200);
     expect(body).toHaveProperty('isValid');
   });
+
+  it('should calculate pricing using AREA mode when priceConfig.priceMode=AREA', async () => {
+    const areaPriceConfig = {
+      id: 2,
+      productId: 42,
+      priceMode: 'AREA',
+      unitPriceSqm: '50000', // 50,000 KRW per sqm
+      minAreaSqm: '0.1',
+      isActive: true,
+    };
+
+    // For AREA mode: db calls are product, recipe.then, priceConfig.then (AREA path), constraints,
+    // then in calculatePricing AREA fetches priceConfig again, then qtyDiscount
+    let selectCall = 0;
+    (db.select as ReturnType<typeof vi.fn>).mockImplementation(() => {
+      selectCall++;
+
+      if (selectCall === 1) {
+        // wbProducts
+        return {
+          from: vi.fn().mockReturnValue({
+            where: vi.fn().mockReturnValue({
+              limit: vi.fn().mockResolvedValue([mockProduct]),
+            }),
+          }),
+        };
+      }
+
+      if (selectCall === 2) {
+        // productRecipes via .then
+        return {
+          from: vi.fn().mockReturnValue({
+            where: vi.fn().mockReturnValue({
+              limit: vi.fn().mockReturnValue({
+                then: vi.fn((resolve: (v: unknown) => unknown) =>
+                  Promise.resolve(resolve([mockRecipe])),
+                ),
+              }),
+            }),
+          }),
+        };
+      }
+
+      if (selectCall === 3) {
+        // productPriceConfigs via .then → returns AREA config
+        return {
+          from: vi.fn().mockReturnValue({
+            where: vi.fn().mockReturnValue({
+              limit: vi.fn().mockReturnValue({
+                then: vi.fn((resolve: (v: unknown) => unknown) =>
+                  Promise.resolve(resolve([areaPriceConfig])),
+                ),
+              }),
+            }),
+          }),
+        };
+      }
+
+      if (selectCall === 4) {
+        // recipeConstraints
+        return {
+          from: vi.fn().mockReturnValue({
+            where: vi.fn().mockResolvedValue([]),
+          }),
+        };
+      }
+
+      // AREA pricing: productPriceConfigs lookup + qtyDiscount (returns empty for no discount)
+      return {
+        from: vi.fn().mockReturnValue({
+          where: vi.fn().mockReturnValue({
+            limit: vi.fn().mockReturnValue({
+              then: vi.fn((resolve: (v: unknown) => unknown) =>
+                Promise.resolve(resolve([areaPriceConfig])),
+              ),
+            }),
+          }),
+        }),
+      };
+    });
+
+    (db.insert as ReturnType<typeof vi.fn>).mockImplementation(() => ({
+      values: vi.fn().mockReturnValue({
+        catch: vi.fn(),
+      }),
+    }));
+
+    const { POST } = await import('../../app/api/widget/quote/route.js');
+    const req = new NextRequest('http://localhost:3000/api/widget/quote', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        productId: 42,
+        selections: { SIZE: '200x300mm', QUANTITY: 1 },
+      }),
+    });
+
+    const response = await POST(req, routeCtx());
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.pricing.priceMode).toBe('AREA');
+    // 200mm x 300mm = 0.06 sqm, minArea=0.1 sqm, effective=0.1, price=0.1*50000=5000
+    expect(body.pricing.printCost).toBe(5000);
+  });
+
+  it('should trigger constraint with NOT_IN operator', async () => {
+    const notInConstraint = {
+      id: 3,
+      recipeId: 10,
+      constraintName: 'size-not-in-restriction',
+      triggerOptionType: 'SIZE',
+      triggerOperator: 'NOT_IN',
+      triggerValues: ['90x54mm', '100x148mm'],
+      actions: [{ type: 'show_message', message: '비표준 사이즈입니다', level: 'warning' }],
+      priority: 5,
+      isActive: true,
+    };
+
+    mockQuoteDbCalls({ constraints: [notInConstraint] });
+
+    const { POST } = await import('../../app/api/widget/quote/route.js');
+    const req = new NextRequest('http://localhost:3000/api/widget/quote', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        productId: 42,
+        // SIZE='200x300mm' is NOT IN ['90x54mm', '100x148mm'] → triggers
+        selections: { SIZE: '200x300mm', QUANTITY: 50 },
+      }),
+    });
+
+    const response = await POST(req, routeCtx());
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.uiActions.length).toBeGreaterThan(0);
+    expect(body.uiActions[0].type).toBe('show_message');
+    expect(body.uiActions[0].message).toContain('비표준');
+  });
+
+  it('should trigger constraint with NOT_EQUALS operator', async () => {
+    const notEqualsConstraint = {
+      id: 4,
+      recipeId: 10,
+      constraintName: 'not-standard-paper',
+      triggerOptionType: 'PAPER',
+      triggerOperator: 'NOT_EQUALS',
+      triggerValues: ['아트지 250g'],
+      actions: [{ type: 'show_message', message: '비표준 용지', level: 'info' }],
+      priority: 3,
+      isActive: true,
+    };
+
+    mockQuoteDbCalls({ constraints: [notEqualsConstraint] });
+
+    const { POST } = await import('../../app/api/widget/quote/route.js');
+    const req = new NextRequest('http://localhost:3000/api/widget/quote', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        productId: 42,
+        // PAPER='스노우화이트' NOT_EQUALS '아트지 250g' → triggers
+        selections: { PAPER: '스노우화이트', QUANTITY: 100 },
+      }),
+    });
+
+    const response = await POST(req, routeCtx());
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.uiActions.length).toBeGreaterThan(0);
+    expect(body.uiActions[0].message).toContain('비표준 용지');
+  });
+
+  it('should skip constraint when selection value is undefined', async () => {
+    const constraint = {
+      id: 5,
+      recipeId: 10,
+      constraintName: 'missing-field',
+      triggerOptionType: 'NONEXISTENT_FIELD',
+      triggerOperator: 'EQUALS',
+      triggerValues: ['some_value'],
+      actions: [{ type: 'show_message', message: '발생하지 않아야 함', level: 'info' }],
+      priority: 1,
+      isActive: true,
+    };
+
+    mockQuoteDbCalls({ constraints: [constraint] });
+
+    const { POST } = await import('../../app/api/widget/quote/route.js');
+    const req = new NextRequest('http://localhost:3000/api/widget/quote', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        productId: 42,
+        // NONEXISTENT_FIELD is not in selections → constraint is skipped
+        selections: { SIZE: '90x54mm', QUANTITY: 100 },
+      }),
+    });
+
+    const response = await POST(req, routeCtx());
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.uiActions).toHaveLength(0);
+  });
+
+  it('should return auto_add and show_addon_list in uiActions', async () => {
+    const addonConstraint = {
+      id: 6,
+      recipeId: 10,
+      constraintName: 'auto-add-envelope',
+      triggerOptionType: 'PAPER',
+      triggerOperator: 'IN',
+      triggerValues: ['아트지 250g'],
+      actions: [
+        { type: 'auto_add', addonGroupId: 1, addonItemId: 1 },
+        { type: 'show_addon_list', addonGroupId: 2 },
+      ],
+      priority: 5,
+      isActive: true,
+    };
+
+    mockQuoteDbCalls({ constraints: [addonConstraint] });
+
+    const { POST } = await import('../../app/api/widget/quote/route.js');
+    const req = new NextRequest('http://localhost:3000/api/widget/quote', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        productId: 42,
+        selections: { PAPER: '아트지 250g', QUANTITY: 100 },
+      }),
+    });
+
+    const response = await POST(req, routeCtx());
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    const autoAddAction = body.uiActions.find((a: { type: string }) => a.type === 'auto_add');
+    const showAddonAction = body.uiActions.find((a: { type: string }) => a.type === 'show_addon_list');
+    expect(autoAddAction).toBeDefined();
+    expect(autoAddAction?.addonGroupId).toBe(1);
+    expect(showAddonAction).toBeDefined();
+    expect(showAddonAction?.addonGroupId).toBe(2);
+    // auto_add should also be in addons array
+    expect(body.addons.length).toBeGreaterThan(0);
+    expect(body.addons[0].type).toBe('auto_add');
+  });
 });

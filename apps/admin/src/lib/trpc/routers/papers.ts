@@ -54,8 +54,8 @@ export const papersRouter = router({
       z.array(
         z.object({
           id: z.number(),
-          costPerRear: z.string().optional(),
-          sellingPerRear: z.string().optional(),
+          costPerReam: z.string().optional(),
+          sellingPerReam: z.string().optional(),
           costPer4Cut: z.string().optional(),
           sellingPer4Cut: z.string().optional(),
         }),

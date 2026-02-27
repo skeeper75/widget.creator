@@ -1,0 +1,6 @@
+{
+  "extraPaths": ["scripts"],
+  "exclude": ["**/node_modules", "**/.next", "**/dist"],
+  "reportUnusedVariable": "none",
+  "reportUnusedParameter": "none"
+}

@@ -25,7 +25,8 @@ export const productPriceConfigs = pgTable(
     // FK to wb_products — one config per product (UNIQUE constraint)
     productId: integer('product_id')
       .notNull()
-      .references(() => wbProducts.id, { onDelete: 'cascade' }),
+      .references(() => wbProducts.id, { onDelete: 'cascade' })
+      ,
 
     // Price mode: LOOKUP | AREA | PAGE | COMPOSITE
     priceMode: varchar('price_mode', { length: 20 }).notNull(),

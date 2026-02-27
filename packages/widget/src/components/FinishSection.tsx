@@ -4,9 +4,9 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.4.6
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { Collapsible, ToggleGroup, type ToggleGroupItem } from '../primitives';
-import type { OptionChoice, PostProcessGroup } from '../types';
+import type { PostProcessGroup } from '../types';
 
 export interface FinishSectionProps {
   /** Post-process option groups (박, 형압, 오시, 미싱, 가변, 귀돌이) */

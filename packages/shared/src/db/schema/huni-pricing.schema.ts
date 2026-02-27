@@ -11,9 +11,9 @@ import {
   index,
   unique,
 } from 'drizzle-orm/pg-core';
-import { products, productSizes } from './huni-catalog.schema.js';
-import { papers, materials } from './huni-materials.schema.js';
-import { printModes } from './huni-processes.schema.js';
+import { products, productSizes } from './huni-catalog.schema';
+import { papers, materials } from './huni-materials.schema';
+import { printModes } from './huni-processes.schema';
 
 // HuniPriceTable: Price table header
 export const priceTables = pgTable('price_tables', {

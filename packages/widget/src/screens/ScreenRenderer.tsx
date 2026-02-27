@@ -3,7 +3,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.5
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { PrintOption, type PrintOptionProps } from './PrintOption';
 import { StickerOption, type StickerOptionProps } from './StickerOption';
 import { AccessoryOption, type AccessoryOptionProps } from './AccessoryOption';
@@ -27,13 +27,13 @@ export const ScreenRenderer: FunctionalComponent<ScreenRendererProps> = ({
 }) => {
   switch (screenType) {
     case 'PRINT_OPTION':
-      return <PrintOption {...(props as PrintOptionProps)} />;
+      return <PrintOption {...(props as unknown as PrintOptionProps)} />;
 
     case 'STICKER_OPTION':
-      return <StickerOption {...(props as StickerOptionProps)} />;
+      return <StickerOption {...(props as unknown as StickerOptionProps)} />;
 
     case 'ACCESSORY_OPTION':
-      return <AccessoryOption {...(props as AccessoryOptionProps)} />;
+      return <AccessoryOption {...(props as unknown as AccessoryOptionProps)} />;
 
     // TODO: Implement remaining screens
     case 'BOOK_OPTION':

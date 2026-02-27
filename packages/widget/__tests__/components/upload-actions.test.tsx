@@ -149,7 +149,7 @@ describe('UploadActions', () => {
     });
 
     it('cart button is primary variant', () => {
-      const { container } = render(
+      render(
         <UploadActions {...defaultProps} variant="cart-only" />
       );
       const cartButton = screen.getByText('장바구니 담기').closest('button');

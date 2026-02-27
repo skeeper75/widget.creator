@@ -1,0 +1,263 @@
+# 개발 환경 설정
+
+신규 개발자가 0에서 첫 빌드 성공까지 도달하도록 안내합니다.
+
+## 시스템 요구사항
+
+<div className="warning-block">
+
+**개발 환경 설정을 시작하기 전에 다음 요구사항을 확인하세요:**
+
+| 도구 | 최소 버전 | 용도 |
+|------|----------|------|
+| Node.js | 20+ (LTS 권장) | 런타임 |
+| pnpm | 10.17+ | 패키지 관리 |
+| PostgreSQL | 14+ | 데이터베이스 |
+| Redis | 7+ | 캐시 |
+| Git | 2.x+ | 소스 관리 |
+| 운영체제 | macOS, Linux, Windows (WSL2 권장) | 개발 환경 |
+
+</div>
+
+---
+
+## 1. 저장소 클론 및 의존성 설치
+
+### 저장소 클론
+
+```bash
+# 프로젝트 클론
+git clone https://github.com/your-org/huni.builder.git
+cd huni.builder
+```
+
+### pnpm 설치 및 활성화
+
+<div className="tip-block">
+
+**corepack으로 pnpm 설치 (권장)**
+
+```bash
+# corepack 활성화
+corepack enable
+
+# pnpm 최신 버전 설치
+corepack prepare pnpm@latest --activate
+
+# 버전 확인
+pnpm --version
+```
+
+</div>
+
+### 의존성 설치
+
+```bash
+# 전체 워크스페이스 설치
+pnpm install
+```
+
+---
+
+## 2. 데이터베이스 설정
+
+### Docker Compose로 PostgreSQL 실행
+
+<div className="info-block">
+
+**Docker Compose로 PostgreSQL 14 실행**
+
+```bash
+# Docker Compose로 PostgreSQL과 Redis 실행
+docker-compose up -d postgres redis
+
+# 컨테이너 상태 확인
+docker-compose ps
+```
+
+</div>
+
+<div className="warning-block">
+
+**포트 충돌 해결**
+
+PostgreSQL 기본 포트 5432가 이미 사용 중인 경우:
+
+```bash
+# docker-compose.yml에서 포트 변경
+services:
+  postgres:
+    ports:
+      - "5433:5432"  # 5433으로 변경
+```
+
+</div>
+
+### 스키마 마이그레이션
+
+```bash
+# 데이터베이스 스키마 생성
+pnpm -F @huni/db db:push
+
+# 시드 데이터 로딩
+pnpm -F @huni/db db:seed
+```
+
+### Drizzle Studio로 데이터 확인
+
+```bash
+# Drizzle Studio 실행
+pnpm -F @huni/db db:studio
+
+# 브라우저에서 http://localhost:4983 접속
+```
+
+---
+
+## 3. 환경 변수 설정
+
+### .env 파일 생성
+
+```bash
+# .env.example 파일 복사
+cp .env.example .env
+```
+
+### 필수 환경 변수
+
+```env
+# Database
+DATABASE_URL=postgresql://postgres:password@localhost:5432/huni_builder
+
+# Redis
+REDIS_URL=redis://localhost:6379
+
+# API
+API_PORT=4000
+CORS_ORIGIN=http://localhost:3000
+
+# Shopby (선택사항)
+SHOPBY_API_URL=https://api.shopby.com
+SHOPBY_API_KEY=your-shopby-api-key
+
+# Edicus (선택사항)
+EDICUS_API_URL=https://api.edicus.com
+EDICUS_API_KEY=your-edicus-api-key
+```
+
+---
+
+## 4. 첫 빌드 검증
+
+### TypeScript 타입 체크
+
+```bash
+# 전체 프로젝트 타입 체크
+pnpm type-check
+```
+
+<div className="tip-block">
+
+**성공 시 결과:**
+
+```
+✓ All TypeScript files compiled successfully
+0 errors found
+```
+
+</div>
+
+### 전체 테스트 실행
+
+```bash
+# 전체 테스트 실행
+pnpm test
+```
+
+<div className="success-block">
+
+**성공 시 결과:**
+
+```
+Test Files  30 passed (30)
+     Tests  1214 passed (1214)
+  Start at  14:23:45
+  Duration  2.34s
+```
+
+</div>
+
+---
+
+## 5. 개발 서버 실행
+
+### 위젯 코어 개발 서버
+
+```bash
+# 위젯 개발 서버 실행
+pnpm -F @huni/widget-core dev
+
+# http://localhost:5173 접속
+```
+
+### API 서버 개발
+
+```bash
+# API 서버 실행
+pnpm -F @huni/api-server dev
+
+# http://localhost:4000 접속
+```
+
+### 관리자 대시보드
+
+```bash
+# Admin 대시보드 실행
+pnpm -F @huni/widget-admin dev
+
+# http://localhost:3000 접속
+```
+
+---
+
+## 6. 개발 도구 권장 사항
+
+### VS Code 확장
+
+<div className="info-block">
+
+**추천 확장:**
+
+- **ESLint**: 코드 린트
+- **Prettier**: 코드 포맷터
+- **TypeScript Importer**: 자동 import
+- **Drizzle ORM**: SQL 미리보기
+
+</div>
+
+### 선택적 도구
+
+- **Postman** 또는 **Insomnia**: API 테스트
+- **TablePlus** 또는 **DBeaver**: 데이터베이스 클라이언트
+- **Charles** 또는 **Fiddler**: HTTP 프록시
+
+---
+
+## 문제 해결
+
+### 일반적인 문제
+
+| 문제 | 해결 방법 |
+|------|----------|
+| `pnpm: command not found` | `corepack enable` 실행 |
+| `EADDRINUSE: address already in use` | 다른 포트 사용 또는 프로세스 종료 |
+| `database connection failed` | PostgreSQL 실행 확인 |
+| `module not found` | `pnpm install` 재실행 |
+
+---
+
+## 다음 단계
+
+- [모노레포 구조](./monorepo) - 7개 패키지 의존 관계 이해
+- [테스트 전략](./testing) - Hybrid DDD/TDD 방법론 학습
+- [기여 가이드](./contributing) - SPEC 기반 개발 워크플로우

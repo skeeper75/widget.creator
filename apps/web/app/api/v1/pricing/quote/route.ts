@@ -25,10 +25,24 @@ import {
 import type {
   PricingInput,
   PricingLookupData,
-  SelectedOption,
   SizeSelection,
   QuoteInput,
 } from '@widget-creator/core';
+
+/**
+ * Extended SelectedOption that includes pricing-specific reference IDs.
+ * The core SelectedOption from options/types.ts lacks these fields;
+ * pricing/types.ts defines them but does not re-export from core index.
+ */
+interface SelectedOption {
+  optionKey: string;
+  choiceCode: string;
+  choiceId?: number;
+  refPaperId?: number;
+  refPrintModeId?: number;
+  refPostProcessId?: number;
+  unitPrice?: number;
+}
 import { QuoteRequestSchema } from '@/api/_lib/schemas/pricing';
 import type { QuoteRequestInput } from '@/api/_lib/schemas/pricing';
 import { ApiError } from '@/api/_lib/middleware/error-handler';

@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.3.7
  */
 
-import { h, FunctionalComponent, ComponentChildren } from 'preact';
+import { FunctionalComponent, ComponentChildren } from 'preact';
 
 export interface ButtonProps {
   /** Button text */

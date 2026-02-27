@@ -21,10 +21,12 @@ export const recipeOptionBindings = pgTable(
     id: serial('id').primaryKey(),
     recipeId: integer('recipe_id')
       .notNull()
-      .references(() => productRecipes.id, { onDelete: 'cascade' }),
+      .references(() => productRecipes.id, { onDelete: 'cascade' })
+      ,
     typeId: integer('type_id')
       .notNull()
-      .references(() => optionElementTypes.id),
+      .references(() => optionElementTypes.id)
+      ,
     displayOrder: integer('display_order').notNull().default(0),
     processingOrder: integer('processing_order').notNull().default(0),
     isRequired: boolean('is_required').notNull().default(true),

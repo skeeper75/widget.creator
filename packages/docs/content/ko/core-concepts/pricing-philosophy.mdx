@@ -1,0 +1,214 @@
+# 가격 계산 철학
+
+실시간 견적의 중요성과 8개 계산기의 설계 원리를 이해합니다.
+
+## 실시간 견적의 중요성
+
+### 전통 인쇄 견적 방식
+
+```mermaid
+flowchart LR
+    A[고객 견적 요청] --> B[수동 계산]
+    B --> C[이메일/전화 응답]
+    C --> D[수 시간~수 일 소요]
+
+    style D fill:#f44336,stroke:#c62828,color:#fff
+```
+
+### 와우프레스 방식
+
+```mermaid
+flowchart LR
+    A[옵션 선택] --> B[서버 API 호출]
+    B --> C[가격 응답]
+    C --> D[수 초 소요<br/>네트워크 의존]
+
+    style D fill:#ff9800,stroke:#f57c00,color:#fff
+```
+
+### huni.builder 방식
+
+```mermaid
+flowchart LR
+    A[옵션 선택] --> B[클라이언트 내장 엔진]
+    B --> C[밀리초 계산]
+    C --> D[즉시 표시]
+
+    style D fill:#4caf50,stroke:#2e7d32,color:#fff
+```
+
+---
+
+## 8개 계산기 설계 원리
+
+### 공식 기반 (Formula) vs 직접 조회 (Lookup)
+
+```mermaid
+flowchart TD
+    A[상품 유형 판별] --> B{계산 패턴}
+    B -->|공식 기반| C[digital-print.calc]
+    B -->|공식 기반| D[booklet.calc]
+    B -->|공식 기반| E[business-card.calc]
+    B -->|직접 조회| F[sticker.lookup]
+    B -->|직접 조회| G[acrylic.lookup]
+    B -->|직접 조회| H[large-format.lookup]
+    B -->|직접 조회| I[goods.lookup]
+    B -->|직접 조회| J[stationery.lookup]
+
+    C --> K[판걸이수, 용지단가, 출력비 공식]
+    D --> K
+    E --> K
+
+    F --> L[가격 테이블 직접 조회]
+    G --> L
+    H --> L
+    I --> L
+    J --> L
+
+    K --> M[최종 견적]
+    L --> M
+```
+
+| 패턴 | 계산기 | 원리 |
+|------|--------|------|
+| **공식 기반** | digital-print, booklet, business-card | 판걸이수, 용지단가, 출력비 등 변수로 공식 계산 |
+| **직접 조회** | sticker, acrylic, large-format, goods, stationery | 상품/옵션/수량 조합으로 가격 테이블 직접 조회 |
+
+### 공식 기반 계산기 상세
+
+<div className="info-block">
+
+**디지털 인쇄 계산 (digital-print.calc)**
+
+```
+가격 = (판걸이수 × 용지단가) + 출력비 + 후가공비 + 제본비
+```
+
+- **판걸이수**: 인쇄 원지에 배치할 수 있는 수량
+- **용지단가**: 용지 종류별 단가
+- **输出비**: 인쇄 도수별 출력 비용
+- **후가공비**: 코팅, 박, 형압 등 추가 비용
+- **제본비**: 분철, 풀네일, 보관용 등 비용
+
+</div>
+
+---
+
+## 가격 계산 흐름
+
+```mermaid
+flowchart TD
+    A[옵션 선택] --> B{상품 유형 판별}
+    B -->|디지털 인쇄| C[digital-print.calc]
+    B -->|책자| D[booklet.calc]
+    B -->|명함| E[business-card.calc]
+    B -->|스티커| F[sticker.lookup]
+    B -->|아크릴| G[acrylic.lookup]
+    B -->|대형| H[large-format.lookup]
+    B -->|굿즈| I[goods.lookup]
+    B -->|문구| J[stationery.lookup]
+    C & D & E --> K[공식 계산]
+    F & G & H & I & J --> L[테이블 조회]
+    K & L --> M[최종 견적]
+
+    style M fill:#4caf50,stroke:#2e7d32,color:#fff
+```
+
+### 계산기별 특징
+
+| 계산기 | 상품 유형 | 커버리지 |
+|--------|----------|---------|
+| digital-print.calc | 전단지, 리플릿, 카탈로그 | 96.81% |
+| booklet.calc | 무선철, 중철 책자 | 95.57% |
+| business-card.calc | 명함 | 96.57% |
+| sticker.lookup | 스티커 | 87.97% |
+| acrylic.lookup | 아크릴 제품 | 87.93% |
+| large-format.lookup | 포스터, 현수막 | 92.72% |
+| goods.lookup | 굿즈 | 97.43% |
+| stationery.lookup | 문구류 | 95.48% |
+
+---
+
+## 테스트 커버리지의 의미
+
+### 93.7% 커버리지의 비즈니스 가치
+
+```mermaid
+flowchart LR
+    A[93.7% 커버리지] --> B[402개 테스트]
+    B --> C[가격 정확성: 오차 0원]
+    B --> D[회귀 방지]
+    B --> E[배치 검증]
+    B --> F[비즈니스 신뢰]
+
+    style A fill:#4caf50,stroke:#2e7d32,color:#fff
+    style C fill:#2196f3,stroke:#1565c0,color:#fff
+    style D fill:#2196f3,stroke:#1565c0,color:#fff
+    style E fill:#2196f3,stroke:#1565c0,color:#fff
+    style F fill:#2196f3,stroke:#1565c0,color:#fff
+```
+
+#### 가격 정확성
+
+<div className="tip-block">
+
+**정수 단위 KRW (오차 0원)**
+
+- 인쇄물 가격은 원 단위로 정확해야 합니다
+- 1원 오차도 고객 신뢰에 영향을 미칩니다
+- 402개 테스트로 모든 케이스 검증
+
+</div>
+
+#### 회귀 방지
+
+- **옵션 추가**: 기존 가격 보장
+- **수정**: 변경 전 가격 유지
+- **삭제**: 삭제 전 가격 기록
+
+#### 배치 검증
+
+- **전체 상품 x 옵션 조합**: 자동 검증
+- **수량 구간별**: 18시트 구간 단가표
+- **후가공 조합**: 모든 조합 테스트
+
+#### 비즈니스 신뢰
+
+<div className="info-block">
+
+**고객에게 즉시 표시되는 가격의 신뢰도**
+
+- 실시간 견적의 정확성
+- 주문 후 가격 변동 없음
+- 환불/교환 비용 절감
+
+</div>
+
+---
+
+## 수량 구간별 단가
+
+### 수량 구간 테이블
+
+| 구간 | 수량 | 단가 할인 |
+|------|------|----------|
+| 1구간 | 1~100 | 기본 단가 |
+| 2구간 | 101~300 | 5% 할인 |
+| 3구간 | 301~500 | 10% 할인 |
+| 4구간 | 501~1000 | 15% 할인 |
+| 5구간 | 1001+ | 20% 할인 |
+
+```mermaid
+flowchart LR
+    A[수량 증가] -->|단위당 단가 하락| B[구간 할인]
+    B --> C[대량 주문 할인]
+
+    style B fill:#ff9800,stroke:#f57c00,color:#fff
+```
+
+---
+
+## 다음 단계
+
+- [위젯 가이드](../widget-guide) - 위젯 사용법 상세 가이드
+- [가격 시스템](../pricing-system) - 가격 관리 및 설정

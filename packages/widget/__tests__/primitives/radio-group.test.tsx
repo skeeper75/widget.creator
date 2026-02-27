@@ -252,7 +252,7 @@ describe('RadioGroup', () => {
       const labels = document.querySelectorAll('label');
 
       radios.forEach((radio, index) => {
-        expect(labels[index].getAttribute('for')).toBe(radio.getAttribute('id'));
+        expect(labels[index]!.getAttribute('for')).toBe(radio.getAttribute('id'));
       });
     });
   });
@@ -264,7 +264,7 @@ describe('RadioGroup', () => {
     });
 
     it('handles single item', () => {
-      render(<RadioGroup {...defaultProps} items={[colorChipItems[0]]} />);
+      render(<RadioGroup {...defaultProps} items={[colorChipItems[0]!]} />);
       expect(screen.getAllByRole('radio').length).toBe(1);
     });
 

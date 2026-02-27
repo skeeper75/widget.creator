@@ -50,7 +50,7 @@ async function createAuthenticatedRequest(
   if (options.body) {
     init.body = JSON.stringify(options.body);
   }
-  return new NextRequest(new URL(url), init);
+  return new NextRequest(new URL(url), { ...init, signal: undefined });
 }
 
 function routeCtx(params: Record<string, string> = {}) {
@@ -274,7 +274,7 @@ describe('POST /api/v1/pricing/quote', () => {
     // Import PricingError from the mocked module
     const { PricingError } = await import('@widget-creator/core');
     mockCalculatePrice.mockImplementation(() => {
-      throw new PricingError('TIER_NOT_FOUND', 'No price tier found for quantity 1000');
+      throw new PricingError('TIER_NOT_FOUND', { message: 'No price tier found for quantity 1000' });
     });
 
     const { POST } = await import('../../app/api/v1/pricing/quote/route.js');
@@ -296,7 +296,7 @@ describe('POST /api/v1/pricing/quote', () => {
 
     const { ConstraintError } = await import('@widget-creator/core');
     mockCalculatePrice.mockImplementation(() => {
-      throw new ConstraintError('INCOMPATIBLE_OPTIONS', 'Lamination not available with this paper');
+      throw new ConstraintError('INCOMPATIBLE_OPTIONS', { message: 'Lamination not available with this paper' });
     });
 
     const { POST } = await import('../../app/api/v1/pricing/quote/route.js');

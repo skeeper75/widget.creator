@@ -46,8 +46,36 @@
 - Router naming: camelCase (e.g., `trpc.paperProductMappings.getMatrix`, `trpc.optionChoiceMesMappings.listKanban`)
 - drizzle-zod peer warning: zod 3.24 vs drizzle-zod wanting 3.25+ - works fine at runtime
 
+## Widget DB Schema (packages/db)
+- Widget Builder schemas in `packages/db/src/schema/widget/` (NOT in packages/shared)
+- Export from `@widget-creator/db` package
+- Admin app needs `@widget-creator/db` added to both package.json AND tsconfig.json paths
+- When admin tRPC routers need wb_* tables: cast `ctx.db as unknown as PostgresJsDatabase<any>`
+
+## SPEC-WB-006 Implementation Notes (Widget Runtime API)
+- Widget API routes: `apps/web/app/api/widget/quote/`, `products/[productKey]/init/`, `orders/`, `orders/[orderCode]/`
+- All widget routes are PUBLIC (no `withWidgetAuth()`) - tests verify no 401/403
+- DB call sequence must match test mock exactly - tests use call-counter based mocks
+- Promise.all pattern requires `.limit(1).then((rows) => rows[0])` NOT just `.limit(1)`
+- Fire-and-forget: use `void Promise.resolve(fn()).catch(...)` - `vi.restoreAllMocks()` clears vi.fn() impl to return undefined, then `.catch()` on undefined throws
+- vitest.config.ts already has `WIDGET_TOKEN_SECRET` in env section (added by tester agent)
+- MES client at `apps/web/app/api/_lib/services/mes-client.ts`
+- Widget DB schema at `packages/db/src/schema/widget/06-orders.ts` (wbOrders + wbQuoteLogs)
+- constraintRules format for init: json-rules-engine `{ name, conditions: { all }, event, priority }`
+
+## SPEC-WB-005 Implementation Notes
+- Simulation pure logic in `packages/core/src/simulation/` (no DB access needed)
+- `checkCompleteness(CompletenessInput)` - flat fields, returns CompletenessResult
+- `checkProductCompleteness(CompletenessCheckInput)` - richer/flexible input
+- `validatePublishReadiness(input)` - throws PublishError if not publishable (pure)
+- `generateCombinations(optionTypes)` - cartesian product for simulation
+- `runSimulation(input, options?)` - async, returns SimulationResult or TooLargeResult (10K threshold)
+- tRPC router: `apps/admin/src/lib/trpc/routers/widget-admin.ts` with `widgetAdmin` in index.ts
+- DB schemas: `packages/db/src/schema/widget/05-simulation-runs.ts` and `05-publish-history.ts`
+
 ## Team Rules
 - Test files exclusively owned by tester agent - never create test files
 - Route/schema files for catalog/pricing owned by backend-dev
 - Coordinate API contracts with frontend/tester via SendMessage
 - Wait for infra-layer (TASK-001) before implementing routes that depend on middleware
+- TDD: implement to match test expectations - read test files before implementing

@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { rateLimitExceeded } from './error-handler.js';
-import type { MiddlewareFn } from './with-middleware.js';
+import type { MiddlewareFn, MiddlewareContext } from './with-middleware.js';
 
 export type RateLimitType = 'widget-token' | 'api-key' | 'admin' | 'anonymous';
 
@@ -49,19 +49,19 @@ function getClientIp(req: NextRequest): string {
   );
 }
 
-function getRateLimitKey(req: NextRequest, type: RateLimitType, ctx: Record<string, unknown>): string {
+function getRateLimitKey(req: NextRequest, type: RateLimitType, ctx: MiddlewareContext): string {
   const ip = getClientIp(req);
   switch (type) {
     case 'widget-token': {
-      const widgetId = (ctx.widgetToken as { sub?: string })?.sub || 'unknown';
+      const widgetId = ctx.widgetToken?.sub || 'unknown';
       return `wt:${widgetId}:${ip}`;
     }
     case 'api-key': {
-      const clientId = (ctx.apiKey as { clientId?: string })?.clientId || 'unknown';
+      const clientId = ctx.apiKey?.clientId || 'unknown';
       return `ak:${clientId}`;
     }
     case 'admin': {
-      const userId = (ctx.session as { user?: { id?: string } })?.user?.id || 'unknown';
+      const userId = ctx.session?.user?.id || 'unknown';
       return `jwt:${userId}`;
     }
     case 'anonymous':

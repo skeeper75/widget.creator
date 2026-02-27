@@ -9,6 +9,7 @@ import type {
   OptionDefinition,
   OptionTree,
   ConstraintViolation,
+  Selections,
 } from '../types';
 
 /**
@@ -46,6 +47,8 @@ export class OptionEngine {
   // @MX:ANCHOR: [AUTO] Core constraint resolver - called by state layer, screen components, and option change handlers
   // @MX:REASON: Public API boundary with fan_in >= 3; all option selection changes flow through this method
   // @MX:SPEC: SPEC-WIDGET-SDK-001 Section 4.9 (Option Engine)
+  // @MX:WARN: [AUTO] resolve() has >= 8 conditional branches across dependency and constraint loops; filterOptionChoices and isChoiceSelected are stubs returning pass-through values
+  // @MX:REASON: Incomplete dependency resolution (filter/reset branches are no-ops) means constraint violations may silently pass through for complex dependency chains
   /**
    * Resolve available options given current selections
    */
@@ -120,7 +123,7 @@ export class OptionEngine {
                 message: `${targetOption.label}의 값이 ${constraint.targetValue}이어야 합니다.`,
                 ruleId: constraint.id,
                 currentValue: targetValue,
-                expectedConstraint: constraint.targetValue,
+                expectedConstraint: constraint.targetValue ?? '',
               });
             }
             break;
@@ -216,7 +219,7 @@ export class OptionEngine {
   /**
    * Filter option choices based on parent value
    */
-  private filterOptionChoices(option: OptionDefinition, parentValue: string | null): OptionDefinition {
+  private filterOptionChoices(option: OptionDefinition, _parentValue: string | null): OptionDefinition {
     // In a full implementation, this would filter choices based on dependencies
     // For now, return the option as-is
     return option;

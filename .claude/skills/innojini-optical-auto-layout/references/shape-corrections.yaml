@@ -1,0 +1,193 @@
+# Optical Shape Corrections Database
+# 시각적 보정 계수 정의
+# 
+# size_multiplier: 기준(square=1.0) 대비 크기 보정 비율
+# offset_x: 수평 위치 오프셋 (양수=우측, 비율)
+# offset_y: 수직 위치 오프셋 (양수=하단, 비율)
+
+# =============================================================================
+# 기본 기하학적 형태
+# =============================================================================
+
+shapes:
+  # 사각형 (기준)
+  square:
+    size_multiplier: 1.00
+    offset_x: 0.00
+    offset_y: 0.00
+    description: "기준 형태. 보정 없음."
+    
+  # 원형 - 면적이 사각형의 78.5% (π/4)
+  circle:
+    size_multiplier: 1.13    # ≈ 1 / √(π/4)
+    offset_x: 0.00
+    offset_y: 0.00
+    description: "면적 보정. 동일 크기로 보이려면 13% 확대 필요."
+    
+  # 삼각형 - 우측 방향 (재생 버튼 ▶)
+  triangle_right:
+    size_multiplier: 1.27
+    offset_x: 0.08           # 무게중심이 좌측에 있으므로 우측으로 이동
+    offset_y: 0.00
+    description: "면적 보정 + 무게중심 오프셋."
+    
+  # 삼각형 - 좌측 방향 (◀)
+  triangle_left:
+    size_multiplier: 1.27
+    offset_x: -0.08          # 무게중심이 우측에 있으므로 좌측으로 이동
+    offset_y: 0.00
+    description: "면적 보정 + 무게중심 오프셋."
+    
+  # 삼각형 - 상향 (▲)
+  triangle_up:
+    size_multiplier: 1.27
+    offset_x: 0.00
+    offset_y: -0.05          # 무게중심이 하단에 있으므로 상단으로 이동
+    description: "면적 보정 + 무게중심 오프셋."
+    
+  # 삼각형 - 하향 (▼)
+  triangle_down:
+    size_multiplier: 1.27
+    offset_x: 0.00
+    offset_y: 0.05           # 무게중심이 상단에 있으므로 하단으로 이동
+    description: "면적 보정 + 무게중심 오프셋."
+    
+  # 마름모 (◆)
+  diamond:
+    size_multiplier: 1.15
+    offset_x: 0.00
+    offset_y: 0.00
+    description: "45도 회전 사각형. 대각선 길이 기준 보정."
+    
+  # 별 (★)
+  star:
+    size_multiplier: 1.20
+    offset_x: 0.00
+    offset_y: 0.00
+    description: "돌출 꼭지점으로 인한 면적 손실 보정."
+    
+  # 육각형 (⬡)
+  hexagon:
+    size_multiplier: 1.08
+    offset_x: 0.00
+    offset_y: 0.00
+    description: "원과 사각형 사이의 면적 보정."
+    
+  # 하트 (♥)
+  heart:
+    size_multiplier: 1.18
+    offset_x: 0.00
+    offset_y: 0.03           # 상단이 넓어 하단으로 약간 이동
+    description: "비대칭 형태. 하단 꼭지점 무게중심 보정."
+
+# =============================================================================
+# 복합 아이콘 형태
+# =============================================================================
+
+compound_icons:
+  # 재생 버튼 (원 안의 삼각형)
+  play_button:
+    container_shape: circle
+    inner_shape: triangle_right
+    inner_offset_x: 0.05     # 컨테이너 대비 추가 오프셋
+    inner_offset_y: 0.00
+    description: "원형 컨테이너 내 삼각형. 추가 우측 오프셋."
+    
+  # 일시정지 버튼
+  pause_button:
+    container_shape: circle
+    inner_shape: rectangle
+    inner_offset_x: 0.00
+    inner_offset_y: 0.00
+    description: "원형 컨테이너 내 두 막대."
+    
+  # 정지 버튼
+  stop_button:
+    container_shape: circle
+    inner_shape: square
+    inner_offset_x: 0.00
+    inner_offset_y: 0.00
+    description: "원형 컨테이너 내 사각형."
+    
+  # 홈 아이콘
+  home:
+    size_multiplier: 1.05
+    offset_x: 0.00
+    offset_y: -0.02          # 지붕 꼭지점으로 인해 약간 위로
+    description: "상단 뾰족한 형태."
+    
+  # 설정 톱니바퀴
+  settings_gear:
+    size_multiplier: 1.10
+    offset_x: 0.00
+    offset_y: 0.00
+    description: "돌출 톱니로 인한 면적 손실 보정."
+    
+  # 검색 돋보기
+  search_magnifier:
+    size_multiplier: 1.05
+    offset_x: 0.02           # 손잡이 방향으로 약간 이동
+    offset_y: 0.02
+    description: "비대칭 손잡이 보정."
+
+# =============================================================================
+# 타이포그래피 보정
+# =============================================================================
+
+typography:
+  # 둥근 문자 (baseline overshoot)
+  round_chars:
+    chars: ["O", "Q", "C", "G", "o", "c", "e", "0"]
+    overshoot_ratio: 0.03    # 폰트 크기의 3%
+    description: "둥근 문자는 baseline 아래로 약간 내려야 같은 높이로 보임."
+    
+  # 뾰족한 문자
+  pointed_chars:
+    chars: ["A", "V", "W", "v", "w"]
+    overshoot_ratio: 0.045   # 폰트 크기의 4.5%
+    description: "뾰족한 문자는 더 큰 overshoot 필요."
+    
+  # 커닝 페어
+  kerning_pairs:
+    AV: -0.08
+    AW: -0.06
+    AT: -0.06
+    AY: -0.07
+    FA: -0.05
+    LT: -0.06
+    LV: -0.06
+    LW: -0.05
+    LY: -0.06
+    PA: -0.05
+    TA: -0.06
+    TO: -0.04
+    Ty: -0.04
+    VA: -0.08
+    Vo: -0.04
+    WA: -0.06
+    Ya: -0.05
+    Yo: -0.05
+    description: "열린 공간이 있는 문자 쌍. 음수 = 더 좁게."
+
+# =============================================================================
+# 수학적 배경
+# =============================================================================
+
+math_background:
+  circle_area_ratio: 0.785398  # π/4 ≈ 0.785 (정사각형 내접원 면적 비율)
+  triangle_area_ratio: 0.433   # √3/4 ≈ 0.433 (정삼각형 면적 / 외접원 면적)
+  
+  # 시각적 중심 알고리즘
+  visual_center_algorithms:
+    - name: "Polylabel"
+      description: "다각형 내 최대 내접원의 중심점"
+      source: "Mapbox"
+      url: "https://github.com/mapbox/polylabel"
+      
+    - name: "Centroid"
+      description: "기하학적 무게중심"
+      formula: "Σ(x_i) / n, Σ(y_i) / n"
+      
+    - name: "Bounding Box Center"
+      description: "경계 상자 중심"
+      formula: "(min_x + max_x) / 2, (min_y + max_y) / 2"

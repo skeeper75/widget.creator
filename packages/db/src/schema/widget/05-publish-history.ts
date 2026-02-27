@@ -20,7 +20,8 @@ export const publishHistory = pgTable(
     id: serial('id').primaryKey(),
     productId: integer('product_id')
       .notNull()
-      .references(() => wbProducts.id),
+      .references(() => wbProducts.id)
+      ,
     // action: 'publish' | 'unpublish'
     action: varchar('action', { length: 20 }).notNull(),
     // completeness: snapshot of completeness state at time of action

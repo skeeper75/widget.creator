@@ -1,19 +1,54 @@
 {
-  "version": "7",
+  "version": "6",
   "dialect": "postgresql",
   "entries": [
     {
       "idx": 0,
-      "version": "7",
-      "when": 1771779247045,
-      "tag": "0000_silky_sentry",
-      "breakpoints": true
+      "version": "0",
+      "when": 1709100000000,
+      "tag": "0000_initial",
+      "meta": {
+        "table": "orders",
+        "columns": []
+      }
     },
     {
       "idx": 1,
+      "version": "1",
+      "when": 1709186400000,
+      "tag": "0001_drop_wowpress",
+      "meta": {
+        "table": "wowpress_products",
+        "columns": []
+      }
+    },
+    {
+      "idx": 2,
+      "version": "2",
+      "when": 1709272800000,
+      "tag": "0002_create_missing_huni",
+      "meta": {
+        "table": "huni_materials",
+        "columns": []
+      }
+    },
+    {
+      "idx": 3,
+      "version": "3",
+      "when": 1740560400000,
+      "tag": "0003_add_korean_comments",
+      "meta": {
+        "table": "all_tables",
+        "columns": [
+          "한글 설명 추가"
+        ]
+      }
+    },
+    {
+      "idx": 4,
       "version": "7",
-      "when": 1771845815880,
-      "tag": "0001_plain_cardiac",
+      "when": 1772183619556,
+      "tag": "0004_slow_wolfsbane",
       "breakpoints": true
     }
   ]

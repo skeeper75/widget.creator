@@ -22,7 +22,8 @@ export const printCostBase = pgTable(
 
     productId: integer('product_id')
       .notNull()
-      .references(() => wbProducts.id),
+      .references(() => wbProducts.id)
+      ,
 
     // Size code e.g. '90x50', '100x148'
     plateType: varchar('plate_type', { length: 50 }).notNull(),

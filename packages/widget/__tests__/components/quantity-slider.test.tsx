@@ -15,7 +15,7 @@ describe('QuantitySlider', () => {
   const defaultTiers: QuantityTier[] = [
     { minQty: 100, maxQty: 499, unitPrice: 100 },
     { minQty: 500, maxQty: 999, unitPrice: 80 },
-    { minQty: 1000, maxQty: null, unitPrice: 60 },
+    { minQty: 1000, maxQty: 9999, unitPrice: 60 },
   ];
 
   const defaultProps: QuantitySliderProps = {
@@ -46,9 +46,11 @@ describe('QuantitySlider', () => {
 
     it('renders tier labels', () => {
       render(<QuantitySlider {...defaultProps} />);
+      // Component uses "min~max개" format when maxQty is truthy (including 9999)
       expect(screen.getByText('100~499개')).toBeInTheDocument();
       expect(screen.getByText('500~999개')).toBeInTheDocument();
-      expect(screen.getByText('1000개 이상')).toBeInTheDocument();
+      // Third tier has maxQty: 9999, so it renders as range, not "이상"
+      expect(screen.getByText('1000~9999개')).toBeInTheDocument();
     });
 
     it('renders price overlay', () => {
@@ -73,9 +75,10 @@ describe('QuantitySlider', () => {
       expect(screen.getByText('100~200개')).toBeInTheDocument();
     });
 
-    it('generates correct label for tiers without max', () => {
+    it('generates correct label for tiers without max (maxQty = 0)', () => {
+      // To render "X개 이상", maxQty must be 0 (falsy)
       const tiers: QuantityTier[] = [
-        { minQty: 500, maxQty: null, unitPrice: 80 },
+        { minQty: 500, maxQty: 0, unitPrice: 80 },
       ];
       render(<QuantitySlider {...defaultProps} tiers={tiers} />);
       expect(screen.getByText('500개 이상')).toBeInTheDocument();
@@ -119,11 +122,13 @@ describe('QuantitySlider', () => {
   describe('edge cases', () => {
     it('handles single tier', () => {
       const singleTier: QuantityTier[] = [
-        { minQty: 100, maxQty: null, unitPrice: 100 },
+        { minQty: 100, maxQty: 9999, unitPrice: 100 },
       ];
       render(<QuantitySlider {...defaultProps} tiers={singleTier} value={100} />);
 
-      expect(screen.getByText('100개 이상')).toBeInTheDocument();
+      // Component renders "min~max개" format for range display
+      // Use more specific matcher to avoid matching multiple elements
+      expect(screen.getByText('100~9999개')).toBeInTheDocument();
     });
 
     it('handles many tiers', () => {
@@ -140,7 +145,7 @@ describe('QuantitySlider', () => {
 
     it('handles high unit prices', () => {
       const expensiveTiers: QuantityTier[] = [
-        { minQty: 100, maxQty: null, unitPrice: 1000000 },
+        { minQty: 100, maxQty: 9999, unitPrice: 1000000 },
       ];
       render(<QuantitySlider {...defaultProps} tiers={expensiveTiers} />);
       expect(screen.getByText('1,000,000원')).toBeInTheDocument();

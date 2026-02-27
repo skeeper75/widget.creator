@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "node",
-    include: ["packages/*/src/**/*.test.ts", "prisma/__tests__/**/*.test.ts"],
+    include: ["packages/*/src/**/*.test.ts", "prisma/__tests__/**/*.test.ts", "scripts/**/__tests__/**/*.test.ts"],
     coverage: {
       provider: "v8",
       include: ["packages/*/src/**/*.ts"],

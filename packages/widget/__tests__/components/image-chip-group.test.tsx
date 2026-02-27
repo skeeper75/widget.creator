@@ -141,7 +141,7 @@ describe('ImageChipGroup', () => {
     });
 
     it('handles single choice', () => {
-      render(<ImageChipGroup {...defaultProps} choices={[defaultChoices[0]]} />);
+      render(<ImageChipGroup {...defaultProps} choices={[defaultChoices[0]!]} />);
       expect(screen.getAllByRole('radio').length).toBe(1);
     });
 

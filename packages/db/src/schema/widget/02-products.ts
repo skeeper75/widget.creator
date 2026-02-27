@@ -45,7 +45,8 @@ export const wbProducts = pgTable(
     productNameEn: varchar('product_name_en', { length: 200 }),
     categoryId: integer('category_id')
       .notNull()
-      .references(() => productCategories.id),
+      .references(() => productCategories.id)
+      ,
     subcategory: varchar('subcategory', { length: 100 }),
     productType: varchar('product_type', { length: 50 }),
     isPremium: boolean('is_premium').notNull().default(false),

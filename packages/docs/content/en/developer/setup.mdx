@@ -1,0 +1,263 @@
+# Development Setup
+
+Guide for new developers to reach first successful build from zero.
+
+## System Requirements
+
+<div className="warning-block">
+
+**Before starting the development environment setup, ensure you have:**
+
+| Tool | Minimum Version | Purpose |
+|------|----------------|---------|
+| Node.js | 20+ (LTS recommended) | Runtime |
+| pnpm | 10.17+ | Package management |
+| PostgreSQL | 14+ | Database |
+| Redis | 7+ | Cache |
+| Git | 2.x+ | Source control |
+| OS | macOS, Linux, Windows (WSL2 recommended) | Dev environment |
+
+</div>
+
+---
+
+## 1. Clone Repository and Install Dependencies
+
+### Clone Repository
+
+```bash
+# Clone project
+git clone https://github.com/your-org/huni.builder.git
+cd huni.builder
+```
+
+### Install and Enable pnpm
+
+<div className="tip-block">
+
+**Install pnpm with corepack (recommended)**
+
+```bash
+# Enable corepack
+corepack enable
+
+# Install latest pnpm
+corepack prepare pnpm@latest --activate
+
+# Verify version
+pnpm --version
+```
+
+</div>
+
+### Install Dependencies
+
+```bash
+# Install entire workspace
+pnpm install
+```
+
+---
+
+## 2. Database Setup
+
+### Run PostgreSQL with Docker Compose
+
+<div className="info-block">
+
+**Run PostgreSQL 14 with Docker Compose**
+
+```bash
+# Start PostgreSQL and Redis with Docker Compose
+docker-compose up -d postgres redis
+
+# Check container status
+docker-compose ps
+```
+
+</div>
+
+<div className="warning-block">
+
+**Resolve Port Conflicts**
+
+If PostgreSQL default port 5432 is already in use:
+
+```bash
+# Change port in docker-compose.yml
+services:
+  postgres:
+    ports:
+      - "5433:5432"  # Change to 5433
+```
+
+</div>
+
+### Schema Migration
+
+```bash
+# Create database schema
+pnpm -F @huni/db db:push
+
+# Load seed data
+pnpm -F @huni/db db:seed
+```
+
+### Verify Data with Drizzle Studio
+
+```bash
+# Run Drizzle Studio
+pnpm -F @huni/db db:studio
+
+# Access http://localhost:4983 in browser
+```
+
+---
+
+## 3. Environment Variables
+
+### Create .env File
+
+```bash
+# Copy .env.example file
+cp .env.example .env
+```
+
+### Required Environment Variables
+
+```env
+# Database
+DATABASE_URL=postgresql://postgres:password@localhost:5432/huni_builder
+
+# Redis
+REDIS_URL=redis://localhost:6379
+
+# API
+API_PORT=4000
+CORS_ORIGIN=http://localhost:3000
+
+# Shopby (optional)
+SHOPBY_API_URL=https://api.shopby.com
+SHOPBY_API_KEY=your-shopby-api-key
+
+# Edicus (optional)
+EDICUS_API_URL=https://api.edicus.com
+EDICUS_API_KEY=your-edicus-api-key
+```
+
+---
+
+## 4. First Build Verification
+
+### TypeScript Type Check
+
+```bash
+# Type check entire project
+pnpm type-check
+```
+
+<div className="tip-block">
+
+**Success Result:**
+
+```
+✓ All TypeScript files compiled successfully
+0 errors found
+```
+
+</div>
+
+### Run All Tests
+
+```bash
+# Run all tests
+pnpm test
+```
+
+<div className="success-block">
+
+**Success Result:**
+
+```
+Test Files  30 passed (30)
+     Tests  1214 passed (1214)
+  Start at  14:23:45
+  Duration  2.34s
+```
+
+</div>
+
+---
+
+## 5. Start Development Servers
+
+### Widget Core Dev Server
+
+```bash
+# Start widget dev server
+pnpm -F @huni/widget-core dev
+
+# Access http://localhost:5173
+```
+
+### API Server Development
+
+```bash
+# Start API server
+pnpm -F @huni/api-server dev
+
+# Access http://localhost:4000
+```
+
+### Admin Dashboard
+
+```bash
+# Start admin dashboard
+pnpm -F @huni/widget-admin dev
+
+# Access http://localhost:3000
+```
+
+---
+
+## 6. Recommended Development Tools
+
+### VS Code Extensions
+
+<div className="info-block">
+
+**Recommended Extensions:**
+
+- **ESLint**: Code linting
+- **Prettier**: Code formatter
+- **TypeScript Importer**: Auto import
+- **Drizzle ORM**: SQL preview
+
+</div>
+
+### Optional Tools
+
+- **Postman** or **Insomnia**: API testing
+- **TablePlus** or **DBeaver**: Database client
+- **Charles** or **Fiddler**: HTTP proxy
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+| Issue | Solution |
+|-------|----------|
+| `pnpm: command not found` | Run `corepack enable` |
+| `EADDRINUSE: address already in use` | Use different port or kill process |
+| `database connection failed` | Check if PostgreSQL is running |
+| `module not found` | Re-run `pnpm install` |
+
+---
+
+## Next Steps
+
+- [Monorepo Structure](./monorepo) - Understand 7 package dependencies
+- [Testing Strategy](./testing) - Learn Hybrid DDD/TDD methodology
+- [Contributing Guide](./contributing) - SPEC-based development workflow

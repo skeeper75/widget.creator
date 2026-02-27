@@ -4,7 +4,7 @@
  * @see SPEC-WIDGET-SDK-001 Section 4.4.4
  */
 
-import { h, FunctionalComponent } from 'preact';
+import { FunctionalComponent } from 'preact';
 import { RadioGroup, type RadioGroupItem } from '../primitives';
 
 export interface ColorChipChoice {

@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Explicit source scanning for monorepo structure — Tailwind v4 auto-detection doesn't traverse workspace packages */
+@source "../**/*.{tsx,ts,jsx,js}";
+@source "../../**/*.{tsx,ts}";
+
+/* @MX:ANCHOR: [AUTO] Root CSS custom properties - light theme design tokens for SPEC-WA-001 admin UI */
+/* @MX:REASON: All 20+ admin components consume these variables; changing any value propagates across entire design system */
+/* @MX:SPEC: SPEC-WA-001 SPEC-WB-DS */
 :root {
   /* --- Primary scale (Pencil MCP: Color Palette frame FM2Gq) --- */
   --primary-dark:            #351D87;
@@ -12,6 +19,7 @@
   --primary-25:              #F4F0FF;
   --primary-foreground:      #FFFFFF;
 
+  /* @MX:NOTE: [AUTO] Violet primary palette sourced from Pencil MCP Color Palette frame FM2Gq - do not adjust without Figma sync */
   /* --- Semantic colors --- */
   --warning:                 #E6B93F;
   --warning-foreground:      #424242;
@@ -22,6 +30,7 @@
   --brand-accent:            #DF7939;
   --brand-accent-foreground: #FFFFFF;
 
+  /* @MX:NOTE: [AUTO] Grayscale palette - 6-step scale matching Pencil MCP design specification; --gray-700 (#424242) is default foreground */
   /* --- Gray scale --- */
   --gray-50:   #F6F6F6;
   --gray-100:  #E9E9E9;
@@ -71,6 +80,9 @@
   --sidebar-border:                 #CACACA;
 }
 
+/* @MX:ANCHOR: [AUTO] Tailwind v4 theme mapping - bridges CSS custom properties to Tailwind utility classes */
+/* @MX:REASON: Every bg-*, text-*, border-* utility in admin UI resolves through this block; structural changes break all component styling */
+/* @MX:SPEC: SPEC-WA-001 SPEC-WB-DS */
 @theme inline {
   /* Primary scale */
   --color-primary:            var(--primary);
@@ -120,6 +132,7 @@
   --color-accent:                 var(--accent);
   --color-accent-foreground:      var(--accent-foreground);
 
+  /* @MX:NOTE: [AUTO] Sidebar color tokens - sidebar uses #FAFAFA background (slightly off-white) distinct from --background #FFFFFF */
   /* Sidebar */
   --color-sidebar-background:             var(--sidebar-background);
   --color-sidebar-foreground:             var(--sidebar-foreground);

@@ -1,0 +1,240 @@
+# Roadmap & Future Vision
+
+Project current state, phased development direction, and Node-based product design editor vision.
+
+## Current State
+
+### Completed Core Systems
+
+<div className="success-block">
+
+**Completed Items:**
+
+- **Widget Core**: React 19 + Shadow DOM embeddable widget (48.71KB gzipped)
+- **Admin Dashboard**: Product/option/constraint/price management
+- **Pricing Engine**: 8 calculators, 93.7% coverage, 402 tests
+- **Shopby Integration**: CustomEvent protocol, 95.67% coverage
+- **MES Integration**: .NET 8 BackOffice API integration
+- **Edicus Integration**: Online design editor SDK v2 integration
+- **Excel ETL**: Product master/price table parsing pipeline
+- **DB Schema**: 40+ tables, Drizzle ORM
+- **API Server**: NestJS 11, 89 endpoints
+
+</div>
+
+### Metrics Summary
+
+| Item | Count |
+|------|-------|
+| Completed SPECs | 30 (100% complete) |
+| Tests | 1,214+ tests, 93.7% coverage |
+| Packages | 7 packages |
+| NestJS Modules | 24 modules |
+| API Endpoints | 89 endpoints |
+
+### Sprint History
+
+```mermaid
+timeline
+    title huni.builder Sprint Timeline
+    2025-01 : Sprint 1 : Core Foundation (3 SPECs)
+    2025-02 : Sprint 2 : Shopby Integration (4 SPECs)
+    2025-02 : Sprint 3 : Shopby API & Skin (2 SPECs)
+    2025-03 : Sprint 4 : Database Schema (4 SPECs)
+    2025-04 : Sprint 5 : NestJS Migration (3 SPECs)
+    2025-05 : Sprint 6 : Edicus Integration (1 SPEC)
+    2025-06 : Sprint 7 : MES Integration (3 SPECs)
+    2025-07 : Sprint 8 : Excel ETL (4 SPECs)
+    2025-08 : Sprint 9 : Data Integration (2 SPECs)
+    2025-09 : Sprint 10: Quality & Performance (2 SPECs)
+```
+
+---
+
+## Phase 1: Platform Stabilization
+
+### Goal
+
+Build environment to operate completed systems stably
+
+### Key Tasks
+
+| Task | Description |
+|------|-------------|
+| **Complete API** | Widget API + External integration API enhancement |
+| **Order Lifecycle Automation** | Quote → Order → Production → Delivery pipeline |
+| **CS Integration** | Customer inquiries and file management system |
+| **Multi-channel Product Sync** | Shopby + Own store + Third-party channels |
+| **Operations Monitoring Dashboard** | Real-time monitoring and alerts |
+
+---
+
+## Phase 2: Node-based Product Design Editor
+
+### Vision
+
+> "The widget builder is difficult to express in UI/UX because diverse printing domain knowledge is combined and connected in complex ways. The goal is to evolve into a form where meaning is attached together in network topology or like N8N, BPS, and to design products together with AI."
+
+### N8N/BPS Style Visual Node Editor
+
+```mermaid
+flowchart TB
+    subgraph NodeEditor ["Visual Node Editor"]
+        PN[Product Node] --> ON[Option Nodes]
+        ON --> CN[Constraint Nodes]
+        CN --> PPN[Pricing Nodes]
+        PPN --> CHN[Channel Nodes]
+    end
+
+    subgraph Current ["Current System"]
+        CE[ConstraintEditor]
+        PE[PricingRuleEditor]
+    end
+
+    Current -->|"Extend"| NodeEditor
+
+    style NodeEditor fill:#4caf50,stroke:#2e7d32,color:#fff
+    style Current fill:#ff9800,stroke:#f57c00,color:#fff
+```
+
+### Domain Node Types
+
+| Node Type | Description | Examples |
+|-----------|-------------|----------|
+| **OptionNode** | Individual options like paper, size, color mode | A4 paper, Double side 4-color |
+| **ConstraintNode** | Constraint rules between options | "A4 paper only allows double side" |
+| **PricingNode** | Price calculation rules | Quantity tier unit price |
+| **ProductNode** | Product definition | Postcard product |
+| **ChannelNode** | Sales channel mapping | Shopby, Own store |
+
+### Connection with Current System
+
+| Current System | Future System |
+|----------------|--------------|
+| ConstraintEditor | ConstraintNodeEditor |
+| PricingRuleEditor | PricingNodeEditor |
+| Decision table UI | Node graph UI |
+
+### Expected Benefits
+
+<div className="info-block">
+
+**Solve UI/UX Expression Problem for Complex Printing Domain Knowledge**
+
+- Improved visual understanding
+- Non-experts can design products
+- Connection with AI-based recommendations
+
+</div>
+
+---
+
+## Phase 3: AI Integration
+
+### AI Learning Data Accumulation
+
+```mermaid
+flowchart LR
+    A[Customer Orders] --> B[Data Collection]
+    C[CS Records] --> B
+    B --> D[Data Structuring]
+    D --> E[AI Training]
+
+    style E fill:#9c27b0,stroke:#6a1b9a,color:#fff
+```
+
+### AI-based Product Planning Proposals
+
+| Area | Description |
+|------|-------------|
+| **Product Sales Pattern Analysis** | Popular option combination recommendations |
+| **Customer Feedback & Reorder Patterns** | Improvement direction suggestions |
+| **Price Strategy Simulation** | Competitiveness analysis and margin optimization |
+
+### Automatic Manual/Guide Generation
+
+<div className="tip-block">
+
+**AI Automatically Generates Manuals by Analyzing Product Characteristics**
+
+- Auto-generate customer printing guides
+- Auto-generate and update FAQs
+- Create production process guides
+
+</div>
+
+### AI + Node Editor Integration
+
+```mermaid
+flowchart TB
+    AI[AI Recommendation Engine] --> NE[Node Editor]
+    NE --> PR[Product Design]
+    PR --> AI
+
+    style AI fill:#9c27b0,stroke:#6a1b9a,color:#fff
+    style NE fill:#4caf50,stroke:#2e7d32,color:#fff
+```
+
+> "Collaborative workflow of designing products together with AI"
+
+---
+
+## Phase 4: Platform Enhancement
+
+### Multi-channel Widget Distribution Automation
+
+| Feature | Description |
+|---------|-------------|
+| **One-click Deploy** | Copy widget code and use immediately |
+| **Auto Update** | Automatic widget updates |
+| **A/B Testing** | Widget variant testing |
+
+### Partner Ecosystem
+
+- **API Marketplace**: Provide API for developers
+- **Widget Templates**: Industry-specific widget templates
+- **Plugin System**: Extension feature ecosystem
+
+### Global Expansion
+
+| Item | Description |
+|------|-------------|
+| **Multi-language** | English, Japanese, Chinese support |
+| **Multi-currency** | USD, EUR, JPY support |
+| **Localization** | Regional printing standards support |
+
+### SaaS Transition
+
+```mermaid
+flowchart LR
+    A[Single Tenant] --> B[Multi Tenant]
+    B --> C[Queue Isolation]
+    C --> D[Scaling]
+
+    style D fill:#4caf50,stroke:#2e7d32,color:#fff
+```
+
+---
+
+## Technical Roadmap
+
+```mermaid
+gantt
+    title huni.builder Roadmap
+    dateFormat  YYYY-MM
+    section Phase 1
+    Platform Stabilization       :2025-10, 2025-12
+    section Phase 2
+    Node Editor Development    :2026-01, 2026-06
+    section Phase 3
+    AI Integration            :2026-04, 2026-12
+    section Phase 4
+    Platform Enhancement      :2026-10, 2027-06
+```
+
+---
+
+## Next Steps
+
+- [Contributing Guide](./contributing) - How to contribute to the project
+- [API Reference](../api-reference) - REST API usage

@@ -15,6 +15,9 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
 
+    /* Types */
+    "types": ["vitest/globals"],
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

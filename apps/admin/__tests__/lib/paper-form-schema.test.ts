@@ -20,8 +20,8 @@ const paperFormSchema = z.object({
   abbreviation: z.string().max(20).nullable().optional(),
   weight: z.number().int().positive().nullable().optional(),
   sheetSize: z.string().max(50).nullable().optional(),
-  costPerRear: z.string().nullable().optional(),
-  sellingPerRear: z.string().nullable().optional(),
+  costPerReam: z.string().nullable().optional(),
+  sellingPerReam: z.string().nullable().optional(),
   costPer4Cut: z.string().nullable().optional(),
   sellingPer4Cut: z.string().nullable().optional(),
   displayOrder: z.number().int().min(0).default(0),
@@ -35,8 +35,8 @@ describe('paperFormSchema', () => {
     abbreviation: 'SC200',
     weight: 200,
     sheetSize: 'A3',
-    costPerRear: '1000',
-    sellingPerRear: '1500',
+    costPerReam: '1000',
+    sellingPerReam: '1500',
     costPer4Cut: '250',
     sellingPer4Cut: '375',
     displayOrder: 1,
@@ -194,8 +194,8 @@ describe('paperFormSchema', () => {
     it('accepts null price fields', () => {
       const result = paperFormSchema.safeParse({
         ...validPaper,
-        costPerRear: null,
-        sellingPerRear: null,
+        costPerReam: null,
+        sellingPerReam: null,
         costPer4Cut: null,
         sellingPer4Cut: null,
       });
@@ -205,8 +205,8 @@ describe('paperFormSchema', () => {
     it('accepts string price values', () => {
       const result = paperFormSchema.safeParse({
         ...validPaper,
-        costPerRear: '1500.50',
-        sellingPerRear: '2000',
+        costPerReam: '1500.50',
+        sellingPerReam: '2000',
       });
       expect(result.success).toBe(true);
     });

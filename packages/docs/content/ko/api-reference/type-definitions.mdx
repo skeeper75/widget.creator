@@ -1,0 +1,263 @@
+---
+title: Type Definitions
+description: "@huni/shared-types TypeScript 타입 정의"
+---
+
+# Type Definitions
+
+`@huni/shared-types` 패키지에서 제공하는 TypeScript 타입과 Zod 스키마입니다.
+
+## 개요
+
+| 항목 | 값 |
+|------|-----|
+| 패키지 | `@huni/shared-types` |
+| 검증 | Zod |
+| 스키마 파일 | 4개 |
+| Enum 파일 | 5개 |
+
+## Zod 스키마
+
+### api-responses.ts
+
+API 표준 응답 형식입니다.
+
+```typescript
+import { z } from 'zod'
+
+export const ApiResponseSchema = <T extends z.ZodType>(dataSchema: T) =>
+  z.object({
+    success: z.boolean(),
+    data: dataSchema.nullable(),
+    error: z.object({
+      code: z.string(),
+      message: z.string(),
+      details: z.array(z.object({
+        field: z.string(),
+        message: z.string()
+      })).optional()
+    }).nullable(),
+    meta: z.object({
+      timestamp: z.string()
+    })
+  })
+
+export type ApiResponse<T> = z.infer<ReturnType<typeof ApiResponseSchema<T>>>
+```
+
+### catalog.ts
+
+카탈로그 관련 스키마입니다.
+
+```typescript
+export const CategorySchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  slug: z.string(),
+  parentId: z.number().nullable()
+})
+
+export const ProductSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  huniCode: z.string(),
+  mesItemCd: z.string(),
+  categoryId: z.number(),
+  basePrice: z.number(),
+  currency: z.string()
+})
+
+export const OptionSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  type: z.enum(['radio', 'checkbox', 'select']),
+  required: z.boolean(),
+  choices: z.array(z.object({
+    id: z.number(),
+    name: z.string(),
+    priceModifier: z.number()
+  }))
+})
+```
+
+### pricing.ts
+
+가격 관련 스키마입니다.
+
+```typescript
+export const PriceCalculationRequestSchema = z.object({
+  customerInfo: z.object({
+    grade: z.string(),
+    code: z.string().optional()
+  }),
+  items: z.array(z.object({
+    productCode: z.string(),
+    quantity: z.number().min(100),
+    options: z.record(z.string(), z.union([z.string(), z.array(z.string())]))
+  })),
+  deliveryInfo: z.object({
+    method: z.string(),
+    zipCode: z.string()
+  }).optional()
+})
+
+export const PriceCalculationResponseSchema = z.object({
+  quoteId: z.string(),
+  status: z.string(),
+  pricing: z.object({
+    subtotal: z.number(),
+    discount: z.number(),
+    deliveryFee: z.number(),
+    tax: z.number(),
+    total: z.number()
+  }),
+  quantityTiers: z.array(z.object({
+    minQty: z.number(),
+    unitPrice: z.number(),
+    total: z.number()
+  }))
+})
+```
+
+### product.ts
+
+상품 관련 스키마입니다.
+
+```typescript
+export const ProductCreateSchema = z.object({
+  name: z.string().min(1).max(100),
+  categoryId: z.number(),
+  huniCode: z.string(),
+  mesItemCd: z.string(),
+  basePrice: z.number().min(0),
+  currency: z.string().default('KRW'),
+  options: z.array(z.object({
+    name: z.string(),
+    type: z.enum(['radio', 'checkbox', 'select']),
+    required: z.boolean().default(false),
+    choices: z.array(z.object({
+      name: z.string(),
+      priceModifier: z.number().default(0)
+    }))
+  }))
+})
+```
+
+## Enum 타입
+
+### OrderStatus
+
+```typescript
+export enum OrderStatus {
+  ORDER_ACCEPTED = 'ORDER_ACCEPTED',
+  PAYMENT_WAIT = 'PAYMENT_WAIT',
+  PAYMENT_DONE = 'PAYMENT_DONE',
+  PRODUCT_PREPARE = 'PRODUCT_PREPARE',
+  DELIVERY_PREPARE = 'DELIVERY_PREPARE',
+  DELIVERING = 'DELIVERING',
+  DELIVERY_DONE = 'DELIVERY_DONE',
+  CANCEL_REQUEST = 'CANCEL_REQUEST',
+  CANCELED = 'CANCELED'
+}
+```
+
+### FileStatus
+
+```typescript
+export enum FileStatus {
+  PENDING = 'PENDING',
+  UPLOADING = 'UPLOADING',
+  PROCESSING = 'PROCESSING',
+  APPROVED = 'APPROVED',
+  REJECTED = 'REJECTED',
+  ERROR = 'ERROR'
+}
+```
+
+### EdicusStatus
+
+```typescript
+export enum EdicusStatus {
+  RECEIVED = 'RECEIVED',
+  FILE_PROCESSING = 'FILE_PROCESSING',
+  FILE_APPROVED = 'FILE_APPROVED',
+  PREPRESS = 'PREPRESS',
+  PRINTING = 'PRINTING',
+  POST_PROCESS = 'POST_PROCESS',
+  QUALITY_CHECK = 'QUALITY_CHECK',
+  PACKING = 'PACKING',
+  SHIPPED = 'SHIPPED',
+  COMPLETED = 'COMPLETED',
+  HOLD = 'HOLD',
+  CANCELED = 'CANCELED'
+}
+```
+
+### DeliveryType
+
+```typescript
+export enum DeliveryType {
+  COURIER = 'COURIER',
+  PARCEL = 'PARCEL',
+  PICKUP = 'PICKUP'
+}
+```
+
+## Import 가이드
+
+### 설치
+
+```bash
+npm install @huni/shared-types
+```
+
+### 사용 예시
+
+```typescript
+import {
+  ProductSchema,
+  CategorySchema,
+  PriceCalculationRequestSchema,
+  OrderStatus
+} from '@huni/shared-types'
+
+// Zod 검증
+const productInput = {
+  name: '엽서',
+  categoryId: 1,
+  huniCode: 'POSTCARD-001',
+  mesItemCd: '001',
+  basePrice: 10000,
+  currency: 'KRW'
+}
+
+const validatedProduct = ProductSchema.parse(productInput)
+
+// Enum 사용
+const status: OrderStatus = OrderStatus.PAYMENT_DONE
+```
+
+## 타입 내보내기
+
+### 패키지 구조
+
+```
+@huni/shared-types/
+├── src/
+│   ├── api-responses.ts
+│   ├── catalog.ts
+│   ├── pricing.ts
+│   ├── product.ts
+│   └── enums/
+│       ├── order-status.enum.ts
+│       ├── file-status.enum.ts
+│       ├── edicus-status.enum.ts
+│       └── delivery-type.enum.ts
+└── dist/ (컴파일된 JS)
+```
+
+## 관련 문서
+
+- [Admin REST API](./admin-api) - API 엔드포인트
+- [Widget API](./widget-api) - 위젯 API
+- [Database Schema](./database-schema) - 데이터베이스 구조
