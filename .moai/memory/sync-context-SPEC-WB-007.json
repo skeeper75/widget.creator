@@ -1,0 +1,70 @@
+{
+  "spec_id": "SPEC-WB-007",
+  "phase": "SYNC",
+  "timestamp": "2026-02-27T09:35:00Z",
+  "implementation_summary": {
+    "files_created": 10,
+    "files_modified": 3,
+    "test_files": 5,
+    "test_count": 74,
+    "coverage_minimum": "85%"
+  },
+  "decisions": [
+    "Used Level 1 (spec-first) SPEC lifecycle: status updated to implemented",
+    "GLM service uses OpenAI-compatible SDK with z.ai endpoint (base URL configurable)",
+    "Confidence threshold 0.85 as boundary between auto-apply and manual review",
+    "Rate limit 100 calls/day/recipeId for cost control (advisory, not enforced)",
+    "Transaction-wrapped DB operations for constraint + price rule approvals",
+    "All GLM outputs validated with Zod before insertion (prevents malformed data)",
+    "price_nl_history mirrors constraint_nl_history pattern for audit consistency"
+  ],
+  "patterns": [
+    "tRPC protectedProcedure for all GLM endpoints (server-side auth required)",
+    "Zod schema validation for all GLM outputs (3 constraint types + 2 price rule types)",
+    "price_nl_history follows same structure as constraint_nl_history (FK to products, rule_type, audit fields)",
+    "Confidence scoring from GLM response (0.0-1.0 decimal)",
+    "Debounce 500ms on NL input field before GLM API call (cost optimization)"
+  ],
+  "constraints": [
+    "GLM_API_KEY must be server-only env var (never exposed to client)",
+    "GLM API calls only on button click (not auto-debounce)",
+    "3-second timeout for GLM API responses (FR-WB007-01)",
+    "Atomic transactions for constraint + price rule approvals (no partial saves)",
+    "response_format: json_object required for GLM output structuring"
+  ],
+  "gotchas": [
+    "z.ai API uses OpenAI-compatible format with different base URL than standard OpenAI",
+    "GLM response_format must be json_object (not json_schema) for structured output",
+    "outputType field sometimes omitted by GLM response → default to single_constraint or qty_discount",
+    "Drizzle transaction rollback on any DB error (Zod validation errors prevent insertion)",
+    "Admin UI '적용하기' button triggers BOTH UI refresh AND price_nl_history insert",
+    "Confidence badge background color threshold: green (≥0.85), yellow (0.70-0.84), red (<0.70)"
+  ],
+  "integration_points": [
+    "apps/web/app/api/trpc/router.ts: glmRouter registration",
+    "packages/db/src/schema/widget/index.ts: priceNlHistory export",
+    "apps/admin/(dashboard)/constraints/page.tsx: NL panel integration",
+    "apps/admin/(dashboard)/pricing/page.tsx: NL panel integration"
+  ],
+  "mx_tags_added": [
+    "glm.service.ts: @MX:ANCHOR [AUTO] GLM Service — primary AI integration point (4 tRPC + 2 transformers depend on this)",
+    "glm.service.ts: @MX:REASON [AUTO] Central integration: convertConstraint, convertPriceRule, suggestPriceMode",
+    "glm.router.ts: @MX:ANCHOR [AUTO] GLM tRPC Router — all AI-powered NL conversion endpoints",
+    "glm.router.ts: @MX:REASON [AUTO] Public API boundary: Admin UI client calls 4 endpoints"
+  ],
+  "test_verification": {
+    "root_suite_total": 1207,
+    "root_suite_passing": 1207,
+    "glm_tests": 74,
+    "constraint_transformer_tests": 18,
+    "price_transformer_tests": 15,
+    "conversion_preview_tests": 12,
+    "use_glm_convert_tests": 15
+  },
+  "code_comments_language": "en",
+  "ai_model_version": "glm-5.0",
+  "rate_limit_strategy": "100 calls/day/recipeId (advisory, not enforced at request time)",
+  "confidence_threshold": 0.85,
+  "glm_api_timeout_ms": 3000,
+  "db_migration": "drizzle/0004_slow_wolfsbane.sql"
+}

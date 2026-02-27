@@ -8,6 +8,20 @@
 ## [Unreleased]
 
 ### Added
+- **SPEC-WB-007**: GLM Natural Language Rule Builder
+  - z.ai (GLM-5.0/4.7) API integration with OpenAI-compatible SDK
+  - 3-second timeout and JSON Schema structured output enforcement
+  - 4 tRPC endpoints: convertConstraint, confirmConstraint, convertPriceRule, confirmPriceRule
+  - `price_nl_history` audit log table for NL input tracking and model performance analysis
+  - Admin UI NL panel with real-time confidence scoring (≥85% auto-apply, <85% manual review)
+  - Constraint transformer: NL → ECA rule conversion (8 action types: exclude_options, filter_options, show_addon_list, auto_add, require_option, show_message, change_price_mode, set_default)
+  - Price rule transformer: NL → qty_discount tier extraction with decimal formatting
+  - Transaction-wrapped DB operations ensuring atomic constraint + audit log insertion
+  - Zod schema validation for all GLM outputs (single_constraint, composite_constraints, qty_discount, mixed_rules)
+  - @MX:ANCHOR tags on glm.service.ts and glm.router.ts (public API boundaries)
+  - 74 comprehensive tests (25 service layer + 18 constraint transformer + 15 price transformer + 16 UI/hook tests)
+  - innojini-huni-nlp-builder skill reference for domain expertise
+
 - **SPEC-WB-006**: Runtime Auto-Quote Engine
   - POST /api/widget/quote: Real-time constraint evaluation + pricing calculation (unified API)
   - GET /api/widget/products/:productKey/init: Widget initialization with default quote and constraint rules
