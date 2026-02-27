@@ -22,8 +22,11 @@ interface ImportStep {
   script: string;
 }
 
-// @MX:NOTE: [AUTO] Import order matters — mes_items must be loaded before product-paper mappings
-// @MX:REASON: papers table has no FK to mes_items, but conceptually MES items are foundational
+// @MX:NOTE: [AUTO] Import order matters — 4-step sequence with FK dependencies
+// @MX:NOTE: [AUTO] 1) MES Items — no FK deps, must be first; 2) Papers — paper data for FK refs;
+// @MX:NOTE: [AUTO] 3) Options — option_definitions needed before product_options;
+// @MX:NOTE: [AUTO] 4) Product Options — requires option_definitions + products
+// @MX:REASON: papers table has no FK to mes_items, but conceptually MES items are foundational; option_definitions must exist before product_options can reference them
 const STEPS: ImportStep[] = [
   {
     name: "MES Items (item-management.toon)",
@@ -32,6 +35,14 @@ const STEPS: ImportStep[] = [
   {
     name: "Papers (product-master.toon → !디지털인쇄용지)",
     script: "import-papers.ts",
+  },
+  {
+    name: "Options (option_definitions + option_choices)",
+    script: "import-options.ts",
+  },
+  {
+    name: "Product Options (product_options + special colors)",
+    script: "import-product-opts.ts",
   },
 ];
 
