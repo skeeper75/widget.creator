@@ -1,0 +1,332 @@
+# Quick Start
+
+Get your widget embedded and receiving print quotes in 5 minutes.
+
+## 5-Minute Tutorial
+
+### Method 1: Script Tag (Regular Websites)
+
+#### 1. Write HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>huni.builder Widget Demo</title>
+    <style>
+        #huni-widget-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Print Quote Widget</h1>
+    <div id="huni-widget-container"></div>
+</body>
+</html>
+```
+
+#### 2. Insert Script Tag
+
+```html
+<body>
+    <h1>Print Quote Widget</h1>
+    <div id="huni-widget-container"></div>
+
+    <!-- Add widget script -->
+    <script src="https://huni.builder/widget/huni-widget.iife.js"></script>
+</body>
+```
+
+#### 3. Initialize Widget
+
+```html
+<script>
+    huniWidget.mount({
+        target: '#huni-widget-container',
+        apiBaseUrl: 'https://api.huni.builder',
+        locale: 'en-US',
+        productId: 'postcard-001',
+        onQuoteChange: (quote) => {
+            console.log('Quote changed:', quote);
+            document.getElementById('quote-display').textContent = `$${quote.totalPrice}`;
+        },
+        onOrderSubmit: (order) => {
+            console.log('Order submitted:', order);
+            alert('Order completed!');
+        }
+    });
+</script>
+```
+
+#### 4. Complete HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>huni.builder Widget Demo</title>
+    <style>
+        #huni-widget-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        #quote-display {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Print Quote Widget</h1>
+    <div id="quote-display">$0</div>
+    <div id="huni-widget-container"></div>
+
+    <script src="https://huni.builder/widget/huni-widget.iife.js"></script>
+    <script>
+        huniWidget.mount({
+            target: '#huni-widget-container',
+            apiBaseUrl: 'https://api.huni.builder',
+            locale: 'en-US',
+            productId: 'postcard-001',
+            onQuoteChange: (quote) => {
+                console.log('Quote changed:', quote);
+                document.getElementById('quote-display').textContent = `$${quote.totalPrice}`;
+            },
+            onOrderSubmit: (order) => {
+                console.log('Order submitted:', order);
+                alert('Order completed!');
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+---
+
+### Method 2: ESM Import (React/Vue Projects)
+
+#### 1. Install npm Package
+
+```bash
+npm install @huni/widget-core
+# or
+pnpm add @huni/widget-core
+```
+
+#### 2. Use in React Component
+
+```tsx
+import React, { useEffect, useRef, useState } from 'react';
+import { HuniWidget } from '@huni/widget-core';
+
+function PrintQuoteWidget() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [quote, setQuote] = useState<number>(0);
+
+    useEffect(() => {
+        if (!containerRef.current) return;
+
+        const widget = new HuniWidget({
+            containerId: 'huni-widget-react',
+            apiBaseUrl: 'https://api.huni.builder',
+            locale: 'en-US',
+            productId: 'postcard-001',
+            onQuoteChange: (newQuote) => {
+                setQuote(newQuote.totalPrice);
+            }
+        });
+
+        widget.mount();
+
+        return () => {
+            widget.unmount();
+        };
+    }, []);
+
+    return (
+        <div style={{ maxWidth: '600px', margin: '50px auto' }}>
+            <h1>Print Quote Widget</h1>
+            <div style={{ fontSize: '24px', fontWeight: 'bold', textAlign: 'center', color: '#007bff' }}>
+                ${quote.toLocaleString()}
+            </div>
+            <div id="huni-widget-react" ref={containerRef} />
+        </div>
+    );
+}
+
+export default PrintQuoteWidget;
+```
+
+#### 3. Use in Vue Component
+
+```vue
+<template>
+  <div style="max-width: 600px; margin: 50px auto;">
+    <h1>Print Quote Widget</h1>
+    <div style="font-size: 24px; font-weight: bold; text-align: center; color: #007bff;">
+      ${{ quote.toLocaleString() }}
+    </div>
+    <div id="huni-widget-vue" ref="widgetContainer"></div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue';
+import { HuniWidget } from '@huni/widget-core';
+
+const widgetContainer = ref<HTMLDivElement>();
+const quote = ref<number>(0);
+let widget: HuniWidget | null = null;
+
+onMounted(() => {
+  if (!widgetContainer.value) return;
+
+  widget = new HuniWidget({
+    containerId: 'huni-widget-vue',
+    apiBaseUrl: 'https://api.huni.builder',
+    locale: 'en-US',
+    productId: 'postcard-001',
+    onQuoteChange: (newQuote) => {
+      quote.value = newQuote.totalPrice;
+    }
+  });
+
+  widget.mount();
+});
+
+onUnmounted(() => {
+  widget?.unmount();
+});
+</script>
+```
+
+---
+
+### Method 3: Shopby Integration
+
+For Shopby store integration.
+
+#### 1. HuniWidgetMount.jsx Setup
+
+```jsx
+// ref/shopby/aurora-skin(dev)/HuniWidget/HuniWidgetMount.jsx
+import React, { useEffect, useRef } from 'react';
+
+const HuniWidgetMount = ({ mesCode, shopbyToken }) => {
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        if (!containerRef.current) return;
+
+        // Load widget IIFE script
+        const script = document.createElement('script');
+        script.src = 'https://huni.builder/widget/huni-widget.iife.js';
+        script.onload = () => {
+            // Mount widget
+            huniWidget.mount({
+                target: containerRef.current,
+                apiBaseUrl: 'https://api.huni.builder',
+                locale: 'ko-KR',
+                shopbyToken: shopbyToken,
+                mesCode: mesCode,
+                onQuoteChange: (quote) => {
+                    // Send quote change to Shopby via CustomEvent
+                    window.dispatchEvent(new CustomEvent('huni-quote-change', {
+                        detail: { quote }
+                    }));
+                }
+            });
+        };
+        document.head.appendChild(script);
+
+        return () => {
+            // Cleanup
+            if (window.huniWidget) {
+                window.huniWidget.unmount();
+            }
+        };
+    }, [mesCode, shopbyToken]);
+
+    return <div ref={containerRef} />;
+};
+
+export default HuniWidgetMount;
+```
+
+#### 2. Render Widget in Purchase.jsx
+
+```jsx
+// Use widget in Shopby Purchase.jsx
+import HuniWidgetMount from './HuniWidget/HuniWidgetMount';
+
+function Purchase({ product, shopbyToken }) {
+    const mesCode = product.customOptions.huniMesCode;
+
+    return (
+        <div>
+            {/* Existing product info */}
+            <h1>{product.name}</h1>
+            <p>{product.description}</p>
+
+            {/* huni.builder widget */}
+            <HuniWidgetMount
+                mesCode={mesCode}
+                shopbyToken={shopbyToken}
+            />
+        </div>
+    );
+}
+```
+
+#### 3. Communicate via CustomEvent Protocol
+
+```jsx
+// Widget -> Shopby communication
+useEffect(() => {
+    const handleQuoteChange = (event) => {
+        const { quote } = event.detail;
+        // Update price in Shopby cart
+        updateCartPrice(quote.totalPrice);
+    };
+
+    window.addEventListener('huni-quote-change', handleQuoteChange);
+
+    return () => {
+        window.removeEventListener('huni-quote-change', handleQuoteChange);
+    };
+}, []);
+```
+
+---
+
+## Next Steps
+
+Your widget is now embedded successfully! Proceed to the next steps:
+
+<div className="cards-container">
+
+| Architecture Overview | Core Concepts | API Docs |
+|---------------------|--------------|----------|
+| Understand monorepo structure | Learn printing domain | REST API endpoints |
+
+</div>
+
+- [Architecture Overview](./architecture) - Understanding monorepo structure
+- [Core Concepts](../core-concepts) - Printing domain and pricing philosophy
+- [API Reference](../api-reference) - REST API usage

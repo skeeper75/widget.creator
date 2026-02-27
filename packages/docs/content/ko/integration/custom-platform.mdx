@@ -1,0 +1,363 @@
+---
+title: 커스텀 플랫폼 연동
+description: 일반 웹사이트에 huni.builder 위젯 임베딩 가이드
+---
+
+# 커스텀 플랫폼 연동
+
+huni.builder 위젯은 Shopby뿐만 아니라 모든 웹사이트에 임베딩할 수 있습니다.
+
+## 개요
+
+커스텀 플랫폼 연동은 다음을 지원합니다:
+
+- **간단한 임베딩**: `<script>` + `<huni-widget>` 태그만으로 설치
+- **Shadow DOM 격리**: 호스트 페이지 스타일과 완전 독립
+- **CSS Variables 테마**: 위젯 외형 커스터마이징
+- **CustomEvent 통신**: 위젯과 호스트 간 양방향 통신
+
+## 빠른 시작
+
+### 1. 스크립트 로드
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>내 웹사이트</title>
+</head>
+<body>
+  <!-- 위젯 스크립트 로드 -->
+  <script src="https://cdn.huni.builder/widget.iife.js" async></script>
+
+  <!-- 위젯 태그 -->
+  <huni-widget
+    data-product-id="postcard-001"
+    data-theme="light">
+  </huni-widget>
+
+</body>
+</html>
+```
+
+### 2. 위젯 속성
+
+| 속성 | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `data-product-id` | `string` | - | 상품 ID (필수) |
+| `data-huni-code` | `string` | - | MES 상품 코드 |
+| `data-template-code` | `string` | - | 템플릿 코드 |
+| `data-theme` | `'light' \| 'dark'` | `'light'` | 테마 모드 |
+| `data-locale` | `'ko' \| 'en'` | `'ko'` | 언어 설정 |
+
+## 이벤트 처리
+
+### 위젯 → 호스트 이벤트
+
+```javascript
+// 장바구니 추가 이벤트
+window.addEventListener('huni:cart-add', (event) => {
+  const { productId, quantity, options, price } = event.detail
+
+  // 내 장바구니 시스템에 추가
+  addToMyCart({
+    productId,
+    quantity,
+    options,
+    price
+  })
+})
+
+// 가격 변경 이벤트
+window.addEventListener('huni:price-update', (event) => {
+  const { productId, newPrice, previousPrice } = event.detail
+
+  console.log(`가격 변경: ${previousPrice} → ${newPrice}`)
+  updatePriceDisplay(newPrice)
+})
+
+// 에디터 열기 이벤트
+window.addEventListener('huni:editor-open', (event) => {
+  const { productId, productType } = event.detail
+
+  // 디자인 에디터 열기
+  openDesignEditor({ productId, productType })
+})
+```
+
+### 호스트 → 위젯 이벤트
+
+```javascript
+const widget = document.querySelector('huni-widget')
+
+// 상품 로드 완료
+widget.dispatchEvent(new CustomEvent('shopby:product-loaded', {
+  detail: {
+    productId: 'postcard-001',
+    name: '엽서',
+    price: 10000
+  }
+}))
+
+// 인증 상태 변경
+widget.dispatchEvent(new CustomEvent('shopby:auth-changed', {
+  detail: {
+    authenticated: true,
+    token: 'user-token'
+  }
+}))
+
+// 장바구니 업데이트
+widget.dispatchEvent(new CustomEvent('shopby:cart-updated', {
+  detail: {
+    cartCount: 5,
+    success: true,
+    cartItemId: 'cart-123'
+  }
+}))
+```
+
+## Shadow DOM CSS 격리
+
+위젯은 Shadow DOM을 사용하여 호스트 페이지의 스타일과 독립적입니다.
+
+### CSS Variables 테마
+
+```css
+/* 호스트 페이지에서 위젯 테마 커스터마이징 */
+huni-widget {
+  --hw-color-primary: #ff0000;
+  --hw-color-accent: #00ff00;
+  --hw-font-family: 'My Font', sans-serif;
+  --hw-radius-md: 10px;
+}
+```
+
+### @layer 격리
+
+위젯은 `@layer hw-widget`로 스타일을 격리합니다.
+
+```css
+@layer hw-widget {
+  .button {
+    /* 위젯 전용 버튼 스타일 */
+    background: var(--hw-color-primary);
+  }
+}
+```
+
+## API 인증
+
+### API Key 발급
+
+1. [huni.builder 콘솔](https://console.huni.builder)에서 프로젝트 생성
+2. API Key 발급
+3. 위젯에 API Key 설정
+
+```html
+<huni-widget
+  data-product-id="postcard-001"
+  data-api-key="your-api-key">
+</huni-widget>
+```
+
+### Bearer Token 사용
+
+```javascript
+const widget = document.querySelector('huni-widget')
+
+// 인증 토큰 설정
+widget.authToken = 'your-bearer-token'
+
+// 위젯에서 API 호출 시 토큰 자동 사용
+```
+
+## CORS 설정
+
+위젯이 다른 도메인에서 로드될 경우 CORS 설정이 필요합니다.
+
+### 허용 origins 설정
+
+```typescript
+// api-server/src/main.ts
+app.enableCors({
+  origin: [
+    'https://mywebsite.com',
+    'https://www.mywebsite.com'
+  ],
+  credentials: true
+})
+```
+
+## 번들 옵션
+
+### IIFE (권장)
+
+단일 파일 번들로 모든 의존성을 포함합니다.
+
+```html
+<script src="https://cdn.huni.builder/widget.iife.js"></script>
+```
+
+- **크기**: 48.71KB (gzip)
+- **의존성**: React 포함
+- **적용**: 단순 임베딩
+
+### ESM Module
+
+ES Modules로 로드합니다.
+
+```html
+<script type="module">
+  import { createWidget } from 'https://cdn.huni.builder/widget.esm.js'
+
+  const widget = createWidget({
+    productId: 'postcard-001',
+    target: '#widget-container'
+  })
+</script>
+```
+
+- **크기**: 작음 (React 외부)
+- **의존성**: React 미포함
+- **적용**: 번들러 사용 시
+
+## 프레임워크 연동
+
+### React
+
+```tsx
+import { useEffect, useRef } from 'react'
+
+export function HuniWidget() {
+  const widgetRef = useRef<HTMLHuniWidgetElement>(null)
+
+  useEffect(() => {
+    // 위젯 로드
+    const script = document.createElement('script')
+    script.src = 'https://cdn.huni.builder/widget.iife.js'
+    script.async = true
+    document.body.appendChild(script)
+
+    // 이벤트 리스너
+    const handleCartAdd = (event: CustomEvent) => {
+      console.log('Cart add:', event.detail)
+    }
+
+    window.addEventListener('huni:cart-add', handleCartAdd as EventListener)
+
+    return () => {
+      window.removeEventListener('huni:cart-add', handleCartAdd as EventListener)
+    }
+  }, [])
+
+  return (
+    <huni-widget
+      ref={widgetRef}
+      data-product-id="postcard-001"
+      data-theme="light"
+    />
+  )
+}
+```
+
+### Vue
+
+```vue
+<template>
+  <huni-widget
+    ref="widgetRef"
+    :data-product-id="productId"
+    :data-theme="theme"
+  />
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const productId = ref('postcard-001')
+const theme = ref('light')
+
+onMounted(() => {
+  const script = document.createElement('script')
+  script.src = 'https://cdn.huni.builder/widget.iife.js'
+  script.async = true
+  document.body.appendChild(script)
+
+  window.addEventListener('huni:cart-add', handleCartAdd)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('huni:cart-add', handleCartAdd)
+})
+
+function handleCartAdd(event: CustomEvent) {
+  console.log('Cart add:', event.detail)
+}
+</script>
+```
+
+### Angular
+
+```typescript
+import { Component, OnInit, OnDestroy } from '@angular/core'
+
+@Component({
+  selector: 'app-huni-widget',
+  template: `
+    <huni-widget
+      [attr.data-product-id]="productId"
+      [attr.data-theme]="theme">
+    </huni-widget>
+  `
+})
+export class HuniWidgetComponent implements OnInit, OnDestroy {
+  productId = 'postcard-001'
+  theme = 'light'
+
+  ngOnInit() {
+    const script = document.createElement('script')
+    script.src = 'https://cdn.huni.builder/widget.iife.js'
+    script.async = true
+    document.body.appendChild(script)
+
+    window.addEventListener('huni:cart-add', this.handleCartAdd)
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('huni:cart-add', this.handleCartAdd)
+  }
+
+  handleCartAdd = (event: any) => {
+    console.log('Cart add:', event.detail)
+  }
+}
+```
+
+## 라이프사이클 관리
+
+### 위젯 로딩 완료
+
+```javascript
+window.addEventListener('huni:widget-ready', () => {
+  console.log('위젯 로딩 완료')
+  // 위젯 API 호출 가능
+})
+```
+
+### 위젯 파괴
+
+```javascript
+const widget = document.querySelector('huni-widget')
+
+// 위젯 제거
+widget.remove()
+
+// 또는 disconnect
+widget.disconnectedCallback()
+```
+
+## 관련 문서
+
+- [Shopby 연동](./shopby) - Shopby 스킨 연동
+- [Widget Events](../api-reference/widget-events) - CustomEvent 상세

@@ -1,0 +1,229 @@
+---
+title: Admin REST API
+description: NestJS 기반 관리자 API 엔드포인트
+---
+
+# Admin REST API
+
+NestJS 10 + Fastify 기반의 관리자 API로, 총 27개 컨트롤러와 50+ 엔드포인트를 제공합니다.
+
+## 개요
+
+Admin API는 Typia/Nestia를 사용하여 타입 안전한 API를 제공합니다.
+
+| 항목 | 값 |
+|------|-----|
+| 프레임워크 | NestJS 10 |
+| 서버 | Fastify |
+| 타입 검증 | Typia + Zod |
+| 컨트롤러 수 | 27개 |
+| 엔드포인트 수 | 50+ |
+
+## 인증
+
+### JWT 토큰 발급
+
+```bash
+POST /api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "password"
+}
+```
+
+### JWT 토큰 사용
+
+```
+Authorization: Bearer {jwt_token}
+```
+
+## 도메인별 컨트롤러
+
+### Core (6개)
+
+| 컨트롤러 | 경로 | 설명 |
+|----------|------|------|
+| categories | `/api/categories` | 카테고리 CRUD |
+| subcategories | `/api/subcategories` | 하위 카테고리 CRUD |
+| products | `/api/products` | 상품 CRUD |
+| options | `/api/options` | 옵션 CRUD |
+| choices | `/api/choices` | 옵션 선택지 CRUD |
+| option-templates | `/api/option-templates` | 옵션 템플릿 CRUD |
+
+### Constraints (2개)
+
+| 컨트롤러 | 경로 | 설명 |
+|----------|------|------|
+| constraints | `/api/constraints` | 옵션 제약 조건 |
+| constraint-groups | `/api/constraint-groups` | 제약 조건 그룹 |
+
+### Pricing (3개)
+
+| 컨트롤러 | 경로 | 설명 |
+|----------|------|------|
+| pricing-tables | `/api/pricing-tables` | 가격표 관리 |
+| pricing | `/api/pricing` | 가격 계산 |
+| price-verification | `/api/price-verification` | 가격 검증 |
+
+### Orders (3개)
+
+| 컨트롤러 | 경로 | 설명 |
+|----------|------|------|
+| orders | `/api/orders` | 주문 관리 |
+| quotes | `/api/quotes` | 견적 관리 |
+| delivery | `/api/delivery` | 배송 정보 |
+
+### Integration (7개)
+
+| 컨트롤러 | 경로 | 설명 |
+|----------|------|------|
+| channels | `/api/channels` | 판매 채널 관리 |
+| product-mappings | `/api/product-mappings` | 상품 매핑 |
+| webhooks | `/api/webhooks` | 웹훅 관리 |
+| sync | `/api/sync` | 데이터 동기화 |
+| integration | `/api/integration` | 통합 관리 |
+| widget-api | `/api/widget-api` | 위젯 API 설정 |
+| mes | `/api/mes` | MES 연동 |
+
+### System (6개)
+
+| 컨트롤러 | 경로 | 설명 |
+|----------|------|------|
+| users | `/api/users` | 사용자 관리 |
+| widgets | `/api/widgets` | 위젯 설정 |
+| data-quality | `/api/data-quality` | 데이터 품질 |
+| option-bulk | `/api/option-bulk` | 옵션 대량 작업 |
+| product-configuration | `/api/product-configuration` | 상품 구성 |
+| templates | `/api/templates` | 템플릿 관리 |
+
+## 주요 엔드포인트
+
+### Categories
+
+| 메서드 | 경로 | 설명 |
+|--------|------|------|
+| GET | `/api/categories` | 카테고리 목록 |
+| GET | `/api/categories/:id` | 카테고리 상세 |
+| POST | `/api/categories` | 카테고리 생성 |
+| PUT | `/api/categories/:id` | 카테고리 수정 |
+| DELETE | `/api/categories/:id` | 카테고리 삭제 |
+
+### Products
+
+| 메서드 | 경로 | 설명 |
+|--------|------|------|
+| GET | `/api/products` | 상품 목록 (페이지네이션) |
+| GET | `/api/products/:id` | 상품 상세 |
+| POST | `/api/products` | 상품 생성 |
+| PUT | `/api/products/:id` | 상품 수정 |
+| DELETE | `/api/products/:id` | 상품 삭제 |
+| GET | `/api/products/:id/options` | 상품 옵션 조회 |
+
+### Orders
+
+| 메서드 | 경로 | 설명 |
+|--------|------|------|
+| GET | `/api/orders` | 주문 목록 |
+| GET | `/api/orders/:id` | 주문 상세 |
+| POST | `/api/orders` | 주문 생성 |
+| PUT | `/api/orders/:id/status` | 주문 상태 변경 |
+| POST | `/api/orders/:id/cancel` | 주문 취소 |
+
+### Pricing
+
+| 메서드 | 경로 | 설명 |
+|--------|------|------|
+| POST | `/api/pricing/calculate` | 가격 계산 |
+| POST | `/api/pricing/verify` | 가격 검증 |
+| GET | `/api/pricing/tables` | 가격표 목록 |
+
+## 요청/응답 예시
+
+### 상품 생성 요청
+
+```json
+POST /api/products
+Content-Type: application/json
+Authorization: Bearer {jwt_token}
+
+{
+  "name": "엽서",
+  "categoryId": 1,
+  "huniCode": "POSTCARD-001",
+  "mesItemCd": "001",
+  "basePrice": 10000,
+  "currency": "KRW",
+  "options": [
+    {
+      "name": "용지",
+      "type": "radio",
+      "choices": [
+        { "name": "아트지", "priceModifier": 0 },
+        { "name": "모조지", "priceModifier": 500 }
+      ]
+    }
+  ]
+}
+```
+
+### 응답
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": 1,
+    "name": "엽서",
+    "categoryId": 1,
+    "huniCode": "POSTCARD-001",
+    "mesItemCd": "001",
+    "basePrice": 10000,
+    "currency": "KRW",
+    "createdAt": "2025-12-19T10:00:00Z"
+  },
+  "error": null,
+  "meta": {
+    "timestamp": "2025-12-19T10:00:00Z"
+  }
+}
+```
+
+## SDK 생성
+
+Nestia SDK를 사용하여 타입 안전한 클라이언트를 생성할 수 있습니다.
+
+```bash
+# SDK 생성
+npx nestia sdk
+
+# Swagger 생성
+npx nestia swagger
+```
+
+### SDK 사용 예시
+
+```typescript
+import { Api } from '@huni/api-sdk'
+
+const api = new Api({
+  host: 'https://api.huni.builder',
+  security: {
+    bearer: jwt_token
+  }
+})
+
+// 타입 안전한 API 호출
+const products = await api.products.index({
+  page: 1,
+  limit: 20
+})
+
+const product = await api.products.at(1).get()
+```
+
+## 관련 문서
+
+- [Widget API](./widget-api) - 위젯 공개 API
+- [Database Schema](./database-schema) - 데이터베이스 구조

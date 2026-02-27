@@ -7,6 +7,120 @@
 
 ## [Unreleased]
 
+### Added
+- **SPEC-WB-007**: GLM Natural Language Rule Builder
+  - z.ai (GLM-5.0/4.7) API integration with OpenAI-compatible SDK
+  - 3-second timeout and JSON Schema structured output enforcement
+  - 4 tRPC endpoints: convertConstraint, confirmConstraint, convertPriceRule, confirmPriceRule
+  - `price_nl_history` audit log table for NL input tracking and model performance analysis
+  - Admin UI NL panel with real-time confidence scoring (≥85% auto-apply, <85% manual review)
+  - Constraint transformer: NL → ECA rule conversion (8 action types: exclude_options, filter_options, show_addon_list, auto_add, require_option, show_message, change_price_mode, set_default)
+  - Price rule transformer: NL → qty_discount tier extraction with decimal formatting
+  - Transaction-wrapped DB operations ensuring atomic constraint + audit log insertion
+  - Zod schema validation for all GLM outputs (single_constraint, composite_constraints, qty_discount, mixed_rules)
+  - @MX:ANCHOR tags on glm.service.ts and glm.router.ts (public API boundaries)
+  - 74 comprehensive tests (25 service layer + 18 constraint transformer + 15 price transformer + 16 UI/hook tests)
+  - innojini-huni-nlp-builder skill reference for domain expertise
+
+- **SPEC-WB-006**: Runtime Auto-Quote Engine
+  - POST /api/widget/quote: Real-time constraint evaluation + pricing calculation (unified API)
+  - GET /api/widget/products/:productKey/init: Widget initialization with default quote and constraint rules
+  - POST /api/widget/orders: Server-side re-quote validation + order creation + fire-and-forget MES dispatch
+  - GET /api/widget/orders/:orderCode: Order status retrieval
+  - `wbOrders` table: Order snapshot storage with MES status tracking
+  - `wbQuoteLogs` table: Async quote logging for analytics and debugging
+  - QuoteService: Parallel constraint + pricing evaluation
+  - OrderService: Server-side re-quote validation, price discrepancy detection
+  - MesClient: HTTP client with 3-retry exponential backoff
+  - 48 comprehensive tests (13 quote API + 9 init API + 19 orders API + 7 MES client unit tests)
+  - @MX:ANCHOR tags on public API boundaries (quote endpoint, orders endpoint)
+  - @MX:NOTE tags on complex business logic (constraint evaluation, pricing calculation, MES dispatch)
+
+### Fixed
+- **SPEC-SEED-001**: Fix seed data correctness bugs in `scripts/seed.ts`
+  - Fix `isActive`: internal-only products now correctly set to `is_active=false`
+  - Fix `mesRegistered`: use `!!product.MesItemCd` instead of `product.shopbyId !== null`
+  - Fix `edicusCode`: now applied to ALL products (not just those with shopbyId)
+  - Fix slug: use `MesItemCd.toLowerCase()` for URL-safe unique slugs
+  - Rewrite `seedCategories` with 2-level SHEET_CATEGORY_MAP hierarchy
+  - Fix 4-priority category lookup in `seedProductsAndMes`
+  - All 5 acceptance criteria verified: 221 products, shopby_id=NULL, 5 inactive, correct edicus_code format, depth=1 categories
+
+### Added
+- **SPEC-WB-002**: Product Category & Recipe System
+  - `product_categories` table: 11 Figma-based categories for 후니프린팅 (digital-print, sticker, book, photobook, calendar, design-calendar, sign-poster, acrylic, goods, apparel, packaging)
+  - `products` table: Product master with edicus_code IMMUTABLE constraint, huni_code isolation, MES/Shopby/Edicus external code support
+  - `product_recipes` table: Recipe versioning system with version_status (draft/active/archived)
+  - `recipe_option_bindings` table: Dual display_order + processing_order design for UI layout vs. MES/price processing
+  - `recipe_choice_restrictions` table: allow_only/exclude restriction modes with choice_ids JSONB array
+  - Category seed data: 11 standard categories matched to Figma specification (not legacy catalog.json 12 categories)
+  - @MX:ANCHOR tags added: productCategories (fan_in >= 3), wbProducts (fan_in >= 3)
+  - @MX:NOTE tags added: edicus_code immutability rule, huni_code isolation principle, dual-order design rationale, category seed data origin
+  - 181 unit tests passing (schema, seed, recipes, bindings, choice restrictions)
+  - TypeScript strict mode compliance, full type safety via Drizzle ORM
+- **SPEC-SEED-002**: Comprehensive DB Seeding Pipeline - Zod validation and transaction safety
+  - New `scripts/lib/schemas.ts`: Zod schemas for all seed JSON inputs (PaperJsonSchema, GoodsJsonSchema, OptionConstraintsJsonSchema, DigitalPrintJsonSchema, BindingJsonSchema, FinishingJsonSchema) with generic `loadAndValidate<T>()` helper
+  - `scripts/seed.ts` - `seedGoodsFixedPrices()`: Zod validation on goods.json load, price=0 skip logic with warning counter, transaction-wrapped DELETE+INSERT
+  - Drizzle `__drizzle_migrations` tracking synced (migrations 0001-0003 registered); `drizzle-kit migrate` runs cleanly
+  - 57 new unit tests across 3 files: `seed-goods-prices.test.ts` (21), `seed-transactions.test.ts` (11), `seed-schemas.test.ts` (25)
+- **SPEC-DATA-003**: Integrated Data Pipeline and Version Management Strategy (`scripts/import/`)
+  - MES v5 JSON import pipeline: option_definitions (30 records), option_choices (deduplicated), product_options (723 records), product_editor_mapping (111 records), option_dependencies (~300 records)
+  - Version management: SHA-256 source file checksums, `data_import_log` table for import history tracking, idempotent re-run support
+  - Base importer pattern with `INSERT ... ON CONFLICT ... DO UPDATE` for all tables
+  - Cross-reference validator and count validator for data integrity verification
+  - CLI interface: `--force`, `--dry-run`, `--table`, `--domain`, `--validate-only` flags
+  - Drizzle schema: `packages/shared/src/db/schema/huni-import-log.schema.ts`
+  - 61 unit tests, all passing
+- **SPEC-WIDGET-INTG-001**: External System Integration Layer (`packages/shared/src/events/`, `packages/shared/src/integration/`)
+  - Domain Event Bus: In-process pub/sub with 12 typed event categories, fire-and-forget, handler error isolation, dead letter queue
+  - Integration Adapter Pattern: Pluggable adapter architecture with circuit breaker (CLOSED/OPEN/HALF_OPEN), exponential backoff retry, health checks
+  - Shopby Adapter: Bidirectional product sync and order reception with data mapper
+  - MES Adapter: Production dispatch with option-to-MES-code translation, status tracking (제작대기→제작중→제작완료→출고완료)
+  - Edicus Adapter: Editor configuration, design save/render pipeline with edicus_code derivation
+  - 16 Integration API endpoints: Shopby (5), MES (5), Edicus (6) under `/api/v1/integration/`
+  - 184 unit tests across 11 test files
+
+## [0.5.0] - 2026-02-23
+
+### Added
+
+- Widget Builder Admin Dashboard (SPEC-WIDGET-ADMIN-001)
+- apps/admin: Next.js 15.x admin application with full CRUD for all 26 data tables
+- 7 special editor components: TreeEditor, MatrixEditor, SpreadsheetEditor, ConstraintBuilder, ProductConfigurator, KanbanBoard, VisualMapper
+- 27 tRPC domain routers with protectedProcedure authentication
+- NextAuth.js v5 credentials-based admin authentication
+- Huni design tokens (#5538B6 primary, Noto Sans, 4px spacing grid)
+- 23 shadcn/ui components with Tailwind CSS v4
+- TanStack Table v8 DataTable with sort/filter/pagination
+- TanStack Virtual for SpreadsheetEditor (10,000 row virtualization)
+- dnd-kit for TreeEditor, KanbanBoard, ProductConfigurator drag-and-drop
+- 727 tests with comprehensive logic coverage
+
+---
+
+## [0.4.0] - 2026-02-23
+
+### Added
+
+#### Widget Builder API Layer (SPEC-WIDGET-API-001)
+
+- `apps/web`: Next.js 15.x App Router 기반 새 패키지 (pnpm workspace 추가)
+- **Catalog API** (`/api/v1/catalog/`) - 9개 엔드포인트: 카테고리 트리/상세, 상품 목록/상세/사이즈/용지/옵션/제약조건/의존성
+- **Pricing API** (`/api/v1/pricing/`) - 4개 엔드포인트: 견적 계산, 빠른 가격 미리보기, 수량별 가격표, 고정 가격 조회
+- **Orders API** (`/api/v1/orders/`) - 3개 엔드포인트: 주문 생성, 목록 조회, 상세 조회
+- **Widget API** (`/api/widget/`) - 2개 엔드포인트: 위젯 설정, 임베드 스크립트
+- **Integration API** (`/api/v1/integration/`) - 12개 엔드포인트: Shopby(4), MES(4), Edicus(4) 연동
+- **Admin tRPC** (`/api/v1/admin/trpc/`) - 16개 도메인 라우터 (category, product, size, paper, material, printMode, postProcess, binding, priceTable, priceTier, fixedPrice, option, constraint, dependency, order, dashboard)
+- `createCrudRouter` 제네릭 팩토리 - list, getById, create, update, softDelete, bulkUpdate 표준 CRUD 자동 생성
+- RFC 7807 Problem Details 에러 핸들링 (`withMiddleware` HOF 컴포지션 패턴)
+- Widget Token (JWT) / Admin JWT (NextAuth.js v5) / API Key 3종 인증 레이어
+- 범위별 CORS 정책 (Widget Token allowed_origins, Admin only, Server-to-server)
+- 인증 방식별 In-memory Sliding Window Rate Limiting (Widget Token 100 req/min, Admin JWT 5000 req/min, API Key 1000 req/min, 미인증 30 req/min)
+- Drizzle ORM 스키마 추가: `huni-orders.schema.ts` (orders, orderStatusHistory, orderDesignFiles), `huni-widgets.schema.ts` (widgets)
+- 341개 단위 테스트 (Vitest), 93.97% statement coverage (tRPC 제외)
+
+---
+
 ## [0.2.0] - 2026-02-22
 
 ### Added
@@ -126,6 +240,8 @@
 - `packages/pricing-engine/__tests__/`: 옵션 엔진, 제약 조건, 계산기 테스트
 - TypeScript 컴파일 에러 0건
 
-[Unreleased]: https://github.com/skeeper75/widget.creator/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/skeeper75/widget.creator/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/skeeper75/widget.creator/compare/v0.4.0...v0.5.0
+[0.4.0]: https://github.com/skeeper75/widget.creator/compare/v0.2.0...v0.4.0
 [0.2.0]: https://github.com/skeeper75/widget.creator/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/skeeper75/widget.creator/releases/tag/v0.1.0

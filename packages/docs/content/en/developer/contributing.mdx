@@ -1,0 +1,243 @@
+# Contributing Guide
+
+SPEC-based development workflow, branch strategy, and commit conventions.
+
+## SPEC-based Development Workflow
+
+huni.builder follows MoAI-ADK's Plan-Run-Sync 3-phase workflow.
+
+```mermaid
+flowchart LR
+    A[Plan: Write SPEC] --> B[Run: Implement]
+    B --> C[Sync: Document]
+    C --> A
+
+    style A fill:#ff9800,stroke:#f57c00,color:#fff
+    style B fill:#2196f3,stroke:#1565c0,color:#fff
+    style C fill:#4caf50,stroke:#2e7d32,color:#fff
+```
+
+### Plan Phase
+
+```bash
+# Create SPEC
+/moai plan "Feature description"
+```
+
+- **SPEC Document Structure**:
+  - `spec.md`: Requirements definition
+  - `plan.md`: Implementation plan
+  - `acceptance.md`: Acceptance criteria
+
+### Run Phase
+
+```bash
+# Execute SPEC
+/moai run SPEC-XXX
+```
+
+- **Hybrid DDD/TDD**: TDD for new code, DDD for existing
+- **Quality Gates**: 0 errors, 0 type errors, 0 lint errors
+
+### Sync Phase
+
+```bash
+# Sync documentation
+/moai sync SPEC-XXX
+```
+
+- **API Documentation**: Auto-generated
+- **README Update**: User guide
+- **CHANGELOG**: Record changes
+
+---
+
+## Branch Strategy
+
+### Branch Naming
+
+| Type | Pattern | Example |
+|------|---------|---------|
+| Feature | `feature/SPEC-XXX-NNN` | `feature/SPEC-PRICE-001` |
+| Bugfix | `fix/SPEC-XXX-NNN` | `fix/SPEC-INTEGRATION-001` |
+| Hotfix | `hotfix/SPEC-XXX-NNN` | `hotfix/SPEC-CART-001` |
+| Docs | `docs/SPEC-XXX-NNN` | `docs/SPEC-DOCS-DEV-001` |
+
+### Create Branch
+
+```bash
+# Create feature branch
+git checkout -b feature/SPEC-XXX-NNN
+
+# Create bugfix branch
+git checkout -b fix/SPEC-XXX-NNN
+```
+
+---
+
+## Commit Convention
+
+### Conventional Commits Format
+
+```
+type(scope): description
+
+[optional body]
+
+[optional footer]
+```
+
+### Type Categories
+
+| Type | Description | Example |
+|------|-------------|---------|
+| `feat` | New feature | `feat(pricing): add discount calculator` |
+| `fix` | Bug fix | `fix(cart): resolve quantity calculation error` |
+| `docs` | Documentation | `docs(readme): update installation guide` |
+| `style` | Formatting | `style(widget): format with prettier` |
+| `refactor` | Refactoring | `refactor(api): extract validation logic` |
+| `test` | Tests | `test(pricing): add unit tests for booklet` |
+| `chore` | Build/config | `chore(deps): update vitest to 3.0` |
+
+### SPEC Reference Pattern
+
+```
+feat(widget): add HuniWidget bridge for Shopby integration
+
+Ref: SPEC-SHOPBY-SKIN-001
+
+- Implement HuniWidgetMount.jsx component
+- Add CustomEvent protocol for cart sync
+- Update Purchase.jsx for feature flag toggle
+```
+
+---
+
+## Pull Request Process
+
+### Pre-PR Checklist
+
+<div className="info-block">
+
+**Before creating PR:**
+
+- [ ] `pnpm type-check` passes (0 errors)
+- [ ] `pnpm test` passes (all tests)
+- [ ] Coverage 85%+ maintained/improved
+- [ ] `pnpm lint` passes (0 errors)
+- [ ] SPEC requirements satisfied
+- [ ] Self code review complete
+
+</div>
+
+### PR Title/Body Convention
+
+**Title:**
+```
+feat(widget): implement HuniWidget for Shopby integration (SPEC-SHOPBY-SKIN-001)
+```
+
+**Body:**
+```markdown
+## Changes
+- Implement HuniWidgetMount.jsx component
+- CustomEvent protocol for cart sync
+- Feature flag to preserve existing behavior
+
+## Tests
+- Unit tests: 47 passing
+- Coverage: 95.67%
+- Shopby Aurora Skin integration test complete
+
+## Related SPEC
+- SPEC-SHOPBY-SKIN-001
+
+## Screenshots
+(Attach screenshots)
+```
+
+---
+
+## Code Review Checklist
+
+<div className="warning-block">
+
+**Code Review Items:**
+
+### TypeScript Strict Mode
+- [ ] No `any` types used
+- [ ] All functions have explicit types
+- [ ] Null checks complete
+
+### Test Coverage
+- [ ] 85%+ coverage maintained
+- [ ] Tests included for new features
+- [ ] Edge case tests included
+
+### SPEC Compliance
+- [ ] All requirements implemented
+- [ ] Acceptance criteria met
+- [ ] Test cases covered
+
+### Performance
+- [ ] Unnecessary re-renders removed
+- [ ] No memory leaks
+- [ ] Bundle size increase minimized
+
+### Security
+- [ ] Input validation complete
+- [ ] SQL injection prevented
+- [ ] XSS prevented
+
+</div>
+
+---
+
+## Code Style
+
+### ESLint Rules Compliance
+
+```bash
+# Run lint
+pnpm lint
+
+# Auto-fix
+pnpm lint --fix
+```
+
+### TypeScript Strict Mode
+
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true
+  }
+}
+```
+
+### English Code Comments
+
+```typescript
+/**
+ * Calculate print price based on options
+ * @param options - Print options (paper, size, quantity)
+ * @returns Calculated price in KRW
+ */
+export function calculatePrintPrice(options: PrintOptions): number {
+  const { paper, size, quantity } = options;
+  // Calculate base price
+  const basePrice = paper.unitPrice * size.multiplier;
+  // Apply quantity discount
+  const discount = getQuantityDiscount(quantity);
+  return basePrice * quantity * (1 - discount);
+}
+```
+
+---
+
+## Next Steps
+
+- [Changelog](./changelog) - Version history
+- [Roadmap](./roadmap) - Current state and future vision

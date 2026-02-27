@@ -1,0 +1,243 @@
+# 기여 가이드
+
+SPEC 기반 개발 워크플로우, 브랜치 전략, 커밋 컨벤션을 안내합니다.
+
+## SPEC 기반 개발 워크플로우
+
+huni.builder는 MoAI-ADK의 Plan-Run-Sync 3단계 워크플로우를 따릅니다.
+
+```mermaid
+flowchart LR
+    A[Plan: SPEC 작성] --> B[Run: 구현]
+    B --> C[Sync: 문서화]
+    C --> A
+
+    style A fill:#ff9800,stroke:#f57c00,color:#fff
+    style B fill:#2196f3,stroke:#1565c0,color:#fff
+    style C fill:#4caf50,stroke:#2e7d32,color:#fff
+```
+
+### Plan Phase
+
+```bash
+# SPEC 생성
+/moai plan "기능 설명"
+```
+
+- **SPEC 문서 구조**:
+  - `spec.md`: 요구사항 정의
+  - `plan.md`: 구현 계획
+  - `acceptance.md`: 인수 조건
+
+### Run Phase
+
+```bash
+# SPEC 실행
+/moai run SPEC-XXX
+```
+
+- **Hybrid DDD/TDD**: 신규 코드 TDD, 기존 코드 DDD
+- **품질 게이트**: 0 에러, 0 타입 에러, 0 린트 에러
+
+### Sync Phase
+
+```bash
+# 문서 동기화
+/moai sync SPEC-XXX
+```
+
+- **API 문서**: 자동 생성
+- **README 업데이트**: 사용 가이드
+- **CHANGELOG**: 변경 이력 기록
+
+---
+
+## 브랜치 전략
+
+### 브랜치 네이밍
+
+| 유형 | 패턴 | 예시 |
+|------|------|------|
+| 기능 개발 | `feature/SPEC-XXX-NNN` | `feature/SPEC-PRICE-001` |
+| 버그 수정 | `fix/SPEC-XXX-NNN` | `fix/SPEC-INTEGRATION-001` |
+| 핫픽스 | `hotfix/SPEC-XXX-NNN` | `hotfix/SPEC-CART-001` |
+| 문서 | `docs/SPEC-XXX-NNN` | `docs/SPEC-DOCS-DEV-001` |
+
+### 브랜치 생성
+
+```bash
+# 기능 브랜치 생성
+git checkout -b feature/SPEC-XXX-NNN
+
+# 버그 수정 브랜치 생성
+git checkout -b fix/SPEC-XXX-NNN
+```
+
+---
+
+## 커밋 컨벤션
+
+### Conventional Commits 형식
+
+```
+type(scope): description
+
+[optional body]
+
+[optional footer]
+```
+
+### Type 종류
+
+| Type | 설명 | 예시 |
+|------|------|------|
+| `feat` | 새로운 기능 | `feat(pricing): add discount calculator` |
+| `fix` | 버그 수정 | `fix(cart): resolve quantity calculation error` |
+| `docs` | 문서 | `docs(readme): update installation guide` |
+| `style` | 포맷팅 | `style(widget): format with prettier` |
+| `refactor` | 리팩터링 | `refactor(api): extract validation logic` |
+| `test` | 테스트 | `test(pricing): add unit tests for booklet` |
+| `chore` | 빌드/설정 | `chore(deps): update vitest to 3.0` |
+
+### SPEC 참조 패턴
+
+```
+feat(widget): add HuniWidget bridge for Shopby integration
+
+Ref: SPEC-SHOPBY-SKIN-001
+
+- Implement HuniWidgetMount.jsx component
+- Add CustomEvent protocol for cart sync
+- Update Purchase.jsx for feature flag toggle
+```
+
+---
+
+## Pull Request 프로세스
+
+### PR 생성 전 체크리스트
+
+<div className="info-block">
+
+**PR 생성 전 확인:**
+
+- [ ] `pnpm type-check` 통과 (0 에러)
+- [ ] `pnpm test` 통과 (모든 테스트)
+- [ ] 커버리지 85%+ 유지/향상
+- [ ] `pnpm lint` 통과 (0 에러)
+- [ ] SPEC 요구사항 충족
+- [ ] 코드 리뷰 자기 검토 완료
+
+</div>
+
+### PR 제목/본문 컨벤션
+
+**제목:**
+```
+feat(widget): implement HuniWidget for Shopby integration (SPEC-SHOPBY-SKIN-001)
+```
+
+**본문:**
+```markdown
+## 변경 사항
+- HuniWidgetMount.jsx 컴포넌트 구현
+- CustomEvent 프로토콜로 장바구니 동기화
+- Feature Flag로 기존 동작 보존
+
+## 테스트
+- 단위 테스트: 47개 통과
+- 커버리지: 95.67%
+- Shopby Aurora Skin 통합 테스트 완료
+
+## 관련 SPEC
+- SPEC-SHOPBY-SKIN-001
+
+## 스크린샷
+(스크린샷 첨부)
+```
+
+---
+
+## 코드 리뷰 체크리스트
+
+<div className="warning-block">
+
+**코드 리뷰 항목:**
+
+### TypeScript Strict Mode
+- [ ] `any` 타입 사용 없음
+- [ ] 모든 함수에 타입 명시
+- [ ] Null 체크 완료
+
+### 테스트 커버리지
+- [ ] 85%+ 커버리지 유지
+- [ ] 새로운 기능에 테스트 포함
+- [ ] 경계 케이스 테스트 포함
+
+### SPEC 충족
+- [ ] 모든 요구사항 구현
+- [ ] 인수 조건 충족
+- [ ] 테스트 케이스 커버
+
+### 성능
+- [ ] 불필요한 리렌더링 제거
+- [ ] 메모리 누수 없음
+- [ ] 번들 크기 증가 최소화
+
+### 보안
+- [ ] 입력 검증 완료
+- [ ] SQL 인젝션 방지
+- [ ] XSS 방지
+
+</div>
+
+---
+
+## 코드 스타일
+
+### ESLint 규칙 준수
+
+```bash
+# 린트 실행
+pnpm lint
+
+# 자동 수정
+pnpm lint --fix
+```
+
+### TypeScript Strict Mode
+
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true
+  }
+}
+```
+
+### 영문 코드 주석
+
+```typescript
+/**
+ * Calculate print price based on options
+ * @param options - Print options (paper, size, quantity)
+ * @returns Calculated price in KRW
+ */
+export function calculatePrintPrice(options: PrintOptions): number {
+  const { paper, size, quantity } = options;
+  // Calculate base price
+  const basePrice = paper.unitPrice * size.multiplier;
+  // Apply quantity discount
+  const discount = getQuantityDiscount(quantity);
+  return basePrice * quantity * (1 - discount);
+}
+```
+
+---
+
+## 다음 단계
+
+- [변경 이력](./changelog) - 버전별 변경사항
+- [로드맵](./roadmap) - 현재 상태 및 미래 비전

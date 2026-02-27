@@ -1,0 +1,141 @@
+# Data Management
+
+Excel import/export, bulk operations, validation, and audit trail.
+
+> **Core**: Import and export bulk product/price data via Excel.
+
+<Callout type="warning">
+**Backup**: Always backup before bulk import/delete operations.
+</Callout>
+
+## 1. Excel Import
+
+### 1.1 Supported Formats
+
+**Product master**:
+- `.xlsx` format
+- 13 sheets (12 categories + master)
+- 12 categories
+
+**Price table**:
+- `.xlsx` format
+- 18 sheets
+- Quantity tier columns
+
+### 1.2 Import Workflow
+
+<Steps>
+### Step 1: Click [Excel Import] Button
+
+### Step 2: Select File and Import Type
+
+Product master or price table
+
+### Step 3: Review Automatic Column Mapping
+
+### Step 4: Validate Data
+
+System runs automatic checks
+
+### Step 5: Review Validation Report
+
+Error count, warning count, affected rows
+
+### Step 6: Confirm Import
+</Steps>
+
+<Callout type="warning">
+**Import overwrites existing data** matching by product key. Always backup first!
+</Callout>
+
+## 2. Excel Export
+
+### 2.1 Export Types
+
+- Product data
+- Pricing tables
+- Constraint rules
+
+### 2.2 Filter Options
+
+- By category
+- By product type
+- By active/inactive status
+- By date range
+
+### 2.3 Export Format
+
+`.xlsx` with formatted headers
+
+## 3. Bulk Operations
+
+### 3.1 Multi-Select Products
+
+Ctrl+Click or Shift+Click in Navigator
+
+### 3.2 Batch Status Toggle
+
+Active/Inactive
+
+### 3.3 Batch Category Reassignment
+
+### 3.4 Batch Template Application
+
+G1-G8
+
+<Callout type="info">
+**Audit Trail**: All bulk operations are logged in the audit trail.
+</Callout>
+
+## 4. Data Validation
+
+### 4.1 Automatic Validation Checks
+
+On import:
+- Required fields present
+- Data type correctness
+- Referential integrity (category IDs, option keys)
+- Uniqueness constraints (MES code, option key per product)
+
+### 4.2 Validation Report
+
+- Error count
+- Warning count
+- Affected rows
+
+### 4.3 Fix-and-Reimport Workflow
+
+Fix errors → Re-validate → Re-import
+
+## 5. Backup and Recovery
+
+### 5.1 Export Full Dataset
+
+As backup before major operations
+
+### 5.2 Regular Backup Recommendation Schedule
+
+- Daily: Automatic incremental backup
+- Weekly: Full backup
+- Monthly: Long-term retention backup
+
+<Callout type="warning">
+**Recommendation**: Regular backups recommended before any bulk import or deletion.
+</Callout>
+
+## 6. Audit Trail
+
+All CRUD operations logged with:
+- User identity
+- Action type
+- Timestamp
+- Before/After state
+
+**Features**:
+- Change history per product
+- Filtering audit log by date range, action type, user
+
+## Related Documentation
+
+- [Product Management](./product-management) - Product CRUD
+- [Price Rules](./price-rules) - Price table management

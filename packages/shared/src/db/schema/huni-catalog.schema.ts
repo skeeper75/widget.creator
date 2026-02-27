@@ -10,6 +10,7 @@ import {
   text,
   index,
   unique,
+  AnyPgColumn,
 } from 'drizzle-orm/pg-core';
 
 // HuniCategory: Hierarchical product categories
@@ -17,21 +18,23 @@ export const categories = pgTable('categories', {
   id: serial('id').primaryKey(),
   code: varchar('code', { length: 50 }).unique().notNull(),
   name: varchar('name', { length: 100 }).notNull(),
-  parentId: integer('parent_id'),
+  parentId: integer('parent_id').references((): AnyPgColumn => categories.id, { onDelete: 'set null' }),
   depth: smallint('depth').default(0).notNull(),
   displayOrder: smallint('display_order').default(0).notNull(),
+  sheetName: varchar('sheet_name', { length: 50 }),
   iconUrl: varchar('icon_url', { length: 500 }),
   isActive: boolean('is_active').default(true).notNull(),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().$onUpdate(() => new Date()).notNull(),
 }, (t) => [
   index('categories_parent_id_idx').on(t.parentId),
+  index('categories_sheet_name_idx').on(t.sheetName),
 ]);
 
 // HuniProduct: Master product record for Huni system
 export const products = pgTable('products', {
   id: serial('id').primaryKey(),
-  categoryId: integer('category_id').notNull(),
+  categoryId: integer('category_id').notNull().references(() => categories.id, { onDelete: 'restrict' }),
   huniCode: varchar('huni_code', { length: 10 }).unique().notNull(),
   edicusCode: varchar('edicus_code', { length: 15 }).unique(),
   shopbyId: integer('shopby_id').unique(),
@@ -57,7 +60,7 @@ export const products = pgTable('products', {
 // HuniProductSize: Size specifications per product
 export const productSizes = pgTable('product_sizes', {
   id: serial('id').primaryKey(),
-  productId: integer('product_id').notNull(),
+  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'cascade' }),
   code: varchar('code', { length: 50 }).notNull(),
   displayName: varchar('display_name', { length: 100 }).notNull(),
   cutWidth: numeric('cut_width', { precision: 8, scale: 2 }),

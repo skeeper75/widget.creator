@@ -1,0 +1,200 @@
+---
+title: Widget API
+description: Hono 기반 위젯 공개 API
+---
+
+# Widget API
+
+Hono + Zod 기반의 위젯 공개 API로, 상품, 카테고리, 가격 조회를 제공합니다.
+
+## 개요
+
+| 항목 | 값 |
+|------|-----|
+| 프레임워크 | Hono |
+| 검증 | Zod |
+| 엔드포인트 수 | 6+ |
+| 인증 | API Key (선택) |
+
+## 엔드포인트
+
+### Products
+
+| 메서드 | 경로 | 설명 | 인증 |
+|--------|------|------|------|
+| GET | `/api/v1/products` | 상품 목록 | Public |
+| GET | `/api/v1/products/search` | 상품 검색 | Public |
+| GET | `/api/v1/products/:id` | 상품 상세 | Public |
+| GET | `/api/v1/products/:id/options` | 상품 옵션 | Public |
+| GET | `/api/v1/products/:id/pricing` | 상품 가격 | API Key |
+
+### Categories
+
+| 메서드 | 경로 | 설명 | 인증 |
+|--------|------|------|------|
+| GET | `/api/v1/categories` | 카테고리 목록 | Public |
+| GET | `/api/v1/categories/:id/products` | 카테고리 상품 | Public |
+
+### Health
+
+| 메서드 | 경로 | 설명 | 인증 |
+|--------|------|------|------|
+| GET | `/health` | 헬스 체크 | Public |
+
+## 상품 목록 조회
+
+### 요청
+
+```bash
+GET /api/v1/products?page=1&limit=20&category=1
+```
+
+### 쿼리 파라미터
+
+| 파라미터 | 타입 | 기본값 | 설명 |
+|----------|------|--------|------|
+| page | number | 1 | 페이지 번호 |
+| limit | number | 20 | 페이지 당 항목 수 |
+| category | number | - | 카테고리 필터 |
+| search | string | - | 검색어 |
+
+### 응답
+
+```json
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": 1,
+        "name": "엽서",
+        "huniCode": "POSTCARD-001",
+        "mesItemCd": "001",
+        "categoryId": 1,
+        "basePrice": 10000,
+        "currency": "KRW"
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "limit": 20,
+      "total": 100,
+      "totalPages": 5
+    }
+  },
+  "error": null,
+  "meta": {
+    "timestamp": "2025-12-19T10:00:00Z"
+  }
+}
+```
+
+## 상품 상세 조회
+
+### 요청
+
+```bash
+GET /api/v1/products/1
+```
+
+### 응답
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": 1,
+    "name": "엽서",
+    "huniCode": "POSTCARD-001",
+    "mesItemCd": "001",
+    "categoryId": 1,
+    "basePrice": 10000,
+    "currency": "KRW",
+    "options": [
+      {
+        "id": 1,
+        "name": "용지",
+        "type": "radio",
+        "required": true,
+        "choices": [
+          {
+            "id": 1,
+            "name": "아트지",
+            "priceModifier": 0
+          },
+          {
+            "id": 2,
+            "name": "모조지",
+            "priceModifier": 500
+          }
+        ]
+      }
+    ]
+  },
+  "error": null
+}
+```
+
+## 상품 검색
+
+### 요청
+
+```bash
+GET /api/v1/products/search?q=엽서&page=1&limit=10
+```
+
+### 응답
+
+```json
+{
+  "success": true,
+  "data": {
+    "results": [
+      {
+        "id": 1,
+        "name": "엽서",
+        "huniCode": "POSTCARD-001",
+        "highlight": "<mark>엽서</mark>"
+      }
+    ],
+    "total": 5
+  }
+}
+```
+
+## 카테고리 목록 조회
+
+### 요청
+
+```bash
+GET /api/v1/categories
+```
+
+### 응답
+
+```json
+{
+  "success": true,
+  "data": {
+    "categories": [
+      {
+        "id": 1,
+        "name": "엽서",
+        "slug": "postcard",
+        "parent": null
+      },
+      {
+        "id": 2,
+        "name": "스티커",
+        "slug": "sticker",
+        "parent": null
+      }
+    ]
+  }
+}
+```
+
+## 관련 문서
+
+- [Admin REST API](./admin-api) - 관리자 API
+- [Widget Events](./widget-events) - CustomEvent 프로토콜

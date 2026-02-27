@@ -35,6 +35,31 @@ export type {
   DeliveryData,
 } from "./delivery-calculator.js";
 
+// Widget Builder 4-mode pricing engine
+export { WbPricingEngine } from "./wb-pricing-engine.js";
+export {
+  calculateLookupPrice,
+  calculateAreaPrice,
+  calculatePagePrice,
+  calculateCompositePrice,
+  calculatePostprocessCost,
+  findQtyDiscount,
+  calculateFinalPrice,
+} from "./wb-pricing-engine.js";
+export type {
+  PriceMode,
+  LookupParams,
+  AreaParams,
+  PageParams,
+  CompositeParams,
+  PrintCostBaseEntry,
+  PostprocessCostEntry,
+  QtyDiscountEntry,
+  PriceBreakdown,
+  PriceCalculationResult,
+  WbPricingInput,
+} from "./wb-pricing-engine.js";
+
 // Types
 export type {
   ProductData,

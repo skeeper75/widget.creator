@@ -11,6 +11,9 @@ import {
   index,
   unique,
 } from 'drizzle-orm/pg-core';
+import { products, productSizes } from './huni-catalog.schema';
+import { papers, materials } from './huni-materials.schema';
+import { printModes } from './huni-processes.schema';
 
 // HuniPriceTable: Price table header
 export const priceTables = pgTable('price_tables', {
@@ -32,7 +35,7 @@ export const priceTables = pgTable('price_tables', {
 // HuniPriceTier: Price tier entries per table
 export const priceTiers = pgTable('price_tiers', {
   id: serial('id').primaryKey(),
-  priceTableId: integer('price_table_id').notNull(),
+  priceTableId: integer('price_table_id').notNull().references(() => priceTables.id, { onDelete: 'cascade' }),
   optionCode: varchar('option_code', { length: 50 }).notNull(),
   minQty: integer('min_qty').notNull(),
   maxQty: integer('max_qty').default(999999).notNull(),
@@ -49,11 +52,11 @@ export const priceTiers = pgTable('price_tiers', {
 // HuniFixedPrice: Fixed unit prices for specific product configurations
 export const fixedPrices = pgTable('fixed_prices', {
   id: serial('id').primaryKey(),
-  productId: integer('product_id').notNull(),
-  sizeId: integer('size_id'),
-  paperId: integer('paper_id'),
-  materialId: integer('material_id'),
-  printModeId: integer('print_mode_id'),
+  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'restrict' }),
+  sizeId: integer('size_id').references(() => productSizes.id, { onDelete: 'set null' }),
+  paperId: integer('paper_id').references(() => papers.id, { onDelete: 'set null' }),
+  materialId: integer('material_id').references(() => materials.id, { onDelete: 'set null' }),
+  printModeId: integer('print_mode_id').references(() => printModes.id, { onDelete: 'set null' }),
   optionLabel: varchar('option_label', { length: 100 }),
   baseQty: integer('base_qty').default(1).notNull(),
   sellingPrice: numeric('selling_price', { precision: 12, scale: 2 }).notNull(),
@@ -71,9 +74,9 @@ export const fixedPrices = pgTable('fixed_prices', {
 // HuniPackagePrice: Package-based pricing for booklets
 export const packagePrices = pgTable('package_prices', {
   id: serial('id').primaryKey(),
-  productId: integer('product_id').notNull(),
-  sizeId: integer('size_id').notNull(),
-  printModeId: integer('print_mode_id').notNull(),
+  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'restrict' }),
+  sizeId: integer('size_id').notNull().references(() => productSizes.id, { onDelete: 'restrict' }),
+  printModeId: integer('print_mode_id').notNull().references(() => printModes.id, { onDelete: 'restrict' }),
   pageCount: smallint('page_count').notNull(),
   minQty: integer('min_qty').notNull(),
   maxQty: integer('max_qty').default(999999).notNull(),
@@ -112,6 +115,9 @@ export const foilPrices = pgTable('foil_prices', {
 export const lossQuantityConfigs = pgTable('loss_quantity_config', {
   id: serial('id').primaryKey(),
   scopeType: varchar('scope_type', { length: 20 }).notNull(),
+  // @MX:WARN: [AUTO] Polymorphic FK - scopeId target determined by scopeType discriminator
+  // @MX:REASON: Cannot use standard .references() for polymorphic pattern; validate at application level
+  // @MX:SPEC: SPEC-DB-001
   scopeId: integer('scope_id'),
   lossRate: numeric('loss_rate', { precision: 5, scale: 4 }).notNull(),
   minLossQty: integer('min_loss_qty').default(0).notNull(),

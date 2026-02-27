@@ -1,0 +1,176 @@
+/**
+ * Design Tokens - CSS Custom Properties
+ *
+ * These tokens define the visual language of the Widget SDK.
+ * All values are derived from the DESIGN_TOKENS specification.
+ *
+ * @see SPEC-WIDGET-SDK-001 Section 1.5
+ */
+
+:host {
+  /* ========================================
+   * COLOR TOKENS
+   * ======================================== */
+
+  /* Primary Colors */
+  --huni-color-primary: #5538b6;
+  --huni-color-secondary: #4b3f96;
+  --huni-color-accent: #f0831e;
+
+  /* Text Colors */
+  --huni-color-text-primary: #424242;
+  --huni-color-text-secondary: #979797;
+  --huni-color-text-tertiary: #a5a5a5;
+
+  /* UI Colors */
+  --huni-color-border: #cacaca;
+  --huni-color-disabled: #d9d9d9;
+  --huni-color-surface: #f6f6f6;
+  --huni-color-background: #f5f6f8;
+
+  /* Semantic Colors */
+  --huni-color-error: #e53935;
+  --huni-color-success: #43a047;
+  --huni-color-warning: #fb8c00;
+  --huni-color-info: #1e88e5;
+
+  /* Interactive States */
+  --huni-color-primary-hover: #6b4cc7;
+  --huni-color-primary-active: #4a2fa3;
+  --huni-color-primary-disabled: #d9d9d9;
+  --huni-color-accent-hover: #f59a3d;
+  --huni-color-accent-active: #d87115;
+
+  /* ========================================
+   * TYPOGRAPHY TOKENS
+   * ======================================== */
+
+  /* Font Family */
+  --huni-font-family: 'Noto Sans KR', 'Noto Sans', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Font Weights */
+  --huni-font-weight-regular: 400;
+  --huni-font-weight-medium: 500;
+  --huni-font-weight-semibold: 600;
+  --huni-font-weight-bold: 700;
+
+  /* Font Sizes (based on 14px base) */
+  --huni-font-size-xs: 11px;
+  --huni-font-size-sm: 12px;
+  --huni-font-size-base: 14px;
+  --huni-font-size-md: 15px;
+  --huni-font-size-lg: 16px;
+  --huni-font-size-xl: 18px;
+  --huni-font-size-2xl: 20px;
+  --huni-font-size-3xl: 24px;
+
+  /* Line Heights */
+  --huni-line-height-tight: 1.25;
+  --huni-line-height-normal: 1.5;
+  --huni-line-height-relaxed: 1.75;
+
+  /* ========================================
+   * SPACING TOKENS (4px Grid System)
+   * ======================================== */
+
+  --huni-spacing-unit: 4px;
+  --huni-spacing-0: 0;
+  --huni-spacing-1: 4px; /* 1 unit */
+  --huni-spacing-2: 8px; /* 2 units */
+  --huni-spacing-3: 12px; /* 3 units */
+  --huni-spacing-4: 16px; /* 4 units */
+  --huni-spacing-5: 20px; /* 5 units */
+  --huni-spacing-6: 24px; /* 6 units */
+  --huni-spacing-8: 32px; /* 8 units */
+  --huni-spacing-10: 40px; /* 10 units */
+  --huni-spacing-12: 48px; /* 12 units */
+  --huni-spacing-16: 64px; /* 16 units */
+
+  /* ========================================
+   * BORDER RADIUS TOKENS
+   * ======================================== */
+
+  --huni-radius-small: 3px;
+  --huni-radius-default: 4px;
+  --huni-radius-medium: 6px;
+  --huni-radius-large: 8px;
+  --huni-radius-chip: 20px;
+  --huni-radius-full: 9999px;
+
+  /* ========================================
+   * COMPONENT TOKENS
+   * ======================================== */
+
+  /* Color Chip (for PaperSelect, ColorChipGroup) */
+  --huni-chip-diameter: 50px;
+  --huni-chip-selected-ring: 52px;
+  --huni-chip-ring-color: var(--huni-color-primary);
+  --huni-chip-ring-width: 2px;
+
+  /* Button Heights */
+  --huni-button-height-sm: 28px;
+  --huni-button-height-md: 36px;
+  --huni-button-height-lg: 44px;
+
+  /* Input Heights */
+  --huni-input-height-sm: 28px;
+  --huni-input-height-md: 36px;
+  --huni-input-height-lg: 44px;
+
+  /* ========================================
+   * SHADOW TOKENS
+   * ======================================== */
+
+  --huni-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --huni-shadow-default: 0 1px 3px 0 rgb(0 0 0 / 10%),
+    0 1px 2px -1px rgb(0 0 0 / 10%);
+  --huni-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
+  --huni-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%),
+    0 4px 6px -4px rgb(0 0 0 / 10%);
+  --huni-shadow-dropdown: 0 4px 12px 0 rgb(0 0 0 / 15%);
+
+  /* ========================================
+   * TRANSITION TOKENS
+   * ======================================== */
+
+  --huni-transition-fast: 100ms ease;
+  --huni-transition-default: 150ms ease;
+  --huni-transition-slow: 250ms ease;
+  --huni-transition-colors: color 150ms ease, background-color 150ms ease,
+    border-color 150ms ease;
+
+  /* ========================================
+   * Z-INDEX TOKENS
+   * ======================================== */
+
+  --huni-z-dropdown: 100;
+  --huni-z-sticky: 200;
+  --huni-z-modal: 300;
+  --huni-z-tooltip: 400;
+
+  /* ========================================
+   * RESPONSIVE BREAKPOINTS (for reference)
+   * These are not usable in CSS but documented here
+   * for media query consistency
+   * ======================================== */
+
+  /* Mobile: 320px - 480px */
+  /* Tablet: 481px - 768px */
+  /* Desktop: 769px - 1200px */
+  /* Large Desktop: 1201px+ */
+}
+
+/* ========================================
+ * THEME OVERRIDES (via CSS Custom Properties)
+ * Host pages can override these via data-theme-* attributes
+ * ======================================== */
+
+:host([data-theme-primary]) {
+  --huni-color-primary: var(--theme-primary);
+}
+
+:host([data-theme-radius]) {
+  --huni-radius-default: var(--theme-radius);
+}

@@ -55,6 +55,44 @@ export type {
   LineItemCategory,
 } from './quote/types.js';
 
+// === Simulation & Admin Console ===
+export {
+  checkCompleteness,
+  checkProductCompleteness,
+  generateCombinations,
+  runSimulation,
+  cartesianProduct,
+  sampleN,
+  runSimulationCases,
+  resolveSimulationCombinations,
+  SIMULATION_MAX_CASES,
+  validatePublishReadiness,
+  PublishError,
+} from './simulation/index.js';
+export type {
+  CompletenessInput,
+  CompletenessCheckInput,
+  CompletenessResult,
+  CompletenessItem,
+  OptionType,
+  SimOptionChoice,
+  SimulationInput,
+  SimulationConstraint,
+  SimulationPriceConfig,
+  OptionChoiceSet,
+  CaseEvaluator,
+  SimulationCaseResult,
+  SimulationResult,
+  TooLargeResult,
+  SimulationRunResult,
+  SimulationOptions,
+  PublishOptions,
+  PublishServiceInput,
+  UnpublishServiceInput,
+  PublishResult,
+  UnpublishResult,
+} from './simulation/index.js';
+
 // === Errors ===
 export {
   CoreError,

@@ -1,0 +1,26 @@
+/**
+ * Widget SDK Styles - Main Entry
+ *
+ * This file aggregates all CSS styles for the Widget SDK.
+ * Styles are designed to be injected into Shadow DOM.
+ *
+ * Import order:
+ * 1. tokens.css - Design tokens (CSS Custom Properties)
+ * 2. base.css - Reset + base styles
+ * 3. primitives.css - Primitive component styles
+ * 4. components.css - Domain component styles
+ *
+ * @see SPEC-WIDGET-SDK-001 Section 4.1.2
+ */
+
+/* Design Tokens - CSS Custom Properties */
+@import './tokens.css';
+
+/* Reset + Base Styles for Shadow DOM */
+@import './base.css';
+
+/* Primitive Component Styles (7 components) */
+@import './primitives.css';
+
+/* Domain Component Styles (10 components) */
+@import './components.css';

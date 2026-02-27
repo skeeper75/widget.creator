@@ -1,0 +1,102 @@
+# Why Widget Builder?
+
+Understand the uniqueness of the printing business and the differentiating approach of the widget builder.
+
+## Why Shopby?
+
+> "The reason we chose Shopby was the expectation that with an advanced shopping platform engine, we could design various forms of business on top of it. That business was printing, and referencing Wowpress's API Docs, we conceived a form where any shopping platform could immediately print through a widget builder."
+
+### Business Design on Advanced Platform Engine
+
+| Advantage | Description |
+|-----------|-------------|
+| **Scalability** | Add various business logic on top of platform engine |
+| **Stability** | Utilize proven e-commerce infrastructure |
+| **Integration** | Basic member, cart, order, payment functions provided |
+| **Multi-channel** | Sell across multiple channels with one product management |
+
+### Uniqueness of Printing Business
+
+<div className="info-block">
+
+Print orders have complexity different from general e-commerce:
+
+- **Option Complexity**: Paper x Size x Quantity x Color Mode x Finishing combinations
+- **Real-time Quote**: Need accurate price calculation immediately upon option change
+- **Production Integration**: Automate order → production order → delivery pipeline
+- **Multi-channel Integration**: Integrate Shopby, own store, third-party sites
+
+</div>
+
+---
+
+## Platform-Independent Widget Approach
+
+### Traditional vs Widget Builder
+
+| Criteria | Wowpress Method | huni.builder Widget Builder |
+|----------|----------------|-----------------------------|
+| **Deployment** | Self-site only | Embed on any site |
+| **CSS Isolation** | None (host page dependent) | Shadow DOM complete isolation |
+| **Price Calculation** | Server-side API call | Client embedded engine (real-time) |
+| **Multi-channel** | API only | Widget + API + Event protocol |
+| **Bundle Size** | N/A (self-site) | 48.71KB gzipped |
+| **Testing** | N/A | 93.7% coverage |
+
+---
+
+## Wowpress Benchmarking
+
+<div className="tip-block">
+
+**Key points referenced from Wowpress (wowpress.co.kr)**
+
+- **API Structure**: 17 Open API endpoints (member/product/price/order/file/delivery)
+- **Price Structure**: Size x Color Mode x Material based price lookup structure
+- **Option Design**: 7 option areas (size, color mode, material, finishing, supplies, delivery, quantity)
+- **Constraints**: Prepaid delivery impossible, bundled shipping impossible, etc.
+
+</div>
+
+### Improvement Summary
+
+Areas where huni.builder improved over Wowpress:
+
+- **Real-time client price calculation**: No server API calls needed
+- **Shadow DOM CSS isolation**: Embed on any site without conflicts
+- **Multi-channel support**: Simultaneously support Shopby, own store, third-party sites
+- **Flexible decision table-based constraints**: 14 pattern templates
+- **93.7% test coverage**: Reliability guarantee
+- **TypeScript type safety**: Typia/Nestia/Zod across all layers
+
+---
+
+## Vision Roadmap
+
+### Current
+
+- Widget builder + real-time quote + Shopby integration
+- 8 calculators, 93.7% coverage
+- MES/Edicus integration complete
+
+### Next Steps
+
+- PDF/file order functionality
+- Enhanced Edicus editor integration
+- Extended MES production automation
+
+### Future Vision
+
+> "The widget builder is difficult to express in UI/UX because diverse printing domain knowledge is combined and connected in complex ways. The goal is to evolve into a form where meaning is attached together in network topology or like N8N, BPS, and to design products together with AI."
+
+- **AI-based product design**: Customer data learning, automated product planning
+- **Node-based UI/UX**: N8N/BPS style visual editor
+- **Domain knowledge visualization**: Express complex option relationships as graphs
+
+---
+
+## Next Steps
+
+- [Printing Domain Knowledge](./printing-domain) - Printing basics and option decision flow
+- [Wowpress Benchmarking](./wowpress-benchmarking) - API/price/option comparative analysis
+- [Pricing Philosophy](./pricing-philosophy) - 8 calculators and real-time quotes

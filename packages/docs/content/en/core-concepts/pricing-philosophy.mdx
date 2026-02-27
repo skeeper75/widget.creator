@@ -1,0 +1,214 @@
+# Pricing Philosophy
+
+Understand the importance of real-time quotes and design principles of 8 calculators.
+
+## Importance of Real-time Quotes
+
+### Traditional Print Quote Method
+
+```mermaid
+flowchart LR
+    A[Customer Quote Request] --> B[Manual Calculation]
+    B --> C[Email/Phone Response]
+    C --> D[Hours to Days]
+
+    style D fill:#f44336,stroke:#c62828,color:#fff
+```
+
+### Wowpress Method
+
+```mermaid
+flowchart LR
+    A[Option Selection] --> B[Server API Call]
+    B --> C[Price Response]
+    C --> D[Seconds<br/>Network Dependent]
+
+    style D fill:#ff9800,stroke:#f57c00,color:#fff
+```
+
+### huni.builder Method
+
+```mermaid
+flowchart LR
+    A[Option Selection] --> B[Client Embedded Engine]
+    B --> C[Millisecond Calculation]
+    C --> D[Instant Display]
+
+    style D fill:#4caf50,stroke:#2e7d32,color:#fff
+```
+
+---
+
+## 8 Calculators Design Principles
+
+### Formula-based vs Direct Lookup
+
+```mermaid
+flowchart TD
+    A[Product Type Detection] --> B{Calculation Pattern}
+    B -->|Formula-based| C[digital-print.calc]
+    B -->|Formula-based| D[booklet.calc]
+    B -->|Formula-based| E[business-card.calc]
+    B -->|Direct Lookup| F[sticker.lookup]
+    B -->|Direct Lookup| G[acrylic.lookup]
+    B -->|Direct Lookup| H[large-format.lookup]
+    B -->|Direct Lookup| I[goods.lookup]
+    B -->|Direct Lookup| J[stationery.lookup]
+
+    C --> K[Imposition Count, Paper Unit Price, Print Cost Formula]
+    D --> K
+    E --> K
+
+    F --> L[Direct Price Table Lookup]
+    G --> L
+    H --> L
+    I --> L
+    J --> L
+
+    K --> M[Final Quote]
+    L --> M
+```
+
+| Pattern | Calculator | Principle |
+|---------|-----------|-----------|
+| **Formula-based** | digital-print, booklet, business-card | Formula calculation with imposition count, paper unit price, print cost variables |
+| **Direct Lookup** | sticker, acrylic, large-format, goods, stationery | Direct price table lookup by product/option/quantity combination |
+
+### Formula-based Calculator Details
+
+<div className="info-block">
+
+**Digital Print Calculation (digital-print.calc)**
+
+```
+Price = (Imposition Count × Paper Unit Price) + Print Cost + Finishing Cost + Binding Cost
+```
+
+- **Imposition Count**: Quantity that can be placed on print sheet
+- **Paper Unit Price**: Unit price by paper type
+- **Print Cost**: Print cost by color mode
+- **Finishing Cost**: Additional costs for coating, foil, emboss, etc.
+- **Binding Cost**: Costs for splitting, full nail, storage, etc.
+
+</div>
+
+---
+
+## Price Calculation Flow
+
+```mermaid
+flowchart TD
+    A[Option Selection] --> B{Product Type Detection}
+    B -->|Digital Print| C[digital-print.calc]
+    B -->|Booklet| D[booklet.calc]
+    B -->|Business Card| E[business-card.calc]
+    B -->|Sticker| F[sticker.lookup]
+    B -->|Acrylic| G[acrylic.lookup]
+    B -->|Large| H[large-format.lookup]
+    B -->|Goods| I[goods.lookup]
+    B -->|Stationery| J[stationery.lookup]
+    C & D & E --> K[Formula Calculation]
+    F & G & H & I & J --> L[Table Lookup]
+    K & L --> M[Final Quote]
+
+    style M fill:#4caf50,stroke:#2e7d32,color:#fff
+```
+
+### Calculator Features
+
+| Calculator | Product Type | Coverage |
+|------------|-------------|----------|
+| digital-print.calc | Flyers, Leaflets, Catalogs | 96.81% |
+| booklet.calc | Perfect bound, Saddle stitch booklets | 95.57% |
+| business-card.calc | Business cards | 96.57% |
+| sticker.lookup | Stickers | 87.97% |
+| acrylic.lookup | Acrylic products | 87.93% |
+| large-format.lookup | Posters, Banners | 92.72% |
+| goods.lookup | Goods | 97.43% |
+| stationery.lookup | Stationery | 95.48% |
+
+---
+
+## Meaning of Test Coverage
+
+### Business Value of 93.7% Coverage
+
+```mermaid
+flowchart LR
+    A[93.7% Coverage] --> B[402 Tests]
+    B --> C[Price Accuracy: 0 KRW Error]
+    B --> D[Regression Prevention]
+    B --> E[Batch Verification]
+    B --> F[Business Trust]
+
+    style A fill:#4caf50,stroke:#2e7d32,color:#fff
+    style C fill:#2196f3,stroke:#1565c0,color:#fff
+    style D fill:#2196f3,stroke:#1565c0,color:#fff
+    style E fill:#2196f3,stroke:#1565c0,color:#fff
+    style F fill:#2196f3,stroke:#1565c0,color:#fff
+```
+
+#### Price Accuracy
+
+<div className="tip-block">
+
+**Integer KRW Units (0 KRW Error)**
+
+- Print prices must be accurate to the won unit
+- Even 1 won error affects customer trust
+- 402 tests verify all cases
+
+</div>
+
+#### Regression Prevention
+
+- **Option Addition**: Guarantee existing prices
+- **Modification**: Maintain pre-change prices
+- **Deletion**: Record pre-deletion prices
+
+#### Batch Verification
+
+- **All Products × Option Combinations**: Automated verification
+- **Quantity Tiers**: 18-sheet tier unit price table
+- **Finishing Combinations**: Test all combinations
+
+#### Business Trust
+
+<div className="info-block">
+
+**Reliability of Prices Displayed to Customers in Real-time**
+
+- Accuracy of real-time quotes
+- No price changes after order
+- Reduced refund/exchange costs
+
+</div>
+
+---
+
+## Quantity Tier Pricing
+
+### Quantity Tier Table
+
+| Tier | Quantity | Unit Discount |
+|------|----------|---------------|
+| Tier 1 | 1~100 | Base unit price |
+| Tier 2 | 101~300 | 5% discount |
+| Tier 3 | 301~500 | 10% discount |
+| Tier 4 | 501~1000 | 15% discount |
+| Tier 5 | 1001+ | 20% discount |
+
+```mermaid
+flowchart LR
+    A[Quantity Increase] -->|Unit Price Decrease| B[Tier Discount]
+    B --> C[Bulk Order Discount]
+
+    style B fill:#ff9800,stroke:#f57c00,color:#fff
+```
+
+---
+
+## Next Steps
+
+- [Widget Guide](../widget-guide) - Detailed widget usage guide
+- [Pricing System](../pricing-system) - Price management and configuration

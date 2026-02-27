@@ -1,0 +1,173 @@
+# 가격 규칙
+
+5개 계산 타입, 규칙 관리, 커버리지 분석, 검증 방법을 설명합니다.
+
+> **핵심**: 복잡한 가격 계산 로직을 5가지 계산 타입으로 표현할 수 있습니다.
+
+<Callout type="info">
+**검증 시뮬레이터**: DB 계산값과 예상값을 비교하여 가격 오류를 방지할 수 있습니다.
+</Callout>
+
+## 1. 가격 규칙 개요
+
+### 1.1 가격 규칙이란?
+
+옵션 선택에 기반한 가격 결정 규칙
+
+### 1.2 5개 계산 타입
+
+| 타입 | 설명 | 사용 사례 |
+|------|------|----------|
+| fixed | 단일 단가 | 평률 후가공 기본 가격 |
+| percentage | 백분율 기반 | 대량 할인, 프리미엄 추가 |
+| tiered | 수량 계단 | 수량별 할인표 |
+| formula | 수식 기반 | 용지 가격 x (페이지 / 2) x 출력 |
+| lookup | 테이블 참조 | 규격 x 수량 가격표 |
+
+## 2. PricingRuleEditor 컴포넌트
+
+옵션에 가격 규칙 할당
+
+**기능**:
+- 규칙 타입 선택 드롭다운
+- 타입별 폼 렌더링
+- 동일 옵션의 다중 규칙 우선순위 지정
+
+## 3. 5 계산 타입 상세
+
+### 3.1 fixed (고정 가격)
+
+**설명**: 단일 단가
+
+**사용 사례**: 코팅 기본 가격
+
+**폼 필드**:
+- unit price (숫자)
+- description (텍스트)
+
+**예시**: Coating = 500 KRW fixed
+
+### 3.2 percentage (백분율 기반)
+
+**설명**: 기본 가격에 대한 백분율 마크업/할인
+
+**사용 사례**: 대량 할인 계단, 프리미엄 추가
+
+**폼 필드**:
+- percentage (숫자)
+- base reference (드롭다운)
+
+**예시**: Volume discount = -15% on base price
+
+### 3.3 tiered (수량 계단)
+
+**설명**: 수량 브래킷 가격
+
+**사용 사례**: 대량 할인표
+
+**폼 필드**: 편집 가능한 테이블
+- quantity range (열)
+- unit price (열)
+
+**동작**:
+- 계단 추가/제거
+- 다음 범위 시작 자동 채우기
+
+<Callout type="warning">
+**제약**: 최소 하나의 계단은 유지해야 합니다.
+</Callout>
+
+### 3.4 formula (수식 기반)
+
+**설명**: 수식 기반 계산
+
+**사용 사례**: Paper cost = paper price x (pages / 2) x output
+
+**폼 필드**:
+- formula expression (텍스트)
+- reference pricing table (드롭다운)
+
+**지원 변수**:
+- `quantity`
+- `pageCount`
+- `width`
+- `height`
+
+### 3.5 lookup (테이블 참조)
+
+**설명**: 다차원 가격 매트릭스 참조
+
+**사용 사례**: 박 인쇄 가격 (규격 x 수량)
+
+**폼 필드**:
+- reference pricing table selector
+
+**매트릭스**: 선택지별 규격 x 수량 단가 표시
+
+## 4. PriceMatrixTable 컴포넌트
+
+다차원 가격 테이블 편집
+
+**기능**:
+- 행/열 헤더: 옵션 선택지
+- 인라인 셀 편집
+- Excel import: 대량 가격 데이터
+
+<Callout type="info">
+**Excel Import**: 50+ 셀 가격 테이블은 Excel import를 사용하세요.
+</Callout>
+
+## 5. CoverageAnalyzer 컴포넌트
+
+**기능**:
+- 커버리지 비율 계산
+- 갭 검출: 커버되지 않은 옵션 조합
+- 시각적 표시기:
+  - 녹색 (full)
+  - 노랑 (partial)
+  - 빨강 (missing)
+
+**작업**: [Show Gaps]로 커버되지 않은 조합 나열
+
+## 6. PriceSimulator 컴포넌트
+
+**기능**:
+- 옵션 선택 인터페이스 (테스트 시나리오)
+- 실시간 가격 계산
+- 수량 계단 표시 (단가 포함)
+- 단계별 계산 분석
+
+## 7. PriceVerificationSimulator 컴포넌트
+
+전체 검증 워크플로우
+
+<Steps>
+### Step 1: 상품 및 옵션 선택
+
+### Step 2: 시스템 가격 계산
+
+pricing-engine 사용
+
+### Step 3: DB 계산값 vs 예상값 비교
+
+### Step 4: 허용 오차 범위 확인
+
+### Step 5: Pass/Fail 상태 표시
+</Steps>
+
+**PriceBreakdown 표시**:
+- paper cost
+- print cost
+- finishing cost
+- binding cost
+- total
+- unit price
+
+<Callout type="info">
+**권장**: 상품 게시 전에 검증을 실행하여 가격 오류를 포착하세요.
+</Callout>
+
+## 관련 문서
+
+- [제약조건 에디터](./constraints) - 가격 영향 제약조건
+- [데이터 관리](./data-management) - Excel price table import

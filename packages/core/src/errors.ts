@@ -12,7 +12,8 @@ export type PricingErrorCode =
 export type ConstraintErrorCode =
   | 'INVALID_OPERATOR'
   | 'CIRCULAR_DEPENDENCY'
-  | 'EVALUATION_TIMEOUT';
+  | 'EVALUATION_TIMEOUT'
+  | 'INCOMPATIBLE_OPTIONS';
 
 export type OptionErrorCode =
   | 'INVALID_TRANSITION'
