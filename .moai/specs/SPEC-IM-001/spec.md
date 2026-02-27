@@ -10,7 +10,7 @@
 | 상태          | Draft                                                     |
 | 우선순위      | P1                                                        |
 | 브랜치        | feature/SPEC-WIDGET-ADMIN-001                             |
-| 관련 SPEC     | SPEC-DB-005 (엑셀 색상 의미론), SPEC-DATA-002 (DB)        |
+| 관련 SPEC     | SPEC-DB-005 (엑셀 색상 의미론), SPEC-DATA-002 (DB), SPEC-IM-002 (상품 옵션 데이터 임포트 명세) |
 
 ---
 

@@ -8,6 +8,18 @@
 ## [Unreleased]
 
 ### Added
+- **SPEC-IM-002**: HuniPrinting Product Option Data Import Pipeline
+  - 5단계 순차 임포트 파이프라인 구현 (Phase 1~5)
+  - Phase 1: Master Lookup (option_definitions 59개, option_choices ~1,198개)
+  - Phase 2: Core Product Import (products 221개, product_sizes ~1,200개)
+  - Phase 3: Process Definition (print_modes 12개, post_processes ~40개, bindings 4개)
+  - Phase 4: Structural Relationships (product_options ~2,000개)
+  - Phase 5: Tacit Knowledge (option_constraints 129개, option_dependencies ~300개, MES mappings ~250개)
+  - 각 Phase 트랜잭션 롤백 지원 (FK violation 시 전체 롤백)
+  - 멱등성 UPSERT 패턴 (재실행 시 중복 없음)
+  - `huni-options.schema.ts` 신규 DB 스키마 (5 tables)
+  - Phase 1~4 구현 완료, Phase 5 구조 설계 완료
+
 - **SPEC-WB-007**: GLM Natural Language Rule Builder
   - z.ai (GLM-5.0/4.7) API integration with OpenAI-compatible SDK
   - 3-second timeout and JSON Schema structured output enforcement
