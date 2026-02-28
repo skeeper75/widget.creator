@@ -22,9 +22,10 @@ interface ImportStep {
   script: string;
 }
 
-// @MX:NOTE: [AUTO] Import order matters — 14-step sequence with FK dependencies
+// @MX:NOTE: [AUTO] Import order matters — 15-step sequence with FK dependencies (SPEC-IM-004: +Step 4.5)
 // @MX:NOTE: [AUTO] M0: Foundation (Steps 1-2): MES Items, Papers
 // @MX:NOTE: [AUTO] M1: Catalog (Steps 3-4): Categories → Products
+// @MX:NOTE: [AUTO] M3-NEW: Product-MES Mapping (Step 4.5): product<->MES cross-reference
 // @MX:NOTE: [AUTO] M2: Manufacturing (Steps 5-7): Processes → Options → Product Options
 // @MX:NOTE: [AUTO] M2b: Production rules (Steps 8-9): Imposition Rules → Paper Mappings
 // @MX:NOTE: [AUTO] M3: Pricing (Steps 10-13): Price Tiers → Fixed Prices → Package Prices → Foil Prices
@@ -48,6 +49,11 @@ const STEPS: ImportStep[] = [
   {
     name: "Products (상품마스터_extracted.json → 11 sheets)",
     script: "import-products.ts",
+  },
+  // Step 4.5: Product-MES Mapping (SPEC-IM-004 M3)
+  {
+    name: "Product-MES Mapping (상품마스터_extracted.json mesCode cross-reference)",
+    script: "import-product-mes-mapping.ts",
   },
   // M2: Manufacturing layer (Steps 5-7)
   {

@@ -1,6 +1,6 @@
 // @MX:NOTE: [AUTO] Price tiers import — Step 10 of SPEC-IM-003 M3
 // @MX:NOTE: [AUTO] Imports price_tables + price_tiers from 가격표_extracted.json
-// @MX:NOTE: [AUTO] Sources: 디지털출력비 sheet (A3+T3 digital print) + 후가공 sheet (Postprocess001~008)
+// @MX:NOTE: [AUTO] Sources: 디지털출력비 sheet (A3+T3 digital print) + 후가공 sheet (PP_PERFORATION~PP_COATING_T3)
 // @MX:SPEC: SPEC-IM-003 M3-REQ-001, M3-REQ-002
 
 import * as path from "path";

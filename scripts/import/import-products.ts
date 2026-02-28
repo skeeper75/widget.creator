@@ -169,10 +169,11 @@ function buildSlug(name: string, huniId: number | null, mesCode: string | null):
   return `${base}-${suffix}`;
 }
 
-function buildHuniCode(huniId: number | null, mesCode: string | null): string {
+// @MX:NOTE: [AUTO] Returns null for products without huniId -- see product_mes_mapping for MES link
+// @MX:SPEC: SPEC-IM-004 M2-002
+function buildHuniCode(huniId: number | null): string | null {
   if (huniId) return String(huniId);
-  if (mesCode) return mesCode.replace(/[^a-z0-9-]/gi, "");
-  return `unknown-${Date.now()}`;
+  return null;
 }
 
 // ---------------------------------------------------------------------------
@@ -348,12 +349,13 @@ async function main(): Promise<void> {
   const rawData = fs.readFileSync(DATA_PATH, "utf-8");
   const data: ExtractedData = JSON.parse(rawData);
 
-  // @MX:NOTE: [AUTO] Dedup by huniCode before batching — prevents "ON CONFLICT DO UPDATE cannot affect row a second time"
+  // @MX:NOTE: [AUTO] Dedup by huniId or name+sheet before batching — prevents "ON CONFLICT DO UPDATE cannot affect row a second time"
+  // @MX:SPEC: SPEC-IM-004 M2-006
   const rawProducts = parseProducts(data);
   const dedupMap = new Map<string, (typeof rawProducts)[number]>();
   for (const p of rawProducts) {
-    const key = buildHuniCode(p.huniId, p.mesCode);
-    dedupMap.set(key, p);
+    const dedupKey = p.huniId ? String(p.huniId) : `${p.sheetName}::${p.name}`;
+    dedupMap.set(dedupKey, p);
   }
   const allProducts = [...dedupMap.values()];
   const dupeCount = rawProducts.length - allProducts.length;
@@ -417,7 +419,7 @@ async function main(): Promise<void> {
 
         const productType = SHEET_TO_PRODUCT_TYPE[p.sheetName] ?? "digital_print";
         const pricingModel = PRICING_MODEL_MAP[productType] ?? "tiered";
-        const huniCode = buildHuniCode(p.huniId, p.mesCode);
+        const huniCode = buildHuniCode(p.huniId);
         const slug = buildSlug(p.name, p.huniId, p.mesCode);
         const mesRegistered = !!p.mesCode;
 
@@ -428,6 +430,8 @@ async function main(): Promise<void> {
         return {
           categoryId,
           huniCode,
+          legacyHuniId: p.huniId ? String(p.huniId) : null,
+          excelMesCode: p.mesCode ?? null,
           edicusCode: null as string | null,
           shopbyId: null as number | null,
           name: p.name,
@@ -447,10 +451,13 @@ async function main(): Promise<void> {
         .insert(products)
         .values(rows)
         .onConflictDoUpdate({
-          target: [products.huniCode],
+          target: [products.slug],
           set: {
             name: sql`excluded.name`,
             categoryId: sql`excluded.category_id`,
+            huniCode: sql`excluded.huni_code`,
+            legacyHuniId: sql`excluded.legacy_huni_id`,
+            excelMesCode: sql`excluded.excel_mes_code`,
             productType: sql`excluded.product_type`,
             pricingModel: sql`excluded.pricing_model`,
             sheetStandard: sql`excluded.sheet_standard`,
@@ -458,10 +465,10 @@ async function main(): Promise<void> {
             updatedAt: sql`now()`,
           },
         })
-        .returning({ id: products.id, huniCode: products.huniCode });
+        .returning({ id: products.id, slug: products.slug });
 
       for (const r of result) {
-        productCodeToId.set(r.huniCode, r.id);
+        productCodeToId.set(r.slug, r.id);
       }
       productsInserted += result.length;
     } catch (err) {
@@ -472,13 +479,13 @@ async function main(): Promise<void> {
 
   console.log(`${LABEL} Products: inserted=${productsInserted}, errored=${productsErrored}`);
 
-  // Build huniCode->id map for size inserts (query DB for any missed by returning)
+  // Build slug->id map for size inserts (query DB for any missed by returning)
   if (productCodeToId.size < allProducts.length) {
     const dbProducts = await db
-      .select({ id: products.id, huniCode: products.huniCode })
+      .select({ id: products.id, slug: products.slug })
       .from(products);
     for (const p of dbProducts) {
-      productCodeToId.set(p.huniCode, p.id);
+      productCodeToId.set(p.slug, p.id);
     }
   }
 
@@ -487,10 +494,10 @@ async function main(): Promise<void> {
   let sizeDisplayOrder = 0;
 
   for (const product of allProducts) {
-    const huniCode = buildHuniCode(product.huniId, product.mesCode);
-    const productId = productCodeToId.get(huniCode);
+    const slug = buildSlug(product.name, product.huniId, product.mesCode);
+    const productId = productCodeToId.get(slug);
     if (!productId) {
-      console.warn(`${LABEL} WARN: No productId for huniCode '${huniCode}', skipping sizes`);
+      console.warn(`${LABEL} WARN: No productId for slug '${slug}', skipping sizes`);
       continue;
     }
 

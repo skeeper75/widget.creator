@@ -49,13 +49,13 @@ const PRINT_MODES = [
   { priceCode: 32, code: "DOUBLE_PINK",   name: "양면 핑크",      sides: "double", colorType: "pink",  displayOrder: 10 },
 ];
 
-// @MX:ANCHOR: [AUTO] Post-process definitions — Postprocess001~008
+// @MX:ANCHOR: [AUTO] Post-process definitions — PP_* semantic codes (SPEC-IM-004 M1)
 // @MX:REASON: fan_in >= 3 — referenced by price_tiers (optionCode), product_options, and admin UI
-// @MX:SPEC: SPEC-IM-003 M2-REQ-002
+// @MX:SPEC: SPEC-IM-004 M1-001, M1-002
 const POST_PROCESSES = [
   {
     groupCode: "mising",
-    code: "Postprocess001",
+    code: "PP_PERFORATION",
     name: "미싱",
     processType: "perforation",
     priceBasis: "per_unit",
@@ -64,7 +64,7 @@ const POST_PROCESSES = [
   },
   {
     groupCode: "oesi",
-    code: "Postprocess002",
+    code: "PP_CREASING",
     name: "오시",
     processType: "creasing",
     priceBasis: "per_unit",
@@ -73,7 +73,7 @@ const POST_PROCESSES = [
   },
   {
     groupCode: "folding",
-    code: "Postprocess003",
+    code: "PP_FOLDING",
     name: "접지",
     processType: "folding_with_crease",
     priceBasis: "per_unit",
@@ -82,7 +82,7 @@ const POST_PROCESSES = [
   },
   {
     groupCode: "variable",
-    code: "Postprocess004",
+    code: "PP_VARIABLE_TEXT",
     name: "가변인쇄(텍스트)",
     processType: "variable_text",
     priceBasis: "fixed",
@@ -91,7 +91,7 @@ const POST_PROCESSES = [
   },
   {
     groupCode: "variable",
-    code: "Postprocess005",
+    code: "PP_VARIABLE_IMAGE",
     name: "가변인쇄(이미지)",
     processType: "variable_image",
     priceBasis: "fixed",
@@ -100,7 +100,7 @@ const POST_PROCESSES = [
   },
   {
     groupCode: "corner",
-    code: "Postprocess006",
+    code: "PP_ROUNDED_CORNER",
     name: "귀돌이",
     processType: "rounded_corner",
     priceBasis: "per_unit",
@@ -109,7 +109,7 @@ const POST_PROCESSES = [
   },
   {
     groupCode: "coating",
-    code: "Postprocess007",
+    code: "PP_COATING_A3",
     name: "코팅(A3)",
     processType: "coating_a3",
     priceBasis: "per_sheet",
@@ -118,7 +118,7 @@ const POST_PROCESSES = [
   },
   {
     groupCode: "coating",
-    code: "Postprocess008",
+    code: "PP_COATING_T3",
     name: "코팅(T3)",
     processType: "coating_t3",
     priceBasis: "per_sheet",

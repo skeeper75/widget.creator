@@ -7,8 +7,9 @@ import * as fs from "fs";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import { sql, like, eq } from "drizzle-orm";
+import { generatePaperCode } from "./helpers/code-generators.js";
 import { fixedPrices } from "../../packages/shared/src/db/schema/huni-pricing.schema.js";
-import { products, productSizes } from "../../packages/shared/src/db/schema/huni-catalog.schema.js";
+import { products, productSizes, categories } from "../../packages/shared/src/db/schema/huni-catalog.schema.js";
 import { papers } from "../../packages/shared/src/db/schema/huni-materials.schema.js";
 import { printModes } from "../../packages/shared/src/db/schema/huni-processes.schema.js";
 import { dataImportLog } from "../../packages/shared/src/db/schema/huni-import-log.schema.js";
@@ -50,23 +51,6 @@ type RawFixedPrice = {
   singleSidePrice: number | null;  // column C (100장 단면)
   doubleSidePrice: number | null;  // column D (100장 양면)
 };
-
-// ---------------------------------------------------------------------------
-// Paper code generation (matches import-papers.ts logic)
-// ---------------------------------------------------------------------------
-
-function generatePaperCode(name: string, weight: number | null): string {
-  const namePart = name
-    .trim()
-    .replace(/\s+/g, "-")
-    .toLowerCase()
-    .replace(/[^\w\-가-힣]/g, "")
-    .slice(0, 40);
-  if (weight !== null) {
-    return `${namePart}-${weight}g`.slice(0, 50);
-  }
-  return namePart.slice(0, 50);
-}
 
 // Extract weight from paper name like "백색모조지 220g" -> 220
 function extractWeight(paperName: string): number | null {
@@ -204,10 +188,27 @@ async function main(): Promise<void> {
   const startedAt = new Date();
 
   // Load lookup tables
+  // M4-B fix: use category-based filtering for business cards (PRINT_CARD category)
+  // instead of product name fuzzy matching which failed due to name format differences
+  const businessCardCategory = await db
+    .select({ id: categories.id })
+    .from(categories)
+    .where(eq(categories.code, "PRINT_CARD"))
+    .limit(1)
+    .then((rows) => rows[0]);
+
   const dbProducts = await db
-    .select({ id: products.id, name: products.name })
+    .select({ id: products.id, name: products.name, categoryId: products.categoryId })
     .from(products);
+
+  // Build lookup: use all products, but prefer category-matched ones for business card names
   const productNameToId = new Map(dbProducts.map((p) => [p.name.trim().toLowerCase(), p.id]));
+
+  // Also build a set of business card product IDs for validation
+  const businessCardProductIds = businessCardCategory
+    ? new Set(dbProducts.filter((p) => p.categoryId === businessCardCategory.id).map((p) => p.id))
+    : new Set<number>();
+  console.log(`${LABEL} Found ${businessCardProductIds.size} business card products in PRINT_CARD category`);
 
   const dbPapers = await db
     .select({ id: papers.id, code: papers.code, name: papers.name })
@@ -239,14 +240,19 @@ async function main(): Promise<void> {
   let skipped = 0;
 
   for (const raw of rawPrices) {
-    // Find product by name (exact or partial)
+    // Find product by name -- try exact match first, then partial match within business card category
     let productId = productNameToId.get(raw.productName.toLowerCase());
     if (!productId) {
-      // Try partial match (e.g., "모양명함(심플형90*50)" -> "모양명함")
+      // Try partial match: prefer business card category products
+      // Price table names like "명함(스탠다드)" should match "명함", "스탠다드명함" etc.
+      const rawLower = raw.productName.toLowerCase().replace(/[()（）]/g, "");
       for (const [name, id] of productNameToId) {
-        if (raw.productName.toLowerCase().startsWith(name) || name.startsWith(raw.productName.toLowerCase())) {
-          productId = id;
-          break;
+        if (businessCardProductIds.has(id) || businessCardProductIds.size === 0) {
+          const normalizedName = name.replace(/[()（）]/g, "");
+          if (rawLower.includes(normalizedName) || normalizedName.includes(rawLower)) {
+            productId = id;
+            break;
+          }
         }
       }
     }
@@ -261,7 +267,7 @@ async function main(): Promise<void> {
     let paperId = paperNameToId.get(raw.paperName.toLowerCase());
     if (!paperId && weight) {
       // Try generated code lookup
-      const paperCode = generatePaperCode(raw.paperName, weight);
+      const paperCode = generatePaperCode(raw.paperName, weight as number | null);
       const paperByCode = dbPapers.find((p) => p.code === paperCode);
       if (paperByCode) paperId = paperByCode.id;
     }

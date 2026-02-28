@@ -7,6 +7,7 @@ import * as fs from "fs";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import { sql } from "drizzle-orm";
+import { generateSizeCode } from "./helpers/code-generators.js";
 import { packagePrices } from "../../packages/shared/src/db/schema/huni-pricing.schema.js";
 import { products, productSizes } from "../../packages/shared/src/db/schema/huni-catalog.schema.js";
 import { printModes } from "../../packages/shared/src/db/schema/huni-processes.schema.js";
@@ -118,8 +119,11 @@ function parsePackagePrices(data: ExtractedData): PackagePriceRow[] {
 
     if (!sizeRaw || !modeCodeRaw || !pageRaw) continue;
 
-    // Parse size "100*150" -> "100x150"
-    const sizeStr = String(sizeRaw).replace("*", "x");
+    // Parse size "100*150" -> "100x150" using shared generateSizeCode for consistency with import-products.ts
+    const sizeParts = String(sizeRaw).split(/[*xX×]/);
+    const sizeStr = sizeParts.length >= 2
+      ? generateSizeCode(sizeParts[0], sizeParts[1])
+      : String(sizeRaw).replace("*", "x");
     // Parse print mode code (4=SINGLE_COLOR, 8=DOUBLE_COLOR)
     const modeNum = typeof modeCodeRaw === "number" ? modeCodeRaw : parseInt(String(modeCodeRaw));
     const printModeCode = modeNum === 4 ? "SINGLE_COLOR" : modeNum === 8 ? "DOUBLE_COLOR" : null;

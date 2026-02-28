@@ -7,6 +7,7 @@ import * as fs from "fs";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import { sql, eq, like } from "drizzle-orm";
+import { generatePaperCode } from "./helpers/code-generators.js";
 import { papers, paperProductMappings } from "../../packages/shared/src/db/schema/huni-materials.schema.js";
 import { products } from "../../packages/shared/src/db/schema/huni-catalog.schema.js";
 import { dataImportLog } from "../../packages/shared/src/db/schema/huni-import-log.schema.js";
@@ -54,13 +55,13 @@ type MappingRecord = {
 
 // @MX:ANCHOR: [AUTO] Column-to-product-type mapping — FK foundation for paper_product_mapping
 // @MX:REASON: fan_in >= 3 — referenced by mapping parser, product lookup, and import log
-// @MX:SPEC: SPEC-IM-003 M1-REQ-004
+// @MX:SPEC: SPEC-IM-004 M4-A-003 -- keywords must match actual products.name values in DB
 const COL_TO_PRODUCT_KEYWORDS: Record<string, string[]> = {
-  K: ["프리미엄엽서"],
+  K: ["엽서", "투명엽서", "박엽서", "화이트인쇄엽서"],
   L: ["스탠다드엽서", "코팅엽서"],
-  M: ["접지카드", "2단접지카드", "3단접지카드"],
-  N: ["프리미엄명함", "코팅명함", "스탠다드명함", "펄명함", "투명명함", "화이트인쇄명함"],
-  O: ["전단지", "리플렛", "접지리플렛", "소량전단지"],
+  M: ["접지카드", "접지카드(2단)", "접지카드(3단)"],
+  N: ["명함", "코팅명함", "투명명함", "화이트인쇄명함", "포토카드"],
+  O: ["전단지", "리플렛"],
   P: ["중철책자"],    // 중철 내지
   Q: ["중철책자"],    // 중철 표지 (same product, different coverType)
   R: ["무선책자"],    // 무선 내지
@@ -85,23 +86,6 @@ const COL_TO_COVER_TYPE: Record<string, string | null> = {
 
 // Skip colors indicating discontinued or deprecated papers
 const SKIP_COLORS = new Set(["D8D8D8", "A5A5A5"]);
-
-// ---------------------------------------------------------------------------
-// Code generation (must match import-papers.ts logic)
-// ---------------------------------------------------------------------------
-
-function generatePaperCode(name: string, weight: number | null): string {
-  const namePart = name
-    .trim()
-    .replace(/\s+/g, "-")
-    .toLowerCase()
-    .replace(/[^\w\-가-힣]/g, "")
-    .slice(0, 40);
-  if (weight !== null) {
-    return `${namePart}-${weight}g`.slice(0, 50);
-  }
-  return namePart.slice(0, 50);
-}
 
 // ---------------------------------------------------------------------------
 // Parser
@@ -144,7 +128,7 @@ function parsePaperMappings(data: ExtractedData): { paperCode: string; paperName
       // Still process if there are product mapping markers
     }
 
-    const paperCode = generatePaperCode(name.trim(), weight);
+    const paperCode = generatePaperCode(name.trim(), weight as number | null);
 
     // Find which product-type columns have ● marker
     const markedCols: string[] = [];

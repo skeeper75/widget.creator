@@ -43,14 +43,14 @@ interface PostProcessRecord {
 }
 
 const POST_PROCESSES: PostProcessRecord[] = [
-  { code: 'Postprocess001', groupCode: 'mising', processType: 'perforation', priceBasis: 'per_unit', sheetStandard: null },
-  { code: 'Postprocess002', groupCode: 'oesi', processType: 'creasing', priceBasis: 'per_unit', sheetStandard: null },
-  { code: 'Postprocess003', groupCode: 'folding', processType: 'folding_with_crease', priceBasis: 'per_unit', sheetStandard: null },
-  { code: 'Postprocess004', groupCode: 'variable', processType: 'variable_text', priceBasis: 'fixed', sheetStandard: null },
-  { code: 'Postprocess005', groupCode: 'variable', processType: 'variable_image', priceBasis: 'fixed', sheetStandard: null },
-  { code: 'Postprocess006', groupCode: 'corner', processType: 'rounded_corner', priceBasis: 'per_unit', sheetStandard: null },
-  { code: 'Postprocess007', groupCode: 'coating', processType: 'coating_a3', priceBasis: 'per_sheet', sheetStandard: 'A3' },
-  { code: 'Postprocess008', groupCode: 'coating', processType: 'coating_t3', priceBasis: 'per_sheet', sheetStandard: 'T3' },
+  { code: 'PP_PERFORATION',   groupCode: 'mising',   processType: 'perforation',       priceBasis: 'per_unit',  sheetStandard: null },
+  { code: 'PP_CREASING',      groupCode: 'oesi',     processType: 'creasing',          priceBasis: 'per_unit',  sheetStandard: null },
+  { code: 'PP_FOLDING',       groupCode: 'folding',  processType: 'folding_with_crease', priceBasis: 'per_unit', sheetStandard: null },
+  { code: 'PP_VARIABLE_TEXT', groupCode: 'variable', processType: 'variable_text',     priceBasis: 'fixed',     sheetStandard: null },
+  { code: 'PP_VARIABLE_IMAGE',groupCode: 'variable', processType: 'variable_image',    priceBasis: 'fixed',     sheetStandard: null },
+  { code: 'PP_ROUNDED_CORNER',groupCode: 'corner',   processType: 'rounded_corner',    priceBasis: 'per_unit',  sheetStandard: null },
+  { code: 'PP_COATING_A3',    groupCode: 'coating',  processType: 'coating_a3',        priceBasis: 'per_sheet', sheetStandard: 'A3' },
+  { code: 'PP_COATING_T3',    groupCode: 'coating',  processType: 'coating_t3',        priceBasis: 'per_sheet', sheetStandard: 'T3' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -145,27 +145,30 @@ describe('post_processes static data (M2-REQ-002)', () => {
     expect(POST_PROCESSES).toHaveLength(8);
   });
 
-  it('all codes are unique (Postprocess001~008)', () => {
+  it('all codes are unique (PP_* semantic codes)', () => {
     const codes = POST_PROCESSES.map(p => p.code);
     const uniqueCodes = new Set(codes);
     expect(uniqueCodes.size).toBe(8);
   });
 
-  it('codes follow Postprocess001~008 naming pattern', () => {
-    for (let i = 1; i <= 8; i++) {
-      const expected = `Postprocess00${i}`;
+  it('codes follow PP_* naming pattern (SPEC-IM-004 M1)', () => {
+    const expectedCodes = [
+      'PP_PERFORATION', 'PP_CREASING', 'PP_FOLDING', 'PP_VARIABLE_TEXT',
+      'PP_VARIABLE_IMAGE', 'PP_ROUNDED_CORNER', 'PP_COATING_A3', 'PP_COATING_T3',
+    ];
+    for (const expected of expectedCodes) {
       expect(POST_PROCESSES.find(p => p.code === expected)).toBeDefined();
     }
   });
 
-  it('Postprocess007 has sheetStandard A3', () => {
-    const p7 = POST_PROCESSES.find(p => p.code === 'Postprocess007');
+  it('PP_COATING_A3 has sheetStandard A3', () => {
+    const p7 = POST_PROCESSES.find(p => p.code === 'PP_COATING_A3');
     expect(p7).toBeDefined();
     expect(p7!.sheetStandard).toBe('A3');
   });
 
-  it('Postprocess008 has sheetStandard T3', () => {
-    const p8 = POST_PROCESSES.find(p => p.code === 'Postprocess008');
+  it('PP_COATING_T3 has sheetStandard T3', () => {
+    const p8 = POST_PROCESSES.find(p => p.code === 'PP_COATING_T3');
     expect(p8).toBeDefined();
     expect(p8!.sheetStandard).toBe('T3');
   });
