@@ -8,6 +8,25 @@
 ## [Unreleased]
 
 ### Added
+- **SPEC-WIDGET-ADMIN-001**: Widget Builder Admin Pages & Components
+  - 7 new admin pages for Widget Builder management: elements, choices, recipes, addons, constraint-templates, pricing, orders
+  - 9 new React components for widget builder CRUD: ElementTypeEditModal, ChoiceEditModal, ElementBindingTable, ChoiceRestrictionMatrix, TemplateDetailPanel, AddonGroupEditor, MesStatusBadge, PriceConfigTabs, OrderDetailPanel
+  - 7 new tRPC routers for widget-builder domain with protected procedures and Zod validation
+  - Navigation integration: sidebar updated with widget-builder menu items
+  - Full CRUD functionality for: element types (attribute types, UI controls, categories), element choices, recipes with element bindings and choice restrictions, constraint templates with ECA triggers, addon groups, pricing configuration, orders management
+  - Ready for deployment; 4 deferred low-priority components (NlConstraintInput, WidgetPreview, SimulationResultPanel, CoverageSummaryCard) planned for follow-up SPEC
+
+- **SPEC-IM-004**: HuniPrinting Data Code Normalization, Product-MES Mapping, Empty Table Import
+  - M0: Schema Foundation — huni_code NOT NULL removal, legacy_huni_id and excel_mes_code columns for migration traceability
+  - M1: Post-Process Code Normalization — 8 process types mapped to PP_* format (PP_PERFORATION, PP_CREASING, PP_FOLDING, PP_VARIABLE_TEXT, PP_VARIABLE_IMAGE, PP_ROUNDED_CORNER, PP_COATING_A3, PP_COATING_T3)
+  - M2: huni_code Normalization — MES code format cleanup (no NNN-NNNN in huni_code), NULL support for products without HuniPrinting IDs
+  - M3: Product-MES Mapping Import — Step 4.5 import script (import-product-mes-mapping.ts) with bidirectional lookup support, booklet cover_type distinction
+  - M4: Empty Table Fixes — paper_product_mapping, fixed_prices, package_prices name matching improvements, shared code generator utilities
+  - M5: mesRegistered Normalization — PostgreSQL trigger or subquery-based synchronization with product_mes_mapping
+  - Full 15-step import pipeline completion: 210 products, 411 paper mappings, 1394 price tiers, 260 MES items
+  - Utility scripts: cleanup-import-data.ts (safe TRUNCATE with CASCADE), check-db-state.ts (diagnostic tool)
+  - 1542 vitest tests passing (48 test files), zero connection leaks, all import scripts follow reference pattern
+
 - **SPEC-IM-003**: HuniPrinting Master Data Import & Price Draft Generation Pipeline
   - 14-step comprehensive data import workflow (M0~M4 phases)
   - M0: Foundation Layer — MES Items (toon), Papers, Options, Product Options

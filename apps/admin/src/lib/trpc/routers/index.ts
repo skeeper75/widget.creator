@@ -29,6 +29,13 @@ import { dashboardRouter } from './dashboard';
 import { settingsRouter } from './settings';
 import { widgetAdminRouter } from './widget-admin';
 import { glmRouter } from './glm';
+import { elementTypesRouter } from './widget-builder/element-types';
+import { elementChoicesRouter } from './widget-builder/element-choices';
+import { recipesRouter } from './widget-builder/recipes';
+import { constraintTemplatesRouter } from './widget-builder/constraint-templates';
+import { addonGroupsRouter } from './widget-builder/addon-groups';
+import { pricingRouter } from './widget-builder/pricing';
+import { wbOrdersRouter } from './widget-builder/orders';
 
 export const appRouter = router({
   // Domain 1: Product Catalog
@@ -78,6 +85,21 @@ export const appRouter = router({
 
   // GLM Natural Language Rule Builder (SPEC-WB-007)
   glm: glmRouter,
+
+  // Widget Builder Admin Console - Element Library (SPEC-WIDGET-ADMIN-001)
+  elementTypes: elementTypesRouter,
+  elementChoices: elementChoicesRouter,
+
+  // Widget Builder Admin Console - Recipe Builder (SPEC-WIDGET-ADMIN-001 Phase 2)
+  recipes: recipesRouter,
+
+  // Widget Builder Admin Console - Constraint Templates & Addon Groups (SPEC-WIDGET-ADMIN-001 Phase 3)
+  constraintTemplates: constraintTemplatesRouter,
+  addonGroups: addonGroupsRouter,
+
+  // Widget Builder Admin Console - Price Configuration & Orders (SPEC-WIDGET-ADMIN-001 Phase 4)
+  pricing: pricingRouter,
+  wbOrders: wbOrdersRouter,
 });
 
 export type AppRouter = typeof appRouter;

@@ -122,6 +122,20 @@ const navItems: NavItem[] = [
     ],
   },
   {
+    label: "Widget Builder",
+    href: "/admin/widget-builder",
+    icon: Sliders,
+    children: [
+      { label: "Element Types", href: "/admin/widget-builder/elements" },
+      { label: "Element Choices", href: "/admin/widget-builder/choices" },
+      { label: "Recipe Builder", href: "/admin/widget-builder/recipes" },
+      { label: "Constraint Templates", href: "/admin/widget-builder/constraint-templates" },
+      { label: "Addon Groups", href: "/admin/widget-builder/addons" },
+      { label: "Price Config", href: "/admin/widget-builder/pricing" },
+      { label: "Orders", href: "/admin/widget-builder/orders" },
+    ],
+  },
+  {
     label: "Settings",
     href: "/admin/settings",
     icon: Cog,
