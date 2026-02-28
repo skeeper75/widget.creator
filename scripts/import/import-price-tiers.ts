@@ -250,8 +250,8 @@ function createDb() {
     console.error(`${LABEL} ERROR: DATABASE_URL not set`);
     process.exit(1);
   }
-  const client = postgres(connectionString);
-  return drizzle(client);
+  const client = postgres(connectionString, { max: 5 });
+  return { db: drizzle(client), client };
 }
 
 // ---------------------------------------------------------------------------
@@ -333,7 +333,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  const db = createDb();
+  const { db, client } = createDb();
   const startedAt = new Date();
 
   // Insert price table headers
@@ -426,6 +426,7 @@ async function main(): Promise<void> {
       errorMessage: String(err),
       startedAt,
     });
+    await client.end();
     process.exit(1);
   }
 
@@ -439,6 +440,8 @@ async function main(): Promise<void> {
     status: tablesErrored > 0 ? "partial" : "success",
     startedAt,
   });
+
+  await client.end();
 }
 
 main().catch((err) => {

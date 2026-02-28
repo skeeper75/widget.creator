@@ -109,8 +109,8 @@ function createDb() {
     console.error(`${LABEL} ERROR: DATABASE_URL not set`);
     process.exit(1);
   }
-  const client = postgres(connectionString);
-  return drizzle(client);
+  const client = postgres(connectionString, { max: 5 });
+  return { db: drizzle(client), client };
 }
 
 // ---------------------------------------------------------------------------
@@ -175,9 +175,10 @@ async function main(): Promise<void> {
     return;
   }
 
-  const db = createDb();
+  const { db, client } = createDb();
   const startedAt = new Date();
 
+  try {
   // Separate roots from sub-categories
   const roots = CATEGORIES.filter((c) => c.depth === 0);
   const subs = CATEGORIES.filter((c) => c.depth > 0);
@@ -302,6 +303,9 @@ async function main(): Promise<void> {
 
   console.log(`${LABEL} Done: inserted=${inserted}, updated=${updated}, errored=${errored}`);
   if (errored > 0) process.exit(1);
+  } finally {
+    await client.end();
+  }
 }
 
 main().catch((err) => {

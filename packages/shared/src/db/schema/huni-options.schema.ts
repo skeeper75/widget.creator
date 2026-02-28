@@ -117,7 +117,8 @@ export const productOptions = pgTable('product_options', {
 // HuniOptionConstraint: UI visibility and value constraints per product
 export const optionConstraints = pgTable('option_constraints', {
   id: serial('id').primaryKey(),
-  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'restrict' }),
+  // C6 fix: cascade so deleting a product removes its constraints (prevents orphans)
+  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'cascade' }),
   constraintType: varchar('constraint_type', { length: 20 }).notNull(),
   sourceOptionId: integer('source_option_id').references(() => optionDefinitions.id, { onDelete: 'set null' }),
   sourceField: varchar('source_field', { length: 50 }).notNull(),
@@ -144,7 +145,8 @@ export const optionConstraints = pgTable('option_constraints', {
 // HuniOptionDependency: Parent-child option dependency rules
 export const optionDependencies = pgTable('option_dependencies', {
   id: serial('id').primaryKey(),
-  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'restrict' }),
+  // C6 fix: cascade so deleting a product removes its dependencies (prevents orphans)
+  productId: integer('product_id').notNull().references(() => products.id, { onDelete: 'cascade' }),
   parentOptionId: integer('parent_option_id').notNull().references(() => optionDefinitions.id, { onDelete: 'restrict' }),
   parentChoiceId: integer('parent_choice_id').references(() => optionChoices.id, { onDelete: 'set null' }),
   childOptionId: integer('child_option_id').notNull().references(() => optionDefinitions.id, { onDelete: 'restrict' }),

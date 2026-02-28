@@ -289,8 +289,8 @@ function createDb() {
     console.error(`${LABEL} ERROR: DATABASE_URL not set`);
     process.exit(1);
   }
-  const client = postgres(connectionString);
-  return drizzle(client);
+  const client = postgres(connectionString, { max: 5 });
+  return { db: drizzle(client), client };
 }
 
 // ---------------------------------------------------------------------------
@@ -348,8 +348,19 @@ async function main(): Promise<void> {
   const rawData = fs.readFileSync(DATA_PATH, "utf-8");
   const data: ExtractedData = JSON.parse(rawData);
 
-  const allProducts = parseProducts(data);
-  console.log(`${LABEL} Parsed ${allProducts.length} products from JSON`);
+  // @MX:NOTE: [AUTO] Dedup by huniCode before batching — prevents "ON CONFLICT DO UPDATE cannot affect row a second time"
+  const rawProducts = parseProducts(data);
+  const dedupMap = new Map<string, (typeof rawProducts)[number]>();
+  for (const p of rawProducts) {
+    const key = buildHuniCode(p.huniId, p.mesCode);
+    dedupMap.set(key, p);
+  }
+  const allProducts = [...dedupMap.values()];
+  const dupeCount = rawProducts.length - allProducts.length;
+  if (dupeCount > 0) {
+    console.warn(`${LABEL} WARN: Removed ${dupeCount} duplicate huniCode entries`);
+  }
+  console.log(`${LABEL} Parsed ${allProducts.length} unique products (${rawProducts.length} total, ${dupeCount} duplicates)`);
 
   if (VALIDATE_ONLY) {
     console.log(`${LABEL} Mode: validate-only`);
@@ -374,9 +385,10 @@ async function main(): Promise<void> {
     return;
   }
 
-  const db = createDb();
+  const { db, client } = createDb();
   const startedAt = new Date();
 
+  try {
   // Build category code->id map
   const existingCategories = await db
     .select({ code: categories.code, id: categories.id })
@@ -482,7 +494,7 @@ async function main(): Promise<void> {
       continue;
     }
 
-    const sizeRows = product.sizes.map((s, idx) => {
+    const rawSizeRows = product.sizes.map((s, idx) => {
       const cut = parseDimension(s.cutSize);
       const work = parseDimension(s.workSize);
       const sheetStandard = deriveSheetStandard(s.sheetOutputSize);
@@ -507,6 +519,13 @@ async function main(): Promise<void> {
         isCustom: false,
       };
     });
+
+    // @MX:NOTE: [AUTO] Dedup sizes by code within each product — prevents within-batch UPSERT conflict
+    const sizeDedup = new Map<string, (typeof rawSizeRows)[number]>();
+    for (const s of rawSizeRows) {
+      sizeDedup.set(s.code, s);
+    }
+    const sizeRows = [...sizeDedup.values()];
 
     for (let i = 0; i < sizeRows.length; i += BATCH_SIZE) {
       const batch = sizeRows.slice(i, i + BATCH_SIZE);
@@ -571,6 +590,9 @@ async function main(): Promise<void> {
 
   if (productsErrored > 0 || sizesErrored > 0) {
     process.exit(1);
+  }
+  } finally {
+    await client.end();
   }
 }
 

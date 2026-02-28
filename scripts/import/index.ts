@@ -23,14 +23,15 @@ interface ImportStep {
 }
 
 // @MX:NOTE: [AUTO] Import order matters — 14-step sequence with FK dependencies
-// @MX:NOTE: [AUTO] M0: MES Items, Papers, Options, Product Options (foundation)
-// @MX:NOTE: [AUTO] M1: Categories → Products (catalog with FK to categories)
-// @MX:NOTE: [AUTO] M2: Processes → Imposition Rules → Paper Mappings (manufacturing data)
-// @MX:NOTE: [AUTO] M3: Price Tiers → Fixed Prices → Package Prices → Foil Prices (pricing data)
-// @MX:NOTE: [AUTO] M4: Loss Config (production loss rates, no FK deps)
-// @MX:REASON: FK dependency order: categories → products → sizes; processes → imposition_rules; papers → paper_product_mapping; price_tables → price_tiers; products+papers+print_modes → fixed/package prices
+// @MX:NOTE: [AUTO] M0: Foundation (Steps 1-2): MES Items, Papers
+// @MX:NOTE: [AUTO] M1: Catalog (Steps 3-4): Categories → Products
+// @MX:NOTE: [AUTO] M2: Manufacturing (Steps 5-7): Processes → Options → Product Options
+// @MX:NOTE: [AUTO] M2b: Production rules (Steps 8-9): Imposition Rules → Paper Mappings
+// @MX:NOTE: [AUTO] M3: Pricing (Steps 10-13): Price Tiers → Fixed Prices → Package Prices → Foil Prices
+// @MX:NOTE: [AUTO] M4: Configuration (Step 14): Loss Config
+// @MX:REASON: FK dependency order: categories → products; products+categories → product-opts; processes → options; papers → paper_product_mapping; price_tables → price_tiers; products+papers+print_modes → fixed/package prices
 const STEPS: ImportStep[] = [
-  // M0: Foundation layer (Steps 1-4)
+  // M0: Foundation layer (Steps 1-2)
   {
     name: "MES Items (item-management.toon)",
     script: "import-mes-items.ts",
@@ -38,6 +39,20 @@ const STEPS: ImportStep[] = [
   {
     name: "Papers (출력소재관리_extracted.json → !출력소재)",
     script: "import-papers.ts",
+  },
+  // M1: Catalog layer (Steps 3-4)
+  {
+    name: "Categories (hardcoded 12 roots + ~36 subs)",
+    script: "import-categories.ts",
+  },
+  {
+    name: "Products (상품마스터_extracted.json → 11 sheets)",
+    script: "import-products.ts",
+  },
+  // M2: Manufacturing layer (Steps 5-7)
+  {
+    name: "Processes (print modes + post-processes + bindings)",
+    script: "import-processes.ts",
   },
   {
     name: "Options (option_definitions + option_choices)",
@@ -47,20 +62,7 @@ const STEPS: ImportStep[] = [
     name: "Product Options (product_options + special colors)",
     script: "import-product-opts.ts",
   },
-  // M1: Catalog layer (Steps 5-6)
-  {
-    name: "Categories (hardcoded 12 roots + ~36 subs)",
-    script: "import-categories.ts",
-  },
-  {
-    name: "Products (상품마스터_extracted.json → 11 sheets)",
-    script: "import-products.ts",
-  },
-  // M2: Manufacturing layer (Steps 7-9)
-  {
-    name: "Processes (print modes + post-processes + bindings)",
-    script: "import-processes.ts",
-  },
+  // M2b: Production rules layer (Steps 8-9)
   {
     name: "Imposition Rules (가격표_extracted.json → 사이즈별 판걸이수)",
     script: "import-imposition-rules.ts",
