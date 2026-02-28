@@ -3,7 +3,7 @@
 **SPEC ID**: SPEC-MDM-001
 **Title**: Master Data Management Admin Pages
 **Created**: 2026-02-28
-**Status**: Planned
+**Status**: Completed
 **Priority**: High
 **Assigned**: manager-ddd
 
@@ -263,3 +263,36 @@ Full wireframes, column definitions, modal layouts, and Korean UX copy are docum
 | FR-MDM-006 | Phase 3 | AC-010 |
 | FR-MDM-007 | Phase 3 | AC-011 |
 | NFR-MDM-001..004 | All Phases | AC-012..AC-015 |
+
+---
+
+## 7. Implementation Notes
+
+**Status**: Completed
+**Implemented**: 2026-02-28
+**Commit**: b0564f5
+
+### Actual Implementation Summary
+
+All 7 Functional Requirements and 4 NFR requirements were fully implemented.
+
+**Files Created (8 new):**
+- `apps/admin/src/lib/trpc/routers/widget-builder/product-categories.ts`
+- `apps/admin/src/lib/trpc/routers/widget-builder/wb-products.ts`
+- `apps/admin/src/app/(dashboard)/master-data/categories/page.tsx`
+- `apps/admin/src/app/(dashboard)/master-data/wb-products/page.tsx`
+- `apps/admin/src/app/(dashboard)/master-data/print-modes/page.tsx`
+- `apps/admin/src/app/(dashboard)/master-data/post-processes/page.tsx`
+- `apps/admin/src/components/widget-builder/product-category-edit-modal.tsx`
+- `apps/admin/src/components/widget-builder/wb-product-edit-modal.tsx`
+
+**Files Modified (2):**
+- `apps/admin/src/components/layout/sidebar.tsx` — added "마스터 데이터" nav group
+- `apps/admin/src/lib/trpc/routers/index.ts` — registered productCategories and wbProducts routers
+
+**Implementation Notes:**
+- Mirror pages (print-modes, post-processes) reuse existing tRPC routers without new backend code
+- AnyArg cast pattern applied to both new widget-builder routers to resolve dual drizzle-orm type conflict
+- TypeScript zero-error compliance achieved (0 new errors in master-data files)
+- MX tags added: @MX:ANCHOR for router exports, @MX:NOTE for schema definitions
+- All page components follow the reference pattern from elements/page.tsx
