@@ -36,6 +36,8 @@ import { constraintTemplatesRouter } from './widget-builder/constraint-templates
 import { addonGroupsRouter } from './widget-builder/addon-groups';
 import { pricingRouter } from './widget-builder/pricing';
 import { wbOrdersRouter } from './widget-builder/orders';
+import { productCategoriesRouter } from './widget-builder/product-categories';
+import { wbProductsRouter } from './widget-builder/wb-products';
 
 export const appRouter = router({
   // Domain 1: Product Catalog
@@ -100,6 +102,10 @@ export const appRouter = router({
   // Widget Builder Admin Console - Price Configuration & Orders (SPEC-WIDGET-ADMIN-001 Phase 4)
   pricing: pricingRouter,
   wbOrders: wbOrdersRouter,
+
+  // Master Data Management (SPEC-MDM-001)
+  productCategories: productCategoriesRouter,
+  wbProducts: wbProductsRouter,
 });
 
 export type AppRouter = typeof appRouter;

@@ -13,6 +13,7 @@ import {
   Link as LinkIcon,
   Code,
   Cog,
+  Database,
   ChevronDown,
   ChevronRight,
   PanelLeftClose,
@@ -75,6 +76,17 @@ const navItems: NavItem[] = [
       { label: "Post Processes", href: "/admin/processes/post-processes" },
       { label: "Bindings", href: "/admin/processes/bindings" },
       { label: "Imposition Rules", href: "/admin/processes/imposition" },
+    ],
+  },
+  {
+    label: "마스터 데이터",
+    href: "/admin/master-data",
+    icon: Database,
+    children: [
+      { label: "카테고리 관리", href: "/admin/master-data/categories" },
+      { label: "위젯 상품 관리", href: "/admin/master-data/wb-products" },
+      { label: "인쇄방식 관리", href: "/admin/master-data/print-modes" },
+      { label: "후가공 관리", href: "/admin/master-data/post-processes" },
     ],
   },
   {
