@@ -8,6 +8,23 @@
 ## [Unreleased]
 
 ### Added
+- **SPEC-IM-003**: HuniPrinting Master Data Import & Price Draft Generation Pipeline
+  - 14-step comprehensive data import workflow (M0~M4 phases)
+  - M0: Foundation Layer — MES Items (toon), Papers, Options, Product Options
+  - M1: Catalog Layer — Categories (48 roots + subs), Products (221 total), Product Sizes (~1,200)
+  - M2: Manufacturing Layer — Print Modes (12), Post-Processes (8), Bindings (5), Imposition Rules (from gaprice), Paper Mappings
+  - M3: Pricing Layer — Price Tiers (from 디지털출력비 sheet), Fixed Prices (from 명함 sheet), Package Prices (from 옵션결합상품 sheet), Foil Prices (from 후가공_박 sheet)
+  - M4: Configuration Layer — Loss Config (default lossRate=1.3, editable)
+  - UPSERT batch processing (BATCH_SIZE=50) with onConflictDoUpdate pattern for idempotent re-execution
+  - FK dependency ordering: categories → products; processes → imposition_rules; papers → paper_product_mapping; price_tables → price_tiers
+  - Data sources: 상품마스터_extracted.json (products), 가격표_extracted.json (pricing), 출력소재관리_extracted.json (papers), hardcoded static definitions
+  - --dry-run and --validate-only flags for safe pre-execution verification
+  - 14 import scripts + 12 test files with 335 passing tests (~85%+ coverage)
+  - @MX:ANCHOR tags on main import functions (fan_in >= 3: categories, products, processes, foil prices)
+  - @MX:NOTE tags on complex business logic (batch processing, UPSERT patterns, FK resolution, parser logic)
+  - Implementation decisions documented: 출력소재관리.xlsx as primary papers source, 디지털출력비 sheet only (skip 가수정), 랑데뷰 단가 from 상품마스터
+  - Annotation Cycle complete: all P0 issues resolved per .moai/specs/SPEC-IM-003/questions.md
+
 - **SPEC-IM-002**: HuniPrinting Product Option Data Import Pipeline
   - 5단계 순차 임포트 파이프라인 구현 (Phase 1~5)
   - Phase 1: Master Lookup (option_definitions 59개, option_choices ~1,198개)
