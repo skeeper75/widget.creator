@@ -58,7 +58,7 @@ export interface DashboardStats {
 // @MX:ANCHOR: [AUTO] computeDashboardStats — stat card computation, fan_in >= 3 (page, tests, future)
 // @MX:REASON: Public pure function used by stat cards and tests
 // @MX:SPEC: SPEC-WA-001 FR-WA001-01
-function computeDashboardStats(products: DashboardProduct[]): DashboardStats {
+export function computeDashboardStats(products: DashboardProduct[]): DashboardStats {
   const total = products.length;
   const active = products.filter((p) => p.isVisible === true).length;
   const draft = products.filter(
@@ -70,9 +70,10 @@ function computeDashboardStats(products: DashboardProduct[]): DashboardStats {
   return { total, active, draft, incomplete };
 }
 
-// @MX:NOTE: [AUTO] filterByCategory — returns all when categoryId is null
+// @MX:ANCHOR: [AUTO] filterByCategory — returns all when categoryId is null, fan_in >= 3 (page, filterProducts, tests)
+// @MX:REASON: Public pure function called by filterProducts and directly by the page component and tests
 // @MX:SPEC: SPEC-WA-001 FR-WA001-02
-function filterByCategory(
+export function filterByCategory(
   products: DashboardProduct[],
   categoryId: number | null
 ): DashboardProduct[] {
@@ -80,9 +81,10 @@ function filterByCategory(
   return products.filter((p) => p.categoryId === categoryId);
 }
 
-// @MX:NOTE: [AUTO] filterByStatus — filters by '활성', '임시저장', '미완성', or 'all'
+// @MX:ANCHOR: [AUTO] filterByStatus — filters by '활성', '임시저장', '미완성', or 'all', fan_in >= 3 (page, filterProducts, tests)
+// @MX:REASON: Public pure function called by filterProducts and directly by the page component and tests
 // @MX:SPEC: SPEC-WA-001 FR-WA001-03
-function filterByStatus(
+export function filterByStatus(
   products: DashboardProduct[],
   status: string
 ): DashboardProduct[] {
@@ -97,9 +99,10 @@ function filterByStatus(
   return products;
 }
 
-// @MX:NOTE: [AUTO] filterProducts — combines category and status filters
+// @MX:ANCHOR: [AUTO] filterProducts — combines category and status filters, fan_in >= 3 (page, tests)
+// @MX:REASON: Public pure function composing both filters; used by page component and tests
 // @MX:SPEC: SPEC-WA-001 FR-WA001-02, FR-WA001-03
-function filterProducts(
+export function filterProducts(
   products: DashboardProduct[],
   categoryId: number | null,
   status: string

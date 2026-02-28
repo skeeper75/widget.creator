@@ -198,11 +198,19 @@ export function ProductForm({
             name="edicusCode"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Edicus Code (optional)</FormLabel>
+                <FormLabel>
+                  Edicus Code (optional)
+                  {isEditing && (
+                    <span className="ml-2 text-xs font-normal text-muted-foreground">
+                      (read-only after creation)
+                    </span>
+                  )}
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="e.g. ED-BC001"
                     maxLength={15}
+                    disabled={isEditing}
                     {...field}
                     value={field.value ?? ""}
                     onChange={(e) => field.onChange(e.target.value || null)}

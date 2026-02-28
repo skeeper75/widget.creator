@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { TRPCError } from '@trpc/server';
 import { eq, asc, desc, like, and, sql, SQL } from 'drizzle-orm';
 import { products, categories } from '@widget-creator/shared/db/schema';
 import { router, protectedProcedure } from '../server';
@@ -107,6 +108,13 @@ export const productsRouter = router({
   update: protectedProcedure
     .input(z.object({ id: z.number(), data: UpdateProductSchema }))
     .mutation(async ({ ctx, input }) => {
+      // NFR-WBADMIN-001: edicusCode is immutable after initial save
+      if (input.data.edicusCode !== undefined) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'edicusCode cannot be changed after product creation',
+        });
+      }
       const [row] = await ctx.db
         .update(products)
         .set(input.data)
