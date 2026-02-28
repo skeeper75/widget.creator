@@ -46,7 +46,7 @@ const productCache = new Map<number, CacheEntry>();
 export interface WidgetCreatorExtraJson {
   version: string;
   huniProductId: number;
-  huniCode: string;
+  huniCode: string | null;
   productType: string;
   pricingModel: string;
   sheetStandard?: string;
@@ -255,7 +255,7 @@ export function validateWidgetConfig(
   // Required fields check
   if (typeof obj.version !== 'string') return null;
   if (typeof obj.huniProductId !== 'number') return null;
-  if (typeof obj.huniCode !== 'string') return null;
+  if (obj.huniCode !== null && typeof obj.huniCode !== 'string') return null;
   if (typeof obj.productType !== 'string') return null;
   if (typeof obj.pricingModel !== 'string') return null;
   if (obj.orderMethod !== 'upload' && obj.orderMethod !== 'editor') return null;

@@ -10,7 +10,9 @@ import {
   text,
   index,
   unique,
+  uniqueIndex,
 } from 'drizzle-orm/pg-core';
+import { sql } from 'drizzle-orm';
 import { products } from './huni-catalog.schema';
 
 // HuniPaper: Paper specifications
@@ -59,5 +61,13 @@ export const paperProductMappings = pgTable('paper_product_mapping', {
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().$onUpdate(() => new Date()).notNull(),
 }, (t) => [
-  unique('paper_product_mapping_paper_id_product_id_cover_type_key').on(t.paperId, t.productId, t.coverType),
+  // C5 fix: partial unique indexes handle NULL != NULL semantics in PostgreSQL
+  // Regular products (coverType IS NULL): unique per paper+product pair
+  uniqueIndex('paper_product_mapping_regular_uidx')
+    .on(t.paperId, t.productId)
+    .where(sql`${t.coverType} IS NULL`),
+  // Cover products (coverType IS NOT NULL): unique per paper+product+coverType
+  uniqueIndex('paper_product_mapping_cover_uidx')
+    .on(t.paperId, t.productId, t.coverType)
+    .where(sql`${t.coverType} IS NOT NULL`),
 ]);

@@ -35,7 +35,9 @@ export const categories = pgTable('categories', {
 export const products = pgTable('products', {
   id: serial('id').primaryKey(),
   categoryId: integer('category_id').notNull().references(() => categories.id, { onDelete: 'restrict' }),
-  huniCode: varchar('huni_code', { length: 10 }).unique().notNull(),
+  huniCode: varchar('huni_code', { length: 10 }).unique(),
+  legacyHuniId: varchar('legacy_huni_id', { length: 50 }),
+  excelMesCode: varchar('excel_mes_code', { length: 50 }),
   edicusCode: varchar('edicus_code', { length: 15 }).unique(),
   shopbyId: integer('shopby_id').unique(),
   name: varchar('name', { length: 200 }).notNull(),

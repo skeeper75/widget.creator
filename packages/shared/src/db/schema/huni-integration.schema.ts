@@ -10,7 +10,9 @@ import {
   jsonb,
   index,
   unique,
+  uniqueIndex,
 } from 'drizzle-orm/pg-core';
+import { sql } from 'drizzle-orm';
 import { products } from './huni-catalog.schema';
 import { optionChoices } from './huni-options.schema';
 
@@ -55,7 +57,15 @@ export const productMesMappings = pgTable('product_mes_mapping', {
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().$onUpdate(() => new Date()).notNull(),
 }, (t) => [
-  unique('product_mes_mapping_product_id_mes_item_id_cover_type_key').on(t.productId, t.mesItemId, t.coverType),
+  // C4 fix: partial unique indexes handle NULL != NULL semantics in PostgreSQL
+  // Regular products (coverType IS NULL): strict 1:1 product->MES mapping
+  uniqueIndex('product_mes_mapping_regular_uidx')
+    .on(t.productId, t.mesItemId)
+    .where(sql`${t.coverType} IS NULL`),
+  // Cover products (coverType IS NOT NULL): unique per product+mesItem+coverType
+  uniqueIndex('product_mes_mapping_cover_uidx')
+    .on(t.productId, t.mesItemId, t.coverType)
+    .where(sql`${t.coverType} IS NOT NULL`),
   index('product_mes_mapping_product_id_idx').on(t.productId),
   index('product_mes_mapping_mes_item_id_idx').on(t.mesItemId),
 ]);
