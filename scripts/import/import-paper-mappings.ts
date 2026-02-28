@@ -335,20 +335,13 @@ async function main(): Promise<void> {
   for (let i = 0; i < uniqueRows.length; i += BATCH_SIZE) {
     const batch = uniqueRows.slice(i, i + BATCH_SIZE);
     try {
+      // NOTE: paper_product_mapping uses partial unique indexes (WHERE cover_type IS NULL / IS NOT NULL).
+      // Drizzle's onConflictDoUpdate cannot reference partial indexes, so we use onConflictDoNothing
+      // which works with any unique constraint. Full re-imports should truncate the table first.
       const result = await db
         .insert(paperProductMappings)
         .values(batch)
-        .onConflictDoUpdate({
-          target: [
-            paperProductMappings.paperId,
-            paperProductMappings.productId,
-            paperProductMappings.coverType,
-          ],
-          set: {
-            isDefault: sql`excluded.is_default`,
-            updatedAt: sql`now()`,
-          },
-        })
+        .onConflictDoNothing()
         .returning({ id: paperProductMappings.id });
       inserted += result.length;
     } catch (err) {
